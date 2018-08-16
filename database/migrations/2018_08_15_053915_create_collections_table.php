@@ -14,10 +14,7 @@ class CreateCollectionsTable extends Migration
     public function up()
     {
         Schema::create('collections', function (Blueprint $table) {
-            $table->integer('collection_id');
-            $table->integer('product_id');
-            $table->foreign('product_id')->references('product_id')->on('products');
-            $table->primary(['collection_id', 'product_id']);
+            $table->increments('collection_id');
             $table->string('collection_name');
             $table->string('description');
             $table->timestamps();

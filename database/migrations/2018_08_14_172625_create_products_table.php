@@ -19,9 +19,11 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->unsignedInteger('categoryId');
             $table->foreign('categoryId')->references('id')->on('categories');
+            $table->unsignedInteger('collection_id')->nullable();
+            $table->foreign('collection_id')->references('collection_id')->on('collections');
             $table->double('price');
-            $table->unsignedInteger('brandId');
-            $table->foreign('brandId')->references('id')->on('brands');
+            $table->unsignedInteger('brand_id');
+            $table->foreign('brand_id')->references('id')->on('brands');
             $table->integer('status')->default('1');
             $table->timestamps();
         });
