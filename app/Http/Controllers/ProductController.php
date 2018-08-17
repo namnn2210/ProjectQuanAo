@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
+use App\Category;
+use App\Http\Requests\StoreProduct;
 use App\Product;
+use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
@@ -28,7 +32,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        $obj_category = Category::all();
+        $obj_brand = Brand::all();
+        return view('admin.product.create_form')
+            ->with('obj_category',$obj_category)
+            ->with('obj_brand',$obj_brand);
     }
 
     /**
@@ -37,22 +45,29 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProduct $request)
     {
+        $request->validated();
         $obj = new Product();
         $obj -> name = Input::get('name');
-        $obj -> detail = Input::get('detail');
         $obj -> description = Input::get('description');
         $obj -> categoryId = Input::get('categoryId');
         $obj -> price = Input::get('price');
-//        if (Input::hasFile('images')) {
-//            $image_id = time();
-//            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-//            $obj->images = Cloudder::secureShow($image_id);
-//        }
-        $obj -> brandId = Input::get('brandId');
+        $obj -> brand_id = Input::get('brand_id');
         $obj -> save();
-        echo "<script>alert('Saved Successfull'); window.location.href = '/admin/product'</script>";
+        $productId = $obj -> id;
+        $images = $request -> file('images');
+        if($request -> hasFile('images')) {
+            foreach ($images as $image) {
+                $obj = new Image();
+                $obj->productId = $productId;
+                $image_id = time();
+                Cloudder::upload($image->getRealPath(), $image_id);
+                $obj->image = Cloudder::secureShow($image_id);
+                $obj->save();
+            }
+        }
+        return redirect()->back()->with('message', 'Saved Success');
     }
 
     /**
@@ -96,13 +111,19 @@ class ProductController extends Controller
         $obj -> description = Input::get('description');
         $obj -> categoryId = Input::get('categoryId');
         $obj -> price = Input::get('price');
-//        if (Input::hasFile('images')) {
-//            $image_id = time();
-//            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-//            $obj->images = Cloudder::secureShow($image_id);
-//        }
         $obj -> brandId = Input::get('brandId');
         $obj -> save();
+        $productId = $id;
+        $images = $request -> file('images');
+        if($request -> hasFile('images')) {
+            foreach ($images as $image) {
+                $obj = Product::find($productId);
+                $image_id = time();
+                Cloudder::upload($image->getRealPath(), $image_id);
+                $obj->image = Cloudder::secureShow($image_id);
+                $obj->save();
+            }
+        }
         echo "<script>alert('Saved Successfull'); window.location.href = '/admin/product'</script>";
     }
 
@@ -115,7 +136,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $obj = Product::find($id);
-        $obj->delete();
+        $obj->status = '0';
         return redirect('/admin/product/list');
     }
 }
