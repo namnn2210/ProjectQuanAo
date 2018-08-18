@@ -11,6 +11,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         \Illuminate\Support\Facades\DB::table('categories') -> truncate();
         \Illuminate\Support\Facades\DB::table('categories') -> insert([
            [

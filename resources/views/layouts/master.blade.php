@@ -6,11 +6,15 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>New</title>
+    <title>@yield('page-title')</title>
     <link href="{{asset('/css/masterLayout_css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/masterLayout_css/metisMenu.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/masterLayout_css/sb-admin-2.css')}}" rel="stylesheet">
     <link href="{{asset('/font/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{URL::asset('css/form.css')}}">
 </head>
 <body>
 
