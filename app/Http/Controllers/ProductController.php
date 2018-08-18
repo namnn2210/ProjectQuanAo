@@ -49,24 +49,27 @@ class ProductController extends Controller
     {
         $request->validated();
         $obj = new Product();
+        $images_list = "";
         $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
         $obj -> categoryId = Input::get('categoryId');
         $obj -> price = Input::get('price');
         $obj -> brand_id = Input::get('brand_id');
+        $obj -> images = $images_list;
         $obj -> save();
         $productId = $obj -> id;
         $images = $request -> file('images');
-        if($request -> hasFile('images')) {
+        if($request -> hasFile('images')){
             foreach ($images as $image) {
-                $obj = new Image();
                 $obj->productId = $productId;
                 $image_id = time();
                 Cloudder::upload($image->getRealPath(), $image_id);
-                $obj->image = Cloudder::secureShow($image_id);
-                $obj->save();
+                $images_list .= Cloudder::secureShow($image_id) . "&";
             }
         }
+        $obj = Product::find($productId);
+        $obj -> images = $images_list;
+        $obj -> save();
         return redirect()->back()->with('message', 'Saved Success');
     }
 
