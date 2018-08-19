@@ -14,6 +14,4 @@
 Route::get('/', function () {
     return view('layouts.successMessage');
 });
-
-Route::resource('admin/product','ProductController');
 Route::get('/admin/product/{id}/quickEdit','ProductController@quickEdit');
