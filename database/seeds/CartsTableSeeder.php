@@ -11,8 +11,8 @@ class CartsTableSeeder extends Seeder
      */
     public function run()
     {
-        \Illuminate\Support\Facades\DB::table('accounts')->truncate();
-        \Illuminate\Support\Facades\DB::table('accounts')->insert([
+        \Illuminate\Support\Facades\DB::table('carts')->truncate();
+        \Illuminate\Support\Facades\DB::table('carts')->insert([
             [
                 'cart_id'=>'1',
                 'cart_name'=>'1'

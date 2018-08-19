@@ -11,7 +11,7 @@ class AccountsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         \Illuminate\Support\Facades\DB::table('accounts')->truncate();
         \Illuminate\Support\Facades\DB::table('accounts')->insert([
             [
