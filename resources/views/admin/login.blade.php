@@ -25,6 +25,8 @@
                     <a href="reset.html">Forgot password?</a>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
+                <p></p>
+                <a href='/register/'>Create Account</a>
             </form>
         </div>
     </div>
