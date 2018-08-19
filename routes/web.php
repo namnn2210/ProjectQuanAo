@@ -17,3 +17,4 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('admin.login');
 });
+Route::resource('admin/product','ProductController');
