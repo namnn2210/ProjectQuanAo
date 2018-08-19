@@ -78,6 +78,9 @@ class ProductController extends Controller
     public function show($id)
     {
         $obj = Product::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         return view('admin.product.show')
             -> with('obj',$obj);
     }
@@ -91,11 +94,13 @@ class ProductController extends Controller
     public function edit($id)
     {
         $obj = Product::find($id);
+        $obj_category = Category::all();
+        $obj_brand = Brand::all();
         if($obj==null) {
             return view('404');
         }
         return view('admin.product.edit')
-            -> with('obj',$obj);
+            -> with('obj',$obj)->with('obj_brand',$obj_brand)->with('obj_category',$obj_category);
     }
 
     public function quickEdit($id){
@@ -113,6 +118,9 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $obj = Product::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         $obj -> name = Input::get('name');
         $obj -> detail = Input::get('detail');
         $obj -> description = Input::get('description');
@@ -143,6 +151,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $obj = Product::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         $obj->delete();
     }
 }
