@@ -91,6 +91,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $obj = Product::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         return view('admin.product.edit')
             -> with('obj',$obj);
     }
