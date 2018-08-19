@@ -14,19 +14,19 @@ class CartsTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('accounts')->truncate();
         \Illuminate\Support\Facades\DB::table('accounts')->insert([
             [
-                'cart_id'=>'1',
+                'id'=>'1',
                 'cart_name'=>'1'
             ],[
-                'cart_id'=>'2',
+                'id'=>'2',
                 'cart_name'=>'2'
             ],[
-                'cart_id'=>'3',
+                'id'=>'3',
                 'cart_name'=>'3'
             ],[
-                'cart_id'=>'4',
+                'id'=>'4',
                 'cart_name'=>'4'
             ],[
-                'cart_id'=>'5',
+                'id'=>'5',
                 'cart_name'=>'5'
             ]
         ]);
