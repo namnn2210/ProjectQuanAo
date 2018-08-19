@@ -118,11 +118,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $obj = Product::find($id);
-        if($obj==null) {
-            return view('404');
-        }
         $obj -> name = Input::get('name');
-        $obj -> detail = Input::get('detail');
         $obj -> description = Input::get('description');
         $obj -> categoryId = Input::get('categoryId');
         $obj -> price = Input::get('price');

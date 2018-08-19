@@ -38,7 +38,7 @@
                     <label>Category</label>
                     <select class="form-control" name="categoryId">
                         @foreach($obj_category as $item)
-                            <option value="{{$obj->categoryId}}">{{$item->name}}</option>
+                            <option value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -46,7 +46,7 @@
                     <label>Brand</label>
                     <select class="form-control" name="brand_id">
                         @foreach($obj_brand as $item)
-                            <option value="{{$obj->brand_id}}">{{$item -> name}}</option>
+                            <option value="{{$item->id}}">{{$item -> name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -58,7 +58,9 @@
                     <label>Images</label>
                     <input class="form-control" type="file" multiple="multiple" name="images[]" id="add_images">
                 </div>
-                <div class="preview_images hidden"></div>
+                <div class="preview_images">
+                    <img src="<?php echo explode("&",$obj -> images,-1)[0];?>">
+                </div>
                 <div class="form-group" style="text-align: center;">
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>
                     <button type="reset" class="btn btn-primary btn-block">Reset</button>
