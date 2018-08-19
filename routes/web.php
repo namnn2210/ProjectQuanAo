@@ -10,11 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('layouts.master');
+    return view('layouts.successMessage');
 });
-Route::get('/login', function () {
-    return view('admin.login');
-});
+Route::get('/admin/product/{id}/quickEdit','ProductController@quickEdit');
 Route::resource('admin/product','ProductController');

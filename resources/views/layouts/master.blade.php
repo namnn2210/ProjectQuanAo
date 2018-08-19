@@ -10,11 +10,13 @@
     <link href="{{asset('/css/masterLayout_css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/masterLayout_css/metisMenu.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/masterLayout_css/sb-admin-2.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/datatables-responsive/dataTables.responsive.css')}}" rel="stylesheet"/>
     <link href="{{asset('/font/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="{{URL::asset('css/form.css')}}">
+    <link href="{{asset('/css/datatables/css/dataTables.bootstrap.css')}}" rel="stylesheet"/>
 </head>
 <body>
 
@@ -126,7 +128,6 @@
             </div>
         </div>
     </nav>
-
     <div id="page-wrapper">
         @section('content')
         @show
@@ -145,6 +146,15 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="{{asset('/js/masterLayout_js/sb-admin-2.js')}}"></script>
-
+<script src="{{asset('/css/datatables/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('/datatables-plugins/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('/css/datatables-responsive/dataTables.responsive.css')}}"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>
 </body>
 </html>
