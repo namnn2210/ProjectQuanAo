@@ -27,8 +27,8 @@
                             <img src="<?php echo explode("&",$item -> images,-1)[0];?>">
                         </td>
                         <td style="text-align: center">{{$item -> name}}</td>
-                        <td style="text-align: center">{{$item -> category}}</td>
-                        <td style="text-align: center">{{$item -> brand}}</td>
+                        <td style="text-align: center">{{$item -> category -> name}}</td>
+                        <td style="text-align: center">{{$item -> brand -> name}}</td>
                         <td style="text-align: center">{{$item -> price}}</td>
                         <td>{{$item -> description}}</td>
                         <td style="text-align: center">{{$item -> status}}</td>
