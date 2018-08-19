@@ -17,10 +17,5 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('admin.login');
 });
-Route::get('/create-form', function (){
-    $list_categories = \App\Category::all();
-    $list_brand = \App\Brand::all();
-    return view('admin.product.create_form')->with('obj_category', $list_categories)->with('obj_brand', $list_brand);
-});
 
 Route::resource('admin/product','ProductController');
