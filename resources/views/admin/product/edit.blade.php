@@ -84,12 +84,8 @@
                 }
             };
             $('#add_images').on('change', function() {
-                $('.preview_images').removeClass("hidden");
+                $('.preview_images').empty();
                 imagesPreview(this, 'div.preview_images');
-            });
-            $(":reset").click(function (){
-                $(".preview_images").addClass('hidden');
-                $(".preview_image").remove();
             });
         });
         $('input').keyup(function(){

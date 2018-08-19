@@ -118,12 +118,12 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $obj = Product::find($id);
+        $images_list = "";
         $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
         $obj -> categoryId = Input::get('categoryId');
         $obj -> price = Input::get('price');
-        $obj -> brandId = Input::get('brandId');
-        $obj -> save();
+        $obj -> brand_id = Input::get('brandId');
         $productId = $id;
         $images = $request -> file('images');
         if($request -> hasFile('images')) {
@@ -131,10 +131,11 @@ class ProductController extends Controller
                 $obj = Product::find($productId);
                 $image_id = time();
                 Cloudder::upload($image->getRealPath(), $image_id);
-                $obj->image = Cloudder::secureShow($image_id);
-                $obj->save();
+                $images_list .= Cloudder::secureShow($image_id) . "&";
             }
         }
+        $obj->images = $images_list;
+        $obj->save();
         echo "<script>alert('Saved Successfull'); window.location.href = '/admin/product'</script>";
     }
 
