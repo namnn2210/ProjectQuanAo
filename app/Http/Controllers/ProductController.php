@@ -95,6 +95,11 @@ class ProductController extends Controller
             -> with('obj',$obj);
     }
 
+    public function quickEdit($id){
+        $obj = Product::find($id);
+        return response()->json(['obj' => $obj], 200);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -135,7 +140,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $obj = Product::find($id);
-        $obj->status = '0';
-        return redirect('/admin/product/list');
+        $obj->delete();
     }
 }
