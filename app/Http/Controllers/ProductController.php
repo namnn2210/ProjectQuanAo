@@ -6,7 +6,6 @@ use App\Brand;
 use App\Category;
 use App\Http\Requests\StoreProduct;
 use App\Product;
-use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
@@ -52,7 +51,7 @@ class ProductController extends Controller
         $images_list = "";
         $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
-        $obj -> categoryId = Input::get('categoryId');
+        $obj -> category_id = Input::get('categoryId');
         $obj -> price = Input::get('price');
         $obj -> brand_id = Input::get('brand_id');
         $obj -> images = $images_list;
@@ -110,25 +109,42 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $obj = Product::find($id);
+        $images_list = "";
         $obj -> name = Input::get('name');
-        $obj -> detail = Input::get('detail');
         $obj -> description = Input::get('description');
-        $obj -> categoryId = Input::get('categoryId');
+        $obj -> category_id = Input::get('category_id');
         $obj -> price = Input::get('price');
-        $obj -> brandId = Input::get('brandId');
-        $obj -> save();
-        $productId = $id;
+        $obj -> brand_id = Input::get('brand_id');
+        $obj -> images = $images_list;
         $images = $request -> file('images');
-        if($request -> hasFile('images')) {
+        if($request -> hasFile('images')){
             foreach ($images as $image) {
-                $obj = Product::find($productId);
                 $image_id = time();
                 Cloudder::upload($image->getRealPath(), $image_id);
-                $obj->image = Cloudder::secureShow($image_id);
-                $obj->save();
+                $images_list .= Cloudder::secureShow($image_id) . "&";
             }
         }
+        $obj -> images = $images_list;
+        $obj -> save();
         echo "<script>alert('Saved Successfull'); window.location.href = '/admin/product'</script>";
+    }
+
+    public function quickUpdate (Request $request){
+        $id = $request -> input('quick-update-id');
+        $obj = Product::find($id);
+        $images_list = "";
+        $obj -> price = Input::get('price');
+        $images = $request -> file('images');
+        if($request -> hasFile('images')){
+            foreach ($images as $image) {
+                $image_id = time();
+                Cloudder::upload($image->getRealPath(), $image_id);
+                $images_list .= Cloudder::secureShow($image_id) . "&";
+            }
+        }
+        $obj -> images = $images_list;
+        $obj -> save();
+        return redirect()->back()->with('message', 'Saved Success');
     }
 
     /**
