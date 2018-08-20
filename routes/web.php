@@ -14,9 +14,13 @@ Route::get('/admin/product/{id}/quickEdit','ProductController@quickEdit');
 Route::put('/admin/quickUpdate/product/','ProductController@quickUpdate');
 Route::get('/admin/category/{id}/quickEdit','CategoryController@quickEdit');
 Route::put('/admin/quickUpdate/category/','CategoryController@quickUpdate');
+Route::get('/admin/collection/{id}/quickEdit','CollectionController@quickEdit');
+Route::put('/admin/quickUpdate/collection/','CollectionController@quickUpdate');
+
 
 Route::resource('admin/product','ProductController');
 Route::resource('admin/category','CategoryController');
+Route::resource('admin/collection','CollectionController');
 
 Route::get('/register', function () {
     return view('admin.register');
