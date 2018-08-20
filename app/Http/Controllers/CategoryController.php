@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\StoreCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
@@ -28,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.category.create_form');
     }
 
     /**
@@ -37,18 +38,25 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategory $request)
     {
+        $request->validated();
         $obj = new Category();
+        $images_list = "";
         $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
-        if (Input::hasFile('images')) {
-            $image_id = time();
-            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-            $obj->images = Cloudder::secureShow($image_id);
+        $obj -> images = $images_list;
+        $images = $request -> file('images');
+        if($request -> hasFile('images')){
+            foreach ($images as $image) {
+                $image_id = time();
+                Cloudder::upload($image->getRealPath(), $image_id);
+                $images_list .= Cloudder::secureShow($image_id) . "&";
+            }
         }
+        $obj -> images = $images_list;
         $obj -> save();
-        echo "<script>alert('Saved Successfull'); window.location.href = '/admin/category'</script>";
+        return redirect()->back()->with('message', 'Saved Success');
     }
 
     /**
