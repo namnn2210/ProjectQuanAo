@@ -48,6 +48,9 @@ class ProductController extends Controller
     {
         $request->validated();
         $obj = new Product();
+        if($obj==null) {
+            return view('404');
+        }
         $images_list = "";
         $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
@@ -93,6 +96,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $obj = Product::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         $obj_category = Category::all();
         $obj_brand = Brand::all();
         if($obj==null) {
@@ -104,6 +110,9 @@ class ProductController extends Controller
 
     public function quickEdit($id){
         $obj = Product::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         return response()->json(['obj' => $obj], 200);
     }
 
@@ -117,6 +126,9 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $obj = Product::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         $images_list = "";
         $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
@@ -140,6 +152,9 @@ class ProductController extends Controller
     public function quickUpdate (Request $request){
         $id = $request -> input('quick-update-id');
         $obj = Product::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         $images_list = "";
         $obj -> price = Input::get('price');
         $images = $request -> file('images');

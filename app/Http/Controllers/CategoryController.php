@@ -28,7 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.category.create_form');
     }
 
     /**
@@ -42,10 +42,10 @@ class CategoryController extends Controller
         $obj = new Category();
         $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
-        if (Input::hasFile('images')) {
+        if (Input::hasFile('image')) {
             $image_id = time();
-            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-            $obj->images = Cloudder::secureShow($image_id);
+            Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
+            $obj->image = Cloudder::secureShow($image_id);
         }
         $obj -> save();
         echo "<script>alert('Saved Successfull'); window.location.href = '/admin/category'</script>";
@@ -60,6 +60,9 @@ class CategoryController extends Controller
     public function show($id)
     {
         $obj = Category::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         return view('admin.category.show')
             -> with('obj',$obj);
     }
@@ -73,8 +76,19 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $obj = Category::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         return view('admin.category.edit')
             -> with('obj',$obj);
+    }
+
+    public function quickEdit($id){
+        $obj = Category::find($id);
+        if($obj==null) {
+            return view('404');
+        }
+        return response()->json(['obj' => $obj], 200);
     }
 
     /**
@@ -87,15 +101,34 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $obj = Category::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
-        if (Input::hasFile('images')) {
+        if (Input::hasFile('image')) {
             $image_id = time();
-            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-            $obj->images = Cloudder::secureShow($image_id);
+            Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
+            $obj->image = Cloudder::secureShow($image_id);
         }
         $obj -> save();
-        echo "<script>alert('Saved Successfull'); window.location.href = '/admin/category'</script>";
+        echo "<script>alert('Saved Successful'); window.location.href = '/admin/category'</script>";
+    }
+
+    public function quickUpdate (Request $request){
+        $id = $request -> input('quick-update-id');
+        $obj = Category::find($id);
+        if($obj==null) {
+            return view('404');
+        }
+        $obj -> description = Input::get('description');
+        if (Input::hasFile('image')) {
+            $image_id = time();
+            Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
+            $obj->image = Cloudder::secureShow($image_id);
+        }
+        $obj -> save();
+        return redirect()->back()->with('message', 'Saved Success');
     }
 
     /**
@@ -107,6 +140,9 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $obj = Category::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         $obj->delete();
         return redirect('/admin/category/list');
     }

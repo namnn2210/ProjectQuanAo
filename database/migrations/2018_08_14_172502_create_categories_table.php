@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('description');
             $table->string('image');
             $table->timestamps();
+            $table->integer('status')->default(1);
         });
     }
 
