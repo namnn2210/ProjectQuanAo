@@ -1,5 +1,6 @@
 @extends('layouts.master',['currentPage' => 'edit'])
 @section('page-title', 'EDIT CATEGORY')
+@section('active-category','active')
 @section('content')
     <div class="row">
         <div class="col-lg-12">

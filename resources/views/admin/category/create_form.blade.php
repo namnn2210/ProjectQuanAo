@@ -1,5 +1,6 @@
 @extends('layouts.master', ['currentPage' => 'create'])
 @section('page-title', 'CREATE NEW CATEGORY')
+@section('active-category','active')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
