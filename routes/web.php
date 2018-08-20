@@ -10,11 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('layouts.successMessage');
-});
 Route::get('/admin/product/{id}/quickEdit','ProductController@quickEdit');
+Route::put('/admin/quickUpdate/product/','ProductController@quickUpdate');
+Route::get('/admin/category/{id}/quickEdit','CategoryController@quickEdit');
+Route::put('/admin/quickUpdate/category/','CategoryController@quickUpdate');
+
 Route::resource('admin/product','ProductController');
+Route::resource('admin/category','CategoryController');
 
 Route::get('/register', function () {
     return view('admin.register');
@@ -23,5 +25,5 @@ Route::get('/login', function () {
     return view('admin.login');
 });
 
-Route::put('/admin/quickUpdate/product/','ProductController@quickUpdate');
+
 

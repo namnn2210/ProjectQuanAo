@@ -1,9 +1,9 @@
 @extends('layouts.master', ['currentPage' => 'create'])
-@section('page-title', 'CREATE NEW PRODUCT')
+@section('page-title', 'CREATE NEW CATEGORY')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">CREATE NEW PRODUCT</h1>
+            <h1 class="page-header">CREATE NEW CATEGORY</h1>
         </div>
     </div>
     <div class="panel-body">
@@ -22,7 +22,7 @@
                             {{--{{ session()->get('message') }}--}}
                         </div>
                     @endif
-                <form action="/admin/product" method="post" enctype="multipart/form-data">
+                <form action="/admin/category" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label>Name</label>
@@ -30,32 +30,12 @@
                         <p class="alert-danger" style="margin-top: 1%"></p>
                     </div>
                     <div class="form-group">
-                        <label>Price</label>
-                        <input type="number" class="form-control" name="price">
-                    </div>
-                    <div class="form-group">
-                        <label>Category</label>
-                        <select class="form-control" name="categoryId">
-                            @foreach($obj_category as $item)
-                                <option value="{{$item -> id}}">{{$item -> name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Brand</label>
-                        <select class="form-control" name="brand_id">
-                            @foreach($obj_brand as $item)
-                                <option value="{{$item -> id}}">{{$item -> name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label>Description</label>
                         <textarea class="form-control" name="description" rows="5"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Images</label>
-                        <input class="form-control" type="file" multiple="multiple" name="images[]" id="add_images">
+                        <input class="form-control" type="file" name="image" id="add_images">
                     </div>
                     <div class="preview_images hidden"></div>
                     <div class="form-group" style="text-align: center;">
@@ -99,14 +79,14 @@
         if($(".alert-success")[0]){
             swal({
                     title: 'Saved Sucess',
-                    text: 'Product information saved into dababase',
+                    text: 'Category information saved into dababase',
                     type: 'success',
                     allowOutsideClick: true,
                     html: true
                 },
                 function (isConfirm) {
                     if (isConfirm) {
-                        window.location.href = '/admin/product';
+                        window.location.href = '/admin/category';
                     }
                 });
         }
