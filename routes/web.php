@@ -28,6 +28,8 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('admin.login');
 });
-
+Route::get('/', function () {
+   return view('layouts.master');
+});
 
 
