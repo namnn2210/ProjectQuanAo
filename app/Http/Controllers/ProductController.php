@@ -77,6 +77,9 @@ class ProductController extends Controller
     public function show($id)
     {
         $obj = Product::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         return view('admin.product.show')
             -> with('obj',$obj);
     }
@@ -90,8 +93,13 @@ class ProductController extends Controller
     public function edit($id)
     {
         $obj = Product::find($id);
+        $obj_category = Category::all();
+        $obj_brand = Brand::all();
+        if($obj==null) {
+            return view('404');
+        }
         return view('admin.product.edit')
-            -> with('obj',$obj);
+            -> with('obj',$obj)->with('obj_brand',$obj_brand)->with('obj_category',$obj_category);
     }
 
     public function quickEdit($id){
@@ -115,7 +123,6 @@ class ProductController extends Controller
         $obj -> category_id = Input::get('category_id');
         $obj -> price = Input::get('price');
         $obj -> brand_id = Input::get('brand_id');
-        $obj -> images = $images_list;
         $images = $request -> file('images');
         if($request -> hasFile('images')){
             foreach ($images as $image) {
@@ -124,9 +131,10 @@ class ProductController extends Controller
                 $images_list .= Cloudder::secureShow($image_id) . "&";
             }
         }
-        $obj -> images = $images_list;
-        $obj -> save();
-        echo "<script>alert('Saved Successfull'); window.location.href = '/admin/product'</script>";
+        $obj->images = $images_list;
+        $obj->save();
+        return redirect()->back()->with('message', 'Saved Success');
+
     }
 
     public function quickUpdate (Request $request){
@@ -156,6 +164,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $obj = Product::find($id);
+        if($obj==null) {
+            return view('404');
+        }
         $obj->delete();
     }
 }
