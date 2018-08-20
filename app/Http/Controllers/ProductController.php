@@ -121,14 +121,12 @@ class ProductController extends Controller
         $images_list = "";
         $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
-        $obj -> categoryId = Input::get('categoryId');
+        $obj -> category_id = Input::get('category_id');
         $obj -> price = Input::get('price');
-        $obj -> brand_id = Input::get('brandId');
-        $productId = $id;
+        $obj -> brand_id = Input::get('brand_id');
         $images = $request -> file('images');
         if($request -> hasFile('images')) {
             foreach ($images as $image) {
-                $obj = Product::find($productId);
                 $image_id = time();
                 Cloudder::upload($image->getRealPath(), $image_id);
                 $images_list .= Cloudder::secureShow($image_id) . "&";
@@ -136,7 +134,7 @@ class ProductController extends Controller
         }
         $obj->images = $images_list;
         $obj->save();
-        echo "<script>alert('Saved Successfull'); window.location.href = '/admin/product'</script>";
+        return redirect()->back()->with('message', 'Saved Success');
     }
 
     /**

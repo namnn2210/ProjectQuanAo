@@ -73,4 +73,28 @@ $(function() {
         $('.preview_images').empty();
         imagesPreview(this, 'div.preview_images');
     });
+    $(':reset').click(function (){
+        $('.preview_images').empty();
+    });
+    $('input').keyup(function(){
+        var $th = $(this);
+        $th.val( $th.val().replace(/[^a-zA-Z0-9-" "]/g, function(){
+            $('p').text('Please only use number and text');
+            return '';
+        }));
+    });
+    if($(".alert-success")[0]){
+        swal({
+                title: 'Updated',
+                text: 'Product information updated into dababase',
+                type: 'success',
+                allowOutsideClick: true,
+                html: true
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    window.location.href = '/admin/product';
+                }
+            });
+    }
 });

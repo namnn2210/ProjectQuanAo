@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label>Category</label>
-                    <select class="form-control" name="categoryId">
+                    <select class="form-control" name="category_id">
                         @foreach($obj_category as $item)
                             <option value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
@@ -59,7 +59,12 @@
                     <input class="form-control" type="file" multiple="multiple" name="images[]" id="add_images">
                 </div>
                 <div class="preview_images">
-                    <img src="<?php echo explode("&",$obj -> images,-1)[0];?>">
+                    <?php
+                    $images = explode("&",$obj -> images,-1);
+                    foreach ($images as $image){
+                        echo '<img' . ' ' . 'src=' . '"' . $image . '">';
+                    }
+                    ?>
                 </div>
                 <div class="form-group" style="text-align: center;">
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>
@@ -68,46 +73,5 @@
             </form>
         </div>
     </div>
-    <script>
-        $(function() {
-            var imagesPreview = function(input, display_images) {
-                if (input.files) {
-                    var filesAmount = input.files.length;
-                    for (i = 0; i < filesAmount; i++) {
-                        var reader = new FileReader();
-                        reader.onload = function(e) {
-                            $($.parseHTML('<img>')).attr('src', e.target.result).appendTo(display_images);
-                            $("img").addClass("preview_image");
-                        }
-                        reader.readAsDataURL(input.files[i]);
-                    }
-                }
-            };
-            $('#add_images').on('change', function() {
-                $('.preview_images').empty();
-                imagesPreview(this, 'div.preview_images');
-            });
-        });
-        $('input').keyup(function(){
-            var $th = $(this);
-            $th.val( $th.val().replace(/[^a-zA-Z0-9-" "]/g, function(){
-                $('p').text('Please only use number and text');
-                return '';
-            }));
-        });
-        if($(".alert-success")[0]){
-            swal({
-                    title: 'Edited',
-                    text: 'Product information saved into dababase',
-                    type: 'success',
-                    allowOutsideClick: true,
-                    html: true
-                },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        window.location.href = '/admin/product';
-                    }
-                });
-        }
-    </script>
+    <script src="{{asset('/js/list_js.js')}}"></script>
 @endsection
