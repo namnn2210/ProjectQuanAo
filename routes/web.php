@@ -15,9 +15,13 @@ Route::get('/', function () {
 });
 Route::get('/admin/product/{id}/quickEdit','ProductController@quickEdit');
 Route::resource('admin/product','ProductController');
+
 Route::get('/register', function () {
     return view('admin.register');
 });
 Route::get('/login', function () {
     return view('admin.login');
 });
+
+Route::put('/admin/quickUpdate/product/','ProductController@quickUpdate');
+

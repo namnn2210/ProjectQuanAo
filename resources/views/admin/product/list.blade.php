@@ -7,6 +7,10 @@
         </div>
     </div>
     <div class="panel-body">
+        @if(session()->has('message'))
+            <div class="alert alert-success hidden">
+            </div>
+        @endif
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
             <tr>
@@ -54,7 +58,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form name="quick_edit_form">
+                    <form name="quick_edit_form" method="post" action="/admin/quickUpdate/product" enctype="multipart/form-data">
+                        @method('PUT')
+                        {{csrf_field()}}
+                        <input type="hidden" name="quick-update-id">
                         <div class="form-group">
                             <label>Price</label>
                             <input class="form-control" type="number" name="price">
@@ -63,13 +70,13 @@
                             <label>Images</label>
                             <input class="form-control" type="file" multiple="multiple" name="images[]" id="add_images">
                         </div>
-                        <div class="preview_images">
+                        <div class="preview_images form-group">
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" id="btn-update">Save</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>

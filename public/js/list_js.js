@@ -39,10 +39,11 @@ $(".btn-quick-edit").click(function () {
         },
         success: function (resp) {
             $('form[name = "quick_edit_form"] input[name = "price"]').val(resp.obj.price);
+            $('form[name = "quick_edit_form"] input[name = "quick-update-id"]').val(resp.obj.id);
             var images_list = resp.obj.images.split("&");
-                for(var i = 0; i < images_list.length - 1; i++){
-                    $($.parseHTML('<img>')).attr('src', images_list[i]).appendTo($('.preview_images'));
-                }
+            for(var i = 0; i < images_list.length - 1; i++){
+                $($.parseHTML('<img>')).attr('src', images_list[i]).appendTo($('.preview_images'));
+            }
         },
         error: function () {
             alert('error');
@@ -50,7 +51,7 @@ $(".btn-quick-edit").click(function () {
     });
     $('#edit-modal').modal();
     $('#edit-modal').on('hide.bs.modal' , function () {
-       $('.preview_images').empty();
+        $('.preview_images').empty();
     });
     return false;
 });
@@ -73,4 +74,29 @@ $(function() {
         $('.preview_images').empty();
         imagesPreview(this, 'div.preview_images');
     });
+
+    $(':reset').click(function (){
+        $('.preview_images').empty();
+    });
+    $('input').keyup(function(){
+        var $th = $(this);
+        $th.val( $th.val().replace(/[^a-zA-Z0-9-" "]/g, function(){
+            $('p').text('Please only use number and text');
+            return '';
+        }));
+    });
+    if($(".alert-success")[0]){
+        swal({
+                title: 'Updated',
+                text: 'Product information updated into dababase',
+                type: 'success',
+                allowOutsideClick: true,
+                html: true
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    window.location.href = '/admin/product';
+                }
+            });
+    }
 });
