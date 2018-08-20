@@ -17,7 +17,7 @@ class ProductsTableSeeder extends Seeder
            [
                'name' => 'Ao 1',
                'description' => 'Ao xin',
-               'categoryId' => '1',
+               'category_id' => '1',
                'price' => '15',
                'brand_id' => '1',
                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -25,7 +25,7 @@ class ProductsTableSeeder extends Seeder
            [
                'name' => 'Ao 2',
                'description' => 'Ao xin',
-               'categoryId' => '1',
+               'category_id' => '1',
                'price' => '15',
                'brand_id' => '1',
                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -33,14 +33,14 @@ class ProductsTableSeeder extends Seeder
            [
                'name' => 'Ao 3',
                'description' => 'Ao xin',
-               'categoryId' => '1',
+               'category_id' => '1',
                'price' => '15',
                'brand_id' => '1',
                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',],
            [
                'name' => 'Ao 4',
                'description' => 'Ao xin',
-               'categoryId' => '1',
+               'category_id' => '1',
                'price' => '15',
                'brand_id' => '1',
                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -48,7 +48,7 @@ class ProductsTableSeeder extends Seeder
            [
                'name' => 'Ao 5',
                'description' => 'Ao xin',
-               'categoryId' => '1',
+               'category_id' => '1',
                'price' => '15',
                'brand_id' => '1',
                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -56,7 +56,7 @@ class ProductsTableSeeder extends Seeder
            [
                'name' => 'Ao 6',
                'description' => 'Ao xin',
-               'categoryId' => '1',
+               'category_id' => '1',
                'price' => '15',
                'brand_id' => '1',
                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -64,7 +64,7 @@ class ProductsTableSeeder extends Seeder
            [
                'name' => 'Ao 7',
                'description' => 'Ao xin',
-               'categoryId' => '1',
+               'category_id' => '1',
                'price' => '15',
                'brand_id' => '1',
                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -72,7 +72,7 @@ class ProductsTableSeeder extends Seeder
            [
                'name' => 'Ao 8',
                'description' => 'Ao xin',
-               'categoryId' => '1',
+               'category_id' => '1',
                'price' => '15',
                'brand_id' => '1',
                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -80,7 +80,7 @@ class ProductsTableSeeder extends Seeder
            [
                'name' => 'Ao 9',
                'description' => 'Ao xin',
-               'categoryId' => '1',
+               'category_id' => '1',
                'price' => '15',
                'brand_id' => '1',
                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -88,7 +88,7 @@ class ProductsTableSeeder extends Seeder
            [
                'name' => 'Ao 10',
                'description' => 'Ao xin',
-               'categoryId' => '1',
+               'category_id' => '1',
                'price' => '15',
                'brand_id' => '1',
                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -96,7 +96,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'name' => 'Ao 11',
                 'description' => 'Ao xin',
-                'categoryId' => '1',
+                'category_id' => '1',
                 'price' => '15',
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -104,7 +104,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'name' => 'Ao 12',
                 'description' => 'Ao xin',
-                'categoryId' => '1',
+                'category_id' => '1',
                 'price' => '15',
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -112,7 +112,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'name' => 'Ao 13',
                 'description' => 'Ao xin',
-                'categoryId' => '1',
+                'category_id' => '1',
                 'price' => '15',
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -120,7 +120,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'name' => 'Ao 14',
                 'description' => 'Ao xin',
-                'categoryId' => '1',
+                'category_id' => '1',
                 'price' => '15',
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -128,7 +128,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'name' => 'Ao 15',
                 'description' => 'Ao xin',
-                'categoryId' => '1',
+                'category_id' => '1',
                 'price' => '15',
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -136,7 +136,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'name' => 'Ao 16',
                 'description' => 'Ao xin',
-                'categoryId' => '1',
+                'category_id' => '1',
                 'price' => '15',
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -144,7 +144,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'name' => 'Ao 17',
                 'description' => 'Ao xin',
-                'categoryId' => '1',
+                'category_id' => '1',
                 'price' => '15',
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -152,7 +152,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'name' => 'Ao 18',
                 'description' => 'Ao xin',
-                'categoryId' => '1',
+                'category_id' => '1',
                 'price' => '15',
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -160,7 +160,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'name' => 'Ao 19',
                 'description' => 'Ao xin',
-                'categoryId' => '1',
+                'category_id' => '1',
                 'price' => '15',
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
@@ -168,7 +168,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'name' => 'Ao 20',
                 'description' => 'Ao xin',
-                'categoryId' => '1',
+                'category_id' => '1',
                 'price' => '15',
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',

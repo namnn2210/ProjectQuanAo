@@ -39,6 +39,7 @@ $(".btn-quick-edit").click(function () {
         },
         success: function (resp) {
             $('form[name = "quick_edit_form"] input[name = "price"]').val(resp.obj.price);
+            $('form[name = "quick_edit_form"] input[name = "quick-update-id"]').val(resp.obj.id);
             var images_list = resp.obj.images.split("&");
             for(var i = 0; i < images_list.length - 1; i++){
                 $($.parseHTML('<img>')).attr('src', images_list[i]).appendTo($('.preview_images'));
@@ -73,6 +74,7 @@ $(function() {
         $('.preview_images').empty();
         imagesPreview(this, 'div.preview_images');
     });
+
     $(':reset').click(function (){
         $('.preview_images').empty();
     });

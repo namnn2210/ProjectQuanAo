@@ -15,3 +15,4 @@ Route::get('/', function () {
 });
 Route::get('/admin/product/{id}/quickEdit','ProductController@quickEdit');
 Route::resource('admin/product','ProductController');
+Route::put('/admin/quickUpdate/product/','ProductController@quickUpdate');
