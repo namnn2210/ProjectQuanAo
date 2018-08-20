@@ -109,7 +109,7 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN MANAGEMENT</li>
-                <li class="active treeview menu-open">
+                <li class="@yield('active-user') treeview">
                     <a href="#">
                         <i class="fa fa-user"></i> <span>User Management</span>
                         <span class="pull-right-container">
@@ -120,7 +120,7 @@
                         <li><a href="#"><i class="fa fa-circle-o"></i>List of Users</a></li>
                     </ul>
                 </li>
-                <li class="treeview">
+                <li class="treeview @yield('active-product')">
                     <a href="#">
                         <i class="fa fa-product-hunt"></i>
                         <span>Product Management</span>
@@ -129,11 +129,11 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/product"><i class="fa fa-circle-o"></i>List of Products</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Create a new product</a></li>
+                        <li><a href="/admin/product"><i class="fa fa-circle-o"></i>List of Products</a></li>
+                        <li><a href="/admin/product/create"><i class="fa fa-circle-o"></i>Create a new product</a></li>
                     </ul>
                 </li>
-                <li class="treeview">
+                <li class="treeview @yield('active-category')">
                     <a href="#">
                         <i class="fa fa-align-justify"></i>
                         <span>Category Management</span>
@@ -142,11 +142,11 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>List of Categories</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Create a new category</a></li>
+                        <li><a href="/admin/category"><i class="fa fa-circle-o"></i>List of Categories</a></li>
+                        <li><a href="/admin/category/create"><i class="fa fa-circle-o"></i>Create a new category</a></li>
                     </ul>
                 </li>
-                <li class="treeview">
+                <li class="treeview @yield('active-brand')">
                     <a href="#">
                         <i class="fa fa-tag"></i> <span>Brand Management</span>
                         <span class="pull-right-container">
@@ -154,11 +154,11 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>List of Brands</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Create a new brand</a></li>
+                        <li><a href="/admin/brand"><i class="fa fa-circle-o"></i>List of Brands</a></li>
+                        <li><a href="/admin/brand/create"><i class="fa fa-circle-o"></i>Create a new brand</a></li>
                     </ul>
                 </li>
-                <li class="treeview">
+                <li class="treeview @yield('active-collection')">
                     <a href="#">
                         <i class="fa fa-archive"></i> <span>Collection Managment</span>
                         <span class="pull-right-container">
@@ -166,8 +166,8 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>List of Collections</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Create a new collection</a></li>
+                        <li><a href="/admin/collection"><i class="fa fa-circle-o"></i>List of Collections</a></li>
+                        <li><a href="/admin/collection/create"><i class="fa fa-circle-o"></i>Create a new collection</a></li>
                     </ul>
                 </li>
             </ul>
