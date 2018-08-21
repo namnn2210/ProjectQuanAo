@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ProductSeeder extends Seeder
+class ProductsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,14 +15,22 @@ class ProductSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('products')->truncate();
         \Illuminate\Support\Facades\DB::table('products')->insert([
            [
+<<<<<<< HEAD:database/seeds/ProductSeeder.php
                'name' => 'Áo Khoác Balmain',
                'description' => 'Áo khoác dạ phối da l ',
                'categoryId' => '1',
                'price' => '1900$',
+=======
+               'name' => 'Ao 1',
+               'description' => 'Ao xin',
+               'category_id' => '1',
+               'price' => '15',
+>>>>>>> 4a599f4f9a08cb1ea169f1628ef43734baca4d82:database/seeds/ProductsTableSeeder.php
                'brand_id' => '1',
                'images' => 'http://res.cloudinary.com/dyyybxgae/image/upload/v1534688728/Fashion/%C3%81o%20Kho%C3%A1c/Balmain/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_12.42.17.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534688728/Fashion/%C3%81o%20Kho%C3%A1c/Balmain/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_12.42.21.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534688728/Fashion/%C3%81o%20Kho%C3%A1c/Balmain/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_12.42.14.png&',
            ],
            [
+<<<<<<< HEAD:database/seeds/ProductSeeder.php
                'name' => 'Áo khoác Burberry',
                'description' => 'Áo khoác lông cừu cao cấp',
                'categoryId' => '1',
@@ -51,10 +59,40 @@ class ProductSeeder extends Seeder
                'description' => 'Áo phông in logo',
                'categoryId' => '2',
                'price' => '490$',
+=======
+               'name' => 'Ao 2',
+               'description' => 'Ao xin',
+               'category_id' => '1',
+               'price' => '15',
+               'brand_id' => '1',
+               'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+           ],
+           [
+               'name' => 'Ao 3',
+               'description' => 'Ao xin',
+               'category_id' => '1',
+               'price' => '15',
+               'brand_id' => '1',
+               'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',],
+           [
+               'name' => 'Ao 4',
+               'description' => 'Ao xin',
+               'category_id' => '1',
+               'price' => '15',
+               'brand_id' => '1',
+               'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+           ],
+           [
+               'name' => 'Ao 5',
+               'description' => 'Ao xin',
+               'category_id' => '1',
+               'price' => '15',
+>>>>>>> 4a599f4f9a08cb1ea169f1628ef43734baca4d82:database/seeds/ProductsTableSeeder.php
                'brand_id' => '1',
                'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534688998/Fashion/Ao%20Phong/Balmain/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_15.56.45.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534688998/Fashion/Ao%20Phong/Balmain/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_15.56.40.pnghttps://res.cloudinary.com/dyyybxgae/image/upload/v1534688998/Fashion/Ao%20Phong/Balmain/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_15.56.36.png&',
            ],
            [
+<<<<<<< HEAD:database/seeds/ProductSeeder.php
                'name' => 'Áo phông Gucci',
                'description' => 'Áo phông in hoạ tiết và logo hãng',
                'categoryId' => '2',
@@ -259,6 +297,108 @@ class ProductSeeder extends Seeder
                 'description' => 'Nơ nhung mềm mượt',
                 'categoryId' => '6',
                 'price' => '390$',
+=======
+               'name' => 'Ao 6',
+               'description' => 'Ao xin',
+               'category_id' => '1',
+               'price' => '15',
+               'brand_id' => '1',
+               'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+           ],
+           [
+               'name' => 'Ao 7',
+               'description' => 'Ao xin',
+               'category_id' => '1',
+               'price' => '15',
+               'brand_id' => '1',
+               'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+           ],
+           [
+               'name' => 'Ao 8',
+               'description' => 'Ao xin',
+               'category_id' => '1',
+               'price' => '15',
+               'brand_id' => '1',
+               'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+           ],
+           [
+               'name' => 'Ao 9',
+               'description' => 'Ao xin',
+               'category_id' => '1',
+               'price' => '15',
+               'brand_id' => '1',
+               'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+           ],
+           [
+               'name' => 'Ao 10',
+               'description' => 'Ao xin',
+               'category_id' => '1',
+               'price' => '15',
+               'brand_id' => '1',
+               'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+           ],
+            [
+                'name' => 'Ao 11',
+                'description' => 'Ao xin',
+                'category_id' => '1',
+                'price' => '15',
+                'brand_id' => '1',
+                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+            ],
+            [
+                'name' => 'Ao 12',
+                'description' => 'Ao xin',
+                'category_id' => '1',
+                'price' => '15',
+                'brand_id' => '1',
+                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+            ],
+            [
+                'name' => 'Ao 13',
+                'description' => 'Ao xin',
+                'category_id' => '1',
+                'price' => '15',
+                'brand_id' => '1',
+                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+            ],
+            [
+                'name' => 'Ao 14',
+                'description' => 'Ao xin',
+                'category_id' => '1',
+                'price' => '15',
+                'brand_id' => '1',
+                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+            ],
+            [
+                'name' => 'Ao 15',
+                'description' => 'Ao xin',
+                'category_id' => '1',
+                'price' => '15',
+                'brand_id' => '1',
+                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+            ],
+            [
+                'name' => 'Ao 16',
+                'description' => 'Ao xin',
+                'category_id' => '1',
+                'price' => '15',
+                'brand_id' => '1',
+                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+            ],
+            [
+                'name' => 'Ao 17',
+                'description' => 'Ao xin',
+                'category_id' => '1',
+                'price' => '15',
+                'brand_id' => '1',
+                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+            ],
+            [
+                'name' => 'Ao 18',
+                'description' => 'Ao xin',
+                'category_id' => '1',
+                'price' => '15',
+>>>>>>> 4a599f4f9a08cb1ea169f1628ef43734baca4d82:database/seeds/ProductsTableSeeder.php
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689827/Fashion/Phu%20Kien/No/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.29.46.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689827/Fashion/Phu%20Kien/No/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.29.53.png&',
             ],
@@ -311,10 +451,17 @@ class ProductSeeder extends Seeder
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689168/Fashion/Quan/Balenciaga/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.15.05.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689168/Fashion/Quan/Balenciaga/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.15.11.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689169/Fashion/Quan/Balenciaga/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.15.08.png&',
             ],
             [
+<<<<<<< HEAD:database/seeds/ProductSeeder.php
                 'name' => 'Quần Balmain ',
                 'description' => 'Quần biker cao cấp phối gấu',
                 'categoryId' => '7',
                 'price' => '1100$',
+=======
+                'name' => 'Ao 19',
+                'description' => 'Ao xin',
+                'category_id' => '1',
+                'price' => '15',
+>>>>>>> 4a599f4f9a08cb1ea169f1628ef43734baca4d82:database/seeds/ProductsTableSeeder.php
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689186/Fashion/Quan/Balmain/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.14.14.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689186/Fashion/Quan/Balmain/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.14.21.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689186/Fashion/Quan/Balmain/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.14.17.png&',
             ],
@@ -351,10 +498,17 @@ class ProductSeeder extends Seeder
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689264/Fashion/Quan/Valentino/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.12.15.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689264/Fashion/Quan/Valentino/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.12.21.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689264/Fashion/Quan/Valentino/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.12.18.png&',
             ],
             [
+<<<<<<< HEAD:database/seeds/ProductSeeder.php
                 'name' => 'Áo Vest Balmain ',
                 'description' => 'Áo vest lụa cao cấp phối nhung ',
                 'categoryId' => '8',
                 'price' => '8900$',
+=======
+                'name' => 'Ao 20',
+                'description' => 'Ao xin',
+                'category_id' => '1',
+                'price' => '15',
+>>>>>>> 4a599f4f9a08cb1ea169f1628ef43734baca4d82:database/seeds/ProductsTableSeeder.php
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689940/Fashion/Vest/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.23.46.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689941/Fashion/Vest/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.23.39.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689940/Fashion/Vest/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.23.49.png&',
             ],

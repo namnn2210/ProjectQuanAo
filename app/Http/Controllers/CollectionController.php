@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use JD\Cloudder\Facades\Cloudder;
+use Illuminate\Validation\Rules\In;
 
-class CategoryController extends Controller
+class CollectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $obj = Category::all();
-        return view('admin.category.list')
-            -> with('obj',$obj);
+        //
+        $obj = Collection::all();
+        return view('admin.collection.list')->with('obj',$obj);
     }
 
     /**
@@ -28,7 +28,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create_form');
+        //
+        return view('admin.collection.create_form');
     }
 
     /**
@@ -39,16 +40,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $obj = new Category();
+        //
+        $obj = new Collection();
         $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
-        if (Input::hasFile('image')) {
-            $image_id = time();
-            Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
-            $obj->image = Cloudder::secureShow($image_id);
-        }
-        $obj -> save();
-        echo "<script>alert('Saved Successfull'); window.location.href = '/admin/category'</script>";
+        $obj->save();
+
+        return redirect('admin/collection');
     }
 
     /**
@@ -59,12 +57,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $obj = Category::find($id);
-        if($obj==null) {
-            return view('404');
-        }
-        return view('admin.category.show')
-            -> with('obj',$obj);
+        //
     }
 
     /**
@@ -75,16 +68,16 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $obj = Category::find($id);
-        if($obj==null) {
+        //
+        $obj = Collection::find($id);
+        if($obj == null) {
             return view('404');
         }
-        return view('admin.category.edit')
-            -> with('obj',$obj);
+        return view('admin.collection.edit')->with('obj',$obj);
     }
 
     public function quickEdit($id){
-        $obj = Category::find($id);
+        $obj = Collection::find($id);
         if($obj==null) {
             return view('404');
         }
@@ -100,33 +93,25 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $obj = Category::find($id);
+        //
+        $obj = Collection::find($id);
         if($obj==null) {
             return view('404');
         }
         $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
-        if (Input::hasFile('image')) {
-            $image_id = time();
-            Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
-            $obj->image = Cloudder::secureShow($image_id);
-        }
         $obj -> save();
-        echo "<script>alert('Saved Successful'); window.location.href = '/admin/category'</script>";
+        echo "<script>alert('Saved Successful'); window.location.href = '/admin/collection'</script>";
     }
 
     public function quickUpdate (Request $request){
         $id = $request -> input('quick-update-id');
-        $obj = Category::find($id);
+        $obj = Collection::find($id);
         if($obj==null) {
             return view('404');
         }
+        $obj -> name = Input::get('name');
         $obj -> description = Input::get('description');
-        if (Input::hasFile('image')) {
-            $image_id = time();
-            Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
-            $obj->image = Cloudder::secureShow($image_id);
-        }
         $obj -> save();
         return redirect()->back()->with('message', 'Saved Success');
     }
@@ -139,11 +124,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $obj = Category::find($id);
-        if($obj==null) {
-            return view('404');
-        }
-        $obj->delete();
-        return redirect('/admin/category/list');
+        //
     }
 }
