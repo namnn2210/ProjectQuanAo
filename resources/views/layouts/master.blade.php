@@ -20,18 +20,14 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('css/master-layout-2-css/_all-skins.min.css')}}">
-    <!-- CSS JS OLD MASTER LAYOUT --?>
-    <link href="{{asset('/css/masterLayout_css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('/css/masterLayout_css/metisMenu.min.css')}}" rel="stylesheet">
-    <link href="{{asset('/css/masterLayout_css/sb-admin-2.css')}}" rel="stylesheet">
+    <!-- CSS JS OLD MASTER LAYOUT -->
     <link href="{{asset('/css/datatables-responsive/dataTables.responsive.css')}}" rel="stylesheet"/>
     <link href="{{asset('/font/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="{{URL::asset('css/form.css')}}">
     <link href="{{asset('/css/datatables/css/dataTables.bootstrap.css')}}" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     <!-- Google Font -->
     <link rel="stylesheet"
