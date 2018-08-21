@@ -62,6 +62,12 @@ class BrandsTableSeeder extends Seeder
                 'country' => 'Tây Ban Nha',
                 'logo' => 'https://res.cloudinary.com/dncvywdxi/image/upload/v1534345611/Brand%20Img/balenciaga_logo.png'
             ],
+            [
+                'name' => 'Saint Laurent',
+                'description' => 'Hãng thời trang cao cấp của Pháp',
+                'country' => 'Pháp',
+                'logo' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534695307/Fashion/logo-Yves-Saint-Laurent.jpg'
+            ],
         ]);
     }
 }
