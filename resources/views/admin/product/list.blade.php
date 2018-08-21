@@ -63,10 +63,13 @@
                         @method('PUT')
                         {{csrf_field()}}
                         <input type="hidden" name="quick-update-id">
+                        <input type="hidden" name="remain-images">
                         <div class="form-group">
                             <label>Price</label>
                             <input class="form-control" type="number" name="price">
                         </div>
+                        <p id="demo"></p>
+                        <p id="demo1"></p>
                         <div class="form-group">
                             <label>Images</label>
                             <input class="form-control" type="file" multiple="multiple" name="images[]" id="add_images">

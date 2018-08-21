@@ -155,17 +155,17 @@ class ProductController extends Controller
         if($obj==null) {
             return view('404');
         }
-        $images_list = "";
+        $remain_images = Input::get('remain-images');
         $obj -> price = Input::get('price');
         $images = $request -> file('images');
         if($request -> hasFile('images')){
             foreach ($images as $image) {
                 $image_id = time();
                 Cloudder::upload($image->getRealPath(), $image_id);
-                $images_list .= Cloudder::secureShow($image_id) . "&";
+                $remain_images .= Cloudder::secureShow($image_id) . "&";
             }
         }
-        $obj -> images = $images_list;
+        $obj -> images = $remain_images;
         $obj -> save();
         return redirect()->back()->with('message', 'Saved Success');
     }
