@@ -26,7 +26,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
-    <link href="{{asset('/css/datatables/css/dataTables.bootstrap.css')}}" rel="stylesheet"/>
+    <link href="{{asset('/datatables-plugins/dataTables.bootstrap.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     <!-- Google Font -->
@@ -219,5 +219,15 @@
 <script src="{{asset('js/master-layout-2-js/jquery.slimscroll.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('js/master-layout-2-js/Chart.js')}}"></script>
+<script src="{{asset('/css/datatables/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('/css/datatables/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('/css/datatables-responsive/dataTables.responsive.js')}}"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>
 </body>
 </html>
