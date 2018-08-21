@@ -11,15 +11,14 @@ class CollectionsTableSeeder extends Seeder
      */
     public function run()
     {
+        \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         \Illuminate\Support\Facades\DB::table('collections')->truncate();
         \Illuminate\Support\Facades\DB::table('collections')->insert([
             [
-                'collection_id' => '1',
-                'collection_name' => 'Bộ sưu tập mua hè',
+                'name' => 'Bộ sưu tập mua hè',
                 'description' => 'Mặc vào mùa hè mát mẻ'
             ],[
-                'collection_id' => '2',
-                'collection_name' => 'Bộ sưu tập mua đông',
+                'name' => 'Bộ sưu tập mua đông',
                 'description' => 'Mặc vào mùa đông lạnh lẽo'
             ]
             ]);

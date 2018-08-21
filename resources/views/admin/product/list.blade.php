@@ -1,5 +1,6 @@
 @extends('layouts.master', ['currentPage' => 'list'])
 @section('page-title', 'LIST PRODUCTS')
+@section('active-product','active')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
