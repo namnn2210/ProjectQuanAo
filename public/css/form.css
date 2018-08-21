@@ -32,6 +32,37 @@
 .preview_images img{
     border: solid 1px;
     margin-left: 5px;
+    margin-top: 5px;
+}
+.img-wrap{
+    position: relative;
+    display: inline-block;
+    font-size: 0;
+    height: auto;
+}
+.preview_images img{
     max-height: 30%;
     max-width: 30%;
+}
+.img-wrap img{
+    max-height: 100%!important;
+    max-width: 100%!important;
+}
+.img-wrap .delete-img {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+    padding: 5px 2px 2px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: .2;
+    text-align: center;
+    font-size: 22px;
+    line-height: 10px;
+    border-radius: 50%;
+}
+.img-wrap:hover .delete-img {
+    opacity: 1;
 }
