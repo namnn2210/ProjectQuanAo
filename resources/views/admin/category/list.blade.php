@@ -30,8 +30,7 @@
                         <td style="text-align: center">{{$item -> name}}</td>
                         <td>{{$item -> description}}</td>
                         <td style="text-align: center">
-                            <a href="/admin/category/{{$item -> id}}/edit" class="fa fa-edit btn-edit mr-2"> Edit</a>
-                            <a href="#" class="fa fa-edit btn-quick-edit mr-2"> Quick Edit</a>
+                            <a href="#" class="fa fa-edit btn-quick-edit mr-2">Edit</a>
                             <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2"> Delete</a>
                         </td>
                     </tr>
@@ -56,6 +55,11 @@
                         {{csrf_field()}}
                         <input type="hidden" name="quick-update-id">
                         <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name">
+                            <p class="alert-danger" style="margin-top: 1%"></p>
+                        </div>
+                        <div class="form-group">
                             <label>Description</label>
                             <textarea class="form-control" name="description" rows="5"></textarea>
                         </div>
@@ -75,6 +79,5 @@
         </div>
     </div>
     {{--Quick Edit Modal--}}
-
     <script src="{{asset('/js/category_list.js')}}"></script>
 @endsection

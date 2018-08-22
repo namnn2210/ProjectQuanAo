@@ -20,8 +20,12 @@ class ProductController extends Controller
     public function index()
     {
         $obj = Product::all();
+        $obj_category = Category::all();
+        $obj_brand = Brand::all();
         return view('admin.product.list')
-            -> with('obj',$obj);
+            -> with('obj',$obj)
+            -> with('obj_category',$obj_category)
+            -> with('obj_brand',$obj_brand);
     }
 
     /**
@@ -125,27 +129,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $obj = Product::find($id);
-        if($obj==null) {
-            return view('404');
-        }
-        $images_list = "";
-        $obj -> name = Input::get('name');
-        $obj -> description = Input::get('description');
-        $obj -> category_id = Input::get('category_id');
-        $obj -> price = Input::get('price');
-        $obj -> brand_id = Input::get('brand_id');
-        $images = $request -> file('images');
-        if($request -> hasFile('images')){
-            foreach ($images as $image) {
-                $image_id = time();
-                Cloudder::upload($image->getRealPath(), $image_id);
-                $images_list .= Cloudder::secureShow($image_id) . "&";
-            }
-        }
-        $obj->images = $images_list;
-        $obj->save();
-        return redirect()->back()->with('message', 'Saved Success');
 
     }
 
@@ -157,6 +140,11 @@ class ProductController extends Controller
         }
         $remain_images = Input::get('remain-images');
         $obj -> price = Input::get('price');
+        $obj -> name = Input::get('name');
+        $obj -> description = Input::get('description');
+        $obj -> category_id = Input::get('category_id');
+        $obj -> price = Input::get('price');
+        $obj -> brand_id = Input::get('brand_id');
         $images = $request -> file('images');
         if($request -> hasFile('images')){
             foreach ($images as $image) {

@@ -40,6 +40,10 @@ $(".btn-quick-edit").click(function () {
         success: function (resp) {
             $('form[name = "quick_edit_form"] input[name = "price"]').val(resp.obj.price);
             $('form[name = "quick_edit_form"] input[name = "quick-update-id"]').val(resp.obj.id);
+            $('form[name = "quick_edit_form"] input[name = "name"]').val(resp.obj.name);
+            $('form[name = "quick_edit_form"] select').val(resp.obj.category_id);
+            $('form[name = "quick_edit_form"] select').val(resp.obj.brand_id);
+            $('form[name = "quick_edit_form"] textarea[name = "description"]').val(resp.obj.description);
             var images_list = resp.obj.images.split("&");
             for(var i = 0; i < images_list.length - 1; i++){
                 $($.parseHTML('<div>')).attr('class', 'img-wrap' + ' ' + 'wrap-' + [i]).appendTo($('.preview_images'));

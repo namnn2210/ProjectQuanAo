@@ -40,6 +40,7 @@ $(".btn-quick-edit").click(function () {
         success: function (resp) {
             $('form[name = "quick_edit_form"] textarea[name = "description"]').val(resp.obj.description);
             $('form[name = "quick_edit_form"] input[name = "quick-update-id"]').val(resp.obj.id);
+            $('form[name = "quick_edit_form"] input[name = "name"]').val(resp.obj.name);
             var image = resp.obj.image;
             $($.parseHTML('<img>')).attr('src', image).appendTo($('.preview_images'));
 

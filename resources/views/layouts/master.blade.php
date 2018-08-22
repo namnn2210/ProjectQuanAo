@@ -28,6 +28,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
     <link href="{{asset('/css/datatables/css/dataTables.bootstrap.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{URL::asset('css/form.css')}}">
 
     <!-- Google Font -->
     <link rel="stylesheet"
@@ -58,7 +59,7 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{asset('img/icon-user-160x160.png')}}" class="user-image" alt="User Image">
+                            <img src="{{URL::asset("/img/icon-user-160x160.png")}}" class="user-image" alt="User Image">
                             <span class="hidden-xs">Admin</span>
                         </a>
                         <ul class="dropdown-menu">
@@ -85,7 +86,6 @@
                     </li>
                 </ul>
             </div>
-
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
