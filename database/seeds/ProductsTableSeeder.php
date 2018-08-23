@@ -14,6 +14,7 @@ class ProductsTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('products')->insert([
             [
                 'name' => 'Áo Khoác Balmain',
+
                 'description' => 'Áo khoác dạ phối da lộn',
                 'category_id' => '1',
                 'collection_id' => '2',

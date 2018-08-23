@@ -26,8 +26,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
-    <link href="{{asset('/css/datatables/css/dataTables.bootstrap.css')}}" rel="stylesheet"/>
+    <link href="{{asset('/datatables-plugins/dataTables.bootstrap.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{URL::asset('css/form.css')}}">
 
     <!-- Google Font -->
     <link rel="stylesheet"
@@ -39,7 +40,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="/" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>F</b>FF</span>
             <!-- logo for regular state and mobile devices -->
@@ -58,7 +59,7 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{asset('img/icon-user-160x160.png')}}" class="user-image" alt="User Image">
+                            <img src="{{URL::asset("/img/icon-user-160x160.png")}}" class="user-image" alt="User Image">
                             <span class="hidden-xs">Admin</span>
                         </a>
                         <ul class="dropdown-menu">
@@ -85,7 +86,6 @@
                     </li>
                 </ul>
             </div>
-
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
@@ -125,7 +125,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>List of Users</a></li>
+                        <li><a href="/admin/account"><i class="fa fa-circle-o"></i>List of Users</a></li>
                     </ul>
                 </li>
                 <li class="treeview @yield('active-product')">
@@ -185,8 +185,10 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @section('content')
-        @show
+        <div class="container-fluid" style="max-width: 70%;">
+            @section('content')
+            @show
+        </div>
     </div>
     <!-- /.content-wrapper -->
 
@@ -219,5 +221,15 @@
 <script src="{{asset('js/master-layout-2-js/jquery.slimscroll.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('js/master-layout-2-js/Chart.js')}}"></script>
+<script src="{{asset('/css/datatables/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('/css/datatables/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('/css/datatables-responsive/dataTables.responsive.js')}}"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>
 </body>
 </html>
