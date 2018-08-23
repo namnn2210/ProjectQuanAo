@@ -36,7 +36,10 @@ Route::get('/', function () {
 });
 
 Route::get('/homepage',function () {
-   return view('layouts.user-master-layout');
+   return view('user.homepage');
 });
+
+Route::get('admin/login', 'AdminLoginController@login');
+Route::post('admin/login', 'AdminLoginController@postLogin');
 
 
