@@ -40,7 +40,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="/" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>F</b>FF</span>
             <!-- logo for regular state and mobile devices -->
@@ -125,7 +125,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>List of Users</a></li>
+                        <li><a href="/admin/account"><i class="fa fa-circle-o"></i>List of Users</a></li>
                     </ul>
                 </li>
                 <li class="treeview @yield('active-product')">
@@ -185,8 +185,10 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @section('content')
-        @show
+        <div class="container-fluid" style="max-width: 70%;">
+            @section('content')
+            @show
+        </div>
     </div>
     <!-- /.content-wrapper -->
 
