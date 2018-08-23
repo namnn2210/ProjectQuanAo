@@ -360,6 +360,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+    </div>
+
+    <!-- Container Selection1 -->
+    <div id="dropDownSelect1"></div>
 </div>
 
 
@@ -373,5 +383,48 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/popper.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/select2.min.js')}}"></script>
+<script type="text/javascript">
+    $(".selection-1").select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $('#dropDownSelect1')
+    });
+</script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/slick.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/slick-custom.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/countdowntime.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/lightbox.min.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/sweetalert.min.js')}}"></script>
+<script type="text/javascript">
+    $('.block2-btn-addcart').each(function(){
+        var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to cart !", "success");
+        });
+    });
+
+    $('.block2-btn-addwishlist').each(function(){
+        var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to wishlist !", "success");
+        });
+    });
+</script>
+
+<!--===============================================================================================-->
+<script src="{{asset('js/master-layout-2-js/main.js')}}"></script>
 </body>
 </html>
