@@ -24,29 +24,11 @@
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/util.css')}}">
 </head>
 <body>
-<div class="wrapper">
+<div class="animsition">
     <!-- Header -->
     <header class="header1">
         <!-- Header desktop -->
         <div class="container-menu-header">
-            <div class="topbar">
-                <div class="topbar-social">
-                    <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                    <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                    <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
-                </div>
-
-                <span class="topbar-child1">
-					Giao hàng miễn phí với đơn hàng trên 2000000VNĐ
-				</span>
-
-                <div class="topbar-child2">
-					<span class="topbar-email">
-						farfetch@gmail.com
-					</span>
-                </div>
-            </div>
-
             <div class="wrap_header">
                 <!-- Logo -->
                 <a href="index.html" class="logo">
@@ -193,9 +175,9 @@
                     </p>
 
                     <div class="flex-m p-t-30">
-                        <a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-                        <a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-                        <a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+                        <a href="https://www.facebook.com/farfetch.asiapac/?brand_redir=88573992939" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                        <a href="https://www.instagram.com/farfetch/" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+                        <a href="https://www.youtube.com/user/farfetchdotcom" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
                     </div>
                 </div>
             </div>
@@ -290,31 +272,31 @@
 
             <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
                 <h4 class="s-text12 p-b-30">
-                    Help
+                    Trợ giúp
                 </h4>
 
                 <ul>
                     <li class="p-b-9">
                         <a href="#" class="s-text7">
-                            Track Order
+                            Theo dõi đơn hàng
                         </a>
                     </li>
 
                     <li class="p-b-9">
                         <a href="#" class="s-text7">
-                            Returns
+                            Đổi trả
                         </a>
                     </li>
 
                     <li class="p-b-9">
                         <a href="#" class="s-text7">
-                            Shipping
+                            Giao hàng
                         </a>
                     </li>
 
                     <li class="p-b-9">
                         <a href="#" class="s-text7">
-                            FAQs
+                            Những câu hỏi thường gặp
                         </a>
                     </li>
                 </ul>
