@@ -23,15 +23,15 @@
             <form id="Register">
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" class="form-control" id="inputUserName" placeholder="">
+                    <input type="text" class="form-control" name="username" id="inputUserName" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="">
+                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="">
+                    <input type="password" class="form-control" name="password" id="inputPassword" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Confirm Password</label>
@@ -39,35 +39,39 @@
                 </div>
                 <div class="form-group">
                     <label>Full Name</label>
-                    <input type="text" class="form-control" id="inputFullname" placeholder="">
+                    <input type="text" class="form-control" name="full_name" id="inputFullname" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" class="form-control" name="address" id="inputAddress" placeholder="">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="date">Date</label>
                     <div class="input-group">
-                        <input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text"/>
+                        <input class="form-control" id="date" name="DOB" placeholder="YYYY/MM/DD" type="text"/>
                     </div>
                 </div>
                 <div class="form-group" style="text-align: left">
                     <label>Gender</label>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked=""> Female
+                            <input type="radio" class="form-check-input" name="gender" id="1" value="option1" checked=""> Female
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2"> Male
+                            <input type="radio" class="form-check-input" name="gender" id="2" value="option2"> Male
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="text" class="form-control" id="inputPhone">
+                    <input type="text" class="form-control" name="phone" id="inputPhone">
                 </div>
                 <div class="finish-register">
                     <button type="submit" class="btn btn-primary">Register</button>
                     <p></p>
-                    <a href='/login'>Already have Account. Login here!</a>
+                    <a href='/login'>Already had account? Login here!</a>
                 </div>
             </form>
         </div>
