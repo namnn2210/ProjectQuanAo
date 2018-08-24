@@ -29,7 +29,7 @@
                 @foreach($obj as $item)
                     <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
                         <td style="text-align: center">
-                            <img src="<?php echo explode("&",$item -> images,-1)[0];?>">
+                            <img src="<?php echo explode("&",$item -> images,-1)[0];?>" style="max-height: 30%">
                         </td>
                         <td style="text-align: center">{{$item -> name}}</td>
                         <td style="text-align: center">{{$item -> category -> name}}</td>

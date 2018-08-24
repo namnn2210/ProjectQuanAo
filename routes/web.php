@@ -36,4 +36,8 @@ Route::get('/homepage',function () {
    return view('layouts.user-master-layout');
 });
 
+Route::get('/product','UserProductController@index');
+Route::post('/product','UserProductController@search');
+
+
 

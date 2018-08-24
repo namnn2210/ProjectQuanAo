@@ -22,6 +22,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/lightbox.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/main.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/util.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/product.css')}}">
+    <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('/js/jquery.paginate.css')}}">
 </head>
 <body>
 <div class="wrapper">
@@ -178,8 +181,12 @@
             </div>
         </div>
     </header>
-    @section('content')
-    @show
+
+    <div id="result">
+        @section('content')
+        @show
+    </div>
+
     <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
         <div class="flex-w p-b-90">
             <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
@@ -360,6 +367,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+    </div>
+
+    <!-- Container Selection -->
+    <div id="dropDownSelect1"></div>
+    <div id="dropDownSelect2"></div>
 </div>
 
 
@@ -373,5 +391,165 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+<script src={{asset("/js/jquery.paginate.js")}}></script>
+<script>
+    $('select[name="sorting"]').change(function (){
+        var url = window.location.href;
+        if(url.indexOf('&ort=asc') != 0 || url.indexOf('&sort=desc') != 0){
+            url = url.replace('&sort=asc','');
+            url = url.replace('&sort=desc','');
+        }
+        window.location.href = url + '&sort=' + $(this).val();
+    });
+</script>
+
+<!--===============================================================================================-->
+<script type="text/javascript" src={{asset("vendor/jquery/jquery-3.2.1.min.js")}}></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset("vendor/animsition/js/animsition.min.js")}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src={{asset("vendor/bootstrap/js/popper.js")}}></script>
+<script type="text/javascript" src={{asset("vendor/bootstrap/js/bootstrap.min.js")}}></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src={{asset("vendor/select2/select2.min.js")}}></script>
+<script type="text/javascript">
+    $(".selection-1").select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $('#dropDownSelect1')
+    });
+
+    $(".selection-2").select2({
+        minimumResultsForSearch: 20,
+    }).on('change', function(){
+        var data = $(".selection-2 option:selected").val();
+        var url = window.location.href;
+        if(url.indexOf('&ort=asc') != 0 || url.indexOf('&sort=desc') != 0){
+            url = url.replace('&sort=asc','');
+            url = url.replace('&sort=desc','');
+        }
+        if(url.indexOf('?categoryId=0') < 0){
+            window.location.href = url + '?categoryId=0' + '&sort=' + data;
+        }
+        else{
+            window.location.href = url + '&sort=' + data;
+        }
+    });
+
+    $(document).ready(function (){
+        var url = window.location.href;
+        if(url.indexOf('&sort=desc') > 0){
+            $('.select2-selection__rendered').attr('title','Price: high to low');
+            $('.select2-selection__rendered').text('Price: high to low');
+        }
+        else if(url.indexOf('&sort=asc') > 0){
+            $('.select2-selection__rendered').attr('title','Price: low to high');
+            $('.select2-selection__rendered').text('Price: low to high');
+        }
+    });
+</script>
+<!--===============================================================================================-->
+<script type="text/javascript" src={{asset("vendor/daterangepicker/moment.min.js")}}></script>
+<script type="text/javascript" src={{asset("vendor/daterangepicker/daterangepicker.js")}}></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src={{asset("vendor/slick/slick.min.js")}}></script>
+<script type="text/javascript" src={{asset("js/slick-custom.js")}}></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src={{asset("vendor/sweetalert/sweetalert.min.js")}}></script>
+<script type="text/javascript">
+    $('.block2-btn-addcart').each(function(){
+        var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to cart !", "success");
+        });
+    });
+
+    $('.block2-btn-addwishlist').each(function(){
+        var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+        $(this).on('click', function(){
+            swal(nameProduct, "is added to wishlist !", "success");
+        });
+    });
+</script>
+
+<!--===============================================================================================-->
+<script type="text/javascript" src={{asset("vendor/noui/nouislider.min.js")}}></script>
+<script type="text/javascript">
+    /*[ No ui ]
+    ===========================================================*/
+    var filterBar = document.getElementById('filter-bar');
+
+    noUiSlider.create(filterBar, {
+        start: [ 50, 20000 ],
+        connect: true,
+        range: {
+            'min': 50,
+            'max': 20000
+        }
+    });
+
+    var skipValues = [
+        document.getElementById('value-lower'),
+        document.getElementById('value-upper')
+    ];
+
+    filterBar.noUiSlider.on('update', function( values, handle ) {
+        skipValues[handle].innerHTML = Math.round(values[handle]);
+    });
+    $('#filter').click(function (){
+        var url = window.location.href;
+        var values = [
+            $('#value-lower').text(),
+            $('#value-upper').text(),
+        ];
+        var value1 = values[0];
+        var value2 = values[1];
+        var lastChar = url.substr(url.length - 1);
+        var mySubString = url.substring(
+            url.lastIndexOf("value1") - 1,
+            url.lastIndexOf(lastChar) + 1
+        );
+        var mySubString2 = url.substring(
+            url.lastIndexOf("value2") + 12,
+            url.lastIndexOf(lastChar) + 1
+        );
+        if(!mySubString2){
+            url = url.replace(mySubString, '');
+        }
+        else{
+            if(url.indexOf('value') > 0){
+                mySubString = url.substring(
+                    url.lastIndexOf("value1") - 1,
+                    url.lastIndexOf('&')
+                );
+                url = url.replace(mySubString, '');
+            }
+            else{
+                url = url;
+            }
+        }
+        if(url.indexOf('?categoryId=0') < 0){
+            window.location.href = url + '?categoryId=0' + '&value1=' + value1 + '&value2=' + value2;
+        }
+        else{
+            window.location.href = url + '&value1=' + value1 + '&value2=' + value2;
+        }
+    })
+</script>
+<script>
+    $('input[name = "name"]').keypress(function (e) {
+        if (e.which == 13){
+            $('form[name = "search-form"]').submit();
+        }
+    });
+</script>
+<script>
+    $(document).on('click' , '.category_filter', function (){
+        $('.card').removeClass('hidden');
+        var filter = $(this).text();
+        $('.category').not(':contains('+ filter +')').closest('.col-sm-12').remove();
+    });
+</script>
+<!--===============================================================================================-->
+<script src={{asset("js/main.js")}}></script>
 </body>
 </html>
