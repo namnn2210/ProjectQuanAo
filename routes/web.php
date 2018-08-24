@@ -41,5 +41,6 @@ Route::get('/homepage',function () {
 
 Route::get('admin/login', 'AdminLoginController@login');
 Route::post('admin/login', 'AdminLoginController@postLogin');
+Route::get('admin/logout', 'AdminLoginController@logout');
 
 
