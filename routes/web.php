@@ -35,6 +35,6 @@ Route::get('/', function () {
    return view('layouts.master');
 });
 
-Route::get('/homepage','HomepageController@showHomepage');
+Route::get('/','HomepageController@showHomepage');
 
 
