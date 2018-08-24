@@ -10,6 +10,7 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('font/font-awesome/css/font-awesome.min.css')}}"/>
     <title>@yield('page-title')</title>
+    <link rel="icon" type="image/png" href="{{asset('img/favicon.ico')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/themify-icons.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/icon-font.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/style.css')}}">
@@ -29,10 +30,28 @@
     <header class="header1">
         <!-- Header desktop -->
         <div class="container-menu-header">
+            <div class="topbar">
+                <div class="topbar-social">
+                    <a href="https://www.facebook.com/farfetch.asiapac/?brand_redir=88573992939" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/farfetch/" class="topbar-social-item fa fa-instagram"></a>
+                    <a href="https://www.youtube.com/user/farfetchdotcom" class="topbar-social-item fa fa-youtube-play"></a>
+                </div>
+
+                <span class="topbar-child1">
+					Giao hàng miễn phí với đơn hàng trên 2000000VNĐ
+				</span>
+
+                <div class="topbar-child2">
+					<span class="topbar-email">
+						farfetch@gmail.com
+					</span>
+                </div>
+            </div>
+
             <div class="wrap_header">
                 <!-- Logo -->
-                <a href="index.html" class="logo">
-                    <img src="{{asset('img/farfetch-logo.png')}}" alt="IMG-LOGO">
+                <a href="/" class="logo">
+                    <img src="{{asset('img/farfetch-logo.png')}}" style="max-height: 60px;" alt="IMG-LOGO">
                 </a>
 
                 <!-- Menu -->
@@ -40,7 +59,7 @@
                     <nav class="menu">
                         <ul class="main_menu">
                             <li>
-                                <a href="#">Trang chủ</a>
+                                <a href="/">Trang chủ</a>
                             </li>
 
                             <li>

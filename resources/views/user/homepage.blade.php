@@ -1,5 +1,5 @@
 @extends('layouts.user-master-layout',['currentPage' => 'homepage'])
-@section('page-title','Homepage')
+@section('page-title','Mens Fashion - Designer Clothing 2018 - Farfetch')
 @section('content')
     <section class="slide1">
         <div class="wrap-slick1">
@@ -105,12 +105,12 @@
                 <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                     <!-- block1 -->
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="{{$ao_somi->image}}" alt="IMG-BENNER">
+                        <img src="{{$giay->image}}" alt="IMG-BENNER">
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
                             <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                Áo sơ mi
+                                Giày
                             </a>
                         </div>
                     </div>
@@ -185,8 +185,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="images/item-02.jpg" alt="IMG-PRODUCT">
-
+                                <img src="<?php echo explode("&",$product_1-> images,-1)[0];?>" alt="IMG-PRODUCT">
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
                                         <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
@@ -204,11 +203,11 @@
 
                             <div class="block2-txt p-t-20">
                                 <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    Herschel supply co 25l
+                                    {{$product_1->name}}
                                 </a>
 
                                 <span class="block2-price m-text6 p-r-5">
-									$75.00
+									{{$product_1->price}}
 								</span>
                             </div>
                         </div>
@@ -218,7 +217,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="images/item-03.jpg" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&",$product_2-> images,-1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -237,11 +236,11 @@
 
                             <div class="block2-txt p-t-20">
                                 <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    Denim jacket blue
+                                    {{$product_2->name}}
                                 </a>
 
                                 <span class="block2-price m-text6 p-r-5">
-									$92.50
+									{{$product_2->price}}
 								</span>
                             </div>
                         </div>
@@ -251,7 +250,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="images/item-05.jpg" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&",$product_3-> images,-1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -270,11 +269,11 @@
 
                             <div class="block2-txt p-t-20">
                                 <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    Coach slim easton black
+                                    {{$product_3->name}}
                                 </a>
 
                                 <span class="block2-price m-text6 p-r-5">
-									$165.90
+									{{$product_3->price}}
 								</span>
                             </div>
                         </div>
@@ -284,7 +283,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                <img src="images/item-07.jpg" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&",$product_4-> images,-1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -303,11 +302,11 @@
 
                             <div class="block2-txt p-t-20">
                                 <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    Frayed denim shorts
+                                    {{$product_4->name}}
                                 </a>
 
                                 <span class="block2-oldprice m-text7 p-r-5">
-									$29.50
+									{{$product_4->price}}
 								</span>
 
                                 <span class="block2-newprice m-text8 p-r-5">
@@ -321,7 +320,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="images/item-02.jpg" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&",$product_5-> images,-1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -340,11 +339,11 @@
 
                             <div class="block2-txt p-t-20">
                                 <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    Herschel supply co 25l
+                                    {{$product_5->name}}
                                 </a>
 
                                 <span class="block2-price m-text6 p-r-5">
-									$75.00
+									{{$product_5->price}}
 								</span>
                             </div>
                         </div>
@@ -354,7 +353,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="images/item-03.jpg" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&",$product_6-> images,-1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -373,11 +372,11 @@
 
                             <div class="block2-txt p-t-20">
                                 <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    Denim jacket blue
+                                    {{$product_6->name}}
                                 </a>
 
                                 <span class="block2-price m-text6 p-r-5">
-									$92.50
+									{{$product_6->price}}
 								</span>
                             </div>
                         </div>
@@ -387,7 +386,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="images/item-05.jpg" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&",$product_7-> images,-1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -406,11 +405,11 @@
 
                             <div class="block2-txt p-t-20">
                                 <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    Coach slim easton black
+                                    {{$product_7->name}}
                                 </a>
 
                                 <span class="block2-price m-text6 p-r-5">
-									$165.90
+									{{$product_7->price}}
 								</span>
                             </div>
                         </div>
@@ -420,7 +419,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                <img src="images/item-07.jpg" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&",$product_8-> images,-1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -439,11 +438,11 @@
 
                             <div class="block2-txt p-t-20">
                                 <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    Frayed denim shorts
+                                    {{$product_8->name}}
                                 </a>
 
                                 <span class="block2-oldprice m-text7 p-r-5">
-									$29.50
+									{{$product_8->price}}
 								</span>
 
                                 <span class="block2-newprice m-text8 p-r-5">
@@ -464,11 +463,11 @@
             <div class="row">
                 <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
                     <div class="hov-img-zoom pos-relative">
-                        <img src="images/banner-08.jpg" alt="IMG-BANNER">
+                        <img src="{{asset('img/lookbook.jpg')}}" alt="IMG-BANNER">
 
                         <div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
 							<span class="m-text9 p-t-45 fs-20-sm">
-								The Beauty
+								The Style
 							</span>
 
                             <h3 class="l-text1 fs-35-sm">
@@ -484,16 +483,16 @@
 
                 <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
                     <div class="bgwhite hov-img-zoom pos-relative p-b-20per-ssm">
-                        <img src="images/shop-item-09.jpg" alt="IMG-BANNER">
+                        <img src="<?php echo explode("&",$product_9-> images,-1)[0];?>" alt="IMG-BANNER">
 
                         <div class="ab-t-l sizefull flex-col-c-b p-l-15 p-r-15 p-b-20">
                             <div class="t-center">
                                 <a href="product-detail.html" class="dis-block s-text3 p-b-5">
-                                    Gafas sol Hawkers one
+                                    {{$product_9->name}}
                                 </a>
 
                                 <span class="block2-oldprice m-text7 p-r-5">
-									$29.50
+									{{$product_9->price}}
 								</span>
 
                                 <span class="block2-newprice m-text8">
