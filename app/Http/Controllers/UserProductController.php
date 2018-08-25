@@ -20,28 +20,13 @@ class UserProductController
     {
         $obj_category = Category::where('status', 1)->get();
         $chosen_category = 0;
-        $obj = Product::where('status', 1)->paginate(6);
+        $obj = Product::where('status', 1)->get();
         if (Input::has('categoryId') && Input::get('categoryId') != 0 ){
             $chosen_category = Input::get('categoryId');
-            $obj = Product::where('category_id', $chosen_category)->paginate(6);
-            if(Input::has('sort') && Input::has('value1') && Input::has('value2')){
-                $obj = Product::where('category_id', $chosen_category) -> whereBetween('price' , [Input::get('value1'), Input::get('value2')]) -> orderBy('price', Input::get('sort'))->paginate(6);
-            }
-            else if(Input::has('value1') && Input::has('value2')){
-                $obj = Product::where('category_id', $chosen_category) -> whereBetween('price' , [Input::get('value1'), Input::get('value2')]) -> paginate(6);
-            }
-            else if(Input::has('sort')){
-                $obj = Product::where('category_id', $chosen_category) -> orderBy('price', Input::get('sort'))->paginate(6);
-            }
+            $obj = Product::where('category_id', $chosen_category)->get();
         }
-        else if (Input::get('categoryId') == 0 && Input::has('sort') && Input::has('value1') && Input::has('value2')){
-            $obj = Product::where('status', 1)->  whereBetween('price' , [Input::get('value1'), Input::get('value2')]) -> orderBy('price', Input::get('sort'))->paginate(6);
-        }
-        else if (Input::get('categoryId') == 0 && Input::has('sort')){
-            $obj = Product::where('status', 1)->orderBy('price', Input::get('sort'))->paginate(6);
-        }
-        else if (Input::get('categoryId') == 0 && Input::has('value1') && Input::has('value2')){
-            $obj = Product::where('status', 1)-> whereBetween('price' , [Input::get('value1'), Input::get('value2')]) -> paginate(6);
+        else if (Input::get('categoryId') == 0){
+            $obj = Product::where('status', 1)-> get();
         }
         return view('user.products')
             ->with('obj_category',$obj_category)
@@ -50,11 +35,29 @@ class UserProductController
     }
 
     public function search(){
-        $name = Input::get('name');
-        $obj_category = Category::where('status', 1)->get();
-        $obj = Product::where('name', 'LIKE', '%'.$name.'%')->paginate(6);
-        return view('user.products')
-            ->with('obj_category',$obj_category)
-            ->with('obj',$obj);
+        $chosen_category = 0;
+        if(Input::has('search') && Input::get('search') != null  && Input::has('sort') && Input::has('value1') && Input::has('value2')){
+            $search = Input::get('search');
+            $obj = Product::where('name', 'LIKE', '%'.$search.'%')
+                ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
+                ->orderBy('price', Input::get('sort'))
+                ->get();
+        }
+        else{
+            if (Input::has('categoryId') && Input::get('categoryId') != 0 && Input::has('sort') && Input::has('value1') && Input::has('value2')){
+                $chosen_category = Input::get('categoryId');
+                $obj = Product::where('category_id', $chosen_category)
+                    ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
+                    ->orderBy('price', Input::get('sort'))
+                    ->get();
+            }
+            else if (Input::get('categoryId') == 0 && Input::has('sort') && Input::has('value1') && Input::has('value2')){
+                $obj = Product::where('status', 1)
+                    ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
+                    ->orderBy('price', Input::get('sort'))
+                    -> get();
+            }
+        }
+        return response()->json(['obj' => $obj], 200);
     }
 }
