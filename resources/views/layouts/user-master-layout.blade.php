@@ -10,6 +10,7 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('font/font-awesome/css/font-awesome.min.css')}}"/>
     <title>@yield('page-title')</title>
+    <link rel="icon" type="image/png" href="{{asset('img/favicon.ico')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/themify-icons.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/icon-font.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/style.css')}}">
@@ -27,16 +28,16 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/js/jquery.paginate.css')}}">
 </head>
 <body>
-<div class="wrapper">
+<div class="animsition">
     <!-- Header -->
     <header class="header1">
         <!-- Header desktop -->
         <div class="container-menu-header">
             <div class="topbar">
                 <div class="topbar-social">
-                    <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                    <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                    <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+                    <a href="https://www.facebook.com/farfetch.asiapac/?brand_redir=88573992939" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/farfetch/" class="topbar-social-item fa fa-instagram"></a>
+                    <a href="https://www.youtube.com/user/farfetchdotcom" class="topbar-social-item fa fa-youtube-play"></a>
                 </div>
 
                 <span class="topbar-child1">
@@ -52,8 +53,8 @@
 
             <div class="wrap_header">
                 <!-- Logo -->
-                <a href="index.html" class="logo">
-                    <img src="{{asset('img/farfetch-logo.png')}}" alt="IMG-LOGO">
+                <a href="/" class="logo">
+                    <img src="{{asset('img/farfetch-logo.png')}}" style="max-height: 60px;" alt="IMG-LOGO">
                 </a>
 
                 <!-- Menu -->
@@ -61,7 +62,7 @@
                     <nav class="menu">
                         <ul class="main_menu">
                             <li>
-                                <a href="#">Trang chủ</a>
+                                <a href="/">Trang chủ</a>
                             </li>
 
                             <li>
@@ -200,9 +201,9 @@
                     </p>
 
                     <div class="flex-m p-t-30">
-                        <a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-                        <a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-                        <a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+                        <a href="https://www.facebook.com/farfetch.asiapac/?brand_redir=88573992939" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                        <a href="https://www.instagram.com/farfetch/" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+                        <a href="https://www.youtube.com/user/farfetchdotcom" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
                     </div>
                 </div>
             </div>
@@ -297,31 +298,31 @@
 
             <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
                 <h4 class="s-text12 p-b-30">
-                    Help
+                    Trợ giúp
                 </h4>
 
                 <ul>
                     <li class="p-b-9">
                         <a href="#" class="s-text7">
-                            Track Order
+                            Theo dõi đơn hàng
                         </a>
                     </li>
 
                     <li class="p-b-9">
                         <a href="#" class="s-text7">
-                            Returns
+                            Đổi trả
                         </a>
                     </li>
 
                     <li class="p-b-9">
                         <a href="#" class="s-text7">
-                            Shipping
+                            Giao hàng
                         </a>
                     </li>
 
                     <li class="p-b-9">
                         <a href="#" class="s-text7">
-                            FAQs
+                            Những câu hỏi thường gặp
                         </a>
                     </li>
                 </ul>
@@ -391,6 +392,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
 <script src={{asset("/js/jquery.paginate.js")}}></script>
 <script>
     $('select[name="sorting"]').change(function (){
@@ -412,11 +414,24 @@
 <script type="text/javascript" src={{asset("vendor/bootstrap/js/bootstrap.min.js")}}></script>
 <!--===============================================================================================-->
 <script type="text/javascript" src={{asset("vendor/select2/select2.min.js")}}></script>
+
+
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/popper.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/select2.min.js')}}"></script>
+
 <script type="text/javascript">
     $(".selection-1").select2({
         minimumResultsForSearch: 20,
         dropdownParent: $('#dropDownSelect1')
     });
+
 
     $(".selection-2").select2({
         minimumResultsForSearch: 20,
@@ -455,6 +470,18 @@
 <script type="text/javascript" src={{asset("js/slick-custom.js")}}></script>
 <!--===============================================================================================-->
 <script type="text/javascript" src={{asset("vendor/sweetalert/sweetalert.min.js")}}></script>
+
+</script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/slick.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/slick-custom.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/countdowntime.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/lightbox.min.js')}}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="{{asset('js/master-layout-2-js/sweetalert.min.js')}}"></script>
+
 <script type="text/javascript">
     $('.block2-btn-addcart').each(function(){
         var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
@@ -472,6 +499,7 @@
 </script>
 
 <!--===============================================================================================-->
+
 <script type="text/javascript" src={{asset("vendor/noui/nouislider.min.js")}}></script>
 <script type="text/javascript">
     /*[ No ui ]
@@ -551,5 +579,8 @@
 </script>
 <!--===============================================================================================-->
 <script src={{asset("js/main.js")}}></script>
+
+<script src="{{asset('js/master-layout-2-js/main.js')}}"></script>
+
 </body>
 </html>
