@@ -459,8 +459,9 @@
         connect: true,
         range: {
             'min': 50,
-            'max': 20000
-        }
+            'max': 10000
+        },
+        step: 100,
     });
 
     var skipValues = [
