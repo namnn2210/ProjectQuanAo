@@ -10,9 +10,14 @@ $(".selection-2").select2({
     filter();
 });
 
-$('#filter').click(function (){
+filterBar.noUiSlider.on('update', function( values, handle ) {
+    skipValues[handle].innerHTML = Math.round(values[handle]);
+});
+
+filterBar.noUiSlider.on('set', function( values, handle ) {
     filter();
 });
+
 
 $('input[name = "name"]').keypress(function (e) {
     if (e.which == 13){

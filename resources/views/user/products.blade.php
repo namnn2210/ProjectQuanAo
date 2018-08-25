@@ -58,9 +58,7 @@
                             <div class="flex-sb-m flex-w p-t-16">
                                 <div class="w-size11">
                                     <!-- Button -->
-                                    <button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4" id="filter">
-                                        Filter
-                                    </button>
+
                                 </div>
 
                                 <div class="s-text3 p-t-10 p-b-10">
