@@ -37,4 +37,8 @@ Route::get('/', function () {
 
 Route::get('/','HomepageController@showHomepage');
 
+Route::get('/product','UserProductController@index');
+Route::post('/product','UserProductController@search');
+
+
 

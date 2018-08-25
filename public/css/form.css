@@ -39,6 +39,8 @@
     display: inline-block;
     font-size: 0;
     height: auto;
+    width: 30%;
+    margin-left: 5px;
 }
 .preview_images img{
     max-height: 30%;

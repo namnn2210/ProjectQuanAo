@@ -14,7 +14,6 @@ class ProductsTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('products')->insert([
             [
                 'name' => 'Áo Khoác Balmain',
-
                 'description' => 'Áo khoác dạ phối da lộn',
                 'category_id' => '1',
                 'collection_id' => '2',
@@ -400,7 +399,6 @@ class ProductsTableSeeder extends Seeder
                 'brand_id' => '1',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689940/Fashion/Vest/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.23.46.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689941/Fashion/Vest/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.23.39.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689940/Fashion/Vest/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.23.49.png&',
             ],
-
         ]);
     }
 }
