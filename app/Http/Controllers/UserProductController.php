@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 
@@ -20,13 +21,25 @@ class UserProductController
     {
         $obj_category = Category::where('status', 1)->get();
         $chosen_category = 0;
-        $obj = Product::where('status', 1)->get();
+        $obj = Product::where('status', 1)
+            ->orderBy('updated_at', 'desc')
+            ->orderBy('discount', 'desc')
+            ->orderBy(DB::raw("`price` - (`price` * `discount` / 100)"), 'asc')
+            -> get();
         if (Input::has('categoryId') && Input::get('categoryId') != 0 ){
             $chosen_category = Input::get('categoryId');
-            $obj = Product::where('category_id', $chosen_category)->get();
+            $obj = Product::where('category_id', $chosen_category)
+                ->orderBy('updated_at', 'desc')
+                ->orderBy('discount', 'desc')
+                ->orderBy(DB::raw("`price` - (`price` * `discount` / 100)"), 'asc')
+                -> get();
         }
         else if (Input::get('categoryId') == 0){
-            $obj = Product::where('status', 1)-> get();
+            $obj = Product::where('status', 1)
+                ->orderBy('updated_at', 'desc')
+                ->orderBy('discount', 'desc')
+                ->orderBy(DB::raw("`price` - (`price` * `discount` / 100)"), 'asc')
+                -> get();
         }
         return view('user.products')
             ->with('obj_category',$obj_category)
@@ -41,13 +54,18 @@ class UserProductController
             if(Input::get('sort') == 'none'){
                 $obj = Product::where('name', 'LIKE', '%'.$search.'%')
                     ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
-                    ->get();
+                    ->orderBy('updated_at', 'desc')
+                    ->orderBy('discount', 'desc')
+                    ->orderBy(DB::raw("`price` - (`price` * `discount` / 100)"), 'asc')
+                    -> get();
             }
             else{
                 $obj = Product::where('name', 'LIKE', '%'.$search.'%')
                     ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
-                    ->orderBy('price', Input::get('sort'))
-                    ->get();
+                    ->orderBy('updated_at', 'desc')
+                    ->orderBy('discount', 'desc')
+                    ->orderBy(DB::raw("`price` - (`price` * `discount` / 100)"), 'asc')
+                    -> get();
             }
         }
         else{
@@ -56,13 +74,18 @@ class UserProductController
                 if(Input::get('sort') == 'none'){
                     $obj = Product::where('category_id', $chosen_category)
                         ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
-                        ->get();
+                        ->orderBy('updated_at', 'desc')
+                        ->orderBy('discount', 'desc')
+                        ->orderBy(DB::raw("`price` - (`price` * `discount` / 100)"), 'asc')
+                        -> get();
                 }
                 else{
                     $obj = Product::where('category_id', $chosen_category)
                         ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
-                        ->orderBy('price', Input::get('sort'))
-                        ->get();
+                        ->orderBy('updated_at', 'desc')
+                        ->orderBy('discount', 'desc')
+                        ->orderBy(DB::raw("`price` - (`price` * `discount` / 100)"), 'asc')
+                        -> get();
                 }
             }
             else if (Input::get('categoryId') == 0 && Input::has('sort') && Input::has('value1') && Input::has('value2')){
@@ -70,12 +93,17 @@ class UserProductController
                 if(Input::get('sort') == 'none'){
                     $obj = Product::where('status', 1)
                         ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
+                        ->orderBy('updated_at', 'desc')
+                        ->orderBy('discount', 'desc')
+                        ->orderBy(DB::raw("`price` - (`price` * `discount` / 100)"), 'asc')
                         -> get();
                 }
                 else{
                     $obj = Product::where('status', 1)
                         ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
-                        ->orderBy('price', Input::get('sort'))
+                        ->orderBy('updated_at', 'desc')
+                        ->orderBy('discount', 'desc')
+                        ->orderBy(DB::raw("`price` - (`price` * `discount` / 100)"), 'asc')
                         -> get();
                 }
             }

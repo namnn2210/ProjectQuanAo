@@ -97,8 +97,19 @@
                             <div class="col-sm-12 col-md-6 col-lg-4 p-b-50 row-item" id="row-item-{{$item->id}}">
                                 <!-- Block2 -->
                                 <div class="block2">
-                                    <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                        <img src="<?php echo explode("&", $item->images, -1)[0];?>">
+                                    <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                            <?php
+                                                if($item -> BlockStyle == 'both'){
+                                                    echo '<span class="block2-labelsale text-danger">'. '-' . $item -> discount . '%' . '</span>' . '<span class="block2-labelnew"></span>';
+                                                }
+                                                else if($item -> BlockStyle == 'new'){
+                                                    echo '<span class="block2-labelnew"></span>';
+                                                }
+                                                else if($item -> BlockStyle == 'sale'){
+                                                    echo '<span class="block2-labelsale">' . '-' . $item -> discount . '%' . '</span>';
+                                                }
+                                            ?>
+                                        <img src="<?php echo explode("&",$item -> images,-1)[0];?>">
 
                                         <div class="block2-overlay trans-0-4">
                                             <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -119,10 +130,12 @@
                                         <a href="/product/{{$item->id}}" class="block2-name dis-block s-text3 p-b-5 btn-show-item">
                                             {{$item -> name}}
                                         </a>
-
                                         <span class="block2-price m-text6 p-r-5">
-										{{number_format($item -> price)}} VNĐ
-									</span>
+										    {{$item -> DiscountPrice}}
+									    </span>
+                                        <span class="block2-oldprice m-text7 p-r-5">
+										    {{$item -> OriginalPrice}}
+									    </span>
                                     </div>
                                 </div>
                             </div>
