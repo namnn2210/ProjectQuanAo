@@ -38,6 +38,8 @@
             defaultFormat: defaults.defaultFormat,
             scalePercentBy100: defaults.scalePercentBy100
         };
+
+
     /************************************
         Constructors
     ************************************/

@@ -67,6 +67,16 @@
 
                             <li>
                                 <a href="#">Cửa hàng</a>
+                                <ul class="sub_menu">
+                                    <li><a href="#">Áo khoác</a></li>
+                                    <li><a href="#">Áo phông</a></li>
+                                    <li><a href="#">Áo sơ mi</a></li>
+                                    <li><a href="#">Balo</a></li>
+                                    <li><a href="#">Giày</a></li>
+                                    <li><a href="#">Phụ kiện</a></li>
+                                    <li><a href="#">Quần</a></li>
+                                    <li><a href="#">Vest</a></li>
+                                </ul>
                             </li>
 
                             <li class="sale-noti">
@@ -393,6 +403,7 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src={{asset("/js/numeral.js")}}></script>
 
 <!--===============================================================================================-->
 <script type="text/javascript" src={{asset("vendor/jquery/jquery-3.2.1.min.js")}}></script>
@@ -453,14 +464,13 @@
     /*[ No ui ]
     ===========================================================*/
     var filterBar = document.getElementById('filter-bar');
-    var x = 1;
 
     noUiSlider.create(filterBar, {
-        start: [ 50, 20000 ],
+        start: [ 50000, 5000000 ],
         connect: true,
         range: {
-            'min': 50,
-            'max': 10000
+            'min': 50000,
+            'max': 5000000
         },
         step: 100,
     });
