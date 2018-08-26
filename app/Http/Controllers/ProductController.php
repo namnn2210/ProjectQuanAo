@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $obj = Product::all();
+        $obj = Product::all()->where('status','=',1);
         $obj_category = Category::all();
         $obj_brand = Brand::all();
         return view('admin.product.list')
@@ -170,6 +170,7 @@ class ProductController extends Controller
         if($obj==null) {
             return view('404');
         }
-        $obj->delete();
+        $obj->status = 0;
+        $obj->save();
     }
 }

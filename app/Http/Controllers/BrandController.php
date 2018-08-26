@@ -17,7 +17,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $obj = Brand::all();
+        $obj = Brand::all()->where('status','=',1);
         return view('admin.brand.list')
             -> with('obj',$obj);
     }
@@ -110,7 +110,8 @@ class BrandController extends Controller
     public function destroy($id)
     {
         $obj = Brand::find($id);
-        $obj->delete();
+        $obj->status = 0;
+        $obj->save();
         return redirect('/admin/brand/list');
     }
 }
