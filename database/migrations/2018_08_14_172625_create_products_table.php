@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->double('price');
+            $table->double('discount')->default(0);
             $table->unsignedInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands');
             $table->text('images');
