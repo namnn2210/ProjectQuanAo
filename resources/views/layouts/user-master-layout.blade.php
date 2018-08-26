@@ -64,6 +64,16 @@
 
                             <li>
                                 <a href="#">Cửa hàng</a>
+                                <ul class="sub_menu">
+                                    <li><a href="#">Áo khoác</a></li>
+                                    <li><a href="#">Áo phông</a></li>
+                                    <li><a href="#">Áo sơ mi</a></li>
+                                    <li><a href="#">Balo</a></li>
+                                    <li><a href="#">Giày</a></li>
+                                    <li><a href="#">Phụ kiện</a></li>
+                                    <li><a href="#">Quần</a></li>
+                                    <li><a href="#">Vest</a></li>
+                                </ul>
                             </li>
 
                             <li class="sale-noti">
