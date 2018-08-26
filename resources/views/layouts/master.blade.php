@@ -65,7 +65,7 @@
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="http://localhost:8000/img/icon-user-160x160.png" class="img-circle" alt="User Image">
 
                                 <p>
                                     Admin - Web Administration
