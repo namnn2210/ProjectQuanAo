@@ -36,6 +36,7 @@ class UserProductController
 
     public function search(){
         $chosen_category = 0;
+        $a = 0;
         if(Input::has('search') && Input::get('search') != null  && Input::has('sort') && Input::has('value1') && Input::has('value2')){
             $search = Input::get('search');
             $obj = Product::where('name', 'LIKE', '%'.$search.'%')

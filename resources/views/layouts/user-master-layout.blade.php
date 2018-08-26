@@ -453,6 +453,7 @@
     /*[ No ui ]
     ===========================================================*/
     var filterBar = document.getElementById('filter-bar');
+    var x = 1;
 
     noUiSlider.create(filterBar, {
         start: [ 50, 20000 ],

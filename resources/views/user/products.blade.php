@@ -129,7 +129,7 @@
                     </div>
                     <a class="load-more" href="#" id="loadMore">Load More</a>
 
-                    <p class="totop">
+                    <p class="totop cat">
                         <a href="#top">Back to top</a>
                     </p>
                     </div>
