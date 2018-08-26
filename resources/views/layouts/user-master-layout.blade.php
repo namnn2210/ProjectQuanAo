@@ -392,18 +392,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-
-<script src={{asset("/js/jquery.paginate.js")}}></script>
-<script>
-    $('select[name="sorting"]').change(function (){
-        var url = window.location.href;
-        if(url.indexOf('&ort=asc') != 0 || url.indexOf('&sort=desc') != 0){
-            url = url.replace('&sort=asc','');
-            url = url.replace('&sort=desc','');
-        }
-        window.location.href = url + '&sort=' + $(this).val();
-    });
-</script>
+<script src="//code.jquery.com/jquery.min.js"></script>
 
 <!--===============================================================================================-->
 <script type="text/javascript" src={{asset("vendor/jquery/jquery-3.2.1.min.js")}}></script>
@@ -415,52 +404,12 @@
 <!--===============================================================================================-->
 <script type="text/javascript" src={{asset("vendor/select2/select2.min.js")}}></script>
 
-
-<!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/master-layout-2-js/jquery-3.2.1.min.js')}}"></script>
-<!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/master-layout-2-js/animsition.min.js')}}"></script>
-<!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/master-layout-2-js/popper.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/master-layout-2-js/bootstrap.min.js')}}"></script>
-<!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('js/master-layout-2-js/select2.min.js')}}"></script>
-
 <script type="text/javascript">
     $(".selection-1").select2({
         minimumResultsForSearch: 20,
         dropdownParent: $('#dropDownSelect1')
     });
 
-
-    $(".selection-2").select2({
-        minimumResultsForSearch: 20,
-    }).on('change', function(){
-        var data = $(".selection-2 option:selected").val();
-        var url = window.location.href;
-        if(url.indexOf('&ort=asc') != 0 || url.indexOf('&sort=desc') != 0){
-            url = url.replace('&sort=asc','');
-            url = url.replace('&sort=desc','');
-        }
-        if(url.indexOf('?categoryId=0') < 0){
-            window.location.href = url + '?categoryId=0' + '&sort=' + data;
-        }
-        else{
-            window.location.href = url + '&sort=' + data;
-        }
-    });
-
-    $(document).ready(function (){
-        var url = window.location.href;
-        if(url.indexOf('&sort=desc') > 0){
-            $('.select2-selection__rendered').attr('title','Price: high to low');
-            $('.select2-selection__rendered').text('Price: high to low');
-        }
-        else if(url.indexOf('&sort=asc') > 0){
-            $('.select2-selection__rendered').attr('title','Price: low to high');
-            $('.select2-selection__rendered').text('Price: low to high');
-        }
-    });
 </script>
 <!--===============================================================================================-->
 <script type="text/javascript" src={{asset("vendor/daterangepicker/moment.min.js")}}></script>
@@ -471,7 +420,6 @@
 <!--===============================================================================================-->
 <script type="text/javascript" src={{asset("vendor/sweetalert/sweetalert.min.js")}}></script>
 
-</script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('js/master-layout-2-js/slick.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/master-layout-2-js/slick-custom.js')}}"></script>
@@ -511,8 +459,9 @@
         connect: true,
         range: {
             'min': 50,
-            'max': 20000
-        }
+            'max': 10000
+        },
+        step: 100,
     });
 
     var skipValues = [
@@ -523,46 +472,8 @@
     filterBar.noUiSlider.on('update', function( values, handle ) {
         skipValues[handle].innerHTML = Math.round(values[handle]);
     });
-    $('#filter').click(function (){
-        var url = window.location.href;
-        var values = [
-            $('#value-lower').text(),
-            $('#value-upper').text(),
-        ];
-        var value1 = values[0];
-        var value2 = values[1];
-        var lastChar = url.substr(url.length - 1);
-        var mySubString = url.substring(
-            url.lastIndexOf("value1") - 1,
-            url.lastIndexOf(lastChar) + 1
-        );
-        var mySubString2 = url.substring(
-            url.lastIndexOf("value2") + 12,
-            url.lastIndexOf(lastChar) + 1
-        );
-        if(!mySubString2){
-            url = url.replace(mySubString, '');
-        }
-        else{
-            if(url.indexOf('value') > 0){
-                mySubString = url.substring(
-                    url.lastIndexOf("value1") - 1,
-                    url.lastIndexOf('&')
-                );
-                url = url.replace(mySubString, '');
-            }
-            else{
-                url = url;
-            }
-        }
-        if(url.indexOf('?categoryId=0') < 0){
-            window.location.href = url + '?categoryId=0' + '&value1=' + value1 + '&value2=' + value2;
-        }
-        else{
-            window.location.href = url + '&value1=' + value1 + '&value2=' + value2;
-        }
-    })
 </script>
+
 <script>
     $('input[name = "name"]').keypress(function (e) {
         if (e.which == 13){
@@ -570,17 +481,10 @@
         }
     });
 </script>
-<script>
-    $(document).on('click' , '.category_filter', function (){
-        $('.card').removeClass('hidden');
-        var filter = $(this).text();
-        $('.category').not(':contains('+ filter +')').closest('.col-sm-12').remove();
-    });
-</script>
 <!--===============================================================================================-->
-<script src={{asset("js/main.js")}}></script>
-
 <script src="{{asset('js/master-layout-2-js/main.js')}}"></script>
+<script src={{asset("/js/jquery.paginate.js")}}></script>
+<script src="{{asset('/js/product.js')}}"></script>
 
 </body>
 </html>
