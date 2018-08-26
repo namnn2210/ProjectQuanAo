@@ -14,7 +14,15 @@ class Product extends Model
         return $this->belongsTo('App\Brand','brand_id');
     }
 
-    public function getDiscountPriceAttribute()
+    public function getDiscountPriceWithFormatAttribute()
+    {
+        if ($this->discount == 0) {
+            return sprintf('%s', number_format($this->price, 0));
+        }
+        return sprintf('%s', number_format(($this->price - ($this->price * $this->discount / 100)), 0));
+    }
+
+    public function getDiscountPriceStringAttribute()
     {
         if ($this->discount == 0) {
             return sprintf('%s VNĐ', number_format($this->price, 0));
@@ -22,7 +30,7 @@ class Product extends Model
         return sprintf('%s VNĐ', number_format(($this->price - ($this->price * $this->discount / 100)), 0));
     }
 
-    public function getOriginalPriceAttribute()
+    public function getOriginalPriceStringAttribute()
     {
         if ($this->discount == 0) {
             return '';
@@ -30,9 +38,9 @@ class Product extends Model
         return sprintf('%s VNĐ', number_format($this->price, 0));
     }
 
-    public function isNew()
+    public function getDiscountPriceAttribute()
     {
-        return time() - (60 * 60 * 24 * 7) < strtotime($this->created_at);
+        return $this->price - ($this->price * $this->discount / 100);
     }
 
     public function isDiscount()

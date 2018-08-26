@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $obj = Category::all();
+        $obj = Category::all()->where('status', '=', 1);
         return view('admin.category.list')
             -> with('obj',$obj);
     }
@@ -143,7 +143,8 @@ class CategoryController extends Controller
         if($obj==null) {
             return view('404');
         }
-        $obj->delete();
+        $obj->status = 0;
+        $obj->save();
         return redirect('/admin/category/list');
     }
 }

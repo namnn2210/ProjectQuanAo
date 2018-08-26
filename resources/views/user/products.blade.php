@@ -7,11 +7,11 @@
             <li class="breadcrumb-item"><a href="#">Product</a></li>
             <li class="breadcrumb-item active" aria-current="page">
                 <?php
-                    foreach ($obj_category as $item){
-                        if($item -> id == $chosen_category){
-                            echo $item->name;
-                        }
+                foreach ($obj_category as $item) {
+                    if ($item->id == $chosen_category) {
+                        echo $item->name;
                     }
+                }
                 ?>
             </li>
         </ol>
@@ -68,7 +68,8 @@
                         </div>
 
                         <div class="search-product pos-relative bo4 of-hidden">
-                            <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="name" placeholder="Search Products...">
+                            <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="name"
+                                   placeholder="Search Products...">
                             <button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4 btn-search">
                                 <i class="fs-12 fa fa-search" aria-hidden="true"></i>
                             </button>
@@ -93,7 +94,7 @@
                     <!-- Product -->
                     <div class="row" id="example">
                         @foreach($obj as $item)
-                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50 row-item">
+                            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50 row-item" id="row-item-{{$item->id}}">
                                 <!-- Block2 -->
                                 <div class="block2">
                                     <div class="block2-img wrap-pic-w of-hidden pos-relative">
@@ -125,8 +126,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="block2-txt p-t-20">
-                                        <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                    <div class="block2-txt p-t-20 btn-show-item">
+                                        <a href="/product/{{$item->id}}" class="block2-name dis-block s-text3 p-b-5 btn-show-item">
                                             {{$item -> name}}
                                         </a>
                                         <span class="block2-price m-text6 p-r-5">
@@ -145,7 +146,6 @@
                     <p class="totop">
                         <a href="#top">Back to top</a>
                     </p>
-                    </div>
                 </div>
             </div>
         </div>

@@ -185,7 +185,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="<?php echo explode("&",$product_1-> images,-1)[0];?>" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&", $product_1->images, -1)[0];?>" alt="IMG-PRODUCT">
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
                                         <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
@@ -206,8 +206,12 @@
                                     {{$product_1->name}}
                                 </a>
 
-                                <span class="block2-price m-text6 p-r-5">
-									{{$product_1->price}}
+                                <span class="block2-newprice m-text8 p-r-5">
+									{{$product_1->discountPriceString}}
+								</span>
+
+                                <span class="block2-oldprice m-text7 p-r-5">
+									{{$product_1->originalPriceString}}
 								</span>
                             </div>
                         </div>
@@ -217,7 +221,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="<?php echo explode("&",$product_2-> images,-1)[0];?>" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&", $product_2->images, -1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -239,8 +243,12 @@
                                     {{$product_2->name}}
                                 </a>
 
-                                <span class="block2-price m-text6 p-r-5">
-									{{$product_2->price}}
+                                <span class="block2-newprice m-text8 p-r-5">
+									{{$product_2->discountPriceString}}
+								</span>
+
+                                <span class="block2-oldprice m-text7 p-r-5">
+									{{$product_2->originalPriceString}}
 								</span>
                             </div>
                         </div>
@@ -250,7 +258,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="<?php echo explode("&",$product_3-> images,-1)[0];?>" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&", $product_3->images, -1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -273,7 +281,7 @@
                                 </a>
 
                                 <span class="block2-price m-text6 p-r-5">
-									{{$product_3->price}}
+									{{$product_3->discountPriceString}}
 								</span>
                             </div>
                         </div>
@@ -283,7 +291,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                <img src="<?php echo explode("&",$product_4-> images,-1)[0];?>" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&", $product_4->images, -1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -305,12 +313,8 @@
                                     {{$product_4->name}}
                                 </a>
 
-                                <span class="block2-oldprice m-text7 p-r-5">
-									{{$product_4->price}}
-								</span>
-
-                                <span class="block2-newprice m-text8 p-r-5">
-									$15.90
+                                <span class="block2-price m-text6 p-r-5">
+									{{$product_4->discountPriceString}}
 								</span>
                             </div>
                         </div>
@@ -320,7 +324,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="<?php echo explode("&",$product_5-> images,-1)[0];?>" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&", $product_5->images, -1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -343,7 +347,7 @@
                                 </a>
 
                                 <span class="block2-price m-text6 p-r-5">
-									{{$product_5->price}}
+									{{$product_5->discountPriceString}}
 								</span>
                             </div>
                         </div>
@@ -353,7 +357,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="<?php echo explode("&",$product_6-> images,-1)[0];?>" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&", $product_6->images, -1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -375,8 +379,12 @@
                                     {{$product_6->name}}
                                 </a>
 
-                                <span class="block2-price m-text6 p-r-5">
-									{{$product_6->price}}
+                                <span class="block2-newprice m-text8 p-r-5">
+									{{$product_6->discountPriceString}}
+								</span>
+
+                                <span class="block2-oldprice m-text7 p-r-5">
+									{{$product_6->originalPriceString}}
 								</span>
                             </div>
                         </div>
@@ -386,7 +394,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="<?php echo explode("&",$product_7-> images,-1)[0];?>" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&", $product_7->images, -1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -409,7 +417,7 @@
                                 </a>
 
                                 <span class="block2-price m-text6 p-r-5">
-									{{$product_7->price}}
+									{{$product_7->discountPriceString}}
 								</span>
                             </div>
                         </div>
@@ -419,7 +427,7 @@
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                <img src="<?php echo explode("&",$product_8-> images,-1)[0];?>" alt="IMG-PRODUCT">
+                                <img src="<?php echo explode("&", $product_8->images, -1)[0];?>" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
                                     <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -441,12 +449,8 @@
                                     {{$product_8->name}}
                                 </a>
 
-                                <span class="block2-oldprice m-text7 p-r-5">
-									{{$product_8->price}}
-								</span>
-
-                                <span class="block2-newprice m-text8 p-r-5">
-									$15.90
+                                <span class="block2-price m-text6 p-r-5">
+									{{$product_8->discountPriceString}}
 								</span>
                             </div>
                         </div>
@@ -473,7 +477,6 @@
                             <h3 class="l-text1 fs-35-sm">
                                 Lookbook
                             </h3>
-
                             <a href="#" class="s-text4 hov2 p-t-20 ">
                                 View Collection
                             </a>
@@ -481,69 +484,6 @@
                     </div>
                 </div>
 
-                <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
-                    <div class="bgwhite hov-img-zoom pos-relative p-b-20per-ssm">
-                        <img src="<?php echo explode("&",$product_9-> images,-1)[0];?>" alt="IMG-BANNER">
-
-                        <div class="ab-t-l sizefull flex-col-c-b p-l-15 p-r-15 p-b-20">
-                            <div class="t-center">
-                                <a href="product-detail.html" class="dis-block s-text3 p-b-5">
-                                    {{$product_9->name}}
-                                </a>
-
-                                <span class="block2-oldprice m-text7 p-r-5">
-									{{$product_9->price}}
-								</span>
-
-                                <span class="block2-newprice m-text8">
-									$15.90
-								</span>
-                            </div>
-
-                            <div class="flex-c-m p-t-44 p-t-30-xl">
-                                <div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-									<span class="m-text10 p-b-1 days">
-										69
-									</span>
-
-                                    <span class="s-text5">
-										days
-									</span>
-                                </div>
-
-                                <div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-									<span class="m-text10 p-b-1 hours">
-										04
-									</span>
-
-                                    <span class="s-text5">
-										hrs
-									</span>
-                                </div>
-
-                                <div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-									<span class="m-text10 p-b-1 minutes">
-										32
-									</span>
-
-                                    <span class="s-text5">
-										mins
-									</span>
-                                </div>
-
-                                <div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-									<span class="m-text10 p-b-1 seconds">
-										05
-									</span>
-
-                                    <span class="s-text5">
-										secs
-									</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
