@@ -50,8 +50,12 @@ function filter() {
             var new_content = '';
             var new_items = resp.obj;
             if($.isEmptyObject(new_items)){
-                new_content += '<h1>Không thấy sản phẩm nào</h1>'
+                new_content += '<h2>Không tìm thấy sản phẩm ';
+                new_content += search + ' nào trong khoảng giá từ ';
+                new_content += numeral(value1).format('0,0') + ' đến ' + numeral(value2).format('0,0');
+                new_content += '</h2>';
                 $('#loadMore').addClass('hidden');
+                $('#example').addClass('no-product');
                 $('#example').html(new_content);
             }
             else{
@@ -77,7 +81,7 @@ function filter() {
                     new_content += new_items[i].name;
                     new_content += '</a>';
                     new_content += '<span class="block2-price m-text6 p-r-5">';
-                    new_content += '$' +  new_items[i].price;
+                    new_content +=  numeral(new_items[i].price).format('0,0') + ' ' + 'VNĐ';
                     new_content += '</span>';
                     new_content += '</div>';
                     new_content += '</div>';

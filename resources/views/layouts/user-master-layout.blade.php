@@ -403,6 +403,7 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src={{asset("/js/numeral.js")}}></script>
 
 <!--===============================================================================================-->
 <script type="text/javascript" src={{asset("vendor/jquery/jquery-3.2.1.min.js")}}></script>
@@ -465,11 +466,11 @@
     var filterBar = document.getElementById('filter-bar');
 
     noUiSlider.create(filterBar, {
-        start: [ 50, 20000 ],
+        start: [ 50000, 5000000 ],
         connect: true,
         range: {
-            'min': 50,
-            'max': 10000
+            'min': 50000,
+            'max': 5000000
         },
         step: 100,
     });

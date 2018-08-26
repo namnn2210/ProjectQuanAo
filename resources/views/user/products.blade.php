@@ -61,8 +61,8 @@
 
                                 </div>
 
-                                <div class="s-text3 p-t-10 p-b-10">
-                                    Range: $<span id="value-lower">610</span> - $<span id="value-upper">980</span>
+                                <div class="s-text3 p-t-10 p-b-10" style="margin: auto">
+                                    <span id="value-lower">610</span> VNĐ- <span id="value-upper">980</span> VNĐ
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                                         </a>
 
                                         <span class="block2-price m-text6 p-r-5">
-										${{$item -> price}}
+										{{number_format($item -> price)}} VNĐ
 									</span>
                                     </div>
                                 </div>
