@@ -25,9 +25,9 @@ class Product extends Model
     public function getDiscountPriceStringAttribute()
     {
         if ($this->discount == 0) {
-            return sprintf('%s (vnd)', number_format($this->price, 0));
+            return sprintf('%s VNĐ', number_format($this->price, 0));
         }
-        return sprintf('%s (vnd)', number_format(($this->price - ($this->price * $this->discount / 100)), 0));
+        return sprintf('%s VNĐ', number_format(($this->price - ($this->price * $this->discount / 100)), 0));
     }
 
     public function getOriginalPriceStringAttribute()
@@ -35,11 +35,29 @@ class Product extends Model
         if ($this->discount == 0) {
             return '';
         }
-        return sprintf('%s (vnd)', number_format($this->price, 0));
+        return sprintf('%s VNĐ', number_format($this->price, 0));
     }
 
     public function getDiscountPriceAttribute()
     {
         return $this->price - ($this->price * $this->discount / 100);
+    }
+
+    public function isDiscount()
+    {
+        return $this->discount > 0;
+    }
+
+    public function getBlockStyleAttribute()
+    {
+        if ($this->isNew() && $this->isDiscount()) {
+            return 'both';
+        } else if ($this->isNew()) {
+            return 'new';
+        } else if ($this->isDiscount()) {
+            return 'sale';
+        } else {
+            return '';
+        }
     }
 }
