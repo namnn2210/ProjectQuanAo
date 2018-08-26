@@ -99,13 +99,13 @@
                                     <div class="block2-img wrap-pic-w of-hidden pos-relative">
                                             <?php
                                                 if($item -> BlockStyle == 'both'){
-                                                    echo '<span class="block2-labelsale"></span>' . '<span class="block2-labelnew"></span>';
+                                                    echo '<span class="block2-labelsale text-danger">'. '-' . $item -> discount . '%' . '</span>' . '<span class="block2-labelnew"></span>';
                                                 }
                                                 else if($item -> BlockStyle == 'new'){
                                                     echo '<span class="block2-labelnew"></span>';
                                                 }
                                                 else if($item -> BlockStyle == 'sale'){
-                                                    echo '<span class="block2-labelsale"></span>';
+                                                    echo '<span class="block2-labelsale">' . '-' . $item -> discount . '%' . '</span>';
                                                 }
                                             ?>
                                         <img src="<?php echo explode("&",$item -> images,-1)[0];?>">
@@ -129,10 +129,12 @@
                                         <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
                                             {{$item -> name}}
                                         </a>
-
                                         <span class="block2-price m-text6 p-r-5">
-										{{number_format($item -> price)}} VNĐ
-									</span>
+										    {{$item -> DiscountPrice}}
+									    </span>
+                                        <span class="block2-oldprice m-text7 p-r-5">
+										    {{$item -> OriginalPrice}}
+									    </span>
                                     </div>
                                 </div>
                             </div>

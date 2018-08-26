@@ -63,6 +63,14 @@ function filter() {
                     new_content += '<div class="col-sm-12 col-md-6 col-lg-4 p-b-50 row-item">';
                     new_content += '<div class="block2">';
                     new_content += '<div class="block2-img wrap-pic-w of-hidden pos-relative">';
+                    new_content +=  '<span class="block2-labelsale text-danger">';
+                    new_content +=  '-' + new_items[i].discount + '%';
+                    new_content +=  '</span>';
+                    new_content +=  '<span class="block2-labelnew">';
+                    new_content +=  '<p class="hidden createDate">';
+                    new_content +=  new_items[i].created_at;
+                    new_content +=  '</p>';
+                    new_content +=  '</span>';
                     new_content += '<img src="' + new_items[i].images.split('&')[0] + '">';
                     new_content += '<div class="block2-overlay trans-0-4">';
                     new_content += '<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">';
@@ -80,9 +88,19 @@ function filter() {
                     new_content += '<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">';
                     new_content += new_items[i].name;
                     new_content += '</a>';
-                    new_content += '<span class="block2-price m-text6 p-r-5">';
-                    new_content +=  numeral(new_items[i].price).format('0,0') + ' ' + 'VNĐ';
-                    new_content += '</span>';
+                    if(new_items[i].discount == 0){
+                        new_content += '<span class="block2-price m-text6 p-r-5">';
+                        new_content +=  numeral(new_items[i].price).format('0,0') + ' ' + 'VNĐ';
+                        new_content += '</span>';
+                    }
+                    else{
+                        new_content += '<span class="block2-price m-text6 p-r-5">';
+                        new_content +=  numeral(new_items[i].price - (new_items[i].price * new_items[i].discount / 100)).format('0,0') + ' ' + 'VNĐ';
+                        new_content += '</span>';
+                        new_content += '<span class="block2-oldprice m-text7 p-r-5">';
+                        new_content +=  numeral(new_items[i].price).format('0,0') + ' ' + 'VNĐ';
+                        new_content += '</span>';
+                    }
                     new_content += '</div>';
                     new_content += '</div>';
                     new_content += '</div>';
@@ -94,6 +112,24 @@ function filter() {
                 else{
                     $('#loadMore').removeClass('hidden');
                 }
+                $('.block2-labelsale:contains("-0%")').remove();
+                $('.block2-labelnew').each(function () {
+                    var sqlDateStr = $(this).text();
+                    sqlDateStr = sqlDateStr.replace(/:| /g,"-");
+                    var YMDhms = sqlDateStr.split("-");
+                    var sqlDate = new Date();
+                    sqlDate.setFullYear(parseInt(YMDhms[0]), parseInt(YMDhms[1])-1,
+                        parseInt(YMDhms[2]));
+                    sqlDate.setHours(parseInt(YMDhms[3]), parseInt(YMDhms[4]),
+                        parseInt(YMDhms[5]), 0/*msValue*/);
+                    var current_date = new Date();
+                    var diff = new Date(current_date - sqlDate);
+                    var days  = diff/1000/60/60/24;
+                    if(days > 7){
+                        $(this).remove();
+                    }
+                });
+
                 loadMore();
             }
         },
@@ -123,4 +159,5 @@ $('a[href=#top]').click(function () {
     }, 600);
     return false;
 });
+
 
