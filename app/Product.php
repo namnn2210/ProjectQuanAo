@@ -34,4 +34,27 @@ class Product extends Model
     {
         return time() - (60 * 60 * 24 * 7) < strtotime($this->created_at);
     }
+
+    public function isNew()
+    {
+        return time() - (60 * 60 * 24 * 7) < strtotime($this->created_at);
+    }
+
+    public function isDiscount()
+    {
+        return $this->discount > 0;
+    }
+
+    public function getBlockStyleAttribute()
+    {
+        if ($this->isNew() && $this->isDiscount()) {
+            return 'both';
+        } else if ($this->isNew()) {
+            return 'new';
+        } else if ($this->isDiscount()) {
+            return 'sale';
+        } else {
+            return '';
+        }
+    }
 }

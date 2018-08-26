@@ -20,13 +20,22 @@ class UserProductController
     {
         $obj_category = Category::where('status', 1)->get();
         $chosen_category = 0;
-        $obj = Product::where('status', 1)->get();
+        $obj = Product::where('status', 1)
+            ->orderBy('updated_at', 'desc')
+            ->orderBy('discount', 'desc')
+            ->get();
         if (Input::has('categoryId') && Input::get('categoryId') != 0 ){
             $chosen_category = Input::get('categoryId');
-            $obj = Product::where('category_id', $chosen_category)->get();
+            $obj = Product::where('category_id', $chosen_category)
+                ->orderBy('updated_at', 'desc')
+                ->orderBy('discount', 'desc')
+                ->get();
         }
         else if (Input::get('categoryId') == 0){
-            $obj = Product::where('status', 1)-> get();
+            $obj = Product::where('status', 1)
+                ->orderBy('updated_at', 'desc')
+                ->orderBy('discount', 'desc')
+                -> get();
         }
         return view('user.products')
             ->with('obj_category',$obj_category)
@@ -41,6 +50,8 @@ class UserProductController
             if(Input::get('sort') == 'none'){
                 $obj = Product::where('name', 'LIKE', '%'.$search.'%')
                     ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
+                    ->orderBy('updated_at', 'desc')
+                    ->orderBy('discount', 'desc')
                     ->get();
             }
             else{
@@ -56,6 +67,8 @@ class UserProductController
                 if(Input::get('sort') == 'none'){
                     $obj = Product::where('category_id', $chosen_category)
                         ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
+                        ->orderBy('updated_at', 'desc')
+                        ->orderBy('discount', 'desc')
                         ->get();
                 }
                 else{
@@ -70,6 +83,8 @@ class UserProductController
                 if(Input::get('sort') == 'none'){
                     $obj = Product::where('status', 1)
                         ->whereBetween('price' , [Input::get('value1'), Input::get('value2')])
+                        ->orderBy('updated_at', 'desc')
+                        ->orderBy('discount', 'desc')
                         -> get();
                 }
                 else{

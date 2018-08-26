@@ -62,7 +62,7 @@ function filter() {
                 for (var i in new_items){
                     new_content += '<div class="col-sm-12 col-md-6 col-lg-4 p-b-50 row-item">';
                     new_content += '<div class="block2">';
-                    new_content += '<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">';
+                    new_content += '<div class="block2-img wrap-pic-w of-hidden pos-relative">';
                     new_content += '<img src="' + new_items[i].images.split('&')[0] + '">';
                     new_content += '<div class="block2-overlay trans-0-4">';
                     new_content += '<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">';
