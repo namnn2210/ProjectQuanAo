@@ -82,4 +82,21 @@ class UserProductController
         }
         return response()->json(['obj' => $obj], 200);
     }
+
+    public function show($id)
+    {
+        $obj = Product::find($id);
+
+        $list_obj = Product::all()
+            ->where('id', '!=', $obj->id)
+            ->where('category_id', '=', $obj->category_id)
+        ;
+
+        if ($obj == null) {
+            return view('404');
+        }
+        return view('user.product-detail')
+            ->with('obj', $obj)
+            ->with('list_obj',$list_obj);
+    }
 }
