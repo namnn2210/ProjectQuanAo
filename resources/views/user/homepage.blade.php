@@ -5,7 +5,7 @@
         <div class="wrap-slick1">
             <div class="slick1">
                 <div class="item-slick1 item1-slick1"
-                     style="background-image: url({{asset('img/men-collection.jpg')}});">
+                     style="background-image: url({{asset('order')}});">
                     <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
 						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15"
                               data-appear="fadeInDown" style="color: black">
@@ -19,7 +19,7 @@
 
                         <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
                             <!-- Button -->
-                            <a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+                            <a href="/product" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
                                 Mua ngay
                             </a>
                         </div>
@@ -41,7 +41,7 @@
 
                         <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
                             <!-- Button -->
-                            <a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+                            <a href="/product" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
                                 Mua ngay
                             </a>
                         </div>
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="item-slick1 item3-slick1"
-                     style="background-image: url({{asset('img/winter-collection.jpg')}});">
+                     style="background-image: url({{asset('order')}});">
                     <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
 						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15"
                               data-appear="rotateInDownLeft">
@@ -63,7 +63,7 @@
 
                         <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="rotateIn">
                             <!-- Button -->
-                            <a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+                            <a href="/product" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
                                 Mua ngay
                             </a>
                         </div>
@@ -84,7 +84,7 @@
                         <img src="{{$ao_khoac->image}}" alt="IMG-BENNER">
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
-                            <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                            <a href="{{'/product'.'?categoryId='.$ao_khoac->id}}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
                                 Áo khoác
                             </a>
                         </div>
@@ -95,7 +95,7 @@
                         <img src="{{$ao_phong->image}}" alt="IMG-BENNER">
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
-                            <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                            <a href="{{'/product'.'?categoryId='.$ao_phong->id}}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
                                 Áo sơ mi
                             </a>
                         </div>
@@ -109,7 +109,7 @@
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
-                            <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                            <a href="{{'/product'.'?categoryId='.$giay->id}}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
                                 Giày
                             </a>
                         </div>
@@ -121,7 +121,7 @@
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
-                            <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                            <a href="{{'/product'.'?categoryId='.$phu_kien->id}}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
                                 Phụ kiện
                             </a>
                         </div>
@@ -135,7 +135,7 @@
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
-                            <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                            <a href="{{'/product'.'?categoryId='.$balo->id}}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
                                 Balo
                             </a>
                         </div>
@@ -180,281 +180,54 @@
             <!-- Slide2 -->
             <div class="wrap-slick2">
                 <div class="slick2">
+                    @foreach($obj as $item)
+                        <div class="item-slick2 p-l-15 p-r-15">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative" style="text-align: center">
+                                    <?php
+                                    if($item -> BlockStyle == 'both'){
+                                        echo '<span class="block2-labelsale text-danger">'. '-' . $item -> discount . '%' . '</span>' . '<span class="block2-labelnew"></span>';
+                                    }
+                                    else if($item -> BlockStyle == 'new'){
+                                        echo '<span class="block2-labelnew"></span>';
+                                    }
+                                    else if($item -> BlockStyle == 'sale'){
+                                        echo '<span class="block2-labelsale">' . '-' . $item -> discount . '%' . '</span>';
+                                    }
+                                    ?>
+                                    <img src="<?php echo explode("&", $item->images, -1)[0];?>" alt="IMG-PRODUCT">
+                                    <div class="block2-overlay trans-0-4">
+                                        <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                            <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                            <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                        </a>
 
-                    <div class="item-slick2 p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="<?php echo explode("&", $product_1->images, -1)[0];?>" alt="IMG-PRODUCT">
-                                <div class="block2-overlay trans-0-4">
-                                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                    </a>
-
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            Add to Cart
-                                        </button>
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                Add to Cart
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    {{$product_1->name}}
-                                </a>
-
-                                <span class="block2-newprice m-text8 p-r-5">
-									{{$product_1->discountPriceString}}
-								</span>
-
-                                <span class="block2-oldprice m-text7 p-r-5">
-									{{$product_1->originalPriceString}}
-								</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-slick2 p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="<?php echo explode("&", $product_2->images, -1)[0];?>" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                <div class="block2-txt p-t-20" style="text-align: center">
+                                    <a href="/product/{{$item->id}}" class="block2-name dis-block s-text3 p-b-5">
+                                        {{$item->name}}
                                     </a>
 
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            Add to Cart
-                                        </button>
-                                    </div>
+                                    <span class="block2-newprice m-text8 p-r-5">
+									{{$item->discountPriceString}}
+								</span>
+
+                                    <span class="block2-oldprice m-text7 p-r-5">
+									{{$item->originalPriceString}}
+								</span>
                                 </div>
                             </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    {{$product_2->name}}
-                                </a>
-
-                                <span class="block2-newprice m-text8 p-r-5">
-									{{$product_2->discountPriceString}}
-								</span>
-
-                                <span class="block2-oldprice m-text7 p-r-5">
-									{{$product_2->originalPriceString}}
-								</span>
-                            </div>
                         </div>
-                    </div>
-
-                    <div class="item-slick2 p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="<?php echo explode("&", $product_3->images, -1)[0];?>" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                    </a>
-
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            Add to Cart
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    {{$product_3->name}}
-                                </a>
-
-                                <span class="block2-price m-text6 p-r-5">
-									{{$product_3->discountPriceString}}
-								</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-slick2 p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                <img src="<?php echo explode("&", $product_4->images, -1)[0];?>" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                    </a>
-
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            Add to Cart
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    {{$product_4->name}}
-                                </a>
-
-                                <span class="block2-price m-text6 p-r-5">
-									{{$product_4->discountPriceString}}
-								</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-slick2 p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="<?php echo explode("&", $product_5->images, -1)[0];?>" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                    </a>
-
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            Add to Cart
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    {{$product_5->name}}
-                                </a>
-
-                                <span class="block2-price m-text6 p-r-5">
-									{{$product_5->discountPriceString}}
-								</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-slick2 p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="<?php echo explode("&", $product_6->images, -1)[0];?>" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                    </a>
-
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            Add to Cart
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    {{$product_6->name}}
-                                </a>
-
-                                <span class="block2-newprice m-text8 p-r-5">
-									{{$product_6->discountPriceString}}
-								</span>
-
-                                <span class="block2-oldprice m-text7 p-r-5">
-									{{$product_6->originalPriceString}}
-								</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-slick2 p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                <img src="<?php echo explode("&", $product_7->images, -1)[0];?>" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                    </a>
-
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            Add to Cart
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    {{$product_7->name}}
-                                </a>
-
-                                <span class="block2-price m-text6 p-r-5">
-									{{$product_7->discountPriceString}}
-								</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-slick2 p-l-15 p-r-15">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-                                <img src="<?php echo explode("&", $product_8->images, -1)[0];?>" alt="IMG-PRODUCT">
-
-                                <div class="block2-overlay trans-0-4">
-                                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                    </a>
-
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                            Add to Cart
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="block2-txt p-t-20">
-                                <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                    {{$product_8->name}}
-                                </a>
-
-                                <span class="block2-price m-text6 p-r-5">
-									{{$product_8->discountPriceString}}
-								</span>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 

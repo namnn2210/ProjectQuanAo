@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use App\Brand;
-use JD\Cloudder\Facades\Cloudder;
 
-
-class BrandController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +15,12 @@ class BrandController extends Controller
      */
     public function index()
     {
+        //
+
         if (Auth::check()) {
-            $obj = Brand::all()->where('status','=',1);
-            return view('admin.brand.list')
-                -> with('obj',$obj);
+            $obj = Order::all();
+            return view('admin.order.list')
+                ->with('obj', $obj);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 
@@ -31,111 +31,94 @@ class BrandController extends Controller
      */
     public function create()
     {
+        //
         if (Auth::check()) {
-            return view('admin.brand.create');
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
-
-
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        //
+
         if (Auth::check()) {
-            $obj = new Brand();
-            $obj -> name = Input::get('name');
-            $obj -> description = Input::get('description');
-            $obj -> country = Input::get('country');
-            if (Input::hasFile('images')) {
-                $image_id = time();
-                Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-                $obj->images = Cloudder::secureShow($image_id);
-            }
-            $obj -> save();
-            echo "<script>alert('Saved Successfull'); window.location.href = '/admin/brand'</script>";
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
-
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
+        //
         if (Auth::check()) {
-            $obj = Brand::find($id);
-            return view('admin.brand.show')
-                -> with('obj',$obj);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
-
-
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
+        //
         if (Auth::check()) {
-            $obj = Brand::find($id);
-            return view('admin.brand.edit')
-                -> with('obj',$obj);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
-
-
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
+        //
         if (Auth::check()) {
-            $obj = Brand::find($id);
-            $obj -> name = Input::get('name');
-            $obj -> description = Input::get('description');
-            $obj -> country = Input::get('country');
-            if (Input::hasFile('images')) {
-                $image_id = time();
-                Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-                $obj->images = Cloudder::secureShow($image_id);
-            }
-            $obj -> save();
-            echo "<script>alert('Saved Successfull'); window.location.href = '/admin/brand'</script>";
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
-
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
+        //
         if (Auth::check()) {
-            $obj = Brand::find($id);
-            $obj->status = 0;
-            $obj->save();
-            return redirect('/admin/brand/list');
+            $obj = Order::find($id);
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+    }
+
+    public function changeStatus()
+    {
+        if (Auth::check()) {
+            $id = Input::get('id');
+            $status = Input::get('status');
+            $order = Order::find($id);
+            if ($order == null) {
+                return view('error.404');
+            }
+            $order->status = $status;
+            $order->save();
+            return redirect('/admin/order');
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 }

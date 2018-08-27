@@ -3,14 +3,14 @@ $(".fa-trash").click(function () {
     if (confirm("Are you sure?")) {
         $.ajax({
             method: 'DELETE',
-            url: '/admin/collection/' + deleteId,
+            url: '/admin/order/' + deleteId,
             data: {
                 '_token': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (resp) {
                 swal({
                         title: 'Deleted',
-                        text: 'This collection has been deleted',
+                        text: 'This order has been deleted',
                         type: 'success',
                         allowOutsideClick: true,
                         html: true
@@ -33,7 +33,7 @@ $(".btn-quick-edit").click(function () {
     var editId = $(this).closest('.row-item').attr('id').replace('row-item-', '');
     $.ajax({
         method: 'GET',
-        url: '/admin/collection/' + editId + '/quickEdit',
+        url: '/admin/order/' + editId + '/quickEdit',
         data: {
             '_token': $('meta[name = "csrf-token"]').attr('content')
         },
