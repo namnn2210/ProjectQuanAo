@@ -21,7 +21,7 @@ class ProductController extends Controller
     public function index()
     {
         if(Auth::check()){
-            $obj = Product::all();
+            $obj = Product::all()->where('status','=',1);
             $obj_category = Category::all();
             $obj_brand = Brand::all();
             return view('admin.product.list')
@@ -29,7 +29,7 @@ class ProductController extends Controller
                 -> with('obj_category',$obj_category)
                 -> with('obj_brand',$obj_brand);
         }
-        else return redirect('/admin/login');
+        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
 
     }
 
@@ -47,7 +47,8 @@ class ProductController extends Controller
                 ->with('obj_category',$obj_category)
                 ->with('obj_brand',$obj_brand);
         }
-        else return redirect('/admin/login');
+        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
+
 
     }
 
@@ -60,32 +61,33 @@ class ProductController extends Controller
     public function store(StoreProduct $request)
     {
         if(Auth::check()){
-
-        }
-        else return redirect('/admin/login');
-        $request->validated();
-        $obj = new Product();
-        if($obj==null) {
-            return view('404');
-        }
-        $images_list = "";
-        $obj -> name = Input::get('name');
-        $obj -> description = Input::get('description');
-        $obj -> category_id = Input::get('categoryId');
-        $obj -> price = Input::get('price');
-        $obj -> brand_id = Input::get('brand_id');
-        $obj -> images = $images_list;
-        $images = $request -> file('images');
-        if($request -> hasFile('images')){
-            foreach ($images as $image) {
-                $image_id = time();
-                Cloudder::upload($image->getRealPath(), $image_id);
-                $images_list .= Cloudder::secureShow($image_id) . "&";
+            $request->validated();
+            $obj = new Product();
+            if($obj==null) {
+                return view('404');
             }
+            $images_list = "";
+            $obj -> name = Input::get('name');
+            $obj -> description = Input::get('description');
+            $obj -> category_id = Input::get('categoryId');
+            $obj -> price = Input::get('price');
+            $obj -> brand_id = Input::get('brand_id');
+            $obj -> images = $images_list;
+            $images = $request -> file('images');
+            if($request -> hasFile('images')){
+                foreach ($images as $image) {
+                    $image_id = time();
+                    Cloudder::upload($image->getRealPath(), $image_id);
+                    $images_list .= Cloudder::secureShow($image_id) . "&";
+                }
+            }
+            $obj -> images = $images_list;
+            $obj -> save();
+            return redirect()->back()->with('message', 'Saved Success');
         }
-        $obj -> images = $images_list;
-        $obj -> save();
-        return redirect()->back()->with('message', 'Saved Success');
+        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
+
+
     }
 
     /**
@@ -97,10 +99,6 @@ class ProductController extends Controller
     public function show($id)
     {
         if(Auth::check()){
-
-        }
-        else return redirect('/admin/login');
-        if(Auth::check()){
             $obj = Product::find($id);
             if($obj==null) {
                 return view('404');
@@ -108,7 +106,8 @@ class ProductController extends Controller
             return view('admin.product.show')
                 -> with('obj',$obj);
         }
-        else return redirect('/admin/login');
+        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
+
 
     }
 
@@ -133,7 +132,8 @@ class ProductController extends Controller
             return view('admin.product.edit')
                 -> with('obj',$obj)->with('obj_brand',$obj_brand)->with('obj_category',$obj_category);
         }
-        else return redirect('/admin/login');
+        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
+
 
     }
 
@@ -145,7 +145,8 @@ class ProductController extends Controller
             }
             return response()->json(['obj' => $obj], 200);
         }
-        else return redirect('/admin/login');
+        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
+
 
     }
 
@@ -158,7 +159,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(Auth::check()){
 
+        }
+        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
     }
 
     public function quickUpdate (Request $request){
@@ -187,7 +191,8 @@ class ProductController extends Controller
             $obj -> save();
             return redirect()->back()->with('message', 'Saved Success');
         }
-        else return redirect('/admin/login');
+        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
+
 
     }
 
@@ -204,9 +209,11 @@ class ProductController extends Controller
             if($obj==null) {
                 return view('404');
             }
-            $obj->delete();
+            $obj->status = 0;
+            $obj->save();
         }
-        else return redirect('/admin/login');
+        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
+
 
     }
 }

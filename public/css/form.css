@@ -18,6 +18,7 @@
 .btn {
     font-size: 15px;
     font-weight: bold;
+    width: 15%;
     border-radius: 10px;
     display: inline-block;
     vertical-align: bottom;
@@ -38,6 +39,8 @@
     display: inline-block;
     font-size: 0;
     height: auto;
+    width: 30%;
+    margin-left: 5px;
 }
 .preview_images img{
     max-height: 30%;

@@ -26,7 +26,7 @@ class AdminLoginController extends Controller
             'password.max' => 'Mật khẩu từ 6-20 ký tự'
         ]);
 
-        if(Auth::attempt(['name'=>$request->username, 'password'=>$request->password])){
+        if(Auth::attempt(['username'=>$request->username, 'password'=>$request->password])){
             return redirect('/admin/product');
         }
         else {return redirect()->back()->with('message', 'Tên đăng nhập hoặc mật khẩu không đúng');}
