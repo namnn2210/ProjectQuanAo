@@ -31,6 +31,7 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('admin.login');
 });
+Route::get('/admin','DashboardController@showAdminPage');
 
 Route::get('/','HomepageController@showHomepage');
 
