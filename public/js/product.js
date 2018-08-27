@@ -35,15 +35,17 @@ function filter() {
     var value2 = values[1];
     var categoryId = window.location.href.replace('http://127.0.0.1:8000/product?categoryId=','');
     var search = $('input[name = "name"]').val();
+    var bigSale = window.location.href.replace('http://127.0.0.1:8000/product?bigSale=','');
     $.ajax({
         method: 'post',
-        url: '/san-pham-test',
+        url: '/product',
         data:{
             value1: value1,
             value2: value2,
             sort: sort,
             categoryId: categoryId,
             search: search,
+            bigSale: bigSale,
             _token: $('meta[name="csrf-token"]').attr('content')
         },
         success: function (resp) {
