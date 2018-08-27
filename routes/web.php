@@ -33,6 +33,13 @@ Route::get('/product/{product}','UserProductController@show');
 Route::get('/abc', function (){
     return view('user.product-detail') ;
 });
+
+Route::get('/about', function () {
+    return view('user.about');
+});
+Route::get('/contact', function () {
+    return view('user.contact');
+});
 Route::post('/san-pham-test','UserProductController@search');
 Route::post('/add-to-cart','ShoppingCartController@addToCart');
 Route::get('/view-cart','ShoppingCartController@showCart');
@@ -44,3 +51,4 @@ Route::get('/abc','UserProductController@abc');
 Route::get('admin/login', 'AdminLoginController@login');
 Route::post('admin/login', 'AdminLoginController@postLogin');
 Route::get('admin/logout', 'AdminLoginController@logout');
+
