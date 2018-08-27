@@ -41,3 +41,10 @@ Route::get('/product/{product}','UserProductController@show');
 Route::get('/abc', function (){
     return view('user.product-detail') ;
 });
+
+Route::get('/about', function () {
+    return view('user.about');
+});
+Route::get('/contact', function () {
+    return view('user.contact');
+});
