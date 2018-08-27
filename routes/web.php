@@ -33,6 +33,7 @@ Route::get('/login', function () {
 });
 Route::get('/admin','DashboardController@showAdminPage');
 Route::get('/admin/new-orders','DashboardController@showNewOrder');
+Route::get('/admin/chart','DashboardController@getChartDataApi');
 
 Route::get('/','HomepageController@showHomepage');
 
