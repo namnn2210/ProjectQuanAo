@@ -16,17 +16,14 @@ use Illuminate\Support\Facades\DB;
 class DashboardController
 {
     public function showAdminPage() {
-        $start_date = Carbon::now();
-        $end_date = Carbon::yesterday();
-        $orders = DB::table('orders')->where('created_at','<=',$start_date)->where('created_at','>=',$end_date)->get();
-        $count = count($orders);
+        $count = count(Order::all()->where('created_at','<=',Carbon::now())->where('created_at','>=',Carbon::yesterday()));
         return view('admin.dashboard')->with('count',$count);
     }
 
     public function showNewOrder() {
         $start_date = Carbon::now();
         $end_date = Carbon::yesterday();
-        $orders = DB::table('orders')->where('created_at','<=',$start_date)->where('created_at','>=',$end_date)->get();
+        $orders = Order::all()->where('created_at','<=',Carbon::now())->where('created_at','>=',Carbon::yesterday());
         return view('admin.order.new_order')->with('orders',$orders);
     }
 }
