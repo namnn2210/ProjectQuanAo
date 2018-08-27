@@ -16,6 +16,7 @@ class OrderController extends Controller
     public function index()
     {
         //
+
         if (Auth::check()) {
             $obj = Order::all();
             return view('admin.order.list')
@@ -38,12 +39,14 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
+
         if (Auth::check()) {
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
@@ -51,6 +54,7 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
+
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
@@ -91,6 +95,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
@@ -100,8 +105,6 @@ class OrderController extends Controller
         if (Auth::check()) {
             $obj = Order::find($id);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
-
-
     }
 
     public function changeStatus()
@@ -117,6 +120,5 @@ class OrderController extends Controller
             $order->save();
             return redirect('/admin/order');
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
-
     }
 }

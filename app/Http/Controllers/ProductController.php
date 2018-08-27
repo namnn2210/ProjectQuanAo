@@ -213,7 +213,5 @@ class ProductController extends Controller
             $obj->save();
         }
         else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
-
-
     }
 }

@@ -22,8 +22,6 @@ class BrandController extends Controller
             return view('admin.brand.list')
                 -> with('obj',$obj);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
-
-
     }
 
     /**
@@ -139,7 +137,5 @@ class BrandController extends Controller
             $obj->save();
             return redirect('/admin/brand/list');
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
-
-
     }
 }
