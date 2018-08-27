@@ -61,7 +61,8 @@ class ShoppingCartController extends Controller
         $shopping_cart = new ShoppingCart();
         $products = Input::get('products');
         if (is_array($products)){
-            foreach (array_keys($products) as $key){
+
+            foreach (array_keys($products) as $key) {
                 $product = Product::find($key);
                 if ($product == null || $product->status != 1) {
                     return view('error.404');

@@ -79,7 +79,7 @@
                                     <a href="#" class="btn btn-default btn-flat">Hồ sơ</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Đăng xuất</a>
+                                    <a href="/admin/logout" class="btn btn-default btn-flat">Đăng xuất</a>
                                 </div>
                             </li>
                         </ul>

@@ -25,13 +25,6 @@ Route::resource('admin/category','CategoryController');
 Route::resource('admin/order','OrderController');
 Route::resource('admin/account','AccountController');
 
-Route::get('/register', function () {
-    return view('admin.register');
-});
-Route::get('/login', function () {
-    return view('admin.login');
-});
-
 Route::get('/','HomepageController@showHomepage');
 
 Route::get('/product','UserProductController@index');
@@ -48,3 +41,6 @@ Route::put('/update-cart', 'ShoppingCartController@updateCart');
 Route::post('/checkout', 'ShoppingCartController@checkoutCart');
 Route::get('/abc','UserProductController@abc');
 
+Route::get('admin/login', 'AdminLoginController@login');
+Route::post('admin/login', 'AdminLoginController@postLogin');
+Route::get('admin/logout', 'AdminLoginController@logout');
