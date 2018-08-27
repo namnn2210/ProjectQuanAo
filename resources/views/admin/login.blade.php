@@ -11,8 +11,8 @@
     <div class="login-form">
         <div class="main-div">
             <div class="panel">
-                <h2>Admin Login</h2>
-                <p>Please enter your username and password</p>
+                <h2>Đăng nhập trang Admin</h2>
+                <p>Nhập tên đăng nhập và mật khẩu</p>
             </div>
             @if($errors->any())
                 <div class="alert alert-danger">
@@ -38,12 +38,12 @@
                 </div>
 
                 <div class="forgot">
-                    <a href="reset.html">Forgot password?</a>
+                    <a href="reset.html">Quên mật khẩu?</a>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
                 <p></p>
-                <a href='/register/'>Create Account</a>
+                <a href='/register/'>Tạo tài khoản</a>
             </form>
         </div>
     </div>
