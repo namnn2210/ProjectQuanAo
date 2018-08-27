@@ -61,6 +61,7 @@ class ShoppingCartController extends Controller
         $shopping_cart = new ShoppingCart();
         $products = Input::get('products');
         if (is_array($products)){
+
             foreach (array_keys($products) as $key) {
                 $product = Product::find($key);
                 if ($product == null || $product->status != 1) {
@@ -68,12 +69,15 @@ class ShoppingCartController extends Controller
                 }
                 $item = new CartItem();
                 $item->product = $product;
+                $item->product->dicountPrice = $product->discountPrice;
                 $item->quantity = $products[$key];
                 $shopping_cart->items[$key] = $item;
+                $shopping_cart->count = ShoppingCart::calculateTotalItem($shopping_cart);
+                $shopping_cart->total_money = $shopping_cart->getTotalMoneyString();
             }
         }
         Session::put('cart', $shopping_cart);
-        return response()->json(['msg' => 'Cập nhập giỏ hàng thành công'], 200);
+        return response()->json(['shopping_cart' => $shopping_cart], 200);
     }
 
     public function destroyCart()
