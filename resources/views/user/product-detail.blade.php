@@ -42,9 +42,18 @@
                     {{$obj->name}}
                 </h4>
 
-                <span class="m-text17">
-					{{$obj->discountPriceString}}
-				</span>
+                {{--<span class="m-text17">--}}
+					{{--{{$obj->discountPriceString}}--}}
+				{{--</span>--}}
+                <span class="block2-price m-text17 p-r-5" style="font-size: 27px">
+                    {{$obj-> DiscountPriceString}}
+                </span>
+                <span class="block2-oldprice m-text7 p-r-5" style="font-size: 27px">
+                    {{$obj -> OriginalPriceString}}
+                </span>
+                <span class="text-danger" style="font-size: 27px; margin-left: 2%">
+                    -{{$obj -> discount}}%
+                </span>
 
             {{--<p class="s-text8 p-t-10">--}}
             {{--Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare--}}
@@ -132,9 +141,20 @@
                     @foreach($list_obj as $item)
                         <div class="item-slick2 p-l-15 p-r-15">
                             <!-- Block2 -->
-                            <div class="block2">
-                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                    <img src="{{$item->getImages($item->images)[0]}}" alt="IMG-PRODUCT">
+                            <div class="block2" style="text-align: center">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                    <?php
+                                    if($item -> BlockStyle == 'both'){
+                                        echo '<span class="block2-labelsale text-danger">'. '-' . $item -> discount . '%' . '</span>' . '<span class="block2-labelnew"></span>';
+                                    }
+                                    else if($item -> BlockStyle == 'new'){
+                                        echo '<span class="block2-labelnew"></span>';
+                                    }
+                                    else if($item -> BlockStyle == 'sale'){
+                                        echo '<span class="block2-labelsale">' . '-' . $item -> discount . '%' . '</span>';
+                                    }
+                                    ?>
+                                    <img src="<?php echo explode("&",$item -> images,-1)[0];?>">
 
                                     <div class="block2-overlay trans-0-4">
                                         <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -151,14 +171,16 @@
                                     </div>
                                 </div>
 
-                                <div class="block2-txt p-t-20">
-                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                        {{$item->name}}
+                                <div class="block2-txt p-t-20 btn-show-item">
+                                    <a href="/product/{{$item->id}}" class="block2-name dis-block s-text3 p-b-5 btn-show-item">
+                                        {{$item -> name}}
                                     </a>
-
                                     <span class="block2-price m-text6 p-r-5">
-									    {{$item->discountPriceString}}
-								</span>
+										    {{$item -> DiscountPriceString}}
+									    </span>
+                                    <span class="block2-oldprice m-text7 p-r-5">
+										    {{$item -> OriginalPriceString}}
+									    </span>
                                 </div>
                             </div>
                         </div>

@@ -66,25 +66,16 @@
                             </li>
 
                             <li>
-                                <a href="#">Cửa hàng</a>
+                                <a href="/product">Cửa hàng</a>
                                 <ul class="sub_menu">
-                                    <li><a href="#">Áo khoác</a></li>
-                                    <li><a href="#">Áo phông</a></li>
-                                    <li><a href="#">Áo sơ mi</a></li>
-                                    <li><a href="#">Balo</a></li>
-                                    <li><a href="#">Giày</a></li>
-                                    <li><a href="#">Phụ kiện</a></li>
-                                    <li><a href="#">Quần</a></li>
-                                    <li><a href="#">Vest</a></li>
+                                    @foreach($obj_category as $item)
+                                        <li><a href="{{'/product'.'?categoryId='.$item->id}}">{{$item -> name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
 
                             <li class="sale-noti">
-                                <a href="#">Giảm giá sốc</a>
-                            </li>
-
-                            <li>
-                                <a href="#">Features</a>
+                                <a href="{{'/product'.'?bigSale=1'}}">Giảm giá sốc</a>
                             </li>
 
                             <li>
