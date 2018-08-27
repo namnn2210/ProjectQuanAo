@@ -107,7 +107,7 @@
                 <li class="header">Trang quản lý</li>
                 <li class="@yield('active-dashboard')">
                     <a href="/admin">
-                        <i class="fa fa-columns"></i> <span>Dashboard</span>
+                        <i class="fa fa-columns"></i> <span>Trang chủ</span>
                     </a>
                 </li>
                 <li class="treeview @yield('active-user')">
