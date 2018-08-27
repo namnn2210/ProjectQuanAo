@@ -40,7 +40,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="/" class="logo">
+        <a href="/admin" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>F</b>FF</span>
             <!-- logo for regular state and mobile devices -->
@@ -105,7 +105,7 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">Trang quản lý</li>
-                <li class="treeview @yield('active-dashboard')">
+                <li class="@yield('active-dashboard')">
                     <a href="/admin">
                         <i class="fa fa-columns"></i> <span>Dashboard</span>
                     </a>
@@ -114,8 +114,8 @@
                     <a href="#">
                         <i class="fa fa-user"></i> <span>Quản lý tài khoản</span>
                         <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="/admin/account"><i class="fa fa-circle-o"></i>Danh sách tài khoản</a></li>
@@ -218,7 +218,7 @@
 <script src="{{asset('/css/datatables/js/dataTables.bootstrap.min.js')}}"></script>
 <script src="{{asset('/css/datatables-responsive/dataTables.responsive.js')}}"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#dataTables-example').DataTable({
             responsive: true
         });
