@@ -57,8 +57,6 @@
 
                             <div class="flex-sb-m flex-w p-t-16">
                                 <div class="w-size11">
-                                    <!-- Button -->
-
                                 </div>
 
                                 <div class="s-text3 p-t-10 p-b-10" style="margin: auto">
@@ -106,7 +104,7 @@
                                                     echo '<span class="block2-labelnew"></span>';
                                                 }
                                                 else if($item -> BlockStyle == 'sale'){
-                                                    echo '<span class="block2-labelsale">' . '-' . $item -> discount . '%' . '</span>';
+                                                    echo '<span class="block2-labelsale text-danger">' . '-' . $item -> discount . '%' . '</span>';
                                                 }
                                             ?>
                                         <img src="<?php echo explode("&",$item -> images,-1)[0];?>">
@@ -131,10 +129,10 @@
                                             {{$item -> name}}
                                         </a>
                                         <span class="block2-price m-text6 p-r-5">
-										    {{$item -> DiscountPrice}}
+										    {{$item -> DiscountPriceString}}
 									    </span>
                                         <span class="block2-oldprice m-text7 p-r-5">
-										    {{$item -> OriginalPrice}}
+										    {{$item -> OriginalPriceString}}
 									    </span>
                                     </div>
                                 </div>

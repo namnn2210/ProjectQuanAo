@@ -38,11 +38,10 @@ class Product extends Model
         return sprintf('%s VNĐ', number_format($this->price, 0));
     }
 
-    public function getDiscountPriceAttribute()
+    public function isNew()
     {
-        return $this->price - ($this->price * $this->discount / 100);
+        return time() - (60 * 60 * 24 * 7) < strtotime($this->created_at);
     }
-
     public function isDiscount()
     {
         return $this->discount > 0;
@@ -59,5 +58,10 @@ class Product extends Model
         } else {
             return '';
         }
+    }
+
+    public function getImages($imgURL){
+        $arrayImg = explode('&', $imgURL);
+        return $arrayImg;
     }
 }
