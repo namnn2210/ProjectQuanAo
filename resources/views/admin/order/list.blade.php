@@ -45,16 +45,16 @@
                         @if($item->status==0)
                             <a href="/admin/order/change-status?id={{$item->id}}&status=1"
                                onclick="return confirm('Bạn có chắc muốn xác nhận đơn hàng?')"
-                               class="btn btn-success fa fa-check-circle-o"></a>
+                               class="fa fa-check-circle-o"></a>
                         @elseif($item->status==1)
                             <a href="/admin/order/change-status?id={{$item->id}}&status=2"
                                onclick="return confirm('Bạn có chắc muốn hoàn thành đơn hàng?')"
-                               class="btn btn-simple btn-success fa fa-check-circle"></a>
+                               class="fa fa-check-circle"></a>
                         @elseif($item->status==2)
-                            <span class="btn btn-simple btn-success fa fa-check"></span>
+                            <span class="fa fa-check"></span>
                         @endif
                         @if($item->status==0)
-                            <a href="{{$item->id}}" class="btn btn-simple btn-danger fa fa-trash btn-delete"></a>
+                            <a href="{{$item->id}}" class="fa fa-trash btn-delete"></a>
                         @endif
                         @if($item->status==-1)
                             <a href="{{$item->id}}" class="fa fa-minus-circle"></a>
