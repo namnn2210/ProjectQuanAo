@@ -1,10 +1,10 @@
 @extends('layouts.master', ['currentPage' => 'list'])
-@section('page-title', 'LIST PRODUCTS')
+@section('page-title', 'Danh sách sản phẩm')
 @section('active-product','active')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">LIST PRODUCTS</h1>
+            <h1 class="page-header">Danh sách sản phẩm</h1>
         </div>
     </div>
     <div class="panel-body">
@@ -15,14 +15,14 @@
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
             <tr>
-                <th style="text-align: center">Thumnail</th>
-                <th style="text-align: center">Name</th>
-                <th style="text-align: center">Category</th>
-                <th style="text-align: center">Brand</th>
-                <th style="text-align: center">Price</th>
-                <th style="text-align: center">Description</th>
-                <th style="text-align: center">Status</th>
-                <th style="text-align: center">Tool</th>
+                <th style="text-align: center">Ảnh sản phẩm</th>
+                <th style="text-align: center">Tên sản phẩm</th>
+                <th style="text-align: center">Danh mục</th>
+                <th style="text-align: center">Nhãn hàng</th>
+                <th style="text-align: center">Giá</th>
+                <th style="text-align: center">Mô tả</th>
+                <th style="text-align: center">Trạng thái</th>
+                <th style="text-align: center">Thao tác</th>
             </tr>
             </thead>
             <tbody>
@@ -52,7 +52,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title" id="exampleModalLabel">Edit Product</h1>
+                    <h1 class="modal-title" id="exampleModalLabel">Chỉnh sửa sản phẩm</h1>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -64,15 +64,15 @@
                         <input type="hidden" name="quick-update-id">
                         <input type="hidden" name="remain-images">
                         <div class="form-group">
-                            <label>Name</label>
+                            <label>Tên sản phẩm</label>
                             <input class="form-control" type="text" name="name">
                         </div>
                         <div class="form-group">
-                            <label>Price</label>
+                            <label>Giá</label>
                             <input class="form-control" type="number" name="price">
                         </div>
                         <div class="form-group">
-                            <label>Category</label>
+                            <label>Danh mục</label>
                             <select class="form-control" name="category_id">
                                 @foreach($obj_category as $item)
                                     <option value="{{$item -> id}}" name="product_category">{{$item -> name}}</option>
@@ -80,7 +80,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Brand</label>
+                            <label>Nhãn hàng</label>
                             <select class="form-control" name="brand_id">
                                 @foreach($obj_brand as $item)
                                     <option value="{{$item->id}}">{{$item -> name}}</option>
@@ -88,11 +88,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Description</label>
+                            <label>Mô tả</label>
                             <textarea class="form-control" name="description" rows="5"></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Images</label>
+                            <label>Ảnh sản phẩm</label>
                             <input class="form-control" type="file" multiple="multiple" name="images[]" id="add_images">
                         </div>
                         <div class="preview_images form-group">

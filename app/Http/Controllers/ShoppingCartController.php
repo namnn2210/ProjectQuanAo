@@ -96,7 +96,7 @@ class ShoppingCartController extends Controller
                 $ship_address = Input::get('ship_address');
                 $ship_phone = Input::get('ship_phone');
                 $order = new Order();
-                $order->customer_id = 'KH' . round(microtime(true) * 1000);
+                $order->customer_id = 'KH'.round(microtime(true));
                 $order->ship_name = $ship_name;
                 $order->ship_address = $ship_address;
                 $order->ship_phone = $ship_phone;

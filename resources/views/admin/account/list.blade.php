@@ -1,9 +1,10 @@
 @extends('layouts.master', ['currentPage' => 'list'])
-@section('page-title', 'LIST OF ACCOUNTS')
+@section('page-title', 'Danh sách tài khoản')
+@section('active-user','active')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header text-center" style="font-size: 30px;">LIST OF ACCOUNTS</h1>
+            <h1 class="page-header text-center" style="font-size: 30px;">Danh sách tài khoản</h1>
         </div>
     </div>
     <div class="panel-body">
@@ -14,15 +15,15 @@
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
             <tr>
-                <th style="text-align: center">Username</th>
-                <th style="text-align: center">Password</th>
-                <th style="text-align: center">Full Name</th>
-                <th style="text-align: center">Gender</th>
+                <th style="text-align: center">Tên tài khoản</th>
+                <th style="text-align: center">Mật khẩu</th>
+                <th style="text-align: center">Họ và tên</th>
+                <th style="text-align: center">Giới tính</th>
                 <th style="text-align: center">Email</th>
-                <th style="text-align: center">Address</th>
-                <th style="text-align: center">DOB</th>
+                <th style="text-align: center">Địa chỉ</th>
+                <th style="text-align: center">Ngày sinh</th>
                 <th style="text-align: center">Phone</th>
-                <th style="text-align: center">Tool</th>
+                <th style="text-align: center">Số điện thoại</th>
             </tr>
             </thead>
             <tbody>
@@ -37,9 +38,8 @@
                     <td style="text-align: center">{{$item -> DOB}}</td>
                     <td style="text-align: center">{{$item -> phone}}</td>
                     <td style="text-align: center">
-                        <a href="/admin/account/{{$item ->id}}/edit" class="fa fa-edit btn-edit mr-2"> Edit</a>
-                        <a href="#" class="fa fa-edit btn-quick-edit mr-2"> Quick Edit</a>
-                        <a href="#" id="{{$item ->id}}" class="fa fa-trash mr-2"> Delete</a>
+                        <a href="#" class="fa fa-edit btn-quick-edit mr-2">Chỉnh sửa</a>
+                        <a href="#" id="{{$item ->id}}" class="fa fa-trash mr-2"> Xóa</a>
                     </td>
                 </tr>
             @endforeach
@@ -65,7 +65,7 @@
                         {{csrf_field()}}
                         <input type="hidden" name="quick-update-id">
                         <div class="form-group">
-                            <label>Description</label>
+                            <label>Mổ tả</label>
                             <textarea class="form-control" name="description" rows="5"></textarea>
                         </div>
                         <div class="form-group">

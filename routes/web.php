@@ -25,6 +25,9 @@ Route::resource('admin/category','CategoryController');
 Route::resource('admin/order','OrderController');
 Route::resource('admin/account','AccountController');
 
+Route::get('/admin','DashboardController@showAdminPage');
+Route::get('/admin/new-orders','DashboardController@showNewOrder');
+Route::get('/admin/chart','DashboardController@getChartDataApi');
 Route::get('/','HomepageController@showHomepage');
 
 Route::get('/product','UserProductController@index');
