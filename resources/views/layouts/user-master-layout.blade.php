@@ -35,9 +35,11 @@
         <div class="container-menu-header">
             <div class="topbar">
                 <div class="topbar-social">
-                    <a href="https://www.facebook.com/farfetch.asiapac/?brand_redir=88573992939" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="https://www.facebook.com/farfetch.asiapac/?brand_redir=88573992939"
+                       class="topbar-social-item fa fa-facebook"></a>
                     <a href="https://www.instagram.com/farfetch/" class="topbar-social-item fa fa-instagram"></a>
-                    <a href="https://www.youtube.com/user/farfetchdotcom" class="topbar-social-item fa fa-youtube-play"></a>
+                    <a href="https://www.youtube.com/user/farfetchdotcom"
+                       class="topbar-social-item fa fa-youtube-play"></a>
                 </div>
 
                 <span class="topbar-child1">
@@ -104,79 +106,46 @@
                     <div class="header-wrapicon2">
                         <img src="{{asset('img/icon-header-02.png')}}" class="header-icon1 js-show-header-dropdown"
                              alt="ICON">
-                        <span class="header-icons-noti">0</span>
+                        <span class="header-icons-noti">{{\App\ShoppingCart::getTotalItem()}}</span>
 
                         <!-- Header cart noti -->
                         <div class="header-cart header-dropdown">
-                            <ul class="header-cart-wrapitem">
-                                <li class="header-cart-item">
-                                    <div class="header-cart-item-img">
-                                        <img src="images/item-cart-01.jpg" alt="IMG">
-                                    </div>
+                            <ul class="header-cart-wrapitem" id="header-cart-wrapitem">
+                                @if(count(\App\ShoppingCart::getCart()->items)>0)
+                                    @foreach(\App\ShoppingCart::getCart()->items as $item)
+                                        <li class="header-cart-item">
+                                            <div class="header-cart-item-img">
+                                                <img src="<?php echo explode("&", $item->product->images, -1)[0];?>" alt="IMG">
+                                            </div>
+                                            <div class="header-cart-item-txt">
+                                                <a href="#" class="header-cart-item-name">
+                                                    {{$item->product->name}}
+                                                </a>
 
-                                    <div class="header-cart-item-txt">
-                                        <a href="#" class="header-cart-item-name">
-                                            White Shirt With Pleat Detail Back
-                                        </a>
-
-                                        <span class="header-cart-item-info">
-											1 x $19.00
-										</span>
-                                    </div>
-                                </li>
-
-                                <li class="header-cart-item">
-                                    <div class="header-cart-item-img">
-                                        <img src="images/item-cart-02.jpg" alt="IMG">
-                                    </div>
-
-                                    <div class="header-cart-item-txt">
-                                        <a href="#" class="header-cart-item-name">
-                                            Converse All Star Hi Black Canvas
-                                        </a>
-
-                                        <span class="header-cart-item-info">
-											1 x $39.00
-										</span>
-                                    </div>
-                                </li>
-
-                                <li class="header-cart-item">
-                                    <div class="header-cart-item-img">
-                                        <img src="images/item-cart-03.jpg" alt="IMG">
-                                    </div>
-
-                                    <div class="header-cart-item-txt">
-                                        <a href="#" class="header-cart-item-name">
-                                            Nixon Porter Leather Watch In Tan
-                                        </a>
-
-                                        <span class="header-cart-item-info">
-											1 x $17.00
-										</span>
-                                    </div>
-                                </li>
+                                                <span class="header-cart-item-info">
+                                                {{$item->quantity}} x {{$item->product->discountPriceString}}
+                                            </span>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                @else
+                                    'Hiện tại không có sản phẩm nào trong giỏ hàng'
+                                @endif
                             </ul>
-
                             <div class="header-cart-total">
-                                Total: $75.00
+                                Tổng cộng: <span id="header-cart-total">{{\App\ShoppingCart::getCart()->getTotalMoneyString()}}</span>
                             </div>
 
                             <div class="header-cart-buttons">
                                 <div class="header-cart-wrapbtn">
                                     <!-- Button -->
-                                    <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                        View Cart
-                                    </a>
-                                </div>
-
-                                <div class="header-cart-wrapbtn">
-                                    <!-- Button -->
-                                    <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                        Check Out
+                                    <a href="/view-cart"
+                                       class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        Xem giỏ hàng
                                     </a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -198,13 +167,16 @@
 
                 <div>
                     <p class="s-text7 w-size27">
-                        Bạn có câu hỏi gì không? Hãy cho chúng tôi biết tại cửa hàng số 8 Tôn Thất Thuyết, Nam Từ Liêm, Hà Nội hoặc gọi cho chúng tôi theo số (+84) 12345678
+                        Bạn có câu hỏi gì không? Hãy cho chúng tôi biết tại cửa hàng số 8 Tôn Thất Thuyết, Nam Từ Liêm,
+                        Hà Nội hoặc gọi cho chúng tôi theo số (+84) 12345678
                     </p>
 
                     <div class="flex-m p-t-30">
-                        <a href="https://www.facebook.com/farfetch.asiapac/?brand_redir=88573992939" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                        <a href="https://www.facebook.com/farfetch.asiapac/?brand_redir=88573992939"
+                           class="fs-18 color1 p-r-20 fa fa-facebook"></a>
                         <a href="https://www.instagram.com/farfetch/" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-                        <a href="https://www.youtube.com/user/farfetchdotcom" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+                        <a href="https://www.youtube.com/user/farfetchdotcom"
+                           class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
                     </div>
                 </div>
             </div>
@@ -336,7 +308,8 @@
 
                 <form>
                     <div class="effect1 w-size9">
-                        <input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
+                        <input class="s-text7 bg6 w-full p-b-5" type="text" name="email"
+                               placeholder="email@example.com">
                         <span class="effect1-line"></span>
                     </div>
 
@@ -433,16 +406,16 @@
 <script type="text/javascript" src="{{asset('js/master-layout-2-js/sweetalert.min.js')}}"></script>
 
 <script type="text/javascript">
-    $('.block2-btn-addcart').each(function(){
+    $('.block2-btn-addcart').each(function () {
         var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-        $(this).on('click', function(){
+        $(this).on('click', function () {
             swal(nameProduct, "is added to cart !", "success");
         });
     });
 
-    $('.block2-btn-addwishlist').each(function(){
+    $('.block2-btn-addwishlist').each(function () {
         var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-        $(this).on('click', function(){
+        $(this).on('click', function () {
             swal(nameProduct, "is added to wishlist !", "success");
         });
     });
@@ -457,7 +430,7 @@
     var filterBar = document.getElementById('filter-bar');
 
     noUiSlider.create(filterBar, {
-        start: [ 50000, 5000000 ],
+        start: [50000, 5000000],
         connect: true,
         range: {
             'min': 50000,
@@ -471,14 +444,14 @@
         document.getElementById('value-upper')
     ];
 
-    filterBar.noUiSlider.on('update', function( values, handle ) {
+    filterBar.noUiSlider.on('update', function (values, handle) {
         skipValues[handle].innerHTML = Math.round(values[handle]);
     });
 </script>
 
 <script>
     $('input[name = "name"]').keypress(function (e) {
-        if (e.which == 13){
+        if (e.which == 13) {
             $('form[name = "search-form"]').submit();
         }
     });
@@ -487,6 +460,7 @@
 <script src="{{asset('js/master-layout-2-js/main.js')}}"></script>
 <script src={{asset("/js/jquery.paginate.js")}}></script>
 <script src="{{asset('/js/product.js')}}"></script>
+<script src="{{asset('js/my_script.js')}}"></script>
 
 </body>
 </html>

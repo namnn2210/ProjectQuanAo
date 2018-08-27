@@ -77,7 +77,7 @@
                                 </button>
                             </div>
 
-                            <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
+                            <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10" id="add-cart-{{$obj->id}}">
                                 <!-- Button -->
                                 <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                                     Thêm vào giỏ hàng
