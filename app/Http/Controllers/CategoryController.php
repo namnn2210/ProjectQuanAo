@@ -141,10 +141,10 @@ class CategoryController extends Controller
     {
         $obj = Category::find($id);
         if($obj==null) {
-            return view('404');
+            return response()->json(['message' => 'Category không tồn tại hoặc đã bị xoá!'], 404);
         }
         $obj->status = 0;
         $obj->save();
-        return redirect('/admin/category/list');
+        return response()->json(['message' => 'Đã xoá thông tin danh mục'], 200);
     }
 }

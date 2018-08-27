@@ -86,7 +86,11 @@ class OrderController extends Controller
     {
         //
         $obj = Order::find($id);
-
+        if ($obj == null) {
+            return response()->json(['message' => 'Đơn hàng không tồn tại hoặc đã bị xoá!'], 404);
+        }
+        $obj->delete();
+        return response()->json(['message' => 'Đã xoá thông tin đơn hàng'], 200);
     }
 
     public function changeStatus()
@@ -95,7 +99,7 @@ class OrderController extends Controller
         $status = Input::get('status');
         $order = Order::find($id);
         if ($order == null) {
-            return view('error.404');
+            return view('404');
         }
         $order->status = $status;
         $order->save();

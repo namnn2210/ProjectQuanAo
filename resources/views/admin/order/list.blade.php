@@ -54,7 +54,7 @@
                             <span class="fa fa-check"></span>
                         @endif
                         @if($item->status==0)
-                            <a href="{{$item->id}}" class="fa fa-trash btn-delete"></a>
+                                <a href="#" id="{{$item -> id}}" class="fa fa-trash"></a>
                         @endif
                         @if($item->status==-1)
                             <a href="{{$item->id}}" class="fa fa-minus-circle"></a>
@@ -65,36 +65,5 @@
             </tbody>
         </table>
     </div>
-    <script>
-        $(".fa fa-trash").click(function () {
-            var id = $(this).attr('href');
-            if (confirm("Bạn có chắc chắn muốn xóa đơn hàng này không ?")) {
-                $.ajax({
-                    url: 'admin/order/' + id,
-                    method: 'DELETE',
-                    data: {
-                        '_token': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function (resp) {
-                        swal({
-                                title: 'Xóa thành công',
-                                text: 'Đơn hàng đã được xóa',
-                                type: 'success',
-                                allowOutsideClick: true,
-                                html: true
-                            },
-                            function (isConfirm) {
-                                if (isConfirm) {
-                                    $("#row-item" + id).remove();
-                                    window.location.reload();
-                                }
-                            });
-                    },
-                    error: function (resp) {
-                        swal("Có lỗi xảy ra", "Vui lòng thử lại sau");
-                    }
-                })
-            }
-        });
-    </script>
+    <script src="{{asset('/js/order_list.js')}}"></script>
 @endsection
