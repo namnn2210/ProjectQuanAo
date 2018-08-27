@@ -92,13 +92,13 @@ class ShoppingCartController extends Controller
                 $ship_address = Input::get('ship_address');
                 $ship_phone = Input::get('ship_phone');
                 $order = new Order();
-                $order->customer_id = round(microtime(true));
+                $order->customer_id = 'KH'.round(microtime(true));
                 $order->ship_name = $ship_name;
                 $order->ship_address = $ship_address;
                 $order->ship_phone = $ship_phone;
                 $order->total_price = $shopping_cart -> getTotalMoney();
                 $order->save();
-                $order_id = $order->id;
+                $order_id = 'OD'.round(microtime(true));
                 $order_details = array();
                 foreach ($shopping_cart->items as $item){
                     $product = Product::find($item->product->id);

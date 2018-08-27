@@ -40,7 +40,7 @@
                             @endforeach
                         </ul>
                     </td>
-                    <td>{{$item -> ship_phone}}</td>
+                    <td>{{$item -> statusLabel}}</td>
                     <td style="text-align: center">
                         @if($item->status==0)
                             <a href="/admin/order/change-status?id={{$item->id}}&status=1"

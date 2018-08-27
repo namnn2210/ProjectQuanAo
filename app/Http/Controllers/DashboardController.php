@@ -14,4 +14,8 @@ class DashboardController
     public function showAdminPage() {
         return view('admin.dashboard');
     }
+
+    public function showNewOrder() {
+
+    }
 }
