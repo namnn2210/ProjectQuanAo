@@ -98,7 +98,7 @@ class ShoppingCartController extends Controller
                 $order->ship_phone = $ship_phone;
                 $order->total_price = $shopping_cart -> getTotalMoney();
                 $order->save();
-                $order_id = 'OD'.round(microtime(true));
+                $order_id = $order->id;
                 $order_details = array();
                 foreach ($shopping_cart->items as $item){
                     $product = Product::find($item->product->id);

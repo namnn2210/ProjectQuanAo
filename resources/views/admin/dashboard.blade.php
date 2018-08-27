@@ -6,10 +6,10 @@
         <div class="col-md-12">
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3></h3>
+                    <h3>{{$count}}</h3>
                     <p>Đơn hàng mới</p>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="/admin/new-orders" class="small-box-footer">
                     Xem thông tin chi tiết
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>

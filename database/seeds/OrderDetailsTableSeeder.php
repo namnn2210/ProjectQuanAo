@@ -16,61 +16,61 @@ class OrderDetailsTableSeeder extends Seeder
         \Illuminate\Support\Facades\DB::table('order_details')->truncate();
         \Illuminate\Support\Facades\DB::table('order_details')->insert([
             [
-                'order_id'=>'OD1451875977',
+                'order_id'=>1,
                 'product_id'=>2,
                 'quantity'=>1,
                 'unit_price'=>1750000
             ],
             [
-                'order_id'=>'OD6874815984',
+                'order_id'=>2,
                 'product_id'=>3,
                 'quantity'=>1,
                 'unit_price'=>790000
             ],
             [
-                'order_id'=>'OD1547856982',
+                'order_id'=>3,
                 'product_id'=>5,
                 'quantity'=>1,
                 'unit_price'=>2500000
             ],
             [
-                'order_id'=>'OD0214879956',
+                'order_id'=>4,
                 'product_id'=>6,
                 'quantity'=>1,
                 'unit_price'=>4000000
             ],
             [
-                'order_id'=>'OD9874514875',
+                'order_id'=>5,
                 'product_id'=>2,
                 'quantity'=>1,
                 'unit_price'=>5000000
             ],
             [
-                'order_id'=>'OD3651487598',
+                'order_id'=>6,
                 'product_id'=>3,
                 'quantity'=>1,
                 'unit_price'=>678000
             ],
             [
-                'order_id'=>'OD1547749963',
+                'order_id'=>7,
                 'product_id'=>2,
                 'quantity'=>1,
                 'unit_price'=>890000
             ],
             [
-                'order_id'=>'OD1548789513',
+                'order_id'=>8,
                 'product_id'=>2,
                 'quantity'=>1,
                 'unit_price'=>1270000
             ],
             [
-                'order_id'=>'OD3214874945',
+                'order_id'=>9,
                 'product_id'=>2,
                 'quantity'=>1,
                 'unit_price'=>1460000
             ],
             [
-                'order_id'=>'OD1568797866',
+                'order_id'=>10,
                 'product_id'=>2,
                 'quantity'=>1,
                 'unit_price'=>150000
