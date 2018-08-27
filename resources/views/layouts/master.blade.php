@@ -65,21 +65,21 @@
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="{{asset('img/icon-header-01.png')}}" class="img-circle" alt="User Image">
 
                                 <p>
                                     Admin - Web Administration
-                                    <small>Member since Aug. 2018</small>
+                                    <small>Là thành viên từ Aug. 2018</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="#" class="btn btn-default btn-flat">Hồ sơ</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="#" class="btn btn-default btn-flat">Đăng xuất</a>
                                 </div>
                             </li>
                         </ul>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="pull-left info">
                     <p>Admin</p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    <a href="#"><i class="fa fa-circle text-success"></i> Trực tuyến</a>
                 </div>
             </div>
             <!-- search form -->
@@ -116,66 +116,66 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">MAIN MANAGEMENT</li>
+                <li class="header">Trang quản lý</li>
                 <li class="@yield('active-user') treeview">
                     <a href="#">
-                        <i class="fa fa-user"></i> <span>User Management</span>
+                        <i class="fa fa-user"></i> <span>Quản lý tài khoản</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/admin/account"><i class="fa fa-circle-o"></i>List of Users</a></li>
+                        <li><a href="/admin/account"><i class="fa fa-circle-o"></i>Danh sách tài khoản</a></li>
                     </ul>
                 </li>
                 <li class="treeview @yield('active-product')">
                     <a href="#">
                         <i class="fa fa-product-hunt"></i>
-                        <span>Product Management</span>
+                        <span>Quản lý sản phẩm</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/admin/product"><i class="fa fa-circle-o"></i>List of Products</a></li>
-                        <li><a href="/admin/product/create"><i class="fa fa-circle-o"></i>Create a new product</a></li>
+                        <li><a href="/admin/product"><i class="fa fa-circle-o"></i>Danh sách sản phẩm</a></li>
+                        <li><a href="/admin/product/create"><i class="fa fa-circle-o"></i>Thêm sản phẩm</a></li>
                     </ul>
                 </li>
                 <li class="treeview @yield('active-category')">
                     <a href="#">
                         <i class="fa fa-align-justify"></i>
-                        <span>Category Management</span>
+                        <span>Quản lý danh mục</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/admin/category"><i class="fa fa-circle-o"></i>List of Categories</a></li>
-                        <li><a href="/admin/category/create"><i class="fa fa-circle-o"></i>Create a new category</a></li>
+                        <li><a href="/admin/category"><i class="fa fa-circle-o"></i>Danh sách danh mục</a></li>
+                        <li><a href="/admin/category/create"><i class="fa fa-circle-o"></i>Thêm danh mục</a></li>
                     </ul>
                 </li>
                 <li class="treeview @yield('active-brand')">
                     <a href="#">
-                        <i class="fa fa-tag"></i> <span>Brand Management</span>
+                        <i class="fa fa-tag"></i> <span>Quản lý nhãn hiệu</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/admin/brand"><i class="fa fa-circle-o"></i>List of Brands</a></li>
-                        <li><a href="/admin/brand/create"><i class="fa fa-circle-o"></i>Create a new brand</a></li>
+                        <li><a href="/admin/brand"><i class="fa fa-circle-o"></i>Danh sách các nhãn hiệu</a></li>
+                        <li><a href="/admin/brand/create"><i class="fa fa-circle-o"></i>Thêm nhãn hiệu</a></li>
                     </ul>
                 </li>
-                <li class="treeview @yield('active-collection')">
+                <li class="treeview @yield('active-order')">
                     <a href="#">
-                        <i class="fa fa-archive"></i> <span>Collection Managment</span>
+                        <i class="fa fa-list-ul"></i> <span>Quản lý đơn hàng</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/admin/collection"><i class="fa fa-circle-o"></i>List of Collections</a></li>
-                        <li><a href="/admin/collection/create"><i class="fa fa-circle-o"></i>Create a new collection</a></li>
+                        <li><a href="/admin/order"><i class="fa fa-circle-o"></i>Danh sách đơn hàng</a></li>
+                        <li><a href="/admin/order/create"><i class="fa fa-circle-o"></i>Thêm đơn hàng</a></li>
                     </ul>
                 </li>
             </ul>

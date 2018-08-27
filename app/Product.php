@@ -22,6 +22,11 @@ class Product extends Model
         return sprintf('%s', number_format(($this->price - ($this->price * $this->discount / 100)), 0));
     }
 
+    public function getDiscountPriceAttribute()
+    {
+        return $this->price - ($this->price * $this->discount / 100);
+    }
+
     public function getDiscountPriceStringAttribute()
     {
         if ($this->discount == 0) {

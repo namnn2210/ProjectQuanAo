@@ -4,7 +4,7 @@
     <nav aria-label="breadcrumb" class="align-items-center">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Product</a></li>
+            <li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
             <li class="breadcrumb-item active" aria-current="page">
                 <?php
                 foreach ($obj_category as $item) {
@@ -23,7 +23,7 @@
                     <div class="leftbar p-r-20 p-r-0-sm">
                         <!--  -->
                         <h4 class="m-text14 p-b-7">
-                            Categories
+                            Danh mục sản phẩm
                         </h4>
 
                         <ul class="p-b-54">
@@ -43,12 +43,12 @@
 
                         <!-- Filters -->
                         <h4 class="m-text14 p-b-32">
-                            Filters
+                            Tìm kiếm theo
                         </h4>
 
                         <div class="filter-price p-t-22 p-b-50 bo3">
                             <div class="m-text15 p-b-17">
-                                Price
+                                Giá
                             </div>
 
                             <div class="wra-filter-bar">
@@ -82,9 +82,9 @@
                         <div class="flex-w">
                             <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
                                 <select class="selection-2" name="sorting">
-                                    <option value="none">Default Sorting</option>
-                                    <option value="asc">Price: low to high</option>
-                                    <option value="desc">Price: high to low</option>
+                                    <option value="none">Sắp xếp mặc định</option>
+                                    <option value="asc">Giá: thấp to cao</option>
+                                    <option value="desc">Giá: cao to thấp</option>
                                 </select>
                             </div>
                         </div>
@@ -110,17 +110,15 @@
                                         <img src="<?php echo explode("&",$item -> images,-1)[0];?>">
 
                                         <div class="block2-overlay trans-0-4">
-                                            <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                            </a>
-
-                                            <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            {{--<a href="/them-gio-hang?id={{$product->id}}&quantity=1">--}}
+                                            <div class="block2-btn-addcart w-size1 trans-0-4"
+                                                 id="add-cart-{{$item->id}}">
                                                 <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                    Add to Cart
+                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1-small trans-0-4">
+                                                    Thêm vào giỏ hàng
                                                 </button>
                                             </div>
+                                            {{--</a>--}}
                                         </div>
                                     </div>
 
@@ -139,13 +137,14 @@
                             </div>
                         @endforeach
                     </div>
-                    <a class="load-more" href="#" id="loadMore">Load More</a>
+                    <a class="load-more" href="#" id="loadMore">Xem thêm</a>
 
                     <p class="totop">
-                        <a href="#top">Back to top</a>
+                        <a href="#top">Trở lại đầu trang</a>
                     </p>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 @endsection

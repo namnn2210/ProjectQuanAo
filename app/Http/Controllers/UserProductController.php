@@ -10,6 +10,8 @@ namespace App\Http\Controllers;
 
 
 use App\Category;
+use App\Order;
+use App\OrderDetail;
 use App\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -152,5 +154,14 @@ class UserProductController
             ->with('obj', $obj)
             ->with('obj_category',$obj_category)
             ->with('list_obj',$list_obj);
+    }
+
+    public function abc(){
+        $obj_category = Category::where('status', 1)->get();
+        $order = Order::all();
+        $order_details = OrderDetail::where('order_id', 1)->get();
+        return view('user.receipt')
+            ->with('order', $order)
+            ->with('order_details', $order_details);
     }
 }
