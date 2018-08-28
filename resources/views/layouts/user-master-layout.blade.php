@@ -81,10 +81,6 @@
                             </li>
 
                             <li>
-                                <a href="#">Blog</a>
-                            </li>
-
-                            <li>
                                 <a href="/about">Giới thiệu</a>
                             </li>
 
