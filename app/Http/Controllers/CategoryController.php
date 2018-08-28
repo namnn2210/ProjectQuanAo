@@ -51,7 +51,7 @@ class CategoryController extends Controller
             if (Input::hasFile('image')) {
                 $image_id = time();
                 Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
-                $obj->image = Cloudder::secureShow($image_id);
+                $obj->logo = Cloudder::secureShow($image_id);
             }
             $obj->save();
             echo "<script>alert('Saved Successfull'); window.location.href = '/admin/category'</script>";

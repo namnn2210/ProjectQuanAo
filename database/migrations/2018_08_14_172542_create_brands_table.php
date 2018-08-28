@@ -20,6 +20,7 @@ class CreateBrandsTable extends Migration
             $table->string('country');
             $table->string('logo');
             $table->timestamps();
+            $table->integer('status')->default(1);
         });
     }
 

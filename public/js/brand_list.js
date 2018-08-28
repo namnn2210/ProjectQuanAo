@@ -33,7 +33,7 @@ $(".btn-quick-edit").click(function () {
     var editId = $(this).closest('.row-item').attr('id').replace('row-item-', '');
     $.ajax({
         method: 'GET',
-        url: '/admin/category/' + editId + '/quickEdit',
+        url: '/admin/brand/' + editId + '/quickEdit',
         data: {
             '_token': $('meta[name = "csrf-token"]').attr('content')
         },
@@ -42,7 +42,7 @@ $(".btn-quick-edit").click(function () {
             $('form[name = "quick_edit_form"] input[name = "quick-update-id"]').val(resp.obj.id);
             $('form[name = "quick_edit_form"] input[name = "name"]').val(resp.obj.name);
             $('form[name = "quick_edit_form"] input[name = "country"]').val(resp.obj.country);
-            var image = resp.obj.image;
+            var image = resp.obj.logo;
             $($.parseHTML('<img>')).attr('src', image).appendTo($('.preview_images'));
 
         },
