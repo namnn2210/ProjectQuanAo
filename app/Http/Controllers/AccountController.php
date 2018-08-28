@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -18,7 +19,7 @@ class AccountController extends Controller
     {
         //
         if (Auth::check()) {
-            $obj = Account::paginate(5);
+            $obj = User::paginate(5);
             return view('admin.account.list')->with('obj', $obj);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
 
@@ -49,7 +50,7 @@ class AccountController extends Controller
     public function store(Request $request)
     {
         if (Auth::check()) {
-            $obj = new Account();
+            $obj = new User();
             $obj->username = Input::get('username');
             $obj->pasword = Input::get('password');
             $obj->full_name = Input::get('full_name');
@@ -87,7 +88,7 @@ class AccountController extends Controller
     {
         //
         if (Auth::check()) {
-            $obj = Account::find($id);
+            $obj = User::find($id);
             if ($obj == null) {
                 return view('404');
             }
