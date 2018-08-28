@@ -34,7 +34,9 @@
                                             <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
                                                 <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                             </button>
-                                            <input class="size8 m-text18 t-center num-product" type="number" name="products[{{$item->product->id}}]" value="{{$item->quantity}}">
+
+
+                                            <input class="size8 m-text18 t-center num-product item-{{$item->product->id}}" type="number" name="products[{{$item->product->id}}]" value="{{$item->quantity}}">
                                             <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
                                                 <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                             </button>
@@ -109,10 +111,7 @@
 					<span class="m-text22 w-size19 w-full-sm">
 						Tổng cộng:
 					</span>
-                    {{$shopping_cart -> getTotalMoneyWithFormat()}} (VNĐ)
-                    <span class="m-text21 w-size20 w-full-sm">
-
-					</span>
+                    <h4 class="total_price">{{$shopping_cart -> getTotalMoneyWithFormat()}} (VNĐ)</h4>
                 </div>
 
                 <div class="size15 trans-0-4">
