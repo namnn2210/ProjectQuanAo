@@ -11,31 +11,41 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController
 {
     public function showAdminPage() {
-        $count = count(Order::all()->where('created_at','<=',Carbon::now())->where('created_at','>=',Carbon::yesterday()));
-        return view('admin.dashboard')->with('count',$count);
+        if (Auth::check()) {
+            $count = count(Order::all()->where('created_at','<=',Carbon::now())->where('created_at','>=',Carbon::yesterday()));
+            return view('admin.dashboard')->with('count',$count);
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+
     }
 
     public function showNewOrder() {
-        $start_date = Carbon::now();
-        $end_date = Carbon::yesterday();
-        $orders = Order::all()->where('created_at','<=',Carbon::now())->where('created_at','>=',Carbon::yesterday());
-        return view('admin.order.new_order')->with('orders',$orders);
+        if (Auth::check()) {
+            $start_date = Carbon::now();
+            $end_date = Carbon::yesterday();
+            $orders = Order::all()->where('created_at','<=',Carbon::now())->where('created_at','>=',Carbon::yesterday());
+            return view('admin.order.new_order')->with('orders',$orders);
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+
     }
 
     public function getChartDataApi()
     {
-        $start_date = '2018-08-20';
-        $end_date = '2018-08-25';
-        $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
-            ->whereBetween('created_at', array($start_date, $end_date))
-            ->groupBy('day')
-            ->orderBy('day', 'desc')
-            ->get();
-        return $chart_data;
+        if (Auth::check()) {
+            $start_date = '2018-08-20';
+            $end_date = '2018-08-25';
+            $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
+                ->whereBetween('created_at', array($start_date, $end_date))
+                ->groupBy('day')
+                ->orderBy('day', 'desc')
+                ->get();
+            return $chart_data;
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+
     }
 }
