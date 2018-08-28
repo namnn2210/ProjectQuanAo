@@ -32,4 +32,14 @@ class HomepageController extends Controller
             ->with('obj',$obj)
             ->with('obj_category',$obj_category);
     }
+
+    public function showAbout() {
+        $obj_category = Category::where('status',1)->get();
+        return view('user.about')->with('obj_category',$obj_category);
+    }
+
+    public function showContact() {
+        $obj_category = Category::where('status',1)->get();
+        return view('user.contact')->with('obj_category',$obj_category);
+    }
 }
