@@ -79,9 +79,9 @@ function filter() {
                     new_content += '<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>';
                     new_content += '<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>';
                     new_content += '</a>';
-                    new_content += '<div class="block2-btn-addcart w-size1 trans-0-4">';
+                    new_content += '<div class="block2-btn-addcart w-size1 trans-0-4" id="add-cart-' + new_items[i].id + '"' + ' onclick="quickAddCartAjax()">';
                     new_content += '<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">';
-                    new_content += 'Add to Cart';
+                    new_content += 'Thêm vào giỏ hàng';
                     new_content += '</button>';
                     new_content += '</div>';
                     new_content += '</div>';
