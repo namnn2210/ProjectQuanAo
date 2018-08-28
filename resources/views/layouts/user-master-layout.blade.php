@@ -456,7 +456,7 @@
 <script src="{{asset('js/master-layout-2-js/main.js')}}"></script>
 <script src={{asset("/js/jquery.paginate.js")}}></script>
 <script src="{{asset('/js/product.js')}}"></script>
-<script src="{{asset('js/my_script.js')}}"></script>
+<script src="{{asset('carcart.jsscript>
 
 </body>
 </html>

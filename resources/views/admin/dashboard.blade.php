@@ -17,10 +17,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6 no-gutters">
             <div id="linechart_material"></div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-6 no-gutters">
             <div id="piechart"></div>
         </div>
     </div>
