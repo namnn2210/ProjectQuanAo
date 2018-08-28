@@ -1,3 +1,11 @@
+$(document).ready(function () {
+   var url = window.location.href.replace('http://127.0.0.1:8000','');
+   if(url == '/view-cart'){
+        $('div.header-wrapicon2').remove();
+        $('span.linedivide1').remove();
+   }
+});
+
 $('.block2-btn-addcart').click(function(){
     var product_id = $(this).attr('id').replace('add-cart-', '');
     var quantity = 1;
@@ -25,6 +33,7 @@ function addCart(quantity, product_id) {
             var new_items = resp.shopping_cart.items;
             var new_content = '';
             for (var i in new_items) {
+                var price = $('#row-item-'+ new_items[i].product.id + ' .block2-price').text()
                 new_content += '<li class="header-cart-item">';
                 new_content += '<div class="header-cart-item-img">';
                 new_content += '<img src="' + new_items[i].product.images.split('&')[0] + '" alt="IMG">';
@@ -34,7 +43,7 @@ function addCart(quantity, product_id) {
                 new_content += new_items[i].product.name;
                 new_content += '</a>';
                 new_content += '<span class="header-cart-item-info">';
-                new_content += new_items[i].quantity + ' x '+ new_items[i].product.dicountPriceString;
+                new_content += new_items[i].quantity + ' x ' + price;
                 new_content += '</span>';
                 new_content += '</div>';
                 new_content += '</li>';
@@ -45,6 +54,8 @@ function addCart(quantity, product_id) {
                 $('.header-icons-noti').text(new_count);
             }
             $('#header-cart-wrapitem').html(new_content);
+            var quantity = $('header-cart-item-info').text();
+            // $('header-cart-item-info').text(quantity + price);
             $('#header-cart-total').text(new_total_money);
             swal('Thao tác thành công!', 'Sản phẩm đã được thêm vào giỏ hàng!', 'success');
         },
@@ -64,7 +75,7 @@ $('.btn-num-product-down').click(function () {
 });
 
 $('.btn-update-cart').click(function () {
-    updateCart();
+    window.location.reload();
 });
 
 function updateCart(){
@@ -81,34 +92,14 @@ function updateCart(){
         data: products,
         success: function (resp){
             var new_items = resp.shopping_cart.items;
-            var new_count = resp.shopping_cart.count;
             var new_total_money = resp.shopping_cart.total_money;
             var new_content = '';
             for (var i in new_items){
-                new_content += '<li class="header-cart-item">';
-                new_content += '<div class="header-cart-item-img">';
-                new_content += '<img src="' + new_items[i].product.images.split('&')[0] + '" alt="IMG">';
-                new_content += '</div>';
-                new_content += '<div class="header-cart-item-txt">';
-                new_content += '<a href="#" class="header-cart-item-name">';
-                new_content += new_items[i].product.name;
-                new_content += '</a>';
-                new_content += '<span class="header-cart-item-info">';
-                new_content += new_items[i].quantity + ' x '+ numeral(new_items[i].product.dicountPrice).format('0,0') + ' VNĐ';
-                new_content += '</span>';
-                new_content += '</div>';
-                new_content += '</li>';
                 var itemClass = 'item-' + new_items[i].product.id;
                 $('.num-product.' + itemClass).val(new_items[i].quantity);
                 $('.' + itemClass).text(numeral(new_items[i].quantity * new_items[i].product.dicountPrice).format('0,0') + ' VNĐ');
             }
-            if(new_count == undefined){
-                $('.header-icons-noti').text(1);
-            }else{
-                $('.header-icons-noti').text(new_count);
-            }
-            $('#header-cart-wrapitem').html(new_content);
-            $('#header-cart-total').text(new_total_money);
+            $('.total_price').text(new_total_money);
         },
         error: function () {
             alert('error');
