@@ -28,6 +28,7 @@ Route::resource('admin/account','AccountController');
 Route::get('/admin','DashboardController@showAdminPage');
 Route::get('/admin/new-orders','DashboardController@showNewOrder');
 Route::get('/admin/chart','DashboardController@getChartDataApi');
+Route::get('/admin/chart-1','DashboardController@getPieChartDataApi');
 Route::get('/','HomepageController@showHomepage');
 
 Route::get('/product','UserProductController@index');
