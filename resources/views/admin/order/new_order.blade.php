@@ -26,7 +26,6 @@
             @foreach($orders as $item)
                 <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
                     <td style="text-align: center">{{$item->customer_id}}</td>
-                    <
                     <th style="text-align: center">namnn13</th>
                     <td style="text-align: center">{!! $item->shipInformation !!}</td>
                     <td>{{$item -> created_at}}</td>

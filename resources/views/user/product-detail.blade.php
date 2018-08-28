@@ -1,5 +1,5 @@
 @extends('layouts.user-master-layout')
-@section('page-title','Product')
+@section('page-title','{{$obj->name}}')
 @section('content')
     <!-- breadcrumb -->
     <div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">

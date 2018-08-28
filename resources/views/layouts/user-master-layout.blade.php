@@ -43,7 +43,6 @@
                 </div>
 
                 <span class="topbar-child1">
-					Giao hàng miễn phí với đơn hàng trên 2000000VNĐ
 				</span>
 
                 <div class="topbar-child2">
@@ -452,11 +451,14 @@
         }
     });
 </script>
+<script>
+    $('.topbar-child1').text('Giao hàng miễn phí với đơn hàng trên ' + numeral(2000000).format('0,0') + ' VNĐ');
+</script>
 <!--===============================================================================================-->
 <script src="{{asset('js/master-layout-2-js/main.js')}}"></script>
 <script src={{asset("/js/jquery.paginate.js")}}></script>
 <script src="{{asset('/js/product.js')}}"></script>
-<script src="{{asset('carcart.jsscript>
+<script src="{{asset('/js/cart.js')}}"></script>
 
 </body>
 </html>

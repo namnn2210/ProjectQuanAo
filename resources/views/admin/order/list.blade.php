@@ -16,7 +16,6 @@
             <thead>
             <tr>
                 <th style="text-align: center">ID Khách hàng</th>
-                <
                 <th style="text-align: center">Người đặt</th>
                 <th style="text-align: center">Tên Khách hàng</th>
                 <th style="text-align: center">Thời gian</th>
@@ -29,7 +28,6 @@
             @foreach($obj as $item)
                 <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
                     <td style="text-align: center">{{$item -> customer_id}}</td>
-                    <
                     <th style="text-align: center">namnn13</th>
                     <td style="text-align: center">{!! $item->shipInformation !!}</td>
                     <td>{{$item -> created_at}}</td>
@@ -54,10 +52,10 @@
                             <span class="fa fa-check"></span>
                         @endif
                         @if($item->status==0)
-                                <a href="#" id="{{$item -> id}}" class="fa fa-trash"></a>
+                                <a href="#" id="{{$item -> id}}" class="fa fa-trash" style="color: red"></a>
                         @endif
                         @if($item->status==-1)
-                            <a href="{{$item->id}}" class="fa fa-minus-circle"></a>
+                            <span href="{{$item->id}}" class="fa fa-minus-circle" style="color: red"></span>
                         @endif
                     </td>
                 </tr>

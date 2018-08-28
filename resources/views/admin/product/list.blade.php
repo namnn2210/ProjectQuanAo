@@ -39,7 +39,7 @@
                         <td style="text-align: center">{{$item -> status}}</td>
                         <td style="text-align: center">
                             <a href="#" class="fa fa-edit btn-quick-edit mr-2" style="color: black"></a>
-                            <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2" style="color: black"></a>
+                            <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2" style="color: red"></a>
                         </td>
                     </tr>
                 @endforeach
