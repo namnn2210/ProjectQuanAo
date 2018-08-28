@@ -25,13 +25,9 @@ Route::resource('admin/category','CategoryController');
 Route::resource('admin/order','OrderController');
 Route::resource('admin/account','AccountController');
 
-Route::get('/register', function () {
-    return view('admin.register');
-});
-Route::get('/login', function () {
-    return view('admin.login');
-});
-
+Route::get('/admin','DashboardController@showAdminPage');
+Route::get('/admin/new-orders','DashboardController@showNewOrder');
+Route::get('/admin/chart','DashboardController@getChartDataApi');
 Route::get('/','HomepageController@showHomepage');
 
 Route::get('/product','UserProductController@index');
@@ -40,6 +36,13 @@ Route::get('/product/{product}','UserProductController@show');
 Route::get('/abc', function (){
     return view('user.product-detail') ;
 });
+
+Route::get('/about', function () {
+    return view('user.about');
+});
+Route::get('/contact', function () {
+    return view('user.contact');
+});
 Route::post('/san-pham-test','UserProductController@search');
 Route::post('/add-to-cart','ShoppingCartController@addToCart');
 Route::get('/view-cart','ShoppingCartController@showCart');
@@ -47,4 +50,8 @@ Route::get('/destroy-cart', 'ShoppingCartController@destroyCart');
 Route::put('/update-cart', 'ShoppingCartController@updateCart');
 Route::post('/checkout', 'ShoppingCartController@checkoutCart');
 Route::get('/abc','UserProductController@abc');
+
+Route::get('admin/login', 'AdminLoginController@login');
+Route::post('admin/login', 'AdminLoginController@postLogin');
+Route::get('admin/logout', 'AdminLoginController@logout');
 

@@ -35,8 +35,8 @@
                                                 <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                             </button>
 
-                                            <input class="size8 m-text18 t-center num-product item-{{$item->product->id}}" type="number" name="products[{{$item->product->id}}]" value="{{$item->quantity}}">
 
+                                            <input class="size8 m-text18 t-center num-product item-{{$item->product->id}}" type="number" name="products[{{$item->product->id}}]" value="{{$item->quantity}}">
                                             <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
                                                 <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                             </button>
@@ -71,7 +71,6 @@
                 </div>
             {{--</form>--}}
             </div>
-
             <form action="/checkout" name="order-form" method="POST">
             @csrf()
             <!-- Total -->

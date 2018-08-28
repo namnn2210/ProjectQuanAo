@@ -17,9 +17,11 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $obj = Brand::all()->where('status','=',1);
-        return view('admin.brand.list')
-            -> with('obj',$obj);
+        if (Auth::check()) {
+            $obj = Brand::all()->where('status','=',1);
+            return view('admin.brand.list')
+                -> with('obj',$obj);
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 
     /**
@@ -29,7 +31,11 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('admin.brand.create');
+        if (Auth::check()) {
+            return view('admin.brand.create');
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+
+
     }
 
     /**
@@ -40,17 +46,21 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        $obj = new Brand();
-        $obj -> name = Input::get('name');
-        $obj -> description = Input::get('description');
-        $obj -> country = Input::get('country');
-        if (Input::hasFile('images')) {
-            $image_id = time();
-            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-            $obj->images = Cloudder::secureShow($image_id);
-        }
-        $obj -> save();
-        echo "<script>alert('Saved Successfull'); window.location.href = '/admin/brand'</script>";
+        if (Auth::check()) {
+            $obj = new Brand();
+            $obj -> name = Input::get('name');
+            $obj -> description = Input::get('description');
+            $obj -> country = Input::get('country');
+            if (Input::hasFile('images')) {
+                $image_id = time();
+                Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
+                $obj->images = Cloudder::secureShow($image_id);
+            }
+            $obj -> save();
+            echo "<script>alert('Saved Successfull'); window.location.href = '/admin/brand'</script>";
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+
+
     }
 
     /**
@@ -61,9 +71,13 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        $obj = Brand::find($id);
-        return view('admin.brand.show')
-            -> with('obj',$obj);
+        if (Auth::check()) {
+            $obj = Brand::find($id);
+            return view('admin.brand.show')
+                -> with('obj',$obj);
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+
+
     }
 
     /**
@@ -74,9 +88,13 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $obj = Brand::find($id);
-        return view('admin.brand.edit')
-            -> with('obj',$obj);
+        if (Auth::check()) {
+            $obj = Brand::find($id);
+            return view('admin.brand.edit')
+                -> with('obj',$obj);
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+
+
     }
 
     /**
@@ -88,17 +106,21 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $obj = Brand::find($id);
-        $obj -> name = Input::get('name');
-        $obj -> description = Input::get('description');
-        $obj -> country = Input::get('country');
-        if (Input::hasFile('images')) {
-            $image_id = time();
-            Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-            $obj->images = Cloudder::secureShow($image_id);
-        }
-        $obj -> save();
-        echo "<script>alert('Saved Successfull'); window.location.href = '/admin/brand'</script>";
+        if (Auth::check()) {
+            $obj = Brand::find($id);
+            $obj -> name = Input::get('name');
+            $obj -> description = Input::get('description');
+            $obj -> country = Input::get('country');
+            if (Input::hasFile('images')) {
+                $image_id = time();
+                Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
+                $obj->images = Cloudder::secureShow($image_id);
+            }
+            $obj -> save();
+            echo "<script>alert('Saved Successfull'); window.location.href = '/admin/brand'</script>";
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+
+
     }
 
     /**
@@ -109,9 +131,11 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        $obj = Brand::find($id);
-        $obj->status = 0;
-        $obj->save();
-        return redirect('/admin/brand/list');
+        if (Auth::check()) {
+            $obj = Brand::find($id);
+            $obj->status = 0;
+            $obj->save();
+            return redirect('/admin/brand/list');
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 }

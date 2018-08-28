@@ -85,11 +85,11 @@
                             </li>
 
                             <li>
-                                <a href="#">Giới thiệu</a>
+                                <a href="/about">Giới thiệu</a>
                             </li>
 
                             <li>
-                                <a href="#">Liên hệ</a>
+                                <a href="/contact">Liên hệ</a>
                             </li>
                         </ul>
                     </nav>
@@ -250,7 +250,7 @@
                     </li>
 
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
+                        <a href="/about" class="s-text7">
                             Giới thiệu
                         </a>
                     </li>

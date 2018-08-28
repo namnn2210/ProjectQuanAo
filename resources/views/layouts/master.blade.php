@@ -40,7 +40,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="/" class="logo">
+        <a href="/admin" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>F</b>FF</span>
             <!-- logo for regular state and mobile devices -->
@@ -79,7 +79,7 @@
                                     <a href="#" class="btn btn-default btn-flat">Hồ sơ</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Đăng xuất</a>
+                                    <a href="/admin/logout" class="btn btn-default btn-flat">Đăng xuất</a>
                                 </div>
                             </li>
                         </ul>
@@ -102,27 +102,20 @@
                     <a href="#"><i class="fa fa-circle text-success"></i> Trực tuyến</a>
                 </div>
             </div>
-            <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-                </div>
-            </form>
-            <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">Trang quản lý</li>
-                <li class="@yield('active-user') treeview">
+                <li class="@yield('active-dashboard')">
+                    <a href="/admin">
+                        <i class="fa fa-columns"></i> <span>Trang chủ</span>
+                    </a>
+                </li>
+                <li class="treeview @yield('active-user')">
                     <a href="#">
                         <i class="fa fa-user"></i> <span>Quản lý tài khoản</span>
                         <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="/admin/account"><i class="fa fa-circle-o"></i>Danh sách tài khoản</a></li>
@@ -225,7 +218,7 @@
 <script src="{{asset('/css/datatables/js/dataTables.bootstrap.min.js')}}"></script>
 <script src="{{asset('/css/datatables-responsive/dataTables.responsive.js')}}"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#dataTables-example').DataTable({
             responsive: true
         });

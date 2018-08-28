@@ -6,7 +6,7 @@
     bottom: 10px;
     right: 20px;
 }
-.load-more, a:visited {
+.load-more a:visited {
     color: #33739E;
     text-decoration: none;
     display: block;

@@ -61,7 +61,8 @@ class ShoppingCartController extends Controller
         $shopping_cart = new ShoppingCart();
         $products = Input::get('products');
         if (is_array($products)){
-            foreach (array_keys($products) as $key){
+
+            foreach (array_keys($products) as $key) {
                 $product = Product::find($key);
                 if ($product == null || $product->status != 1) {
                     return view('error.404');
@@ -95,7 +96,7 @@ class ShoppingCartController extends Controller
                 $ship_address = Input::get('ship_address');
                 $ship_phone = Input::get('ship_phone');
                 $order = new Order();
-                $order->customer_id = 'KH' . round(microtime(true) * 1000);
+                $order->customer_id = 'KH'.round(microtime(true));
                 $order->ship_name = $ship_name;
                 $order->ship_address = $ship_address;
                 $order->ship_phone = $ship_phone;

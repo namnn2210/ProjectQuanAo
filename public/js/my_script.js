@@ -65,7 +65,6 @@ function addCart(quantity, product_id) {
     });
 }
 
-
 $('.btn-num-product-up').click(function () {
    updateCart();
 });
@@ -106,3 +105,4 @@ function updateCart(){
         }
     });
 }
+
