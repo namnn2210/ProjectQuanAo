@@ -40,8 +40,8 @@
                         <input type="text" class="form-control" name="country">
                         <p class="alert-danger" style="margin-top: 1%"></p>
                     </div>
-                    <label>Logo</label>
-                    <input class="form-control" type="file" name="logo" id="add_logos">
+                    <label>Image</label>
+                    <input class="form-control" type="file" name="image" id="add_images">
                 </div>
                 <div class="preview_images hidden"></div>
                 <div class="form-group" style="text-align: center;">
