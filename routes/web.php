@@ -37,12 +37,9 @@ Route::get('/abc', function (){
     return view('user.product-detail') ;
 });
 
-Route::get('/about', function () {
-    return view('user.about');
-});
-Route::get('/contact', function () {
-    return view('user.contact');
-});
+Route::get('/about','HomepageController@showAbout');
+Route::get('/contact','HomepageController@showContact');
+
 Route::post('/san-pham-test','UserProductController@search');
 Route::post('/add-to-cart','ShoppingCartController@addToCart');
 Route::get('/view-cart','ShoppingCartController@showCart');

@@ -33,9 +33,9 @@ function filter() {
     ];
     var value1 = values[0];
     var value2 = values[1];
-    var categoryId = window.location.href.replace('http://127.0.0.1:8000/product?categoryId=','');
+    var categoryId = window.location.href.replace('http://localhost:8000/product?categoryId=','');
     var search = $('input[name = "name"]').val();
-    var bigSale = window.location.href.replace('http://127.0.0.1:8000/product?bigSale=','');
+    var bigSale = window.location.href.replace('http://localhost:8000/product?bigSale=','');
     $.ajax({
         method: 'post',
         url: '/product',

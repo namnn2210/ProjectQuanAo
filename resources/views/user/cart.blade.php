@@ -91,17 +91,17 @@
 
                         <div class="size13 bo4 m-b-12">
                             <input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="ship_name"
-                                   placeholder="Họ và tên">
+                                   placeholder="Họ và tên" required>
                         </div>
 
                         <div class="size13 bo4 m-b-12">
                             <input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="ship_address"
-                                   placeholder="Địa chỉ giao hàng">
+                                   placeholder="Địa chỉ giao hàng" required>
                         </div>
 
                         <div class="size13 bo4 m-b-22">
                             <input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="ship_phone"
-                                   placeholder="Số điện thoại">
+                                   placeholder="Số điện thoại" required>
                         </div>
                     </div>
                 </div>
