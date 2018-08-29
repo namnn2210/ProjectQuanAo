@@ -48,7 +48,7 @@ function filter() {
             bigSale: bigSale,
             _token: $('meta[name="csrf-token"]').attr('content')
         },
-        success: function (resp) {
+        success: function (resp){
             var new_content = '';
             var new_items = resp.obj;
             if($.isEmptyObject(new_items)){
@@ -62,7 +62,7 @@ function filter() {
             }
             else{
                 for (var i in new_items){
-                    new_content += '<div class="col-sm-12 col-md-6 col-lg-4 p-b-50 row-item">';
+                    new_content += '<div class="col-sm-12 col-md-6 col-lg-4 p-b-50 row-item" id="row-item-' + + new_items[i].id + '"' + '>';
                     new_content += '<div class="block2">';
                     new_content += '<div class="block2-img wrap-pic-w of-hidden pos-relative">';
                     new_content +=  '<span class="block2-labelsale text-danger">';
@@ -79,7 +79,7 @@ function filter() {
                     new_content += '<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>';
                     new_content += '<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>';
                     new_content += '</a>';
-                    new_content += '<div class="block2-btn-addcart w-size1 trans-0-4">';
+                    new_content += '<div class="block2-btn-addcart w-size1 trans-0-4" id="add-cart-' + new_items[i].id + '"' + '>';
                     new_content += '<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">';
                     new_content += 'Add to Cart';
                     new_content += '</button>';
@@ -87,7 +87,7 @@ function filter() {
                     new_content += '</div>';
                     new_content += '</div>';
                     new_content += '<div class="block2-txt p-t-20">';
-                    new_content += '<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">';
+                    new_content += '<a href="/product/' + new_items[i].id + '" ' + 'class="block2-name dis-block s-text3 p-b-5">';
                     new_content += new_items[i].name;
                     new_content += '</a>';
                     if(new_items[i].discount == 0){

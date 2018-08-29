@@ -31,13 +31,11 @@
                                     <td class="column-3">{{$item->product->discountPriceString}}</td>
                                     <td class="column-4">
                                         <div class="flex-w bo5 of-hidden w-size17">
-                                            <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+                                            <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2 btn-cart-num-up">
                                                 <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                             </button>
-
-
-                                            <input class="size8 m-text18 t-center num-product item-{{$item->product->id}}" type="number" name="products[{{$item->product->id}}]" value="{{$item->quantity}}">
-                                            <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+                                            <input class="size8 m-text18 t-center num-product" type="number" name="products[{{$item->product->id}}]" value="{{$item->quantity}}">
+                                            <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2 btn-cart-num-down">
                                                 <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
                                             </button>
                                         </div>
@@ -71,6 +69,7 @@
                 </div>
             {{--</form>--}}
             </div>
+
             <form action="/checkout" name="order-form" method="POST">
             @csrf()
             <!-- Total -->

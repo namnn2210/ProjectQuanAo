@@ -48,7 +48,7 @@ class ShoppingCartController extends Controller
     {
         $obj_category = Category::where('status', 1)->get();
         $shopping_cart = new ShoppingCart();
-        if (Session::has('cart')) {
+        if (Session::has('cart')){
             $shopping_cart = Session::get('cart');
         }
         return view('user.cart')
@@ -61,8 +61,7 @@ class ShoppingCartController extends Controller
         $shopping_cart = new ShoppingCart();
         $products = Input::get('products');
         if (is_array($products)){
-
-            foreach (array_keys($products) as $key) {
+            foreach (array_keys($products) as $key){
                 $product = Product::find($key);
                 if ($product == null || $product->status != 1) {
                     return view('error.404');
@@ -96,7 +95,7 @@ class ShoppingCartController extends Controller
                 $ship_address = Input::get('ship_address');
                 $ship_phone = Input::get('ship_phone');
                 $order = new Order();
-                $order->customer_id = 'KH'.round(microtime(true));
+                $order->customer_id = 'KH' . round(microtime(true) * 1000);
                 $order->ship_name = $ship_name;
                 $order->ship_address = $ship_address;
                 $order->ship_phone = $ship_phone;
@@ -136,4 +135,14 @@ class ShoppingCartController extends Controller
             return redirect('/product')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
         }
     }
+
+//    public function removeItem($id){
+//        $shopping_cart = new ShoppingCart();
+//        if (Session::has('cart')){
+//            $shopping_cart = Session::get('cart');
+//        }
+//        $shopping_cart->forget($id);
+//        Session::put('cart', $shopping_cart);
+//        return redirect('/view-cart');
+//    }
 }

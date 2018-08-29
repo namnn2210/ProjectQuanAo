@@ -93,6 +93,7 @@
                     <div class="row" id="example">
                         @foreach($obj as $item)
                             <div class="col-sm-12 col-md-6 col-lg-4 p-b-50 row-item" id="row-item-{{$item->id}}">
+                                <input type="hidden" name="category" value="{{$item -> category_id}}">
                                 <!-- Block2 -->
                                 <div class="block2">
                                     <div class="block2-img wrap-pic-w of-hidden pos-relative">
