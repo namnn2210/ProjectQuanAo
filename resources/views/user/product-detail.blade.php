@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <div class="w-size14 p-t-30 respon5">
+            <div class="w-size14 p-t-30 respon5" id="row-item-{{$obj -> id}}">
                 <h4 class="product-detail-name m-text16 p-b-13">
                     {{$obj->name}}
                 </h4>
@@ -55,12 +55,6 @@
                     -{{$obj -> discount}}%
                 </span>
 
-            {{--<p class="s-text8 p-t-10">--}}
-            {{--Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare--}}
-            {{--feugiat.--}}
-            {{--</p>--}}
-
-            <!--  -->
                 <div class="p-t-33 p-b-60">
                     <div class="flex-r-m flex-w p-t-10">
                         <div class="w-size16 flex-m flex-w">
