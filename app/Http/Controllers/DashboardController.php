@@ -14,6 +14,7 @@ use App\OrderDetail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class DashboardController
 {
@@ -38,10 +39,10 @@ class DashboardController
     public function getChartDataApi()
     {
         if (Auth::check()) {
-            $start_date = '2018-08-20';
-            $end_date = '2018-08-28';
+            $start_date = Input::get('startDate');
+            $end_date = Input::get('endDate');
             $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
-                ->whereBetween('created_at', array($start_date, $end_date))
+                ->whereBetween('created_at', array($start_date.' 00:00:00', $end_date. ' 23:59:59'))
                 ->groupBy('day')
                 ->orderBy('day', 'desc')
                 ->get();
@@ -51,13 +52,6 @@ class DashboardController
 
     public function getPieChartDataApi() {
         if(Auth::check()) {
-//            $chart_data = DB::table('order_details')
-//                ->select('categories.name','sum(order_details.quantity)')
-//                ->join('categories','products.category_id','=','categories.id')
-//                ->join('products','order_details.product_id','=','products.id')
-//                ->groupBy('categories.id')
-//                ->get();
-
             $chart_data = OrderDetail::select(DB::raw('categories.name as category'), DB::raw('sum(order_details.quantity) as quantity'))
                 ->join('products','order_details.product_id','=','products.id')
                 ->join('categories','products.category_id','=','categories.id')
