@@ -12,7 +12,7 @@
             <div class="alert alert-success hidden">
             </div>
         @endif
-        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <table width="100%" class="table table-hover" id="dataTables-example" style="background-color: white">
             <thead>
             <tr>
                 <th style="text-align: center">Tên tài khoản</th>
@@ -37,9 +37,9 @@
                     <td style="text-align: center">{{$item -> address}}</td>
                     <td style="text-align: center">{{$item -> DOB}}</td>
                     <td style="text-align: center">{{$item -> phone}}</td>
-                    <td style="text-align: center">
-                        <a href="#" class="fa fa-edit btn-quick-edit mr-2">Chỉnh sửa</a>
-                        <a href="#" id="{{$item ->id}}" class="fa fa-trash mr-2"> Xóa</a>
+                    <td class="black-icon" style="text-align: center">
+                        <a href="#" class="fa fa-pencil btn-quick-edit mr-2" style="color: black"></a>
+                        <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2" style="color: black"></a>
                     </td>
                 </tr>
             @endforeach

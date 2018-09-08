@@ -1,10 +1,10 @@
 @extends('layouts.master', ['currentPage' => 'list'])
-@section('page-title', 'LIST CATEGORIES')
+@section('page-title', 'DANH SÁCH DANH MỤC')
 @section('active-category','active')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">LIST CATEGORIES</h1>
+            <h1 class="page-header">DANH SÁCH DANH MỤC</h1>
         </div>
     </div>
     <div class="panel-body">
@@ -12,13 +12,13 @@
             <div class="alert alert-success hidden">
             </div>
         @endif
-        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <table width="100%" class="table table-hover" id="dataTables-example" style="background-color: white">
             <thead>
             <tr>
-                <th style="text-align: center">Thumnail</th>
-                <th style="text-align: center">Name</th>
-                <th style="text-align: center">Description</th>
-                <th style="text-align: center">Tool</th>
+                <th style="text-align: center">Hình ảnh</th>
+                <th style="text-align: center">Tên danh mục</th>
+                <th style="text-align: center">Mô tả</th>
+                <th style="text-align: center">Thao tác</th>
             </tr>
             </thead>
             <tbody>
@@ -29,9 +29,9 @@
                         </td>
                         <td style="text-align: center">{{$item -> name}}</td>
                         <td>{{$item -> description}}</td>
-                        <td style="text-align: center">
-                            <a href="#" class="fa fa-edit btn-quick-edit mr-2">Edit</a>
-                            <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2"> Delete</a>
+                        <td class="black-icon" style="text-align: center">
+                            <a href="#" class="fa fa-pencil btn-quick-edit mr-2" style="color: black"></a>
+                            <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2" style="color: black"></a>
                         </td>
                     </tr>
                 @endforeach

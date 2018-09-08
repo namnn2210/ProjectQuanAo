@@ -168,7 +168,6 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="/admin/order"><i class="fa fa-circle-o"></i>Danh sách đơn hàng</a></li>
-                        <li><a href="/admin/order/create"><i class="fa fa-circle-o"></i>Thêm đơn hàng</a></li>
                     </ul>
                 </li>
             </ul>
