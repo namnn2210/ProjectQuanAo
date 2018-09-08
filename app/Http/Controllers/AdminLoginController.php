@@ -27,7 +27,7 @@ class AdminLoginController extends Controller
         ]);
 
         if(Auth::attempt(['username'=>$request->username, 'password'=>$request->password])){
-            return redirect('/admin/product');
+            return redirect('/admin');
         }
         else {return redirect()->back()->with('message', 'Tên đăng nhập hoặc mật khẩu không đúng');}
     }
