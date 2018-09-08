@@ -19,8 +19,21 @@
             <div class="panel">
                 <h2>Register</h2>
                 <p>Please enter your information.</p>
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach($errors->all() as $err)
+                            <li>{{$err}}</li>
+                        @endforeach
+                    </div>
+                @endif
+                @if(session('message'))
+                    <div class="alert alert-success">
+                        {{session('message')}}
+                    </div>
+                @endif
             </div>
-            <form id="Register">
+            <form id="Register" method="post">
+                @csrf()
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" class="form-control" name="username" id="inputUserName" placeholder="">
@@ -35,7 +48,7 @@
                 </div>
                 <div class="form-group">
                     <label>Confirm Password</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="">
+                    <input type="password" class="form-control" name="confirm-password" id="inputPassword" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Full Name</label>
@@ -70,8 +83,7 @@
                 </div>
                 <div class="finish-register">
                     <button type="submit" class="btn btn-primary">Register</button>
-                    <p></p>
-                    <a href='/login'>Already had account? Login here!</a>
+                    <a href='/admin/login'>Already had account? Login here!</a>
                 </div>
             </form>
         </div>

@@ -55,4 +55,6 @@ Route::get('/abc','UserProductController@abc');
 Route::get('admin/login', 'AdminLoginController@login');
 Route::post('admin/login', 'AdminLoginController@postLogin');
 Route::get('admin/logout', 'AdminLoginController@logout');
+Route::get('admin/register', 'AdminLoginController@registerAdmin');
+Route::post('admin/register', 'AdminLoginController@createAdminAccount');
 
