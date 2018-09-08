@@ -50,6 +50,8 @@ Route::get('/destroy-cart', 'ShoppingCartController@destroyCart');
 Route::put('/update-cart', 'ShoppingCartController@updateCart');
 Route::post('/checkout', 'ShoppingCartController@checkoutCart');
 Route::get('/abc','UserProductController@abc');
+Route::post('/remove-item', 'ShoppingCartController@removeItem');
+Route::get('/checkout', 'ShoppingCartController@checkout');
 
 Route::get('admin/login', 'AdminLoginController@login');
 Route::post('admin/login', 'AdminLoginController@postLogin');

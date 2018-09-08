@@ -1,13 +1,10 @@
 @extends('layouts.user-master-layout',['currentPage' => 'cart'])
-@section('page-title','Giỏ hàng')
+@section('page-title','Thanh toán')
 @section('content')
     <!-- Cart -->
     <section class="cart bgwhite p-t-70 p-b-100">
         <div class="container">
             <div id="#cart-item-form">
-            {{--<form name="update-cart-form">--}}
-            {{--{{csrf_field()}}--}}
-            {{--@method('PUT')--}}
             <!-- Cart item -->
                 <div class="container-table-cart pos-relative">
                     <div class="wrap-table-shopping-cart bgwhite">
@@ -21,7 +18,7 @@
                             </tr>
                             <tbody id="cart-items">
                             @foreach($shopping_cart->items as $item)
-                                <tr class="table-row">
+                                <tr class="table-row" id="item-{{$item->product->id}}">
                                     <td class="column-1">
                                         <div class="cart-img-product b-rad-4 o-f-hidden">
                                             <img src="<?php echo explode("&",$item->product->images,-1)[0];?>" alt="{{$item->product->name}}">
@@ -29,7 +26,7 @@
                                     </td>
                                     <td class="column-2">{{$item->product->name}}</td>
                                     <td class="column-3">{{$item->product->discountPriceString}}</td>
-                                    <td class="column-4">
+                                    <td class="column-4 p-l-40">
                                         <div class="flex-w bo5 of-hidden w-size17">
                                             <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2 btn-cart-num-up">
                                                 <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
@@ -41,6 +38,7 @@
                                         </div>
                                     </td>
                                     <td class="column-5 item-{{$item->product->id}}">{{$item->getTotalPriceWithFormat()}} VNĐ</td>
+                                    <td class="column-6 p-r-30"><i class="fa fa-close" style="color: black"></i></td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -66,8 +64,14 @@
                             Cập nhật giỏ hàng
                         </button>
                     </div>
+
+                    <div class="size10 trans-0-4 m-t-10 m-b-10">
+                        <!-- Button -->
+                        <button type="button" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href = '/checkout'">
+                            Thanh toán
+                        </button>
+                    </div>
                 </div>
-            {{--</form>--}}
             </div>
 
             <form action="/checkout" name="order-form" method="POST">
@@ -110,7 +114,7 @@
 					<span class="m-text22 w-size19 w-full-sm">
 						Tổng cộng:
 					</span>
-                    <h4 class="total_price">{{$shopping_cart -> getTotalMoneyWithFormat()}} (VNĐ)</h4>
+                    <h4 class="total_price">{{$shopping_cart -> getTotalMoneyWithFormat()}}</h4>
                 </div>
 
                 <div class="size15 trans-0-4">

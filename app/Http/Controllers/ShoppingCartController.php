@@ -79,9 +79,15 @@ class ShoppingCartController extends Controller
         return response()->json(['shopping_cart' => $shopping_cart], 200);
     }
 
-    public function destroyCart()
-    {
-        Session::remove('cart');
+    public function checkout(){
+        $obj_category = Category::where('status', 1)->get();
+        $shopping_cart = new ShoppingCart();
+        if (Session::has('cart')){
+            $shopping_cart = Session::get('cart');
+        }
+        return view('user.checkout')
+            ->with('obj_category',$obj_category)
+            ->with('shopping_cart', $shopping_cart);
     }
 
     public function checkoutCart()
@@ -136,13 +142,18 @@ class ShoppingCartController extends Controller
         }
     }
 
-//    public function removeItem($id){
-//        $shopping_cart = new ShoppingCart();
-//        if (Session::has('cart')){
-//            $shopping_cart = Session::get('cart');
-//        }
-//        $shopping_cart->forget($id);
-//        Session::put('cart', $shopping_cart);
-//        return redirect('/view-cart');
-//    }
+    public function removeItem()
+    {
+        $id = Input::get('id');
+        $shopping_cart = Session::get('cart');
+        foreach ($shopping_cart->items as $key => $value)
+        {
+            if ($key == $id)
+            {
+                unset($shopping_cart->items[$key]);
+            }
+        }
+        Session::put('cart', $shopping_cart);
+        return redirect('/view-cart');
+    }
 }
