@@ -465,6 +465,5 @@
 <script src="{{asset('/js/product.js')}}"></script>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script src="{{asset('js/my_script.js')}}"></script>
-
 </body>
 </html>

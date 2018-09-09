@@ -1,5 +1,5 @@
 @extends('layouts.user-master-layout',['currentPage' => 'cart'])
-@section('page-title','Thanh toán')
+@section('page-title','Giỏ hàng')
 @section('content')
     <!-- Cart -->
     <section class="cart bgwhite p-t-70 p-b-100">

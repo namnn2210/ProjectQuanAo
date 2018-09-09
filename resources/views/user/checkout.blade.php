@@ -1,6 +1,7 @@
 @extends('layouts.user-master-layout',['currentPage' => 'cart'])
-@section('page-title','Giỏ hàng')
+@section('page-title','Thanh toán')
 @section('content')
+    <div class="container-fluid m-b-30" style="width: 70%">
    <div class="row row-eq-height">
        <div class="col-8">
            <div class="m-t-50 align-items-center"><img class="center-block" src="{{asset('img/0b23a3c7c111f23618f91f722fe02a09.png')}}" style="max-width: 30%"></div>
@@ -9,19 +10,21 @@
                    <li class="visited first">
                        <a href="#">Giỏ hàng</a>
                    </li>
-                   <li class="active">Thông tin khách hàng</li>
-                   <li class="next">Hoàn thành</li>
+                   <li class="active">Thông tin giao hàng</li>
+                   <li class="next">Thanh toán</li>
+                   <li class="">Hoàn thành</li>
                </ul>
            </div>
            <div class="m-t-180 m-l-30">
-               <form>
+               <form name="order-form">
                    <h3 class="m-b-30">Thông tin liên hệ</h3>
                    <div class="form-group">
                        <textarea class="form-control" placeholder="Email" name="email" rows="2"></textarea>
+                       <input type="checkbox" class="m-t-20" name="status" value="1"> Nhận email về các sản phẩm và chương trình khuyến mãi mới từ chúng tôi
                    </div>
                    <h3 class="m-t-70 m-b-30">Địa chỉ giao hàng</h3>
                    <div class="form-group">
-                       <textarea class="form-control" placeholder="Họ Tên" name="name" rows="2"></textarea>
+                       <textarea name="name" class="form-control" placeholder="Họ Tên"></textarea>
                    </div>
                    <div class="form-group">
                        <textarea class="form-control" placeholder="Địa Chỉ" name="address" rows="2"></textarea>
@@ -40,7 +43,13 @@
                            </button>
                        </a>
                    </div>
-                   <div class="trans-0-4 m-t-30 m-b-10 float-right" id="paypal-button">
+                   {{--<div class="trans-0-4 m-t-30 m-b-10 float-right" id="paypal-button">--}}
+                   {{--</div>--}}
+                   <div class="size12 trans-0-4 m-t-30 m-b-10 m-r-10 float-right">
+                       <!-- Button -->
+                           <button type="button" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 payment">
+                               Phương thức thanh toán
+                           </button>
                    </div>
                </form>
            </div>
@@ -54,8 +63,11 @@
                                <img src="<?php echo explode("&",$item->product->images,-1)[0];?>" alt="{{$item->product->name}}">
                            </div>
                        </td>
-                       <td class="column-2">{{$item->product->name}}</td>
-                       <td class="column-3 item-{{$item->product->id}}">{{$item->getTotalPriceWithFormat()}} VNĐ</td>
+                       <td class="column-2 checkout-name">{{$item->product->name}}</td>
+                       <td class="column-3 checkout-price item-{{$item->product->id}}">{{$item->getTotalPriceWithFormat()}}</td>
+                       <input class="checkout-description" type="hidden" value="{{$item->product->description}}">
+                       <input class="checkout-id" type="hidden" value="{{$item->product->id}}">
+                       <input class="checkout-quantity" type="hidden" value="{{$item->quantity}}">
                    </tr>
                @endforeach
            </table>
@@ -84,8 +96,9 @@
 					<span class="m-text22 w-size19 w-full-sm">
 						Tổng cộng:
 					</span>
-               <h4 class="total_price checkout-price">{{$shopping_cart -> getTotalMoneyWithFormat()}}</h4>
+               <h4 class="total_price checkout-total-price">{{$shopping_cart -> getTotalMoneyWithFormat()}}</h4>
            </div>
        </div>
    </div>
+    </div>
 @endsection

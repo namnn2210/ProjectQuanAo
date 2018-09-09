@@ -8,6 +8,8 @@ use App\Order;
 use App\OrderDetail;
 use App\Product;
 use App\ShoppingCart;
+use App\subcribed_user;
+use App\Subscribed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -90,6 +92,17 @@ class ShoppingCartController extends Controller
             ->with('shopping_cart', $shopping_cart);
     }
 
+    public function payment(){
+        $obj_category = Category::where('status', 1)->get();
+        $shopping_cart = new ShoppingCart();
+        if (Session::has('cart')){
+            $shopping_cart = Session::get('cart');
+        }
+        return view('user.payment')
+            ->with('obj_category',$obj_category)
+            ->with('shopping_cart', $shopping_cart);
+    }
+
     public function checkoutCart()
     {
         $obj_category = Category::where('status', 1)->get();
@@ -100,6 +113,17 @@ class ShoppingCartController extends Controller
                 $ship_name = Input::get('ship_name');
                 $ship_address = Input::get('ship_address');
                 $ship_phone = Input::get('ship_phone');
+                $status = Input::get('status');
+                $email = Input::get('email');
+                if($status == 1){
+                    $customer = new Subscribed();
+                    $customer -> email = $email;
+                    $customer -> name = $ship_name;
+                    $customer -> address = $ship_address;
+                    $customer -> phone = $ship_phone;
+                    $customer -> status = $status;
+                    $customer -> save();
+                }
                 $order = new Order();
                 $order->customer_id = 'KH' . round(microtime(true) * 1000);
                 $order->ship_name = $ship_name;

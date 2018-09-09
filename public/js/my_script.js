@@ -129,7 +129,105 @@ $('.fa-close').click(function () {
     }
 });
 
-var total = $('.checkout-price').text();
+function currency(x) {
+    return Number.parseFloat(x).toFixed(2);
+}
+
+var products_checkout = [];
+$('.table-row').each(function () {
+    products_checkout.push({name: $(this).find('.checkout-name').text(), description: $(this).find('.checkout-description').val(), quantity: $(this).find('.checkout-quantity').val(), price: currency($(this).find('.checkout-price').text().replace(/,/g, "")/23600), sku: $(this).find('.checkout-id').val(), currency: 'USD'});
+});
+Array.prototype.sum = function (prop) {
+    var total = 0;
+    for ( var i = 0; i < this.length; i++) {
+        total += parseFloat(this[i][prop])
+    }
+    return total;
+};
+var total = currency(products_checkout.sum("price"));
+
+products_checkout.price;
+    $('.payment').on("click", function(){
+         var shipping_address = {
+            recipient_name: $('form[name = "order-form"] textarea[name = "name"]').val(),
+            line1: $('form[name = "order-form"] textarea[name = "address"]').val(),
+            city: 'San Jose',
+            country_code: 'US',
+            postal_code: '95131',
+            phone: $('form[name = "order-form"] textarea[name = "phone"]').val(),
+            state: 'CA',
+            email: $('form[name = "order-form"] textarea[name = "email"]').val(),
+            status: $('form[name = "order-form"] input[name = "status"]:checked').val(),
+        };
+        localStorage.setItem('shipping_address', JSON.stringify(shipping_address));
+        window.location.href = '/payment';
+    });
+
+var shipping_address = JSON.parse(localStorage.getItem('shipping_address'));
+$('.email').text(shipping_address.email);
+$('.address').text(shipping_address.line1);
+$('.phone').text(shipping_address.phone);
+
+$('.change').click(function (){
+   $('.form').removeClass('hidden');
+   $('.content-box').addClass('hidden');
+   $('.payment-method').addClass('hidden');
+    $('form[name = "order-form"] textarea[name = "name"]').val(shipping_address.recipient_name);
+    $('form[name = "order-form"] textarea[name = "address"]').val(shipping_address.line1);
+    $('form[name = "order-form"] textarea[name = "email"]').val(shipping_address.email);
+    $('form[name = "order-form"] textarea[name = "city"]').val(shipping_address.city);
+    $('form[name = "order-form"] textarea[name = "phone"]').val(shipping_address.phone);
+    $('form[name = "order-form"] input[name = "status"]').val(shipping_address.status);
+    if($('form[name = "order-form"] input[name = "status"]').val() == 1){
+        $('form[name = "order-form"] input[name = "status"]').prop('checked', true);
+    }
+});
+
+$('.save-change').click(function (){
+    $('.form').addClass('hidden');
+    $('.content-box').removeClass('hidden');
+    $('.payment-method').removeClass('hidden');
+    $('.email').text($('form[name = "order-form"] textarea[name = "email"]').val());
+    $('.address').text( $('form[name = "order-form"] textarea[name = "address"]').val());
+    $('.phone').text($('form[name = "order-form"] textarea[name = "phone"]').val());
+    shipping_address = {
+        recipient_name: $('form[name = "order-form"] textarea[name = "name"]').val(),
+        line1: $('form[name = "order-form"] textarea[name = "address"]').val(),
+        city: 'San Jose',
+        country_code: 'US',
+        postal_code: '95131',
+        phone: $('form[name = "order-form"] textarea[name = "phone"]').val(),
+        state: 'CA',
+        email: $('form[name = "order-form"] textarea[name = "email"]').val(),
+        status: $('form[name = "order-form"] input[name = "status"]').val(),
+    };
+    localStorage.setItem('shipping_address', JSON.stringify(shipping_address));
+});
+
+function checkout_success(){
+    $.ajax({
+        method: 'post',
+        url: '/checkout',
+        data:{
+            ship_name: shipping_address.recipient_name,
+            ship_address: shipping_address.line1,
+            ship_phone: shipping_address.phone,
+            email: shipping_address.email,
+            status: shipping_address.status,
+            _token: $('meta[name="csrf-token"]').attr('content'),
+        },
+        success: function () {
+            alert('thanks');
+        },
+        error: function () {
+            alert('xxxx');
+        }
+    });
+}
+
+$('.cod').click(function () {
+    checkout_success();
+});
 paypal.Button.render({
     // Configure environment
     env: 'sandbox',
@@ -157,41 +255,15 @@ paypal.Button.render({
                     },
                     soft_descriptor: 'ECHI5786786',
                     item_list: {
-                        items: [
-                            {
-                                name: 'Giày Balenciaga',
-                                description: 'Brown hat.',
-                                quantity: '1',
-                                price: '630,000',
-                                sku: '1',
-                                currency: 'USD'
-                            },
-                            {
-                                name: 'Balo Saint Laurent',
-                                description: 'Black handbag.',
-                                quantity: '1',
-                                price: '1,312,000',
-                                sku: 'product34',
-                                currency: 'USD'
-                            },
-                            {
-                                name: 'Balo Fendi',
-                                description: 'Black handbag.',
-                                quantity: '1',
-                                price: '712,000',
-                                sku: 'product35',
-                                currency: 'USD'
-                            }
-                            ],
+                        items: products_checkout,
                         shipping_address: {
-                            recipient_name: 'Brian Robinson',
-                            line1: '4th Floor',
-                            line2: 'Unit #34',
+                            recipient_name: shipping_address.recipient_name,
+                            line1: shipping_address.line1,
                             city: 'San Jose',
                             country_code: 'US',
                             postal_code: '95131',
-                            phone: '011862212345678',
-                            state: 'CA'
+                            phone: shipping_address.phone,
+                            state: 'CA',
                         }
                     }
                 }]
@@ -200,69 +272,9 @@ paypal.Button.render({
     payment_options: {
         allowed_payment_method: 'INSTANT_FUNDING_SOURCE'
     },
-    // Execute the payment
     onAuthorize: function(data, actions) {
-        return actions.payment.execute().then(function() {
-            window.alert('Thank you for your purchase!');
+        return actions.payment.execute().then(function(){
+            checkout_success();
         });
     }
 }, '#paypal-button');
-
-// // Set up a payment
-// payment: function(data, actions) {
-//     return actions.payment.create({
-//         transactions: [{
-//             amount: {
-//                 total: '30.11',
-//                 currency: 'USD',
-//                 details: {
-//                     subtotal: '30.00',
-//                     tax: '0.07',
-//                     shipping: '0.03',
-//                     handling_fee: '1.00',
-//                     shipping_discount: '-1.00',
-//                     insurance: '0.01'
-//                 }
-//             },
-//             description: 'The payment transaction description.',
-//             custom: '90048630024435',
-//             //invoice_number: '12345', Insert a unique invoice number
-//             payment_options: {
-//                 allowed_payment_method: 'INSTANT_FUNDING_SOURCE'
-//             },
-//             soft_descriptor: 'ECHI5786786',
-//             item_list: {
-//                 items: [
-//                     {
-//                         name: 'hat',
-//                         description: 'Brown hat.',
-//                         quantity: '5',
-//                         price: '3',
-//                         tax: '0.01',
-//                         sku: '1',
-//                         currency: 'USD'
-//                     },
-//                     {
-//                         name: 'handbag',
-//                         description: 'Black handbag.',
-//                         quantity: '1',
-//                         price: '15',
-//                         tax: '0.02',
-//                         sku: 'product34',
-//                         currency: 'USD'
-//                     }],
-//                 shipping_address: {
-//                     recipient_name: 'Brian Robinson',
-//                     line1: '4th Floor',
-//                     line2: 'Unit #34',
-//                     city: 'San Jose',
-//                     country_code: 'US',
-//                     postal_code: '95131',
-//                     phone: '011862212345678',
-//                     state: 'CA'
-//                 }
-//             }
-//         }],
-//         note_to_payer: 'Contact us for any questions on your order.'
-//     });
-// },
