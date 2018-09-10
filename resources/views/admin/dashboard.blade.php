@@ -22,9 +22,16 @@
     </div>
     <div class="clearfix"></div>
     <div class="row">
-        <div class="col-md-6">
-            <div id="linechart_material"></div>
+        <div class="col-md-6 card">
+            <div class="card-header">
+                <h3>Biểu đồ doanh thu theo thời gian</h3>
+                <p>tính theo đơn vị (vnd)</p>
+            </div>
+            <div class="card-body">
+                <div id="linechart_material"></div>
+            </div>
         </div>
+
         {{--<div class="col-md-6">--}}
             {{--<div id="piechart"></div>--}}
         {{--</div>--}}
@@ -54,11 +61,11 @@
                 data.addRow([new Date(chart_data[i].day), Number(chart_data[i].revenue)]);
             }
             var options = {
-                chart: {
-                    title: 'Biểu đồ doanh thu theo thời gian',
-                    subtitle: 'tính theo đơn vị (vnd)'
-                },
-                height: 600,
+                // chart: {
+                //     title: 'Biểu đồ doanh thu theo thời gian',
+                //     subtitle: 'tính theo đơn vị (vnd)'
+                // },
+                height: 400,
                 hAxis: {
                     format: 'dd/MM/yyyy'
                 }
