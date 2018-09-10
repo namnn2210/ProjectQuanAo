@@ -19,13 +19,13 @@ filterBar.noUiSlider.on('set', function( values, handle ) {
 });
 
 
-$('input[name = "name"]').keypress(function (e) {
+$('input[name = "name"]').keypress(function (e){
     if (e.which == 13){
         filter();
     }
 });
 
-function filter() {
+function filter(){
     var sort = $(".selection-2 option:selected").val();
     var values = [
         $('#value-lower').text(),
@@ -73,7 +73,7 @@ function filter() {
                     new_content +=  new_items[i].created_at;
                     new_content +=  '</p>';
                     new_content +=  '</span>';
-                    new_content += '<img src="' + new_items[i].images.split('&')[0] + '">';
+                    new_content += '<img src="' + new_items[i].images.split("&")[0] + '">';
                     new_content += '<div class="block2-overlay trans-0-4">';
                     new_content += '<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">';
                     new_content += '<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>';

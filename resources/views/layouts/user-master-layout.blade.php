@@ -8,6 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
     <link rel="stylesheet" href="{{asset('font/font-awesome/css/font-awesome.min.css')}}"/>
     <title>@yield('page-title')</title>
     <link rel="icon" type="image/png" href="{{asset('img/favicon.ico')}}"/>
@@ -24,6 +26,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/main.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/product.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/checkout.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/receipt.css')}}">
     <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('/js/jquery.paginate.css')}}">
 </head>
@@ -412,7 +416,7 @@
 <script src="{{asset('js/master-layout-2-js/main.js')}}"></script>
 <script src={{asset("/js/jquery.paginate.js")}}></script>
 <script src="{{asset('/js/product.js')}}"></script>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script src="{{asset('js/my_script.js')}}"></script>
-
 </body>
 </html>
