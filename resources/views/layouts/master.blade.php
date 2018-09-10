@@ -170,6 +170,17 @@
                         <li><a href="/admin/order"><i class="fa fa-circle-o"></i>Danh sách đơn hàng</a></li>
                     </ul>
                 </li>
+                <li class="treeview @yield('active-subcribers')">
+                    <a href="#">
+                        <i class="fa fa-list-ul"></i> <span>Quản lý subcriber</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin/order"><i class="fa fa-circle-o"></i>Danh sách subcriber</a></li>
+                    </ul>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->

@@ -15,6 +15,17 @@
     min-height: 38px;
     border-radius: 2px;
 }
+.card {
+    border-radius: 4px;
+    background-color:  white;
+    margin-left: 30px;
+}
+.card .card-body {
+    padding: 15px 15px 10px 15px;
+}
+.card-body {
+    flex: 1 1 auto;
+}
 .btn {
     font-size: 15px;
     font-weight: bold;
