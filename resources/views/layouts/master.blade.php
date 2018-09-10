@@ -29,7 +29,7 @@
     <link href="{{asset('/datatables-plugins/dataTables.bootstrap.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="{{URL::asset('css/form.css')}}">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -217,6 +217,9 @@
 <script src="{{asset('/css/datatables/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('/css/datatables/js/dataTables.bootstrap.min.js')}}"></script>
 <script src="{{asset('/css/datatables-responsive/dataTables.responsive.js')}}"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
     $(document).ready(function () {
         $('#dataTables-example').DataTable({
