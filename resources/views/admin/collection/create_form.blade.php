@@ -35,8 +35,8 @@
                         <textarea class="form-control" name="description" rows="5"></textarea>
                     </div>
                     <div class="form-group" style="text-align: center;">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                        <button type="reset" class="btn btn-primary btn-block">Reset</button>
+                        <button type="submit" class="btn btn-primary btn-block">Xác nhận</button>
+                        <button type="reset" class="btn btn-primary btn-block">Đặt lại</button>
                     </div>
                 </form>
             </div>

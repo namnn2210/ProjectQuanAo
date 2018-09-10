@@ -75,7 +75,6 @@
                             Cập nhật giỏ hàng
                         </button>
                     </div>
-
                     <div class="size10 trans-0-4 m-t-10 m-b-10">
                         <!-- Button -->
                         <button type="button" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="window.location.href = '/checkout'">

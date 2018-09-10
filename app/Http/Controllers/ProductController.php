@@ -146,8 +146,6 @@ class ProductController extends Controller
             return response()->json(['obj' => $obj], 200);
         }
         else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
-
-
     }
 
     /**
@@ -192,8 +190,6 @@ class ProductController extends Controller
             return redirect()->back()->with('message', 'Saved Success');
         }
         else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
-
-
     }
 
     /**

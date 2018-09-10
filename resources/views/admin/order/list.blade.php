@@ -12,24 +12,22 @@
             <div class="alert alert-success hidden">
             </div>
         @endif
-        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <table width="100%" class="table table-hover" id="dataTables-example">
             <thead>
             <tr>
                 <th style="text-align: center">ID Khách hàng</th>
-                <
                 <th style="text-align: center">Người đặt</th>
                 <th style="text-align: center">Tên Khách hàng</th>
                 <th style="text-align: center">Thời gian</th>
                 <th style="text-align: center">Thông tin</th>
                 <th style="text-align: center">Trạng thái</th>
-                <th style="text-align: center">Thao tác</th>
+                <th class="black-icon" style="text-align: center">Thao tác</th>
             </tr>
             </thead>
             <tbody>
             @foreach($obj as $item)
                 <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
                     <td style="text-align: center">{{$item -> customer_id}}</td>
-                    <
                     <th style="text-align: center">namnn13</th>
                     <td style="text-align: center">{!! $item->shipInformation !!}</td>
                     <td>{{$item -> created_at}}</td>
@@ -40,7 +38,28 @@
                             @endforeach
                         </ul>
                     </td>
-                    <td>{{$item -> statusLabel}}</td>
+                    <td>
+                        @if($item->status==0)
+                            <div class="order-pending-banner text-center">
+                                Chờ xử lý
+                            </div>
+                        @endif
+                        @if($item->status==-1)
+                            <div class="order-cancel-banner text-center">
+                                Đã hủy
+                            </div>
+                        @endif
+                        @if($item->status==1)
+                            <div class="order-confirm-banner text-center">
+                                Đã xác nhận
+                            </div>
+                        @endif
+                        @if($item->status==2)
+                            <div class="order-complete-banner text-center">
+                                Hoàn thành
+                            </div>
+                        @endif
+                    </td>
                     <td style="text-align: center">
                         @if($item->status==0)
                             <a href="/admin/order/change-status?id={{$item->id}}&status=1"
@@ -54,7 +73,7 @@
                             <span class="fa fa-check"></span>
                         @endif
                         @if($item->status==0)
-                                <a href="#" id="{{$item -> id}}" class="fa fa-trash"></a>
+                            <a href="#" id="{{$item -> id}}" class="fa fa-trash"></a>
                         @endif
                         @if($item->status==-1)
                             <a href="{{$item->id}}" class="fa fa-minus-circle"></a>

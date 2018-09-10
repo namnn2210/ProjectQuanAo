@@ -16,6 +16,8 @@ Route::get('/admin/category/{id}/quickEdit','CategoryController@quickEdit');
 Route::put('/admin/quickUpdate/category/','CategoryController@quickUpdate');
 Route::get('/admin/account/{id}/quickEdit','AccountController@quickEdit');
 Route::put('/admin/quickUpdate/account/','AccountController@quickUpdate');
+Route::get('/admin/brand/{id}/quickEdit','BrandController@quickEdit');
+Route::put('/admin/quickUpdate/brand/','BrandController@quickUpdate');
 
 Route::get('/admin/order/change-status', 'OrderController@changeStatus');
 
@@ -24,11 +26,14 @@ Route::resource('admin/product','ProductController');
 Route::resource('admin/category','CategoryController');
 Route::resource('admin/order','OrderController');
 Route::resource('admin/account','AccountController');
+Route::resource('admin/brand','BrandController');
 
 Route::get('/admin','DashboardController@showAdminPage');
 Route::get('/admin/new-orders','DashboardController@showNewOrder');
 Route::get('/admin/chart','DashboardController@getChartDataApi');
+Route::get('/admin/chart-1','DashboardController@getPieChartDataApi');
 Route::get('/','HomepageController@showHomepage');
+Route::get('/faqs','HomepageController@showFAQs');
 
 Route::get('/product','UserProductController@index');
 Route::post('/product','UserProductController@search');
@@ -37,12 +42,9 @@ Route::get('/abc', function (){
     return view('user.product-detail') ;
 });
 
-Route::get('/about', function () {
-    return view('user.about');
-});
-Route::get('/contact', function () {
-    return view('user.contact');
-});
+Route::get('/about','HomepageController@showAbout');
+Route::get('/contact','HomepageController@showContact');
+
 Route::post('/san-pham-test','UserProductController@search');
 Route::post('/add-to-cart','ShoppingCartController@addToCart');
 Route::get('/view-cart','ShoppingCartController@showCart');
@@ -59,4 +61,6 @@ Route::get('/receipt', 'ShoppingCartController@receipt');
 Route::get('admin/login', 'AdminLoginController@login');
 Route::post('admin/login', 'AdminLoginController@postLogin');
 Route::get('admin/logout', 'AdminLoginController@logout');
+Route::get('admin/register', 'AdminLoginController@registerAdmin');
+Route::post('admin/register', 'AdminLoginController@createAdminAccount');
 
