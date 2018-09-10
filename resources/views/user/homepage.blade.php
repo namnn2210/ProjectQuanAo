@@ -247,7 +247,7 @@
             <div class="block4 wrap-pic-w">
                 <img src="{{asset('img/insta-1.jpg')}}" alt="IMG-INSTAGRAM">
 
-                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+                <a href="https://www.instagram.com/farfetch/" class="block4-overlay sizefull ab-t-l trans-0-4">
 					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
 						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
 						<span class="p-t-2">39</span>
@@ -271,7 +271,7 @@
             <div class="block4 wrap-pic-w">
                 <img src="{{asset('img/insta-2.jpg')}}" alt="IMG-INSTAGRAM">
 
-                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+                <a href="https://www.instagram.com/farfetch/" class="block4-overlay sizefull ab-t-l trans-0-4">
 					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
 						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
 						<span class="p-t-2">39</span>
@@ -295,7 +295,7 @@
             <div class="block4 wrap-pic-w">
                 <img src="{{asset('img/insta-3.jpg')}}" alt="IMG-INSTAGRAM">
 
-                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+                <a href="https://www.instagram.com/farfetch/" class="block4-overlay sizefull ab-t-l trans-0-4">
 					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
 						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
 						<span class="p-t-2">39</span>
@@ -319,7 +319,7 @@
             <div class="block4 wrap-pic-w">
                 <img src="{{asset('img/insta-4.jpg')}}" alt="IMG-INSTAGRAM">
 
-                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+                <a href="https://www.instagram.com/farfetch/" class="block4-overlay sizefull ab-t-l trans-0-4">
 					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
 						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
 						<span class="p-t-2">39</span>
@@ -343,7 +343,7 @@
             <div class="block4 wrap-pic-w">
                 <img src="{{asset('img/insta-5.jpg')}}" alt="IMG-INSTAGRAM">
 
-                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+                <a href="https://www.instagram.com/farfetch/" class="block4-overlay sizefull ab-t-l trans-0-4">
 					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
 						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
 						<span class="p-t-2">39</span>

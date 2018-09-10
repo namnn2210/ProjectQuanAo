@@ -1,10 +1,10 @@
 @extends('layouts.master', ['currentPage' => 'list'])
-@section('page-title', 'LIST BRANDS')
+@section('page-title', 'DANH SÁCH NHÃN HIỆU')
 @section('active-brand','active')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">LIST BRANDS</h1>
+            <h1 class="page-header">DANH SÁCH NHÃN HIỆU</h1>
         </div>
     </div>
     <div class="panel-body">
@@ -12,14 +12,14 @@
             <div class="alert alert-success hidden">
             </div>
         @endif
-        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <table width="100%" class="table table-hover" id="dataTables-example" style="background-color: white">
             <thead>
             <tr>
                 <th style="text-align: center">Logo</th>
-                <th style="text-align: center">Name</th>
-                <th style="text-align: center">Description</th>
-                <th style="text-align: center">Country</th>
-                <th style="text-align: center">Tool</th>
+                <th style="text-align: center">Tên nhãn hiệu</th>
+                <th style="text-align: center">Mô tả</th>
+                <th style="text-align: center">Quốc gia</th>
+                <th style="text-align: center">Thao tác</th>
             </tr>
             </thead>
             <tbody>
@@ -31,9 +31,9 @@
                     <td style="text-align: center">{{$item -> name}}</td>
                     <td>{{$item -> description}}</td>
                     <td>{{$item -> country}}</td>
-                    <td style="text-align: center">
-                        <a href="#" class="fa fa-edit btn-quick-edit mr-2">Edit</a>
-                        <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2"> Delete</a>
+                    <td class="black-icon" style="text-align: center">
+                        <a href="#" class="fa fa-pencil btn-quick-edit mr-2"></a>
+                        <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2"></a>
                     </td>
                 </tr>
             @endforeach

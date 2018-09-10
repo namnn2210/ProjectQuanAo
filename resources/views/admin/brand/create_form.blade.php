@@ -1,10 +1,10 @@
 @extends('layouts.master', ['currentPage' => 'create'])
-@section('page-title', 'CREATE NEW BRAND')
+@section('page-title', 'THÊM NHÃN HIỆU MỚI')
 @section('active-brand','active')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">CREATE NEW BRAND</h1>
+            <h1 class="page-header">THÊM NHÃN HIỆU MỚI</h1>
         </div>
     </div>
     <div class="panel-body">
@@ -26,27 +26,27 @@
             <form action="/admin/brand" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
-                    <label>Name</label>
+                    <label>Tên nhãn hiệu</label>
                     <input type="text" class="form-control" name="name">
                     <p class="alert-danger" style="margin-top: 1%"></p>
                 </div>
                 <div class="form-group">
-                    <label>Description</label>
+                    <label>Mô tả</label>
                     <textarea class="form-control" name="description" rows="5"></textarea>
                 </div>
                 <div class="form-group">
                     <div class="form-group">
-                        <label>Country</label>
+                        <label>Quốc gia</label>
                         <input type="text" class="form-control" name="country">
                         <p class="alert-danger" style="margin-top: 1%"></p>
                     </div>
-                    <label>Image</label>
+                    <label>Hình ảnh</label>
                     <input class="form-control" type="file" name="image" id="add_images">
                 </div>
                 <div class="preview_images hidden"></div>
                 <div class="form-group" style="text-align: center;">
-                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                    <button type="reset" class="btn btn-primary btn-block">Reset</button>
+                    <button type="submit" class="btn btn-primary btn-block">Xác nhận</button>
+                    <button type="reset" class="btn btn-primary btn-block">Đặt lại</button>
                 </div>
             </form>
         </div>
