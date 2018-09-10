@@ -178,7 +178,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <div class="container-fluid" style="max-width: 70%;">
+        <div class="container-fluid">
             @section('content')
             @show
         </div>
