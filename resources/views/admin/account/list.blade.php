@@ -16,21 +16,19 @@
             <thead>
             <tr>
                 <th style="text-align: center">Tên tài khoản</th>
-                <th style="text-align: center">Mật khẩu</th>
                 <th style="text-align: center">Họ và tên</th>
                 <th style="text-align: center">Giới tính</th>
                 <th style="text-align: center">Email</th>
                 <th style="text-align: center">Địa chỉ</th>
                 <th style="text-align: center">Ngày sinh</th>
                 <th style="text-align: center">Phone</th>
-                <th style="text-align: center">Số điện thoại</th>
+                <th style="text-align: center">Thao tác</th>
             </tr>
             </thead>
             <tbody>
             @foreach($obj as $item)
                 <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
                     <td style="text-align: center">{{$item->username}}</td>
-                    <td style="text-align: center">{{$item -> password}}</td>
                     <td style="text-align: center">{{$item -> full_name}}</td>
                     <td style="text-align: center">{{$item -> gender}}</td>
                     <td style="text-align: center">{{$item -> email}}</td>
@@ -38,8 +36,8 @@
                     <td style="text-align: center">{{$item -> DOB}}</td>
                     <td style="text-align: center">{{$item -> phone}}</td>
                     <td class="black-icon" style="text-align: center">
-                        <a href="#" class="fa fa-pencil btn-quick-edit mr-2" style="color: black"></a>
-                        <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2" style="color: black"></a>
+                        <a href="#" class="fa fa-pencil btn-quick-edit mr-2"></a>
+                        <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2"></a>
                     </td>
                 </tr>
             @endforeach

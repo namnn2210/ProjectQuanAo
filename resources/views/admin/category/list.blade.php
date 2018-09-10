@@ -30,8 +30,8 @@
                         <td style="text-align: center">{{$item -> name}}</td>
                         <td>{{$item -> description}}</td>
                         <td class="black-icon" style="text-align: center">
-                            <a href="#" class="fa fa-pencil btn-quick-edit mr-2" style="color: black"></a>
-                            <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2" style="color: black"></a>
+                            <a href="#" class="fa fa-pencil btn-quick-edit mr-2"></a>
+                            <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2"></a>
                         </td>
                     </tr>
                 @endforeach
