@@ -53,6 +53,8 @@ Route::get('/abc','UserProductController@abc');
 Route::post('/remove-item', 'ShoppingCartController@removeItem');
 Route::get('/checkout', 'ShoppingCartController@checkout');
 Route::get('/payment', 'ShoppingCartController@payment');
+Route::get('/receipt', 'ShoppingCartController@receipt');
+
 
 Route::get('admin/login', 'AdminLoginController@login');
 Route::post('admin/login', 'AdminLoginController@postLogin');

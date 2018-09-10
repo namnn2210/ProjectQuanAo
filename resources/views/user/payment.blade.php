@@ -10,11 +10,20 @@
                         <li class="visited first">
                             <a href="#">Giỏ hàng</a>
                         </li>
-                        <li class="previos visited">Thông tin giao hàng</li>
-                        <li class="active">Thanh toán</li>
+                        <li class="previos visited"><a href="/checkout">Thông tin giao hàng</a></li>
+                        <li class="active"><a href="/payment">Thanh toán</a></li>
                         <li class="">Hoàn thành</li>
                     </ul>
                 </div>
+                <div class="alert alert-danger view-alert m-t-180 hidden">
+                </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger m-t-180 server-alert">
+                        <ul>
+                            Vui lòng nhập đầy đủ thông tin
+                        </ul>
+                    </div>
+                @endif
                 <div class="m-t-180 m-l-30 content-box">
                     <div class="row">
                         <div class="head">Email</div>
@@ -45,8 +54,9 @@
                             </button>
                     </div>
                 </div>
-                <div class="m-t-180 m-l-30 form hidden">
-                    <form name="order-form">
+                <div class="m-t-180 m-l-30 order-form hidden">
+                    <form name="order-form" action="/checkout" method="post">
+                        @csrf()
                         <h3 class="m-b-30">Thông tin liên hệ</h3>
                         <div class="form-group">
                             <textarea class="form-control" placeholder="Email" name="email" rows="2"></textarea>
@@ -54,17 +64,18 @@
                         </div>
                         <h3 class="m-t-70 m-b-30">Địa chỉ giao hàng</h3>
                         <div class="form-group">
-                            <textarea name="name" class="form-control" placeholder="Họ Tên"></textarea>
+                            <textarea name="ship_name" class="form-control" placeholder="Họ Tên"></textarea>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Địa Chỉ" name="address" rows="2"></textarea>
+                            <textarea class="form-control" placeholder="Địa Chỉ" name="ship_address" rows="2"></textarea>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Thành Phố" name="city" rows="2"></textarea>
+                            <textarea class="form-control" placeholder="Thành Phố" name="ship_city" rows="2"></textarea>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Số Điện Thoại" name="phone" rows="2"></textarea>
+                            <textarea class="form-control" placeholder="Số Điện Thoại" name="ship_phone" rows="2"></textarea>
                         </div>
+                        <input type="hidden" name="payment_method">
                         <div class="size12 trans-0-4 m-t-30 m-b-10 m-r-10 center-block">
                             <!-- Button -->
                             <button type="button" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 save-change">

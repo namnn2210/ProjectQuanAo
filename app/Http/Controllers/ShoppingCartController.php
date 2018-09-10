@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\CartItem;
 use App\Category;
+use App\Http\Requests\StoreCustomer;
 use App\Order;
 use App\OrderDetail;
 use App\Product;
@@ -103,8 +104,9 @@ class ShoppingCartController extends Controller
             ->with('shopping_cart', $shopping_cart);
     }
 
-    public function checkoutCart()
+    public function checkoutCart(StoreCustomer $request)
     {
+        $request -> validated();
         $obj_category = Category::where('status', 1)->get();
         if (Session::has('cart')) {
             try {
@@ -113,9 +115,10 @@ class ShoppingCartController extends Controller
                 $ship_name = Input::get('ship_name');
                 $ship_address = Input::get('ship_address');
                 $ship_phone = Input::get('ship_phone');
-                $status = Input::get('status');
                 $email = Input::get('email');
-                if($status == 1){
+                $payment_method = Input::get('payment_method');
+                if(Input::has('status') && Input::get('status') == 1){
+                    $status = Input::get('status');
                     $customer = new Subscribed();
                     $customer -> email = $email;
                     $customer -> name = $ship_name;
@@ -129,6 +132,7 @@ class ShoppingCartController extends Controller
                 $order->ship_name = $ship_name;
                 $order->ship_address = $ship_address;
                 $order->ship_phone = $ship_phone;
+                $order->payment_method = $payment_method;
                 $order->total_price = $shopping_cart -> getTotalMoney();
                 $order->save();
                 $order_id = $order->id;
@@ -154,12 +158,12 @@ class ShoppingCartController extends Controller
                 return view('user.receipt2')
                     ->with('obj_category',$obj_category)
                     ->with('order', $order)
+                    ->with('customer', $customer)
                     ->with('order_details', $order_details);
             } catch (\Exception $exception) {
                 DB::rollBack();
                 return 'Có lỗi xảy ra.' . $exception->getMessage();
             }
-
         }
         else {
             return redirect('/product')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
@@ -179,5 +183,17 @@ class ShoppingCartController extends Controller
         }
         Session::put('cart', $shopping_cart);
         return redirect('/view-cart');
+    }
+
+    public function receipt()
+    {
+        $obj_category = Category::where('status', 1)->get();
+        $shopping_cart = new ShoppingCart();
+        if (Session::has('cart')){
+            $shopping_cart = Session::get('cart');
+        }
+        return view('user.receipt3')
+            ->with('obj_category',$obj_category)
+            ->with('shopping_cart', $shopping_cart);
     }
 }

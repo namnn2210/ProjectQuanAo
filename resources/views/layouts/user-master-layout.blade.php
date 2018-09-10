@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/product.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/checkout.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/receipt.css')}}">
     <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('/js/jquery.paginate.css')}}">
 </head>

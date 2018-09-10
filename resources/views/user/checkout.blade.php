@@ -1,21 +1,23 @@
 @extends('layouts.user-master-layout',['currentPage' => 'cart'])
 @section('page-title','Thanh toán')
 @section('content')
-    <div class="container-fluid m-b-30" style="width: 70%">
+   <div class="container-fluid m-b-30" style="width: 70%">
    <div class="row row-eq-height">
        <div class="col-8">
            <div class="m-t-50 align-items-center"><img class="center-block" src="{{asset('img/0b23a3c7c111f23618f91f722fe02a09.png')}}" style="max-width: 30%"></div>
            <div class="checkout-wrap">
                <ul class="checkout-bar">
                    <li class="visited first">
-                       <a href="#">Giỏ hàng</a>
+                       <a href="/view-cart">Giỏ hàng</a>
                    </li>
-                   <li class="active">Thông tin giao hàng</li>
+                   <li class="active"><a href="/checkout">Thông tin giao hàng</a></li>
                    <li class="next">Thanh toán</li>
                    <li class="">Hoàn thành</li>
                </ul>
            </div>
-           <div class="m-t-180 m-l-30">
+           <div class="alert alert-danger view-alert m-t-180 hidden">
+           </div>
+           <div class="m-t-180 m-l-30 order-form">
                <form name="order-form">
                    <h3 class="m-b-30">Thông tin liên hệ</h3>
                    <div class="form-group">
@@ -24,16 +26,16 @@
                    </div>
                    <h3 class="m-t-70 m-b-30">Địa chỉ giao hàng</h3>
                    <div class="form-group">
-                       <textarea name="name" class="form-control" placeholder="Họ Tên"></textarea>
+                       <textarea name="ship_name" class="form-control" placeholder="Họ Tên"></textarea>
                    </div>
                    <div class="form-group">
-                       <textarea class="form-control" placeholder="Địa Chỉ" name="address" rows="2"></textarea>
+                       <textarea class="form-control" placeholder="Địa Chỉ" name="ship_address" rows="2"></textarea>
                    </div>
                    <div class="form-group">
-                       <textarea class="form-control" placeholder="Thành Phố" name="city" rows="2"></textarea>
+                       <textarea class="form-control" placeholder="Thành Phố" name="ship_city" rows="2"></textarea>
                    </div>
                    <div class="form-group">
-                       <textarea class="form-control" placeholder="Số Điện Thoại" name="phone" rows="2"></textarea>
+                       <textarea class="form-control" placeholder="Số Điện Thoại" name="ship_phone" rows="2"></textarea>
                    </div>
                    <div class="size12 trans-0-4 m-t-30 m-b-10 m-r-10 float-left">
                        <!-- Button -->

@@ -202,15 +202,15 @@ ul.checkout-bar a {
 .column-3{
     width: 50%;
 }
-table {
+.col-4 table {
     border-collapse: collapse;
 }
-tr{
+.col-4 tr{
     border: solid;
     border-width: 1px 0;
     border-color: lightgray;
 }
-tr:first-child {
+.col-4 tr:first-child {
     border-top: none;
 }
 .content-box{

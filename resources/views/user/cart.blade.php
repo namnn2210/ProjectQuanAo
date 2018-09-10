@@ -1,8 +1,19 @@
 @extends('layouts.user-master-layout',['currentPage' => 'cart'])
 @section('page-title','Giỏ hàng')
 @section('content')
+    <div class="m-t-50 align-items-center"><img class="center-block" src="{{asset('img/0b23a3c7c111f23618f91f722fe02a09.png')}}" style="max-width: 30%"></div>
+    <div class="checkout-wrap">
+        <ul class="checkout-bar">
+            <li class="active">
+                <a href="/view-cart">Giỏ hàng</a>
+            </li>
+            <li class="next"><a href="#">Thông tin giao hàng</a></li>
+            <li class="next"><a href="#">Thanh toán</a></li>
+            <li class="">Hoàn thành</li>
+        </ul>
+    </div>
     <!-- Cart -->
-    <section class="cart bgwhite p-t-70 p-b-100">
+    <section class="cart bgwhite p-t-70 p-b-100 m-t-150">
         <div class="container">
             <div id="#cart-item-form">
             <!-- Cart item -->
@@ -73,58 +84,6 @@
                     </div>
                 </div>
             </div>
-
-            <form action="/checkout" name="order-form" method="POST">
-            @csrf()
-            <!-- Total -->
-            <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
-                <h5 class="m-text20 p-b-24">
-                    Hóa đơn
-                </h5>
-                <!--  -->
-                <div class="flex-w flex-sb bo10 p-t-15 p-b-20">
-					<span class="s-text18 w-size19 w-full-sm">
-						Thông tin giao hàng:
-					</span>
-
-                    <div class="w-size20 w-full-sm">
-                        <p class="s-text8 p-b-23">
-                            Vui lòng nhập thông tin giao hàng tại đây:
-                        </p>
-
-                        <div class="size13 bo4 m-b-12">
-                            <input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="ship_name"
-                                   placeholder="Họ và tên">
-                        </div>
-
-                        <div class="size13 bo4 m-b-12">
-                            <input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="ship_address"
-                                   placeholder="Địa chỉ giao hàng">
-                        </div>
-
-                        <div class="size13 bo4 m-b-22">
-                            <input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="ship_phone"
-                                   placeholder="Số điện thoại">
-                        </div>
-                    </div>
-                </div>
-
-                <!--  -->
-                <div class="flex-w flex-sb-m p-t-26 p-b-30">
-					<span class="m-text22 w-size19 w-full-sm">
-						Tổng cộng:
-					</span>
-                    <h4 class="total_price">{{$shopping_cart -> getTotalMoneyWithFormat()}}</h4>
-                </div>
-
-                <div class="size15 trans-0-4">
-                    <!-- Button -->
-                    <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                        Tiếp tục thanh toán
-                    </button>
-                </div>
-            </div>
-            </form>
         </div>
     </section>
 @endsection
