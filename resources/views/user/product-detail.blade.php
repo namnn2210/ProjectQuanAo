@@ -41,10 +41,6 @@
                 <h4 class="product-detail-name m-text16 p-b-13">
                     {{$obj->name}}
                 </h4>
-
-                {{--<span class="m-text17">--}}
-					{{--{{$obj->discountPriceString}}--}}
-				{{--</span>--}}
                 <span class="block2-price m-text17 p-r-5" style="font-size: 27px">
                     {{$obj-> DiscountPriceString}}
                 </span>

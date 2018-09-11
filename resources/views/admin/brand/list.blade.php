@@ -1,10 +1,10 @@
 @extends('layouts.master', ['currentPage' => 'list'])
-@section('page-title', 'DANH SÁCH DANH MỤC')
-@section('active-category','active')
+@section('page-title', 'DANH SÁCH NHÃN HIỆU')
+@section('active-brand','active')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">DANH SÁCH DANH MỤC</h1>
+            <h1 class="page-header">DANH SÁCH NHÃN HIỆU</h1>
         </div>
     </div>
     <div class="panel-body">
@@ -15,26 +15,28 @@
         <table width="100%" class="table table-hover" id="dataTables-example" style="background-color: white">
             <thead>
             <tr>
-                <th style="text-align: center">Hình ảnh</th>
-                <th style="text-align: center">Tên danh mục</th>
+                <th style="text-align: center">Logo</th>
+                <th style="text-align: center">Tên nhãn hiệu</th>
                 <th style="text-align: center">Mô tả</th>
+                <th style="text-align: center">Quốc gia</th>
                 <th style="text-align: center">Thao tác</th>
             </tr>
             </thead>
             <tbody>
-                @foreach($obj as $item)
-                    <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
-                        <td style="text-align: center">
-                            <img src="{{$item->image}}" style="max-height: 30%"/>
-                        </td>
-                        <td style="text-align: center">{{$item -> name}}</td>
-                        <td>{{$item -> description}}</td>
-                        <td class="black-icon" style="text-align: center">
-                            <a href="#" class="fa fa-pencil btn-quick-edit mr-2"></a>
-                            <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2"></a>
-                        </td>
-                    </tr>
-                @endforeach
+            @foreach($obj as $item)
+                <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
+                    <td style="text-align: center">
+                        <img src="{{$item->logo}}" style="max-height: 15%"/>
+                    </td>
+                    <td style="text-align: center">{{$item -> name}}</td>
+                    <td>{{$item -> description}}</td>
+                    <td>{{$item -> country}}</td>
+                    <td class="black-icon" style="text-align: center">
+                        <a href="#" class="fa fa-pencil btn-quick-edit mr-2"></a>
+                        <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2"></a>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
@@ -50,7 +52,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form name="quick_edit_form" method="post" action="/admin/quickUpdate/category" enctype="multipart/form-data">
+                    <form name="quick_edit_form" method="post" action="/admin/quickUpdate/brand" enctype="multipart/form-data">
                         @method('PUT')
                         {{csrf_field()}}
                         <input type="hidden" name="quick-update-id">
@@ -62,6 +64,11 @@
                         <div class="form-group">
                             <label>Description</label>
                             <textarea class="form-control" name="description" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" class="form-control" name="country">
+                            <p class="alert-danger" style="margin-top: 1%"></p>
                         </div>
                         <div class="form-group">
                             <label>Image</label>
@@ -79,5 +86,5 @@
         </div>
     </div>
     {{--Quick Edit Modal--}}
-    <script src="{{asset('/js/category_list.js')}}"></script>
+    <script src="{{asset('/js/brand_list.js')}}"></script>
 @endsection

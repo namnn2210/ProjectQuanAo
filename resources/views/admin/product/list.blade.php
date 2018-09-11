@@ -12,7 +12,7 @@
             <div class="alert alert-success hidden">
             </div>
         @endif
-        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <table width="100%" class="table table-hover" id="dataTables-example" style="background-color: white">
             <thead>
             <tr>
                 <th style="text-align: center">Ảnh sản phẩm</th>
@@ -26,29 +26,36 @@
             </tr>
             </thead>
             <tbody>
-                @foreach($obj as $item)
-                    <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
-                        <td style="text-align: center">
-                            <img src="<?php echo explode("&",$item -> images,-1)[0];?>" style="max-height: 30%">
-                        </td>
-                        <td style="text-align: center">{{$item -> name}}</td>
-                        <td style="text-align: center">{{$item -> category -> name}}</td>
-                        <td style="text-align: center">{{$item -> brand -> name}}</td>
-                        <td style="text-align: center">{{$item -> price}}</td>
-                        <td>{{$item -> description}}</td>
-                        <td style="text-align: center">{{$item -> status}}</td>
-                        <td style="text-align: center">
-                            <a href="#" class="fa fa-edit btn-quick-edit mr-2" style="color: black"></a>
-                            <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2" style="color: black"></a>
-                        </td>
-                    </tr>
-                @endforeach
+            @foreach($obj as $item)
+                <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
+                    <td style="text-align: center">
+                        <img src="<?php echo explode("&", $item->images, -1)[0];?>" style="max-height: 30%">
+                    </td>
+                    <td style="text-align: center">{{$item -> name}}</td>
+                    <td style="text-align: center">{{$item -> category -> name}}</td>
+                    <td style="text-align: center">{{$item -> brand -> name}}</td>
+                    <td style="text-align: center">{{number_format($item -> price,0)}} VND</td>
+                    <td>{{$item -> description}}</td>
+                    <td style="text-align: center">
+                        @if($item->status==1)
+                            <div class="active-banner">
+                                Hoạt động
+                            </div>
+                        @endif
+                    </td>
+                    <td class="black-icon" style="text-align: center">
+                        <a href="#" class="fa fa-pencil btn-quick-edit mr-2"></a>
+                        <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2"></a>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
 
     {{--Quick Edit Modal--}}
-    <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -58,7 +65,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form name="quick_edit_form" method="post" action="/admin/quickUpdate/product" enctype="multipart/form-data">
+                    <form name="quick_edit_form" method="post" action="/admin/quickUpdate/product"
+                          enctype="multipart/form-data">
                         @method('PUT')
                         {{csrf_field()}}
                         <input type="hidden" name="quick-update-id">

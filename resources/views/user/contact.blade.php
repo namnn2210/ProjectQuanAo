@@ -25,18 +25,18 @@
                     </h4>
 
                     <div class="bo4 of-hidden size15 m-b-20">
-                        <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="name" placeholder="Họ và Tên">
+                        <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="name" placeholder="Họ và Tên" required>
                     </div>
 
                     <div class="bo4 of-hidden size15 m-b-20">
-                        <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Số Điện Thoại">
+                        <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Số Điện Thoại" required>
                     </div>
 
                     <div class="bo4 of-hidden size15 m-b-20">
-                        <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" placeholder="Email">
+                        <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" placeholder="Email" required>
                     </div>
 
-                    <textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="Lời nhắn"></textarea>
+                    <textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="Lời nhắn" required></textarea>
 
                     <div class="w-size25">
                         <!-- Button -->

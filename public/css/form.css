@@ -33,6 +33,43 @@
     margin-left: 5px;
     margin-top: 5px;
 }
+.active-banner {
+    background-color: #66ff66;
+    border-radius: 5px;
+    color: white;
+}
+.order-pending-banner {
+    background-color: #ffff4d;
+    border-radius: 5px;
+    padding: 2% 1% 2% 1%;
+}
+.order-cancel-banner {
+    background-color: #ff1a1a;
+    border-radius: 5px;
+    padding: 2% 1% 2% 1%;
+    color: white;
+}
+.order-confirm-banner {
+    background-color: #4d94ff;
+    border-radius: 5px;
+    padding: 2% 1% 2% 1%;
+    color: white;
+}
+.order-complete-banner {
+    background-color: #66ff66;
+    border-radius: 5px;
+    padding: 2% 1% 2% 1%;
+    color: white;
+}
+.table-hover {
+    background-color: white;
+}
+.fa-pencil {
+    color: #00bbec;
+}
+.fa-trash {
+    color: red;
+}
 .img-wrap{
     position: relative;
     display: inline-block;
