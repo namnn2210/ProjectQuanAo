@@ -22,7 +22,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="row">
-        <div class="col-md-6 card">
+        <div class="col-md-7 card">
             <div class="card-header">
                 <h3>Biểu đồ doanh thu theo thời gian</h3>
                 <p>tính theo đơn vị (vnd)</p>
@@ -32,9 +32,15 @@
             </div>
         </div>
 
-        {{--<div class="col-md-6">--}}
-            {{--<div id="piechart"></div>--}}
-        {{--</div>--}}
+        <div class="col-md-4 card">
+            <div class="card-header">
+                <h3>Biểu đồ số sản phẩm bán theo danh mục</h3>
+                <p>tính theo đơn vị (đơn hàng)</p>
+            </div>
+            <div class="card-body">
+                <div id="piechart"></div>
+            </div>
+        </div>
     </div>
     <!--Script LineChart -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -42,7 +48,7 @@
         google.charts.load('current', {'packages': ['line']});
         google.charts.setOnLoadCallback(function () {
             $.ajax({
-                url: '/admin/chart?startDate=2018-08-20&endDate=2018-08-21',
+                url: '/admin/chart',
                 method: 'GET',
                 success: function (resp) {
                     drawChart(resp);
@@ -74,6 +80,39 @@
             var chart = new google.charts.Line(document.getElementById('linechart_material'));
 
             chart.draw(data, google.charts.Line.convertOptions(options));
+        }
+
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(function () {
+            $.ajax({
+                url: 'admin/chart-1',
+                method: 'GET',
+                success: function (resp) {
+                    drawChart_1(resp);
+                },
+                error: function () {
+                    swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
+                }
+
+            });
+        });
+
+        function drawChart_1(chart_data) {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['', 0],
+                ['', null],
+            ]);
+            for (var i = 0; i < chart_data.length; i++) {
+                data.addRow([chart_data[i].category, Number(chart_data[i].quantity)]);
+            }
+            var options = {
+                height: 400,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
         }
 
         $(function() {
@@ -153,45 +192,30 @@
                         swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
                     }
                 });
+
+                $.ajax({
+                    url: '/admin/chart-1?startDate=' + startDate + '&endDate=' + endDate,
+                    method: 'GET',
+                    success: function (resp) {
+                        if(resp.length ==0){
+                            swal('Không có dữ liệu', 'Vui lòng lựa chọn khoảng thời gian khác.', 'warning');
+                            return;
+                        };
+                        drawChart_1(resp);
+                    },
+                    error: function () {
+                        swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
+                    }
+                });
             });
+
         });
     </script>
+
     <!--Script PieChart -->
     {{--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>--}}
-    {{--<script type="text/javascript">--}}
-        {{--google.charts.load('current', {'packages': ['corechart']});--}}
-        {{--google.charts.setOnLoadCallback(function () {--}}
-            {{--$.ajax({--}}
-                {{--url: 'admin/chart-1',--}}
-                {{--method: 'GET',--}}
-                {{--success: function (resp) {--}}
-                    {{--drawChart_1(resp);--}}
-                {{--},--}}
-                {{--error: function () {--}}
-                    {{--swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');--}}
-                {{--}--}}
+    <script type="text/javascript">
 
-            {{--});--}}
-        {{--});--}}
-
-        {{--function drawChart_1(chart_data) {--}}
-            {{--var data = google.visualization.arrayToDataTable([--}}
-                {{--['Task', 'Hours per Day'],--}}
-                {{--['', 0],--}}
-                {{--['', null],--}}
-            {{--]);--}}
-            {{--for (var i = 0; i < chart_data.length; i++) {--}}
-                {{--data.addRow([chart_data[i].category, Number(chart_data[i].quantity)]);--}}
-            {{--}--}}
-            {{--var options = {--}}
-                {{--title: 'Biểu đồ số lượng sản phẩm bán theo danh mục',--}}
-                {{--height: 600,--}}
-            {{--};--}}
-
-            {{--var chart = new google.visualization.PieChart(document.getElementById('piechart'));--}}
-
-            {{--chart.draw(data, options);--}}
-        {{--}--}}
-    {{--</script>--}}
+    </script>
 
 @endsection
