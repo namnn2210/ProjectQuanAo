@@ -64,3 +64,6 @@ Route::get('admin/logout', 'AdminLoginController@logout');
 Route::get('admin/register', 'AdminLoginController@registerAdmin');
 Route::post('admin/register', 'AdminLoginController@createAdminAccount');
 
+Route::get('/blade',function () {
+    return view('layouts.new-master');
+});
