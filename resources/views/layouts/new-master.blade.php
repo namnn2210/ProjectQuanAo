@@ -260,7 +260,7 @@
                                 <i class="nc-icon nc-bullet-list-67"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a href="#" class="dropdown-item text-danger">
+                                <a href="/admin/logout" class="dropdown-item text-danger">
                                     <i class="nc-icon nc-button-power"></i> Log out
                                 </a>
                             </div>
@@ -271,7 +271,10 @@
         </nav>
         <!-- End Navbar -->
         <div class="content">
-
+            <div class="container-fluid">
+                @section('content')
+                @show
+            </div>
         </div>
         <footer class="footer">
             <div class="container">
@@ -329,7 +332,8 @@
 <!--  Full Calendar   -->
 <script src="{{asset('js/master-layout-3-js/fullcalendar.min.js')}}"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{{asset('js/master-layout-3-js/light-bootstrap-dashboard.js'.'?v=2.0.1')}}" type="text/javascript"></script>
+<script src="{{asset('js/master-layout-3-js/light-bootstrap-dashboard.js'.'?v=2.0.1')}}"
+        type="text/javascript"></script>
 <!-- Light Dashboard DEMO methods, don't include it in your project! -->
 <script type="text/javascript">
     $(document).ready(function () {

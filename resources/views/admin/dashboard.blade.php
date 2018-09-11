@@ -1,4 +1,4 @@
-@extends('layouts.master',['currentPage' => 'dashboard'])
+@extends('layouts.new-master',['currentPage' => 'dashboard'])
 @section('page-title', 'Trang chủ')
 @section('active-dashboard','active')
 @section('content')

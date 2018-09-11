@@ -1,4 +1,4 @@
-@extends('layouts.master', ['currentPage' => 'list'])
+@extends('layouts.new-master', ['currentPage' => 'list'])
 @section('page-title', 'Danh sách subcriber')
 @section('active-subcribers','active')
 @section('content')

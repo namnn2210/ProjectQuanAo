@@ -1,4 +1,4 @@
-@extends('layouts.master', ['currentPage' => 'list'])
+@extends('layouts.new-master', ['currentPage' => 'list'])
 @section('page-title', 'Danh sách tài khoản')
 @section('active-user','active')
 @section('content')

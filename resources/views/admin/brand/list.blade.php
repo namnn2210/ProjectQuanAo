@@ -1,4 +1,4 @@
-@extends('layouts.master', ['currentPage' => 'list'])
+@extends('layouts.new-master', ['currentPage' => 'list'])
 @section('page-title', 'DANH SÁCH NHÃN HIỆU')
 @section('active-brand','active')
 @section('content')
