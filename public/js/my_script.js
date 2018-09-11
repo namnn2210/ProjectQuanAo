@@ -135,13 +135,15 @@ function currency(x) {
 
 var products_checkout = [];
 $('.table-row').each(function () {
-    products_checkout.push({name: $(this).find('.checkout-name').text(), description: $(this).find('.checkout-description').val(), quantity: $(this).find('.checkout-quantity').val(), price: currency($(this).find('.checkout-price').text().replace(/,/g, "")/23600), sku: $(this).find('.checkout-id').val(), currency: 'USD'});
+    products_checkout.push({name: $(this).find('.checkout-name').text(), description: $(this).find('.checkout-description').val(), quantity: $(this).find('.checkout-quantity').val(), price: currency($(this).find('.checkout-price').text().replace(/,/g, "")/$(this).find('.checkout-quantity').val()/23600), sku: $(this).find('.checkout-id').val(), currency: 'USD'});
 });
 
 var total = 0;
 for(var i = 0; i < products_checkout.length; i++){
-    total += parseFloat(products_checkout[i].price);
+    total += parseFloat(products_checkout[i].price * products_checkout[i].quantity);
+    console.log(products_checkout[i].price)
 }
+console.log(currency(total))
 
 $('.payment').on("click", function(){
         var ship_name = $('form[name = "order-form"] textarea[name = "ship_name"]').val();
@@ -316,10 +318,10 @@ paypal.Button.render({
 }, '#paypal-button');
 
 $(document).ready(function (){
-    var total = 0;
+    var total_checkout = 0;
     $('.item').each(function () {
         $(this).find('.price').text( numeral($(this).find('.price').text()).format('0,0'));
-        total += parseFloat($(this).find('.price').text().replace(/,/g, ""));
+        total_checkout += parseFloat($(this).find('.price').text().replace(/,/g, ""));
     });
     $('.receipt_items_total_price').text(numeral(total).format('0,0') + ' VNĐ')
     $('.receipt_total_price').text(numeral(parseFloat($('.receipt_items_total_price').text().replace(/,/g, "").replace(' VNĐ', '')) + parseFloat($('.shipping_fee').text().replace(/,/g, "").replace(' VNĐ', ''))).format('0,0') + ' VNĐ')
