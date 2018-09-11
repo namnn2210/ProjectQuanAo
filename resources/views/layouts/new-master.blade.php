@@ -52,6 +52,7 @@
     <link href="{{asset('css/master-layout-3-css/light-bootstrap-dashboard.css'.'?v=2.0.1')}}" rel="stylesheet"/>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 
 </head>
 
