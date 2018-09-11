@@ -282,7 +282,7 @@ paypal.Button.render({
             return actions.payment.create({
                 transactions: [{
                     amount: {
-                        total: total,
+                        total: currency(total),
                         currency: 'USD',
                     },
                     payment_options: {

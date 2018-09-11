@@ -13,4 +13,9 @@ class OrderDetail extends Model
     {
         return $this->belongsTo('App\Product', 'product_id');
     }
+
+    public function getPriceStringAttribute()
+    {
+        return sprintf('%s VNĐ', number_format((($this->unit_price * $this->quantity)), 0));
+    }
 }

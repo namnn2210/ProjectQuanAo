@@ -36,7 +36,7 @@
                         <td>
                             <b>Thông tin thanh toán</b><br>
                             {{$order -> ship_name}}<br>
-                            {{$customer -> email}}<br>
+                            {{$order -> ship_email}}<br>
                             {{$order -> ship_phone}}
                         </td>
 
@@ -85,7 +85,7 @@
                 {{$item -> product -> name}}
             </td>
             <td class="price">
-                {{$item -> product -> price}}
+                ({{$item -> PriceString}} VNĐ
             </td>
         </tr>
         @endforeach

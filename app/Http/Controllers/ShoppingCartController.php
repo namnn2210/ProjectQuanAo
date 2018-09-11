@@ -115,8 +115,8 @@ class ShoppingCartController extends Controller
                 $ship_name = Input::get('ship_name');
                 $ship_address = Input::get('ship_address');
                 $ship_phone = Input::get('ship_phone');
-                $email = Input::get('email');
                 $payment_method = Input::get('payment_method');
+                $email = Input::get('email');
                 if(Input::has('status') && Input::get('status') == 1){
                     $status = Input::get('status');
                     $customer = new Subscribed();
@@ -132,6 +132,7 @@ class ShoppingCartController extends Controller
                 $order->ship_name = $ship_name;
                 $order->ship_address = $ship_address;
                 $order->ship_phone = $ship_phone;
+                $order->ship_email = $email;
                 $order->payment_method = $payment_method;
                 $order->total_price = $shopping_cart -> getTotalMoney();
                 $order->save();
@@ -158,7 +159,6 @@ class ShoppingCartController extends Controller
                 return view('user.receipt2')
                     ->with('obj_category',$obj_category)
                     ->with('order', $order)
-                    ->with('customer', $customer)
                     ->with('order_details', $order_details);
             } catch (\Exception $exception) {
                 DB::rollBack();
