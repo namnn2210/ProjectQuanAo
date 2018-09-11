@@ -65,7 +65,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => 500000,
                 'discount' => 0,
                 'brand_id' => '1',
-                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/c_fit,h_150,w_150/1534644126.png&',
+                'images' => 'https://res.cloudinary.com/dncvywdxi/image/upload/1534644117.png&https://res.cloudinary.com/dncvywdxi/image/upload/1534644126.png&',
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
             ],
