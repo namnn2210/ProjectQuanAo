@@ -2,27 +2,114 @@
 @section('page-title', 'Trang chủ')
 @section('active-dashboard','active')
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="small-box bg-aqua">
-                <div class="inner">
-                    <h3>{{$count}}</h3>
-                    <p>Đơn hàng mới</p>
-                </div>
-                <a href="/admin/new-orders" class="small-box-footer">
-                    Xem thông tin chi tiết
-                    <i class="fa fa-arrow-circle-right"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div id="reportrange" style="cursor: pointer; float: right;">
+    <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
         <i class="fa fa-calendar"></i>&nbsp;
         <span></span> <i class="fa fa-caret-down"></i>
     </div>
-    <div class="clearfix"></div>
     <div class="row">
-        <div class="col-md-7 card">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-chart text-warning"></i>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="numbers">
+                                <p class="card-category">Tổng số sản phẩm mới</p>
+                                <h4 class="card-title">150GB</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-refresh"></i>Update Now
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-light-3 text-success"></i>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="numbers">
+                                <p class="card-category">Tổng doanh thu</p>
+                                <h4 class="card-title">1,345VND</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-calendar-o"></i> Last day
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-vector text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="numbers">
+                                <p class="card-category">Số đơn hàng mới</p>
+                                <h4 class="card-title">23</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-clock-o"></i> In the last hour
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-favourite-28 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="numbers">
+                                <p class="card-category">Số người đăng kí</p>
+                                <h4 class="card-title">+45K</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-refresh"></i> Update now
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 card">
             <div class="card-header">
                 <h3>Biểu đồ doanh thu theo thời gian</h3>
                 <p>tính theo đơn vị (vnd)</p>
@@ -32,7 +119,7 @@
             </div>
         </div>
 
-        <div class="col-md-4 card">
+        <div class="col-md-6 card">
             <div class="card-header">
                 <h3>Biểu đồ số sản phẩm bán theo danh mục</h3>
                 <p>tính theo đơn vị (đơn hàng)</p>
@@ -115,7 +202,7 @@
             chart.draw(data, options);
         }
 
-        $(function() {
+        $(function () {
             var start = moment().subtract(29, 'days');
             var end = moment();
 
@@ -169,11 +256,11 @@
                 }
             }, cb);
             cb(start, end);
-            $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+            $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
                 //do something, like clearing an input
                 $('#reportrange').val('');
             });
-            $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+            $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
                 // console.log();
                 // console.log(picker.endDate.format('YYYY-MM-DD'));
                 var startDate = picker.startDate.format('YYYY-MM-DD');
@@ -182,10 +269,11 @@
                     url: '/admin/chart?startDate=' + startDate + '&endDate=' + endDate,
                     method: 'GET',
                     success: function (resp) {
-                        if(resp.length ==0){
+                        if (resp.length == 0) {
                             swal('Không có dữ liệu', 'Vui lòng lựa chọn khoảng thời gian khác.', 'warning');
                             return;
-                        };
+                        }
+                        ;
                         drawChart(resp);
                     },
                     error: function () {
@@ -197,10 +285,11 @@
                     url: '/admin/chart-1?startDate=' + startDate + '&endDate=' + endDate,
                     method: 'GET',
                     success: function (resp) {
-                        if(resp.length ==0){
+                        if (resp.length == 0) {
                             swal('Không có dữ liệu', 'Vui lòng lựa chọn khoảng thời gian khác.', 'warning');
                             return;
-                        };
+                        }
+                        ;
                         drawChart_1(resp);
                     },
                     error: function () {

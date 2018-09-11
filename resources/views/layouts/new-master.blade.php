@@ -50,37 +50,16 @@
     <!-- CSS Files -->
     <link href="{{asset('css/master-layout-3-css/bootstrap.min.css')}}" rel="stylesheet"/>
     <link href="{{asset('css/master-layout-3-css/light-bootstrap-dashboard.css'.'?v=2.0.1')}}" rel="stylesheet"/>
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');</script>
-    <!-- End Google Tag Manager -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<!-- End Google Tag Manager (noscript) -->
+
 <div class="wrapper">
     <div class="sidebar" data-color="orange" data-image="assets/img/sidebar-5.jpg">
-        <!--
-    Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
-    Tip 2: you can also add an image using data-image tag
--->
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="/admin" class="simple-text logo-mini">
@@ -293,7 +272,7 @@
 </div>
 </body>
 <!--   Core JS Files   -->
-<script src="{{asset('js/master-layout-3-js/jquery.3.2.1.min.js')}}" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{asset('js/master-layout-3-js/popper.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/master-layout-3-js/bootstrap.min.js')}}" type="text/javascript"></script>
 <!--  Plugin for Switches, full documentation here: https://www.jque.re/plugins/version3/bootstrap.switch/ -->
@@ -309,10 +288,6 @@
 <script src="{{asset('js/master-layout-3-js/jquery.sharrre.js')}}"></script>
 <!--  jVector Map  -->
 <script src="{{asset('js/master-layout-3-js/jquery-jvectormap.js')}}" type="text/javascript"></script>
-<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-<script src="{{asset('js/master-layout-3-js/moment.min.js')}}"></script>
-<!--  DatetimePicker   -->
-<script src="{{asset('js/master-layout-3-js/bootstrap-datetimepicker.js')}}"></script>
 <!--  Sweet Alert  -->
 <script src="{{asset('js/master-layout-3-js/sweetalert2.min.js')}}" type="text/javascript"></script>
 <!--  Tags Input  -->
@@ -329,56 +304,11 @@
 <script src="{{asset('js/master-layout-3-js/bootstrap-table.js')}}"></script>
 <!--  DataTable Plugin -->
 <script src="{{asset('js/master-layout-3-js/jquery.dataTables.min.js')}}"></script>
-<!--  Full Calendar   -->
-<script src="{{asset('js/master-layout-3-js/fullcalendar.min.js')}}"></script>
+
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{asset('js/master-layout-3-js/light-bootstrap-dashboard.js'.'?v=2.0.1')}}"
         type="text/javascript"></script>
-<!-- Light Dashboard DEMO methods, don't include it in your project! -->
-<script type="text/javascript">
-    $(document).ready(function () {
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
 
-        demo.showNotification();
-
-        demo.initVectorMap();
-
-    });
-</script>
-<!-- Facebook Pixel Code Don't Delete -->
-<script>
-    !function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-            n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = '2.0';
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s)
-    }(window,
-        document, 'script', '//connect.facebook.net/en_US/fbevents.js');
-
-    try {
-        fbq('init', '111649226022273');
-        fbq('track', "PageView");
-
-    } catch (err) {
-        console.log('Facebook Track Error:', err);
-    }
-</script>
-<noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Facebook Pixel Code -->
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 </html>
