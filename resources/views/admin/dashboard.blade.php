@@ -150,37 +150,5 @@
 
     <script type="text/javascript" src="{{asset('js/dashboard_script.js')}}"></script>
 
-        google.charts.load('current', {'packages': ['bar']});
-        google.charts.setOnLoadCallback(function () {
-            $.ajax({
-                url: '/admin/chart-2',
-                method: 'GET',
-                success: function (resp) {
-                    drawChart_2(resp);
-                },
-                error: function () {
-                    swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
-                }
-
-            });
-        });
-
-        function drawChart_2(chart_data) {
-            var data = google.visualization.arrayToDataTable([
-                ['Khung giờ', 'Sản phẩm'],
-                [chart_data[0].timeslot, Number(chart_data[0].quantity)],
-
-            ]);
-            for (var i = 1; i < chart_data.length; i++) {
-                data.addRow([chart_data[i].timeslot, Number(chart_data[i].quantity)]);
-            }
-            var options = {
-                height: 400,
-            };
-
-            var chart = new google.charts.Bar(document.getElementById('columnchart'));
-
-            chart.draw(data, google.charts.Bar.convertOptions(options));
-        }
 
 @endsection
