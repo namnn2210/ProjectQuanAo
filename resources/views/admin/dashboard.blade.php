@@ -84,7 +84,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <a href="/admin/new-orders">Vào đây</a> để xem các đơn hàng mới (1 tháng gần nhất)
+                        <a href="/admin/new-orders">Vào đây</a> để xem đơn hàng mới
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <a href="/admin/subcriber">Vào đây</a> để gửi mail quảng cáo cho khách hàng
+                        <a href="/admin/subcriber">Vào đây</a> để gửi mail quảng cáo
                     </div>
                 </div>
             </div>
@@ -136,4 +136,5 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="{{asset('js/dashboard_script.js')}}"></script>
 @endsection

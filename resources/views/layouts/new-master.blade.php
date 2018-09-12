@@ -55,7 +55,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="{{asset('js/dashboard_script.js')}}"></script>
+
 
 </head>
 
@@ -193,9 +193,9 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item @yield('active-subcribers')">
+                <li class="nav-item ">
                     <a class="nav-link" data-toggle="collapse" href="#subscriberExamples">
-                        <i class="nc-icon nc-puzzle-10"></i>
+                        <i class="nc-icon nc-send"></i>
                         <p>
                             Quản lý subscriber
                             <b class="caret"></b>
@@ -204,7 +204,7 @@
                     <div class="collapse " id="subscriberExamples">
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="/admin/subcriber">
+                                <a class="nav-link @yield('active-subcribers')" href="/admin/subcriber">
                                     <span class="sidebar-mini">SB</span>
                                     <span class="sidebar-normal">Danh sách subscriber</span>
                                 </a>

@@ -44,8 +44,8 @@ $(document).ready(function () {
         url: '/admin/total-revenue',
         method: 'GET',
         success: function (resp) {
-            $('#revenue').text(resp.revenue);
-            console.log(resp.revenue.revenue);
+            $('#revenue').text();
+            console.log(resp);
         },
         error: function () {
             alert("Cannot get data");
