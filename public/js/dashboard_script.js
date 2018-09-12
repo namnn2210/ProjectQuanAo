@@ -251,6 +251,22 @@ $(function () {
         });
 
         $.ajax({
+            url:'/admin/chart-2?startDate=' + startDate + '&endDate=' + endDate,
+            method: 'GET',
+            success: function (resp) {
+                if (resp.length == 0) {
+                    swal('Không có dữ liệu', 'Vui lòng lựa chọn khoảng thời gian khác.', 'warning');
+                    return;
+                }
+                ;
+                drawChart_2(resp);
+            },
+            error: function () {
+                swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
+            }
+        })
+
+        $.ajax({
             url: '/admin/count-orders?startDate=' + startDate + '&endDate=' + endDate,
             method: 'GET',
             success: function (resp) {
