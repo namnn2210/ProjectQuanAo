@@ -1,4 +1,4 @@
-@extends('layouts.master', ['currentPage' => 'create'])
+@extends('layouts.new-master', ['currentPage' => 'create'])
 @section('page-title', 'Thêm sản phẩm mới')
 @section('active-product','active')
 @section('content')
