@@ -85,10 +85,12 @@ class DashboardController
             $end_date = Input::get('endDate');
             if ($start_date != null && $end_date != null) {
                 $revenue = Order::select(DB::raw('sum(orders.total_price) as revenue'))
+                    ->where('status',2)
                     ->whereBetween('created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))->get();
                 return Response::json($revenue);
             } else {
                 $revenue = Order::select(DB::raw('sum(orders.total_price) as revenue'))
+                    ->where('status',2)
                     ->whereMonth('created_at','=',Carbon::today()->month)->get();
                 return Response::json($revenue);
         }
@@ -103,6 +105,7 @@ class DashboardController
             $end_date = Input::get('endDate');
             if ($start_date != null && $end_date != null) {
                 $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
+                    ->where('status',2)
                     ->whereBetween('created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
                     ->groupBy('day')
                     ->orderBy('day', 'desc')
@@ -110,6 +113,7 @@ class DashboardController
                 return $chart_data;
             } else {
                 $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
+                    ->where('status',2)
                     ->groupBy('day')
                     ->orderBy('day', 'desc')
                     ->get();
@@ -129,6 +133,7 @@ class DashboardController
                     ->join('products', 'order_details.product_id', '=', 'products.id')
                     ->join('categories', 'products.category_id', '=', 'categories.id')
                     ->join('orders', 'orders.id', '=', 'order_details.order_id')
+                    ->where('orders.status',2)
                     ->whereBetween('orders.created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
                     ->groupBy('categories.name')
                     ->get();
@@ -138,6 +143,7 @@ class DashboardController
                     ->join('products', 'order_details.product_id', '=', 'products.id')
                     ->join('categories', 'products.category_id', '=', 'categories.id')
                     ->join('orders', 'orders.id', '=', 'order_details.order_id')
+                    ->where('orders.status',2)
                     ->groupBy('categories.name')
                     ->get();
                 return $chart_data;
@@ -179,6 +185,7 @@ class DashboardController
                 END AS timeslot'), DB::raw('SUM(order_details.quantity) AS quantity'))
                     ->join('order_details', 'orders.id', '=', 'order_details.order_id')
                     ->whereBetween('orders.created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
+                    ->where('orders.status',2)
                     ->groupBy('timeslot')
                     ->orderBy('timeslot','asc')
                     ->get();
@@ -212,6 +219,7 @@ class DashboardController
                 WHEN TIME(orders.created_at) BETWEEN \'23:00:00\' AND \'23:59:59\' THEN \'23:00 - 23:59\'
                 END AS timeslot'), DB::raw('SUM(order_details.quantity) AS quantity'))
                     ->join('order_details', 'orders.id', '=', 'order_details.order_id')
+                    ->where('orders.status',2)
                     ->groupBy('timeslot')
                     ->orderBy('timeslot','asc')
                     ->get();
