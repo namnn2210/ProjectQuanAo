@@ -53,16 +53,6 @@ class DashboardController
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 
-
-    public function showNewOrder()
-    {
-        if (Auth::check()) {
-            $orders = Order::all()->where('created_at', '<=', Carbon::now())->where('created_at', '>=', Carbon::yesterday());
-            return view('admin.order.new_order')->with('orders', $orders);
-        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
-    }
-
-
     public function getCountSubscriber()
     {
         if (Auth::check()) {
@@ -77,15 +67,16 @@ class DashboardController
                 $count = count(Subscribed::all()->where('created_at', '<=', Carbon::now())->where('created_at', '>=', Carbon::yesterday()));
                 return Response::json($count);
             }
+        }
+    }
     public function showNewOrder()
     {
         if (Auth::check()) {
-            $start_date = Carbon::now();
-            $end_date = Carbon::yesterday();
             $orders = Order::all()->where('created_at', '<=', Carbon::now())->where('created_at', '>=', Carbon::yesterday());
             return view('admin.order.new_order')->with('orders', $orders);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
+
 
     public function getTotalRevenue()
     {
