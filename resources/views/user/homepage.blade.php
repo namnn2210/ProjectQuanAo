@@ -203,10 +203,10 @@
                                             <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
                                         </a>
 
-                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                        <div class="block2-btn-addcart w-size1 trans-0-4" id="add-cart-{{$item->id}}">
                                             <!-- Button -->
                                             <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                Add to Cart
+                                                Thêm vào giỏ hàng
                                             </button>
                                         </div>
                                     </div>

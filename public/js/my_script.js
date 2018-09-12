@@ -318,10 +318,10 @@ paypal.Button.render({
 }, '#paypal-button');
 
 $(document).ready(function (){
-    var total_checkout = 0;
+    var total = 0;
     $('.item').each(function () {
         $(this).find('.price').text( numeral($(this).find('.price').text()).format('0,0'));
-        total_checkout += parseFloat($(this).find('.price').text().replace(/,/g, ""));
+        total += parseFloat($(this).find('.price').text().replace(/,/g, ""));
     });
     $('.receipt_items_total_price').text(numeral(total).format('0,0') + ' VNĐ')
     $('.receipt_total_price').text(numeral(parseFloat($('.receipt_items_total_price').text().replace(/,/g, "").replace(' VNĐ', '')) + parseFloat($('.shipping_fee').text().replace(/,/g, "").replace(' VNĐ', ''))).format('0,0') + ' VNĐ')

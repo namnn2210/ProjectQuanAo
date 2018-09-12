@@ -38,6 +38,7 @@ Route::get('/admin/count-subscribers','DashboardController@getCountSubscriber');
 Route::get('/admin/total-revenue','DashboardController@getTotalRevenue');
 Route::get('/admin/chart','DashboardController@getChartDataApi');
 Route::get('/admin/chart-1','DashboardController@getPieChartDataApi');
+Route::get('/admin/chart-2','DashboardController@getColumnChartDataApi');
 Route::get('/','HomepageController@showHomepage');
 Route::get('/faqs','HomepageController@showFAQs');
 
