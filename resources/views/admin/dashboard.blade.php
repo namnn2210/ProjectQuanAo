@@ -41,9 +41,19 @@
                 <div id="piechart"></div>
             </div>
         </div>
+
+        <div class="col-md-9 card">
+            <div class="card-header">
+                <h3>Biểu đồ số sản phẩm bán theo khung giờ</h3>
+                <p>tính theo đơn vị (sản phẩm)</p>
+            </div>
+            <div class="card-body">
+                <div id="columnchart"></div>
+            </div>
+        </div>
     </div>
-    <!--Script LineChart -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!--Script LineChart -->
     <script type="text/javascript">
         google.charts.load('current', {'packages': ['line']});
         google.charts.setOnLoadCallback(function () {
@@ -82,10 +92,12 @@
             chart.draw(data, google.charts.Line.convertOptions(options));
         }
 
+        <!-- PieChart -->
+
         google.charts.load('current', {'packages': ['corechart']});
         google.charts.setOnLoadCallback(function () {
             $.ajax({
-                url: 'admin/chart-1',
+                url: '/admin/chart-1',
                 method: 'GET',
                 success: function (resp) {
                     drawChart_1(resp);
@@ -115,7 +127,40 @@
             chart.draw(data, options);
         }
 
-        $(function() {
+        google.charts.load('current', {'packages': ['bar']});
+        google.charts.setOnLoadCallback(function () {
+            $.ajax({
+                url: '/admin/chart-2',
+                method: 'GET',
+                success: function (resp) {
+                    drawChart_2(resp);
+                },
+                error: function () {
+                    swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
+                }
+
+            });
+        });
+
+        function drawChart_2(chart_data) {
+            var data = google.visualization.arrayToDataTable([
+                ['Khung giờ', 'Sản phẩm'],
+                [chart_data[0].timeslot, Number(chart_data[0].quantity)],
+
+            ]);
+            for (var i = 1; i < chart_data.length; i++) {
+                data.addRow([chart_data[i].timeslot, Number(chart_data[i].quantity)]);
+            }
+            var options = {
+                height: 400,
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('columnchart'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+
+        $(function () {
             var start = moment().subtract(29, 'days');
             var end = moment();
 
@@ -169,11 +214,11 @@
                 }
             }, cb);
             cb(start, end);
-            $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+            $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
                 //do something, like clearing an input
                 $('#reportrange').val('');
             });
-            $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+            $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
                 // console.log();
                 // console.log(picker.endDate.format('YYYY-MM-DD'));
                 var startDate = picker.startDate.format('YYYY-MM-DD');
@@ -182,10 +227,11 @@
                     url: '/admin/chart?startDate=' + startDate + '&endDate=' + endDate,
                     method: 'GET',
                     success: function (resp) {
-                        if(resp.length ==0){
+                        if (resp.length == 0) {
                             swal('Không có dữ liệu', 'Vui lòng lựa chọn khoảng thời gian khác.', 'warning');
                             return;
-                        };
+                        }
+                        ;
                         drawChart(resp);
                     },
                     error: function () {
@@ -197,10 +243,11 @@
                     url: '/admin/chart-1?startDate=' + startDate + '&endDate=' + endDate,
                     method: 'GET',
                     success: function (resp) {
-                        if(resp.length ==0){
+                        if (resp.length == 0) {
                             swal('Không có dữ liệu', 'Vui lòng lựa chọn khoảng thời gian khác.', 'warning');
                             return;
-                        };
+                        }
+                        ;
                         drawChart_1(resp);
                     },
                     error: function () {

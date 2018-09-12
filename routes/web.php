@@ -34,6 +34,7 @@ Route::get('/admin','DashboardController@showAdminPage');
 Route::get('/admin/new-orders','DashboardController@showNewOrder');
 Route::get('/admin/chart','DashboardController@getChartDataApi');
 Route::get('/admin/chart-1','DashboardController@getPieChartDataApi');
+Route::get('/admin/chart-2','DashboardController@getColumnChartDataApi');
 Route::get('/','HomepageController@showHomepage');
 Route::get('/faqs','HomepageController@showFAQs');
 
