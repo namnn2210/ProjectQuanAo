@@ -8,7 +8,7 @@ $(document).ready(function () {
             $('#count-orders').text(resp);
         },
         error: function () {
-            alert("Cannot get data");
+            swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
         }
     })
 });
@@ -21,7 +21,7 @@ $(document).ready(function () {
             $('#count-products').text(resp);
         },
         error: function () {
-            alert("Cannot get data");
+            swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
         }
     })
 });
@@ -34,7 +34,7 @@ $(document).ready(function () {
             $('#count-subscribers').text(resp);
         },
         error: function () {
-            alert("Cannot get data");
+            swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
         }
     })
 });
@@ -44,11 +44,10 @@ $(document).ready(function () {
         url: '/admin/total-revenue',
         method: 'GET',
         success: function (resp) {
-            console.log(resp[0].revenue);
-            $('#revenue').text();
+            $('#revenue').text(numeral(resp[0].revenue).format(0,0) + ' VND');
         },
         error: function () {
-            alert("Cannot get data");
+            swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
         }
     })
 });
@@ -255,7 +254,7 @@ $(function () {
             url: '/admin/total-revenue?startDate=' + startDate + '&endDate=' + endDate,
             method: 'GET',
             success: function (resp) {
-                $('#revenue').text(resp);
+                $('#revenue').text(numeral(resp[0].revenue).format(0,0) + ' VND');
             },
             error: function () {
                 swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');

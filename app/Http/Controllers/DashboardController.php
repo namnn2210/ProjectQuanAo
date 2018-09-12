@@ -91,7 +91,7 @@ class DashboardController
             } else {
                 $revenue = Order::select(DB::raw('sum(orders.total_price) as revenue'))
                     ->whereMonth('created_at','=',Carbon::today()->month)->get();
-                return response()->json($revenue, 200);
+                return Response::json($revenue);
         }
 
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');

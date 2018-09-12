@@ -25,7 +25,7 @@
                         </div>
                         <div class="col-7">
                             <div class="numbers">
-                                <p class="card-category">Số sản phẩm mới</p>
+                                <p class="card-category">Số sản phẩm mới trong tháng</p>
                                 <h4 class="card-title" id="count-products"></h4>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                         </div>
                         <div class="col-7">
                             <div class="numbers">
-                                <p class="card-category">Số đơn hàng mới</p>
+                                <p class="card-category">Số đơn hàng mới trong ngày</p>
                                 <h4 class="card-title" id="count-orders"></h4>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                         </div>
                         <div class="col-7">
                             <div class="numbers">
-                                <p class="card-category">Số người đăng kí</p>
+                                <p class="card-category">Số người đăng kí mới</p>
                                 <h4 class="card-title" id="count-subscribers"></h4>
                             </div>
                         </div>
