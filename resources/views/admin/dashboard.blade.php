@@ -2,9 +2,16 @@
 @section('page-title', 'Trang chủ')
 @section('active-dashboard','active')
 @section('content')
-    <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-        <i class="fa fa-calendar"></i>&nbsp;
-        <span></span> <i class="fa fa-caret-down"></i>
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-md-3">
+            <label>Thời gian của biểu đồ:</label>
+        </div>
+        <div id="reportrange"
+             style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%; border-radius: 3px;"
+             class="col-md-2">
+            <i class="fa fa-calendar"></i>&nbsp;
+            <span></span> <i class="fa fa-caret-down"></i>
+        </div>
     </div>
     <div class="row">
         <div class="col-lg-3 col-sm-6">
@@ -19,7 +26,7 @@
                         <div class="col-7">
                             <div class="numbers">
                                 <p class="card-category">Tổng số sản phẩm mới</p>
-                                <h4 class="card-title">150GB</h4>
+                                <h4 class="card-title" id="count-products"></h4>
                             </div>
                         </div>
                     </div>
@@ -27,7 +34,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i>Update Now
+                        <a href="/admin/product">Vào đây</a> để xem tất cả sản phẩm
                     </div>
                 </div>
             </div>
@@ -52,7 +59,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-calendar-o"></i> Last day
+                        <a href="/admin/order">Vào đây</a> để xem tất cả đơn hàng
                     </div>
                 </div>
             </div>
@@ -69,7 +76,7 @@
                         <div class="col-7">
                             <div class="numbers">
                                 <p class="card-category">Số đơn hàng mới</p>
-                                <h4 class="card-title">23</h4>
+                                <h4 class="card-title" id="count-orders"></h4>
                             </div>
                         </div>
                     </div>
@@ -77,7 +84,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-clock-o"></i> In the last hour
+                        <a href="/admin/new-orders">Vào đây</a> để xem các đơn hàng mới
                     </div>
                 </div>
             </div>
@@ -102,7 +109,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i> Update now
+                        <a href="/admin/subcriber">Vào đây</a> để gửi mail quảng cáo cho khách hàng
                     </div>
                 </div>
             </div>
@@ -132,6 +139,33 @@
     <!--Script LineChart -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+        // Lấy số order mới
+        $(document).ready(function () {
+            $.ajax({
+                url: '/admin/count-orders',
+                method: 'GET',
+                success: function (resp) {
+                    $('#count-orders').text(resp);
+                },
+                error: function () {
+                    alert("Cannot get data");
+                }
+            })
+        });
+        //Lấy số sản phẩm mới
+        $(document).ready(function () {
+            $.ajax({
+                url: '/admin/count-products',
+                method: 'GET',
+                success: function (resp) {
+                    $('#count-products').text(resp);
+                },
+                error: function () {
+                    alert("Cannot get data");
+                }
+            })
+        });
+
         google.charts.load('current', {'packages': ['line']});
         google.charts.setOnLoadCallback(function () {
             $.ajax({
@@ -296,15 +330,33 @@
                         swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
                     }
                 });
-            });
 
+                $.ajax({
+                    url: '/admin/count-orders?startDate=' + startDate + '&endDate=' + endDate,
+                    method: 'GET',
+                    success: function (resp) {
+                        $('#count-orders').text(resp);
+                    },
+                    error: function () {
+                        swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
+                    }
+                })
+
+                $.ajax({
+                    url: '/admin/count-products?startDate=' + startDate + '&endDate=' + endDate,
+                    method: 'GET',
+                    success: function (resp) {
+                        $('#count-products').text(resp);
+                    },
+                    error: function () {
+                        swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
+                    }
+                })
+            });
         });
     </script>
 
-    <!--Script PieChart -->
-    {{--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>--}}
-    <script type="text/javascript">
+    <script>
 
     </script>
-
 @endsection

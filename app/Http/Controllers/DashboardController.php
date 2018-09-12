@@ -11,29 +11,72 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\OrderDetail;
+use App\Product;
+use App\Subscribed;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 
 class DashboardController
 {
     public function showAdminPage() {
         if (Auth::check()) {
-            $count = count(Order::all()->where('created_at','<=',Carbon::now())->where('created_at','>=',Carbon::yesterday()));
-            return view('admin.dashboard')->with('count',$count);
+            return view('admin.dashboard');
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+    }
 
+    public function getCountNewOrderApi() {
+        if(Auth::check()) {
+            $start_date = Input::get('startDate');
+            $end_date = Input::get('endDate');
+            if ($start_date != null && $end_date != null){
+                $count = count(Order::select(DB::raw('orders.created_at'))
+                    ->whereBetween('orders.created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))->get()
+                );
+                return Response::json($count);
+            } else {
+                $count = count(Order::all()->where('created_at','<=',Carbon::now())->where('created_at','>=',Carbon::yesterday()));
+                return Response::json($count);
+            }
+        }
+        else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+    }
+
+    public function getNewProduct() {
+        if(Auth::check()) {
+            $start_date = Input::get('startDate');
+            $end_date = Input::get('endDate');
+            if ($start_date != null && $end_date != null){
+                $count = count(Product::select(DB::raw('products.created_at'))
+                    ->whereBetween('products.created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))->get()
+                );
+                return Response::json($count);
+            } else {
+                $count = count(Product::all()->where('created_at','<=',Carbon::now())->where('created_at','>=',Carbon::yesterday()));
+                return Response::json($count);
+            }
+        }
+        else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 
     public function showNewOrder() {
         if (Auth::check()) {
-            $start_date = Carbon::now();
-            $end_date = Carbon::yesterday();
-            $orders = Order::all()->where('created_at','<=',Carbon::now())->where('created_at','>=',Carbon::yesterday());
+            $start_date = Input::get('startDate');
+            $end_date = Input::get('endDate');
+            $orders = Order::all()->where('created_at','<=',$start_date)->where('created_at','>=',$end_date);
             return view('admin.order.new_order')->with('orders',$orders);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+    }
 
+    public function showSubscriber() {
+        if (Auth::check()) {
+            $start_date = Input::get('startDate');
+            $end_date = Input::get('endDate');
+            $subscribers = Subscribed::all()->where('created_at','<=',$start_date)->where('created_at','>=',$end_date);
+            return view('admin.order.new_order')->with('subscribers',$subscribers);
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 
     public function getChartDataApi()

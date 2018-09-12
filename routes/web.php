@@ -32,6 +32,8 @@ Route::resource('admin/subcriber','SubcriberController');
 
 Route::get('/admin','DashboardController@showAdminPage');
 Route::get('/admin/new-orders','DashboardController@showNewOrder');
+Route::get('/admin/count-orders','DashboardController@getCountNewOrderApi');
+Route::get('/admin/count-products','DashboardController@getNewProduct');
 Route::get('/admin/chart','DashboardController@getChartDataApi');
 Route::get('/admin/chart-1','DashboardController@getPieChartDataApi');
 Route::get('/','HomepageController@showHomepage');

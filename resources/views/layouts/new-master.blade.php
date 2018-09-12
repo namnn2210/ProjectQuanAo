@@ -201,7 +201,7 @@
                     <div class="collapse " id="subscriberExamples">
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="/admin/subscriber">
+                                <a class="nav-link" href="/admin/subcriber">
                                     <span class="sidebar-mini">SB</span>
                                     <span class="sidebar-normal">Danh sách subscriber</span>
                                 </a>
@@ -312,4 +312,12 @@
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>
 </html>
