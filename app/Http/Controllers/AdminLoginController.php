@@ -61,14 +61,14 @@ class AdminLoginController extends Controller
             'DOB' => 'required',
             'phone' => 'required|min:10|max:11'
         ], [
-            'username.required' => 'Bạn phải nhập tên đăng nhập',
-            'password.required' => 'Bạn phải nhập tên mật khẩu',
-            'confirm-password.required' => 'Bạn phải nhập tên mật khẩu',
-            'email.required' => 'Bạn phải nhập email',
-            'full_name.required' => 'Bạn phải nhập tên đầy đủ của bạn',
-            'address.required' =>'Bạn phải nhập địa chỉ',
-            'DOB' => 'Bạn phải nhập ngày tháng năm sinh',
-            'phone' => 'Bạn phải nhập số điện thoại',
+            'username.required' => 'Vui lòng không được bỏ trống',
+            'password.required' => 'Vui lòng không được bỏ trống',
+            'confirm-password.required' => 'Vui lòng không được bỏ trống',
+            'email.required' => 'Vui lòng không được bỏ trống',
+            'full_name.required' => 'Vui lòng không được bỏ trống',
+            'address.required' =>'Vui lòng không được bỏ trống',
+            'DOB.required' => 'Vui lòng chọn ngày, tháng, năm sinh',
+            'phone.required' => 'Vui lòng nhập số điện thoại',
             'username.min' => 'Tên đăng nhập từ 6-20 ký tự',
             'username.max' => 'Tên đăng nhập từ 6-20 ký tự',
             'password.min' => 'Mật khẩu từ 6-20 ký tự',
@@ -81,6 +81,7 @@ class AdminLoginController extends Controller
             'address.min' => 'Địa chỉ phải từ 5 ký tự trở lên',
             'phone.min' => 'Số điện thoại có 10 hoặc 11 chữ số',
             'phone.max' => 'Số điện thoại có 10 hoặc 11 chữ số'
+
 
         ]);
 
