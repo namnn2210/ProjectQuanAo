@@ -13,7 +13,6 @@ $(".fa-trash").click(function () {
                         text: 'This product has been deleted',
                         type: 'success',
                         allowOutsideClick: true,
-                        html: true
                     },
                     function (isConfirm) {
                         if (isConfirm) {

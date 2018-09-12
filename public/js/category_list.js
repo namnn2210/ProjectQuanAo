@@ -13,7 +13,6 @@ $(".fa-trash").click(function () {
                         text: 'This category has been deleted',
                         type: 'success',
                         allowOutsideClick: true,
-                        html: true
                     },
                     function (isConfirm) {
                         if (isConfirm) {
@@ -91,7 +90,6 @@ $(function () {
                 text: 'Category information updated into dababase',
                 type: 'success',
                 allowOutsideClick: true,
-                html: true
             },
             function (isConfirm) {
                 if (isConfirm) {

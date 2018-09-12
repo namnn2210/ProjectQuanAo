@@ -13,7 +13,6 @@ $(".fa-trash").click(function () {
                         text: 'This product has been deleted',
                         type: 'success',
                         allowOutsideClick: true,
-                        html: true
                     },
                     function (isConfirm) {
                         if (isConfirm) {
@@ -101,7 +100,6 @@ if($(".alert-success")[0]){
             text: 'Product information updated into dababase',
             type: 'success',
             allowOutsideClick: true,
-            html: true
         },
         function (isConfirm) {
             if (isConfirm) {
