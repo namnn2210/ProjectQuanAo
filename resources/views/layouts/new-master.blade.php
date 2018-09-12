@@ -54,6 +54,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="{{asset('js/dashboard_script.js')}}"></script>
+
 </head>
 
 <body>
@@ -320,4 +323,6 @@
         });
     });
 </script>
+
+
 </html>
