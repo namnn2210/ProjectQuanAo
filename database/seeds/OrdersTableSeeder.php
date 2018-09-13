@@ -25,7 +25,7 @@ class OrdersTableSeeder extends Seeder
                 'payment_method' => 'paypal',
                 'created_at'=>\Carbon\Carbon::create(2018, 6, 20, 6, 32, 34),
                 'updated_at'=>\Carbon\Carbon::create(2018, 6, 20, 12, 15, 15),
-                'status'=>0
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH4158745198',
@@ -37,7 +37,7 @@ class OrdersTableSeeder extends Seeder
                 'payment_method' => 'paypal',
                 'created_at'=>\Carbon\Carbon::create(2018, 5, 26, 3, 33, 33),
                 'updated_at'=>\Carbon\Carbon::create(2018, 5, 26, 11, 16, 16),
-                'status'=>1
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH2648741598',
@@ -49,7 +49,7 @@ class OrdersTableSeeder extends Seeder
                 'payment_method' => 'paypal',
                 'created_at'=>\Carbon\Carbon::create(2018, 2, 24, 3, 32, 32),
                 'updated_at'=>\Carbon\Carbon::create(2018, 2, 24, 13, 17, 17),
-                'status'=>0
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH1478495247',
@@ -61,7 +61,7 @@ class OrdersTableSeeder extends Seeder
                 'payment_method' => 'cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 3, 21, 2, 31, 31),
                 'updated_at'=>\Carbon\Carbon::create(2018, 3, 21, 8, 30, 20),
-                'status'=>2
+                'status'=>0
             ],
             [
                 'customer_id'=>'KH7854995632',
@@ -85,7 +85,7 @@ class OrdersTableSeeder extends Seeder
                 'payment_method' => 'cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 7, 23, 9, 20, 20),
                 'updated_at'=>\Carbon\Carbon::create(2018, 7, 23, 15, 14, 20),
-                'status'=>-1
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH1205480697',
@@ -97,7 +97,7 @@ class OrdersTableSeeder extends Seeder
                 'payment_method' => 'cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 7, 10, 10, 35, 28),
                 'updated_at'=>\Carbon\Carbon::create(2018, 7, 10, 16, 37, 21),
-                'status'=>0
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH0210054895',
@@ -109,7 +109,7 @@ class OrdersTableSeeder extends Seeder
                 'payment_method' => 'cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 8, 20, 10, 20, 20),
                 'updated_at'=>\Carbon\Carbon::create(2018, 8, 20, 17, 27, 45),
-                'status'=>1
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH3652114778',
@@ -121,7 +121,7 @@ class OrdersTableSeeder extends Seeder
                 'payment_method' => 'cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 8, 21, 11, 26, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 8, 21, 18, 26, 29),
-                'status'=>0
+                'status'=>-1
             ],
             [
                 'customer_id'=>'KH0214587498',
@@ -134,6 +134,18 @@ class OrdersTableSeeder extends Seeder
                 'created_at'=>\Carbon\Carbon::create(2018, 8, 22, 12, 23, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 8, 22, 19, 24, 25),
                 'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536834018410',
+                'total_price'=>8536000,
+                'ship_name'=>'Nguyễn Đức Anh',
+                'ship_address'=>'Hà Nội',
+                'ship_phone'=>'01588745981',
+                'ship_email'=>'asssdewttt@gmail.com',
+                'payment_method' => 'paypal',
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 1, 12, 23, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 2, 19, 24, 25),
+                'status'=>2
             ],
         ]);
     }
