@@ -20,7 +20,7 @@
                            aria-selected="true">Sản phẩm quảng cáo</a>
                     </li>
                     <li class="nav-item" style="width: 33.3333%;">
-                        <a class="nav-link" href="#tab3" data-toggle="tab" role="tab" aria-controls="tab3"
+                        <a class="nav-link link-tab3" href="#tab3" data-toggle="tab" role="tab" aria-controls="tab3"
                            aria-selected="true">Nội dung email</a>
                     </li>
                 </ul>
@@ -43,7 +43,7 @@
                                         <star>*</star>
                                     </label>
                                     <div>
-                                        <ul>
+                                        <ul >
                                             @foreach($subcribers as $receiver)
                                                 <li>{{$receiver->email}}</li>
                                             @endforeach
@@ -61,32 +61,72 @@
                                     @foreach($products as $item)
                                         @if($item->isNew())
                                             <div>
-                                                <input type="checkbox" name="products"
-                                                       id="{{$item->id}}"/>{{$item->name}}
+                                                <input class="checkbox" type="checkbox"
+                                                       id="{{$item->id}}" value="{{$item->name}}"/> {{$item->name}}
                                             </div>
                                         @endif
                                     @endforeach
                                 </div>
+                                {{--<input class="checkbox" type="checkbox" name="products"--}}
+                                {{--id="checkAll"/> Check All--}}
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab3" role="tabpanel">
-                        <h4>Chào mừng đến với cửa hàng thời trang FarFetch</h4>
-                        <p>Cảm ơn bạn đã quan tâm đến cửa hàng của chúng tôi, </p>
+                    <div class="tab-pane fade nhan-mail" id="tab3" role="tabpanel">
+
                     </div>
                 </div>
             </div>
             <div class="card-footer text-center">
-                <button type="button" class="btn btn-info btn-wd btn-next pull-right">Next</button>
-                <button type="button" class="btn btn-info btn-wd btn-finish pull-right" onclick="onFinishWizard()"
-                        style="display: none;">Finish
+                <button type="button" class="btn btn-info btn-wd btn-next pull-right">Tiếp theo</button>
+                <button type="button" class="btn btn-info btn-wd btn-finish pull-right" style="display: none;">Gửi email
                 </button>
                 <div class="clearfix"></div>
             </div>
         </div>
     </form>
 
-    <script type="text/javascript">
+    <script>
 
+        $('.btn-next,.link-tab3').click(function () {
+            var arrayName = [];
+            var arrayId = [];
+            var mail_content = '';
+            if ($('.tab-pane.fade.show.active').attr('id') == 'tab2') {
+                $('input:checkbox:checked').each(function () {
+                    arrayName.push($(this).val());
+                    arrayId.push($(this).attr('id'));
+                });
+
+                mail_content += '<h4>Chào mừng đến với cửa hàng thời trang FarFetch</h4>\n' +
+                    '                        <p>Cảm ơn bạn đã quan tâm đến cửa hàng của chúng tôi, </p>\n' +
+                    '                        <p>Các sản phẩm mới ra mắt của chúng tôi:</p>' +
+                    '<ul>';
+                for (var i = 0; i < arrayName.length; i++) {
+                    var link = 'http://localhost:8000/product/' + arrayId[i];
+                    mail_content += '<li>' + arrayName[i] + ' : ' + '<a href="' + link + '"> ' + link + '</a></li>'
+                }
+                mail_content += '</ul>'
+                $('.nhan-mail').html(mail_content);
+                $('.btn-finish').click(function () {
+                    $.ajax({
+                        url:'/admin/send-email',
+                        method:'GET',
+                        data: {
+                            mail_content : mail_content,
+                            '_token': $('meta[name="csrf-token"]').attr('content'),
+                        },
+                        success:function (resp) {
+
+                        },
+                        error:function () {
+                            alert('error');
+                        }
+                    })
+                })
+            }
+            ;
+        })
     </script>
+
 @endsection

@@ -266,7 +266,6 @@
 <script src="{{asset('js/master-layout-3-js/jquery.bootstrap-wizard.js')}}"></script>
 <script src="{{asset('js/master-layout-3-js/bootstrap-switch.js')}}"></script>
 <script src="{{asset('js/master-layout-3-js/bootstrap-tagsinput.js')}}"></script>
-<script src="{{asset('js/master-layout-3-js/chartist.min.js')}}"></script>
 <script src="{{asset('js/master-layout-3-js/bootstrap-notify.js')}}"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{asset('js/master-layout-3-js/light-bootstrap-dashboard.js'.'?v=2.0.1')}}"
@@ -284,6 +283,7 @@
 </script>
 
 <script src="{{asset('js/master-layout-3-js/demo.js')}}"></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         // Init Wizard

@@ -21,6 +21,7 @@ Route::put('/admin/quickUpdate/brand/','BrandController@quickUpdate');
 
 Route::get('/admin/order/change-status', 'OrderController@changeStatus');
 Route::get('/admin/send-mail', 'EmailController@send');
+Route::get('/admin/send-mail-tab3', 'SubcriberController@getProductChoose');
 Route::get('/admin/subcriber/send-email','SubcriberController@showSendEmailPage');
 
 
