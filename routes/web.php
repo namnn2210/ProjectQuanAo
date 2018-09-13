@@ -20,7 +20,8 @@ Route::get('/admin/brand/{id}/quickEdit','BrandController@quickEdit');
 Route::put('/admin/quickUpdate/brand/','BrandController@quickUpdate');
 
 Route::get('/admin/order/change-status', 'OrderController@changeStatus');
-Route::get('/send-mail', 'EmailController@send');
+Route::get('/admin/send-mail', 'EmailController@send');
+Route::get('/admin/subcriber/send-email','SubcriberController@showSendEmailPage');
 
 
 Route::resource('admin/product','ProductController');

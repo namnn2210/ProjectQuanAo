@@ -11,11 +11,12 @@ class EmailController extends Controller
     public function send(Request $request)
     {
         $data = array('title'=>'Xin chao vietnam', 'content'=>'Day la noi dung');
-        Mail::send('email.send_reicept', $data, function($message) {
-            $message->to('namngocngo22@gmail.com', 'Tutorials Point')->subject
-            ('Laravel HTML Testing Mail');
-            $message->from('farfetchmensfashion@gmail.com','Xuan Hung');
+
+        Mail::send('admin.email.send_reicept', $data, function($message) {
+            $message->to('namngocngo22@gmail.com', 'Ngô Ngọc Nam')
+                ->subject('Laravel HTML Testing Mail');
+            $message->from('farfetchmensfashion@gmail.com','FarFetch Mens Fashion');
         });
-        return 'Okie';
+        echo 'Sent';
     }
 }

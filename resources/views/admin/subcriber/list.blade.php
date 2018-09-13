@@ -19,7 +19,6 @@
                 <th style="text-align: center">Email</th>
                 <th style="text-align: center">Địa chỉ</th>
                 <th style="text-align: center">Số điện thoại</th>
-                <th style="text-align: center">Thao tác</th>
             </tr>
             </thead>
             <tbody>
@@ -29,10 +28,6 @@
                     <td style="text-align: center">{{$item -> email}}</td>
                     <td style="text-align: center">{{$item -> address}}</td>
                     <td style="text-align: center">{{$item -> phone}}</td>
-                    <td class="black-icon" style="text-align: center">
-                        <a href="#" class="fa fa-pencil btn-quick-edit mr-2"></a>
-                        <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2"></a>
-                    </td>
                 </tr>
             @endforeach
             </tbody>
