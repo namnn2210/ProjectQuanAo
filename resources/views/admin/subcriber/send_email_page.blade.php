@@ -71,7 +71,8 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab3" role="tabpanel">
-
+                        <h4>Chào mừng đến với cửa hàng thời trang FarFetch</h4>
+                        <p>Cảm ơn bạn đã quan tâm đến cửa hàng của chúng tôi, </p>
                     </div>
                 </div>
             </div>
