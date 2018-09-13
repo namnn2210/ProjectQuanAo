@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
-
+use Snowfire\Beautymail\Beautymail;
 class ShoppingCartController extends Controller
 {
     public function addToCart() {
@@ -153,10 +153,21 @@ class ShoppingCartController extends Controller
                     $order_detail->save();
                     array_push($order_details, $order_detail);
                 }
-                $order->save();
+                $data = array('obj_category' => $obj_category, 'order' => $order, 'order_details' => $order_details);
+                $beautymail = app()->make(\Snowfire\Beautymail\Beautymail::class);
+                $beautymail->send('user.receipt_mail', $data, function($message)
+                {
+                    $order_id = Order::orderBy('created_at', 'desc')->first();
+                    $ship_name = Input::get('ship_name');
+                    $mail = Input::get('email');
+                    $message
+                        ->from('vu.tienphuc97@gmail.com')
+                        ->to($mail, $ship_name)
+                        ->subject('Hóa đơn đơn hàng #' . $order_id -> id);
+                });
                 DB::commit();
                 Session::remove('cart');
-                return view('user.receipt2')
+                return view('user.receipt')
                     ->with('obj_category',$obj_category)
                     ->with('order', $order)
                     ->with('order_details', $order_details);
