@@ -46,4 +46,9 @@ class Order extends Model
             return 'Đã thanh toán đủ';
         }
     }
+
+    public function getPriceStringAttribute()
+    {
+        return sprintf('%s VNĐ', number_format($this->total_price/2, 0));
+    }
 }

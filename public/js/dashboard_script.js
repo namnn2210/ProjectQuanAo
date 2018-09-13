@@ -137,11 +137,10 @@ google.charts.setOnLoadCallback(function () {
     });
 });
 
-function drawChart_2(chart_data) {
+function drawChart_2(chart_data){
     var data = google.visualization.arrayToDataTable([
         ['Khung giờ', 'Sản phẩm'],
         [chart_data[0].timeslot, Number(chart_data[0].quantity)],
-
     ]);
     for (var i = 1; i < chart_data.length; i++) {
         data.addRow([chart_data[i].timeslot, Number(chart_data[i].quantity)]);
@@ -226,7 +225,6 @@ $(function () {
                     swal('Không có dữ liệu', 'Vui lòng lựa chọn khoảng thời gian khác.', 'warning');
                     return;
                 }
-                ;
                 drawChart(resp);
             },
             error: function () {
