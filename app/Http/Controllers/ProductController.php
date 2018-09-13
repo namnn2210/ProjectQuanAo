@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Category;
 use App\Http\Requests\StoreProduct;
+use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
+use Illuminate\Support\Facades\Response;
+
 
 class ProductController extends Controller
 {
@@ -20,16 +24,37 @@ class ProductController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
-            $obj = Product::all()->where('status','=',1);
-            $obj_category = Category::all();
-            $obj_brand = Brand::all();
-            return view('admin.product.list')
-                -> with('obj',$obj)
-                -> with('obj_category',$obj_category)
-                -> with('obj_brand',$obj_brand);
-        }
-        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
+//        if(Auth::check()){
+//            $obj = Product::all()->where('status','=',1);
+//            $obj_category = Category::all();
+//            $obj_brand = Brand::all();
+//            return view('admin.product.list')
+//                -> with('obj',$obj)
+//                -> with('obj_category',$obj_category)
+//                -> with('obj_brand',$obj_brand);
+//        }
+//        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
+        if (Auth::check()) {
+            $start_date = Input::get('startDate');
+            $end_date = Input::get('endDate');
+            if ($start_date != null && $end_date != null) {
+                $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
+                    ->where('status',2)
+                    ->whereBetween('created_at', array($start_date . ' 00:00:00', $end_date . ' 23:59:59'))
+                    ->groupBy('day')
+                    ->orderBy('day', 'desc')
+                    ->get();
+                return Response::json($chart_data);
+            } else {
+                $chart_data = Order::select(DB::raw('sum(total_price) as revenue'), DB::raw('date(created_at) as day'))
+                    ->where('status',2)
+                    ->groupBy('day')
+                    ->orderBy('day', 'desc')
+                    ->get();
+                return Response::json($chart_data);
+            }
+
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
 
     }
 

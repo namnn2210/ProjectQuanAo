@@ -10,6 +10,7 @@
         "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
+        "snowfire/beautymail": "dev-master",
         "swiftmailer/swiftmailer": "^6.1"
     },
     "require-dev": {

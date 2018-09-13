@@ -31,7 +31,7 @@
                 <th class="black-icon" style="text-align: center">Thao tác</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="order_list">
             @foreach($obj as $item)
                 <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
                     <td style="text-align: center">{{$item -> customer_id}}</td>
@@ -45,7 +45,7 @@
                             @endforeach
                         </ul>
                     </td>
-                    <td>
+                    <td class="status">
                         @if($item->status==0)
                             <div class="order-pending-banner text-center">
                                 Chờ xử lý
@@ -67,20 +67,16 @@
                             </div>
                         @endif
                     </td>
-                    <td style="text-align: center">
+                    <td style="text-align: center" class="status_icon">
                         @if($item->status==0)
-                            <a href="/admin/order/change-status?id={{$item->id}}&status=1"
-                               onclick="return confirm('Bạn có chắc muốn xác nhận đơn hàng?')"
-                               class="fa fa-check-circle-o"></a>
+                            <span class="fa fa-check-circle-o" id="{{$item->id}}"></span>
                         @elseif($item->status==1)
-                            <a href="/admin/order/change-status?id={{$item->id}}&status=2"
-                               onclick="return confirm('Bạn có chắc muốn hoàn thành đơn hàng?')"
-                               class="fa fa-check-circle"></a>
+                            <span href="#" class="fa fa-check-circle" id="{{$item->id}}"></span>
                         @elseif($item->status==2)
                             <span class="fa fa-check"></span>
                         @endif
                         @if($item->status==0)
-                            <a href="#" id="{{$item -> id}}" class="fa fa-trash"></a>
+                            <a href="#" class="fa fa-trash"></a>
                         @endif
                         @if($item->status==-1)
                             <a href="{{$item->id}}" class="fa fa-minus-circle"></a>
