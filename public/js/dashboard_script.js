@@ -212,7 +212,7 @@ $(function () {
         //do something, like clearing an input
         $('#reportrange').val('');
     });
-    $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
+    $('#reportrange').on('apply.daterangepicker', function (ev, picker){
         // console.log();
         // console.log(picker.endDate.format('YYYY-MM-DD'));
         var startDate = picker.startDate.format('YYYY-MM-DD');

@@ -68,6 +68,7 @@ class DashboardController
                 return Response::json($count);
             }
         }
+        else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
     public function showNewOrder()
     {

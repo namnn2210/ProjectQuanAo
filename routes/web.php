@@ -19,7 +19,7 @@ Route::put('/admin/quickUpdate/account/','AccountController@quickUpdate');
 Route::get('/admin/brand/{id}/quickEdit','BrandController@quickEdit');
 Route::put('/admin/quickUpdate/brand/','BrandController@quickUpdate');
 
-Route::get('/admin/order/change-status', 'OrderController@changeStatus');
+Route::post('/admin/order/change-status', 'OrderController@changeStatus');
 Route::get('/send-mail', 'EmailController@send');
 
 
@@ -70,6 +70,8 @@ Route::post('admin/login', 'AdminLoginController@postLogin');
 Route::get('admin/logout', 'AdminLoginController@logout');
 Route::get('admin/register', 'AdminLoginController@registerAdmin');
 Route::post('admin/register', 'AdminLoginController@createAdminAccount');
+
+Route::post('/admin/order-search','OrderController@search');
 
 Route::get('/blade',function () {
     return view('layouts.new-master');
