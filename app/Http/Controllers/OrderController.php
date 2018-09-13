@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderDetail;
 use App\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -85,10 +86,12 @@ class OrderController extends Controller
 
     public function search() {
         if (Auth::check()) {
-            $start_date = Input::get('startDate');
-            $end_date = Input::get('endDate');
+            $start_date = Carbon::parse(Input::get('startDate'))->startOfDay();
+            $end_date = Carbon::parse(Input::get('endDate'))->endOfDay();
             if($start_date != null && $end_date != null) {
-                $orders = DB::table('orders')->whereBetween('created_at', [$start_date, $end_date])->get();
+                $orders = Order::whereDate('created_at', '>=', $start_date)
+                    ->whereDate('created_at', '<=', $end_date)
+                    ->get();
                 $order_details = OrderDetail::all();
                 $products = Product::where('status',1)->get();
                 return response()->json(['orders' => $orders , 'order_details' => $order_details, 'products' => $products], 200);

@@ -268,7 +268,8 @@
 <script>
     $(document).ready(function () {
         $('#dataTables-example').DataTable({
-            responsive: true
+            responsive: true,
+            pageLength: 50
         });
     });
 </script>

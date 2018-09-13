@@ -172,15 +172,15 @@ $(function () {
                         new_content += '</tr>';
                     }
                 }
+                // $('#dataTables-example_filter').remove();
+                // $('#dataTables-example_info').remove();
+                // $('#dataTables-example_paginate').remove();
+                // $('#dataTables-example_length').remove();
+                // $('#dataTables-example').DataTable({
+                //     responsive: true,
+                //     bDestroy: true,
+                // });
                 $('#order_list').html(new_content);
-                $('#dataTables-example_filter').remove();
-                $('#dataTables-example_info').remove();
-                $('#dataTables-example_paginate').remove();
-                $('#dataTables-example_length').remove();
-                $('#dataTables-example').DataTable({
-                    responsive: true,
-                    bDestroy: true
-                });
             },
             error: function () {
                 swal('Có lỗi xảy ra', 'Không thể lấy dữ liệu từ api', 'error');
