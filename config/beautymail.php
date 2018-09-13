@@ -22,7 +22,6 @@ return [
         'reminder'    => null,
         'unsubscribe' => null,
         'address'     => null,
-        'css' => file_get_contents(dirname(__FILE__) . '\public\css\receipt.css'),
         'logo'        => [
             'path'   => '%PUBLIC%/vendor/beautymail/assets/images/sunny/logo.png',
             'width'  => '',
