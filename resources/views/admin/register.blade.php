@@ -23,9 +23,8 @@
                     <div class="alert alert-success">
                         {{session('message')}}
                         <div></div>
-                        <a href='/admin/login'>Trở về trang chủ</a>
+                        <a href='/admin/login'>Trở về trang đăng nhập</a>
                     </div>
-
                 @endif
             </div>
             <form id="Register" method="post" >
