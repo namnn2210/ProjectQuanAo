@@ -3,9 +3,15 @@
 @section('active-list-order','active')
 @section('manage-order','show')
 @section('content')
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">DANH SÁCH ĐƠN HÀNG</h1>
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-md-3">
+            <label>Thời gian của biểu đồ:</label>
+        </div>
+        <div id="reportrange"
+             style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%; border-radius: 3px;"
+             class="col-md-2">
+            <i class="fa fa-calendar"></i>&nbsp;
+            <span></span> <i class="fa fa-caret-down"></i>
         </div>
     </div>
     <div class="panel-body">

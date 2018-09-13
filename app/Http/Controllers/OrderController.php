@@ -6,6 +6,7 @@ use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 
 class OrderController extends Controller
 {
@@ -77,6 +78,22 @@ class OrderController extends Controller
         //
         if (Auth::check()) {
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+    }
+
+    public function search() {
+        if (Auth::check()) {
+            $start_date = Input::get('startDate');
+            $end_date = Input::get('endDate');
+            if($start_date != null && $end_date != null) {
+                $orders = Order::all()->where('created_at', '<=', $start_date)->where('created_at', '>=', $end_date);
+                return Response::json($orders);
+            }
+            else {
+                $orders = Order::all();
+                return Response::json($orders);
+            }
+        }
+        else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 
     /**
