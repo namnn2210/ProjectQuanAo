@@ -1,6 +1,7 @@
 @extends('layouts.new-master', ['currentPage' => 'list'])
 @section('page-title', 'DANH SÁCH DANH MỤC')
-@section('active-category','active')
+@section('active-list-category','active')
+@section('manage-category','show')
 @section('content')
     <div class="row">
         <div class="col-lg-12">

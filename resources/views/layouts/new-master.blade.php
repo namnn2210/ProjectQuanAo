@@ -55,7 +55,7 @@
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse " id="componentsExamples">
+                    <div class="collapse @yield('manage-user') " id="componentsExamples">
                         <ul class="nav">
                             <li class="nav-item @yield('active-user')">
                                 <a class="nav-link" href="/admin/account">
@@ -74,15 +74,15 @@
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse " id="formsExamples">
+                    <div class="collapse @yield('manage-product')" id="formsExamples">
                         <ul class="nav">
-                            <li class="nav-item @yield('active-product')">
+                            <li class="nav-item @yield('active-list-product')">
                                 <a class="nav-link" href="/admin/product">
                                     <span class="sidebar-mini">PD</span>
                                     <span class="sidebar-normal">Danh sách sản phẩm</span>
                                 </a>
                             </li>
-                            <li class="nav-item ">
+                            <li class="nav-item @yield('active-create-product')">
                                 <a class="nav-link" href="/admin/product/create">
                                     <span class="sidebar-mini">NPD</span>
                                     <span class="sidebar-normal">Thêm sản phẩm mới</span>
@@ -99,15 +99,15 @@
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse " id="tablesExamples">
+                    <div class="collapse @yield('manage-category')" id="tablesExamples">
                         <ul class="nav">
-                            <li class="nav-item @yield('active-category')">
+                            <li class="nav-item @yield('active-list-category')">
                                 <a class="nav-link" href="/admin/category">
                                     <span class="sidebar-mini">CT</span>
                                     <span class="sidebar-normal">Danh sách danh mục</span>
                                 </a>
                             </li>
-                            <li class="nav-item ">
+                            <li class="nav-item @yield('active-create-category')">
                                 <a class="nav-link" href="/admin/category/create">
                                     <span class="sidebar-mini">NCT</span>
                                     <span class="sidebar-normal">Thêm danh mục mới</span>
@@ -116,7 +116,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item @yield('active-brand')">
+                <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#mapsExamples">
                         <i class="nc-icon nc-pin-3"></i>
                         <p>
@@ -124,15 +124,15 @@
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse " id="mapsExamples">
+                    <div class="collapse @yield('manage-brand')" id="mapsExamples">
                         <ul class="nav">
-                            <li class="nav-item ">
+                            <li class="nav-item @yield('active-list-brand')">
                                 <a class="nav-link" href="/admin/brand">
                                     <span class="sidebar-mini">BR</span>
                                     <span class="sidebar-normal">Danh sách nhãn hiệu</span>
                                 </a>
                             </li>
-                            <li class="nav-item ">
+                            <li class="nav-item @yield('active-create-brand')">
                                 <a class="nav-link" href="/admin/brand/create">
                                     <span class="sidebar-mini">NBR</span>
                                     <span class="sidebar-normal">Thêm nhãn hiệu mới</span>
@@ -149,9 +149,9 @@
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse " id="pagesExamples">
+                    <div class="collapse @yield('manage-order')" id="pagesExamples">
                         <ul class="nav">
-                            <li class="nav-item ">
+                            <li class="nav-item @yield('active-list-order')">
                                 <a class="nav-link" href="/admin/order">
                                     <span class="sidebar-mini">OD</span>
                                     <span class="sidebar-normal">Danh sách đơn hàng</span>
@@ -168,10 +168,10 @@
                             <b class="caret"></b>
                         </p>
                     </a>
-                    <div class="collapse " id="subscriberExamples">
+                    <div class="collapse @yield('manage-subcriber')" id="subscriberExamples">
                         <ul class="nav">
-                            <li class="nav-item ">
-                                <a class="nav-link @yield('active-subcribers')" href="/admin/subcriber">
+                            <li class="nav-item @yield('active-list-subcriber')">
+                                <a class="nav-link " href="/admin/subcriber">
                                     <span class="sidebar-mini">SB</span>
                                     <span class="sidebar-normal">Danh sách subscriber</span>
                                 </a>
