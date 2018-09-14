@@ -14,6 +14,7 @@ Route::get('/admin/product/{id}/quickEdit','ProductController@quickEdit');
 Route::put('/admin/quickUpdate/product/','ProductController@quickUpdate');
 Route::get('/admin/category/{id}/quickEdit','CategoryController@quickEdit');
 Route::put('/admin/quickUpdate/category/','CategoryController@quickUpdate');
+Route::get('/admin/brand/{id}/quickEdit','BrandController@quickEdit');
 Route::get('/admin/account/{id}/quickEdit','AccountController@quickEdit');
 Route::put('/admin/quickUpdate/account/','AccountController@quickUpdate');
 
@@ -22,6 +23,7 @@ Route::get('/admin/order/change-status', 'OrderController@changeStatus');
 
 Route::resource('admin/product','ProductController');
 Route::resource('admin/category','CategoryController');
+Route::resource('admin/brand', 'BrandController');
 Route::resource('admin/order','OrderController');
 Route::resource('admin/account','AccountController');
 

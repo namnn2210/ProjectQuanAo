@@ -115,6 +115,176 @@ class OrdersTableSeeder extends Seeder
                 'updated_at'=>\Carbon\Carbon::create(2018, 8, 22, 19, 24, 25),
                 'status'=>-1
             ],
+            [
+                'customer_id'=>'KH1536666037',
+                'total_price'=>4048000,
+                'ship_name'=>'Dang Doanh Quang',
+                'ship_address'=>'Ha Noi',
+                'ship_phone'=>'0987667106',
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 11, 11, 40, 36),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 11, 11, 40, 37),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536893174',
+                'total_price'=>5144000,
+                'ship_name'=>'Nguyễn Linh Anh',
+                'ship_address'=>'Hà Nội',
+                'ship_phone'=>'0987556190',
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 14, 02, 46, 14),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 14, 02, 46, 14),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536893262',
+                'total_price'=>5500000,
+                'ship_name'=>'Lê Hà Trang',
+                'ship_address'=>'Hà Nội',
+                'ship_phone'=>'0987667106',
+                'created_at'=>\Carbon\Carbon::create(2018, 8, 10, 9, 19, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 8, 10, 9, 19, 25),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536893325',
+                'total_price'=>3488000,
+                'ship_name'=>'Trần Anh Minh',
+                'ship_address'=>'Hải Dương',
+                'ship_phone'=>'0912476495',
+                'created_at'=>\Carbon\Carbon::create(2018, 8, 12, 8, 12, 11),
+                'updated_at'=>\Carbon\Carbon::create(2018, 8, 12, 8, 14, 10),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536893401',
+                'total_price'=>3212000,
+                'ship_name'=>'Lê Anh Khôi',
+                'ship_address'=>'Hải Phòng',
+                'ship_phone'=>'0966739485',
+                'created_at'=>\Carbon\Carbon::create(2018, 6, 8, 15, 34, 12),
+                'updated_at'=>\Carbon\Carbon::create(2018, 6, 8, 15, 39, 13),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536893480',
+                'total_price'=>6832000,
+                'ship_name'=>'Nguyễn Ngọc Linh',
+                'ship_address'=>'Hà Nội',
+                'ship_phone'=>'0965334859',
+                'created_at'=>\Carbon\Carbon::create(2018, 7, 12, 8, 15, 23),
+                'updated_at'=>\Carbon\Carbon::create(2018, 7, 12, 8, 24, 25),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536896608',
+                'total_price'=>7940000,
+                'ship_name'=>'Đặng Nam Anh',
+                'ship_address'=>'Hưng Yên',
+                'ship_phone'=>'0988671360',
+                'created_at'=>\Carbon\Carbon::create(2018, 7, 10, 12, 30, 10),
+                'updated_at'=>\Carbon\Carbon::create(2018, 7, 10, 12, 37, 15),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536896644',
+                'total_price'=>1514000,
+                'ship_name'=>'Lê Minh Đăng',
+                'ship_address'=>'Hưng Yên',
+                'ship_phone'=>'0937349328',
+                'created_at'=>\Carbon\Carbon::create(2018, 6, 27, 22, 12, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 6, 27, 22, 12, 25),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536896686',
+                'total_price'=>4743000,
+                'ship_name'=>'Đặng Hoài Nam',
+                'ship_address'=>'Hà Nội',
+                'ship_phone'=>'09871234124',
+                'created_at'=>\Carbon\Carbon::create(2018, 7, 01, 8, 39, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 7, 01, 8, 44, 25),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536897128',
+                'total_price'=>3600000,
+                'ship_name'=>'Nguyễn Ngọc Anh',
+                'ship_address'=>'Hưng Yên',
+                'ship_phone'=>'0983742345',
+                'created_at'=>\Carbon\Carbon::create(2018, 8, 30, 19, 34, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 8, 30, 19, 44, 25),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536912791',
+                'total_price'=>4187000,
+                'ship_name'=>'Trần Hải Đăng',
+                'ship_address'=>'Hà Nội',
+                'ship_phone'=>'0934839211',
+                'created_at'=>\Carbon\Carbon::create(2018, 5, 28, 19, 23, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 5, 28, 19, 29, 25),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536912838',
+                'total_price'=>3864000,
+                'ship_name'=>'Đặng Minh Anh',
+                'ship_address'=>'Hải Dương',
+                'ship_phone'=>'0978324170',
+                'created_at'=>\Carbon\Carbon::create(2018, 4, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 4, 8, 17, 29, 25),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536912901',
+                'total_price'=>4954000,
+                'ship_name'=>'Nguyễn Đăng Nguyên',
+                'ship_address'=>'Hà Nội',
+                'ship_phone'=>'0937632823',
+                'created_at'=>\Carbon\Carbon::create(2018, 3, 16, 16, 36, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 3, 16, 16, 39, 25),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536912947',
+                'total_price'=>4762000,
+                'ship_name'=>'Nguyễn Kiều Anh',
+                'ship_address'=>'Hà Nội',
+                'ship_phone'=>'0937412732',
+                'created_at'=>\Carbon\Carbon::create(2018, 2, 14, 13, 12, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 2, 14, 13, 24, 25),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536913019',
+                'total_price'=>7650000,
+                'ship_name'=>'Lê Anh',
+                'ship_address'=>'Hà Nội',
+                'ship_phone'=>'0932714380',
+                'created_at'=>\Carbon\Carbon::create(2018, 1, 18, 14, 13, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 1, 18, 14, 19, 25),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536913116',
+                'total_price'=>8740000,
+                'ship_name'=>'Nguyễn Hải Đăng',
+                'ship_address'=>'Hà Nội',
+                'ship_phone'=>'0923782144',
+                'created_at'=>\Carbon\Carbon::create(2018, 2, 18, 15, 23, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 2, 18, 15, 29, 25),
+                'status'=>-1
+            ],
+            [
+                'customer_id'=>'KH1536913289',
+                'total_price'=>3680000,
+                'ship_name'=>'An Như',
+                'ship_address'=>'Hà Nội',
+                'ship_phone'=>'0932746378',
+                'created_at'=>\Carbon\Carbon::create(2018, 3, 14, 10, 13, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 3, 14, 10, 19, 25),
+                'status'=>-1
+            ],
         ]);
     }
 }
