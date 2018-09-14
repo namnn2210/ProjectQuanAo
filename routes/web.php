@@ -26,7 +26,7 @@ Route::get('/admin/send-mail-tab3', 'SubcriberController@getProductChoose');
 Route::get('/admin/subcriber/send-email','SubcriberController@showSendEmailPage');
 
 Route::get('/admin/get-content','EmailController@getContent');
-Route::post('/admin/order/change-status', 'OrderController@changeStatus')
+Route::post('/admin/order/change-status', 'OrderController@changeStatus');
 
 
 Route::resource('admin/product','ProductController');
