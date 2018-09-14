@@ -70,13 +70,6 @@
                 $(".preview_image").remove();
             });
         });
-        $('input').keyup(function(){
-            var $th = $(this);
-            $th.val( $th.val().replace(/[^a-zA-Z0-9-" "]/g, function(){
-                $('p').text('Please only use number and text');
-                return '';
-            }));
-        });
         if($(".alert-success")[0]){
             swal({
                     title: 'Saved Sucess',
