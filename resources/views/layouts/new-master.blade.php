@@ -175,7 +175,9 @@
                                     <span class="sidebar-mini">SB</span>
                                     <span class="sidebar-normal">Danh sách subscriber</span>
                                 </a>
-                                <a class="nav-link @yield('active-send-email')" href="/admin/subcriber/send-email">
+                            </li>
+                            <li class="nav-item @yield('active-send-email')">
+                                <a class="nav-link " href="/admin/subcriber/send-email">
                                     <span class="sidebar-mini">EM</span>
                                     <span class="sidebar-normal">Gửi email quảng cáo</span>
                                 </a>

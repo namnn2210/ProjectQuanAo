@@ -1,6 +1,7 @@
 @extends('layouts.new-master', ['currentPage' => 'send-email'])
 @section('page-title', 'Gửi email quảng cáo')
-@section('active-active-send-email','active')
+@section('manage-subcriber','show')
+@section('active-send-email','active')
 @section('content')
     <form id="wizardForm" method="/admin/subcriber" action="post" novalidate="novalidate">
         {{csrf_field()}}
@@ -96,40 +97,52 @@
                     arrayName.push($(this).val());
                     arrayId.push($(this).attr('id'));
                 });
-
-                mail_content += '<h4>Chào mừng đến với cửa hàng thời trang FarFetch</h4>\n' +
-                    '<p>Cảm ơn bạn đã quan tâm đến cửa hàng của chúng tôi, </p>\n' +
-                    '<p>Các sản phẩm mới ra mắt của chúng tôi:</p>' +
-                    '<ul>';
-                for (var i = 0; i < arrayName.length; i++) {
-                    var link = 'http://localhost:8000/product/' + arrayId[i];
-                    mail_content += '<li>' + arrayName[i] + ' : ' + '<a href="' + link + '"> ' + link + '</a></li>'
+                if (arrayId.length > 0) {
+                    mail_content += '<img src="https://i.imgur.com/1GiFNsE.png" style="max-width: 70%">';
+                    mail_content +=
+                        '<h4>Cảm ơn bạn đã quan tâm đến cửa hàng của chúng tôi, </h4>\n' +
+                        '<p>Farfetch đang có những sản phẩm ' + '<span class="text-danger">HOT' + '<i class="fa fa-fire"></i>' + '</span>' + 'dành cho mùa thu này</p>' +
+                        '<p>Bạn hãy click vào đường dẫn của những sản phẩm mới dưới đây để xem thông tin chi tiết hơn nhé !!</p>' +
+                        '<ul>';
+                    for (var i = 0; i < arrayName.length; i++) {
+                        var link = 'http://localhost:8000/product/' + arrayId[i];
+                        mail_content += '<li>' + arrayName[i] + ' : ' + 'Click vào ' + '<a href="' + link + '"> ' + 'đây' + '</a> để xem chi tiết sản phẩm</li>';
+                    }
+                    mail_content += '</ul>'
+                    mail_content += '<img src="https://i.ytimg.com/vi/jIAM84-DjMI/maxresdefault.jpg" style="max-width: 80%">'
                 }
-                mail_content += '</ul>'
+
                 $('.nhan-mail').html(mail_content);
                 var email = [];
                 $('.receiver').each(function () {
                     email.push($(this).text());
                 })
                 console.log(email);
+                if (mail_content.length == 0) {
+                    $('.btn-finish').hide();
+                }
                 $('.btn-finish').click(function () {
-
-
-                    $.ajax({
-                        url: '/admin/send-email-2',
-                        method: 'post',
-                        data: {
-                            email: email,
-                            mail_content : mail_content,
-                            '_token': $('meta[name="csrf-token"]').attr('content'),
-                        },
-                        success: function (resp) {
-                            swal('DONE');
-                        },
-                        error: function () {
-                            alert('error');
-                        }
-                    });
+                    if (arrayId.length > 0) {
+                        $.ajax({
+                            url: '/admin/send-email-2',
+                            method: 'post',
+                            data: {
+                                email: email,
+                                mail_content: mail_content,
+                                '_token': $('meta[name="csrf-token"]').attr('content'),
+                            },
+                            success: function (resp) {
+                                swal('DONE');
+                            },
+                            error: function () {
+                                alert('error');
+                            }
+                        });
+                    }
+                    else {
+                        swal('Bạn phải chọn ít nhất một sản phẩm');
+                        return;
+                    }
                 });
             }
             ;
