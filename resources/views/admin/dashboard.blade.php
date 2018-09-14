@@ -136,7 +136,7 @@
             </div>
         </div>
 
-        <div class="col-md-9 card">
+        <div class="col-md-12 card">
             <div class="card-header">
                 <h3>Biểu đồ số sản phẩm bán theo khung giờ</h3>
                 <p>tính theo đơn vị (sản phẩm)</p>
