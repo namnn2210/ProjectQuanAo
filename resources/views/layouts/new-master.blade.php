@@ -18,7 +18,7 @@
     <link href="{{asset('css/master-layout-3-css/light-bootstrap-dashboard.css'.'?v=2.0.1')}}" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>--}}
     <link rel="stylesheet" href="{{URL::asset('css/form.css')}}">
     <script type="text/javascript" src={{asset("/js/numeral.js")}}></script>
     <link href="{{asset('css/master-layout-3-css/demo.css')}}" rel="stylesheet" />
@@ -248,9 +248,9 @@
 </div>
 </body>
 <!--   Core JS Files   -->
+{{--<script src="{{asset('js/master-layout-2-js/bootstrap.min.js')}}" type="text/javascript"></script>--}}
 <script src="{{asset('js/master-layout-3-js/popper.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/master-layout-3-js/bootstrap.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('js/master-layout-2-js/bootstrap.min.js')}}"></script>
 <!--  jVector Map  -->
 <script src="{{asset('js/master-layout-3-js/jquery-jvectormap.js')}}" type="text/javascript"></script>
 <!--  Sweet Alert  -->
