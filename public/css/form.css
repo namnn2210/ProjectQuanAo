@@ -117,3 +117,14 @@
 .img-wrap:hover .delete-img {
     opacity: 1;
 }
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    overflow-y: scroll;
+}

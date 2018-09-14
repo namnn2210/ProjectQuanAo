@@ -19,7 +19,7 @@ class BrandController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            $obj = Brand::all()->where('status','=',1);
+            $obj = Brand::all();
             return view('admin.brand.list')
                 -> with('obj',$obj);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
@@ -48,14 +48,14 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         if (Auth::check()) {
-            $obj = new Category();
+            $obj = new Brand();
             $obj->name = Input::get('name');
             $obj->description = Input::get('description');
             $obj->country = Input::get('country');
             if (Input::hasFile('image')) {
                 $image_id = time();
                 Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
-                $obj->image = Cloudder::secureShow($image_id);
+                $obj->logo = Cloudder::secureShow($image_id);
             }
             $obj->save();
             echo "<script>alert('Saved Successfull'); window.location.href = '/admin/brand'</script>";
@@ -124,7 +124,7 @@ class BrandController extends Controller
             if (Input::hasFile('images')) {
                 $image_id = time();
                 Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-                $obj->images = Cloudder::secureShow($image_id);
+                $obj->logo = Cloudder::secureShow($image_id);
             }
             $obj -> save();
             echo "<script>alert('Saved Successfull'); window.location.href = '/admin/brand'</script>";
@@ -142,7 +142,7 @@ class BrandController extends Controller
             if (Input::hasFile('image')) {
                 $image_id = time();
                 Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
-                $obj->image = Cloudder::secureShow($image_id);
+                $obj->logo = Cloudder::secureShow($image_id);
             }
             $obj->save();
             return redirect()->back()->with('message', 'Saved Success');
@@ -162,8 +162,7 @@ class BrandController extends Controller
             if ($obj == null) {
                 return view('404');
             }
-            $obj->status = 0;
-            $obj->save();
+            $obj -> delete();
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 }

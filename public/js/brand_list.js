@@ -1,16 +1,16 @@
 $(".fa-trash").click(function () {
     var deleteId = this.id;
-    if (confirm("Are you sure?")) {
+    if(confirm("Are you sure?")){
         $.ajax({
             method: 'DELETE',
             url: '/admin/brand/' + deleteId,
             data: {
-                '_token': $('meta[name="csrf-token"]').attr('content')
+                '_token' : $('meta[name="csrf-token"]').attr('content')
             },
             success: function (resp) {
                 swal({
                         title: 'Deleted',
-                        text: 'This category has been deleted',
+                        text: 'This product has been deleted',
                         type: 'success',
                         allowOutsideClick: true,
                     },
