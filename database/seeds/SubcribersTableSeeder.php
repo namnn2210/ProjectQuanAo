@@ -20,7 +20,7 @@ class SubcribersTableSeeder extends Seeder
                 'phone'=>'01232301997',
                 'status'=>1,
             ],[
-                'email'=>'ngongocnam221097@gmail.com',
+                'email'=>'ngongocnam22101997@gmail.com',
                 'name'=>'Ngo Ngoc Nam',
                 'address'=>'Hanoi',
                 'phone'=>'01678884544',

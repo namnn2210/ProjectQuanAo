@@ -43,9 +43,10 @@
                                         <star>*</star>
                                     </label>
                                     <div>
-                                        <ul >
+                                        <ul>
                                             @foreach($subcribers as $receiver)
-                                                <li>{{$receiver->email}}</li>
+                                                <li class="receiver"
+                                                    name="{{$receiver->email}}">{{$receiver->email}}</li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -99,8 +100,8 @@
                 });
 
                 mail_content += '<h4>Chào mừng đến với cửa hàng thời trang FarFetch</h4>\n' +
-                    '                        <p>Cảm ơn bạn đã quan tâm đến cửa hàng của chúng tôi, </p>\n' +
-                    '                        <p>Các sản phẩm mới ra mắt của chúng tôi:</p>' +
+                    '<p>Cảm ơn bạn đã quan tâm đến cửa hàng của chúng tôi, </p>\n' +
+                    '<p>Các sản phẩm mới ra mắt của chúng tôi:</p>' +
                     '<ul>';
                 for (var i = 0; i < arrayName.length; i++) {
                     var link = 'http://localhost:8000/product/' + arrayId[i];
@@ -108,22 +109,39 @@
                 }
                 mail_content += '</ul>'
                 $('.nhan-mail').html(mail_content);
+                var email = [];
+                $('.receiver').each(function () {
+                    email.push($(this).text());
+                })
+                console.log(email);
                 $('.btn-finish').click(function () {
                     $.ajax({
-                        url:'/admin/send-email',
-                        method:'GET',
+                        url: '/admin/send-email-2',
+                        method: 'post',
                         data: {
+                            email: email,
                             mail_content : mail_content,
                             '_token': $('meta[name="csrf-token"]').attr('content'),
                         },
-                        success:function (resp) {
-
+                        success: function (resp) {
+                            swal('DONE');
                         },
-                        error:function () {
+                        error: function () {
                             alert('error');
                         }
-                    })
-                })
+                    });
+
+                    // $.ajax({
+                    //     url: '/admin/get-content',
+                    //     method: 'GET',
+                    //     success: function () {
+                    //
+                    //     },
+                    //     error: function () {
+                    //         swal('ERROR');
+                    //     }
+                    // })
+                });
             }
             ;
         })

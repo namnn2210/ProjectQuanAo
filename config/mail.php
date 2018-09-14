@@ -5,6 +5,6 @@ return [
     "host" => "smtp.gmail.com",
     "port" => 587,
     "username" => "farfetchmensfashion@gmail.com",
-    "password" => "pzsxbwfnunebbunr",
+    "password" => "fwaxufmlshyrabrm",
     "encryption" => "tls"
 ];
