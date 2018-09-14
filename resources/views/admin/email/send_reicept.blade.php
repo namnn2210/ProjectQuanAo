@@ -12,10 +12,7 @@
 </head>
 <body>
     <div class="nhan-email">
-
+        {!! $content !!}
     </div>
 </body>
-<script>
-    $('.nhan-email').html($content);
-</script>
 </html>

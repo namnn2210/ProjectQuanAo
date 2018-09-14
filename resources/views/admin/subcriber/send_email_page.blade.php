@@ -68,8 +68,6 @@
                                         @endif
                                     @endforeach
                                 </div>
-                                {{--<input class="checkbox" type="checkbox" name="products"--}}
-                                {{--id="checkAll"/> Check All--}}
                             </div>
                         </div>
                     </div>
@@ -115,6 +113,8 @@
                 })
                 console.log(email);
                 $('.btn-finish').click(function () {
+
+
                     $.ajax({
                         url: '/admin/send-email-2',
                         method: 'post',
@@ -130,17 +130,6 @@
                             alert('error');
                         }
                     });
-
-                    // $.ajax({
-                    //     url: '/admin/get-content',
-                    //     method: 'GET',
-                    //     success: function () {
-                    //
-                    //     },
-                    //     error: function () {
-                    //         swal('ERROR');
-                    //     }
-                    // })
                 });
             }
             ;

@@ -35,10 +35,11 @@ class EmailController extends Controller
         return response()->json(['msg', 'DONE'], 200);
     }
 
-    public function getContent()
+    public function getContent(Request $request)
     {
-        $mail_content = '&lt;h1&gt; Hello &lt;/h1&gt;';
-
+        $mail_content = '<h4>Chào mừng đến với cửa hàng thời trang FarFetch</h4> <p>Cảm ơn bạn đã quan tâm đến cửa hàng của chúng tôi, </p> <p>Các sản phẩm mới ra mắt của chúng tôi:</p><ul><li>Giày Balenciaga : <a href="http://localhost:8000/product/20"> http://localhost:8000/product/20</a></li><li>Giày thể thao : <a href="http://localhost:8000/product/22"> http://localhost:8000/product/22</a></li></ul>';
+        $mail_content.str_replace('<','&lt;',$mail_content);
+        $mail_content.str_replace('>','&gt;',$mail_content);
         return view('admin.email.send_reicept')->with('content', $mail_content);
     }
 }
