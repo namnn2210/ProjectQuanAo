@@ -85,14 +85,14 @@
                 {{$item -> product -> name}}
             </td>
             <td class="price">
-                ({{$item -> PriceString}} VNĐ
+                {{$item -> PriceString}}
             </td>
         </tr>
         @endforeach
         <tr >
             <td>Tổng giá trị sản phẩm</td>
             <td class="receipt_items_total_price">
-                16000000
+                {{$order -> PriceString}}
             </td>
         </tr>
         <tr>
@@ -104,7 +104,7 @@
         <tr class="total">
             <td>Tổng giá trị đơn hàng</td>
             <td class="receipt_total_price">
-                0 VNĐ
+                {{$order -> PriceString}}
             </td>
         </tr>
     </table>

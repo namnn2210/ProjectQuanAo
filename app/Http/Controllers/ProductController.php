@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Category;
 use App\Http\Requests\StoreProduct;
+use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use JD\Cloudder\Facades\Cloudder;
+use Illuminate\Support\Facades\Response;
+
 
 class ProductController extends Controller
 {
@@ -30,7 +34,6 @@ class ProductController extends Controller
                 -> with('obj_brand',$obj_brand);
         }
         else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
-
     }
 
     /**

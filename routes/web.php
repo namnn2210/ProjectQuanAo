@@ -26,6 +26,7 @@ Route::get('/admin/send-mail-tab3', 'SubcriberController@getProductChoose');
 Route::get('/admin/subcriber/send-email','SubcriberController@showSendEmailPage');
 
 Route::get('/admin/get-content','EmailController@getContent');
+Route::post('/admin/order/change-status', 'OrderController@changeStatus')
 
 
 Route::resource('admin/product','ProductController');
@@ -75,6 +76,8 @@ Route::post('admin/login', 'AdminLoginController@postLogin');
 Route::get('admin/logout', 'AdminLoginController@logout');
 Route::get('admin/register', 'AdminLoginController@registerAdmin');
 Route::post('admin/register', 'AdminLoginController@createAdminAccount');
+
+Route::post('/admin/order-search','OrderController@search');
 
 Route::get('/blade',function () {
     return view('layouts.new-master');

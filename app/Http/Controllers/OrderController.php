@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\OrderDetail;
+use App\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 
 class OrderController extends Controller
 {
@@ -79,6 +84,28 @@ class OrderController extends Controller
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 
+    public function search() {
+        if (Auth::check()) {
+            $start_date = Carbon::parse(Input::get('startDate'))->startOfDay();
+            $end_date = Carbon::parse(Input::get('endDate'))->endOfDay();
+            if($start_date != null && $end_date != null) {
+                $orders = Order::whereDate('created_at', '>=', $start_date)
+                    ->whereDate('created_at', '<=', $end_date)
+                    ->get();
+                $order_details = OrderDetail::all();
+                $products = Product::where('status',1)->get();
+                return response()->json(['orders' => $orders , 'order_details' => $order_details, 'products' => $products], 200);
+            }
+            else {
+                $orders = Order::all();
+                $order_details = OrderDetail::all();
+                $products = Product::where('status',1)->get();
+                return response()->json(['orders' => $orders , 'order_details' => $order_details, 'products' => $products], 200);
+            }
+        }
+        else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -123,7 +150,8 @@ class OrderController extends Controller
             }
             $order->status = $status;
             $order->save();
-            return redirect('/admin/order');
+            $order_id = $order -> id;
+            return Response::json($order_id);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 }

@@ -75,24 +75,6 @@ class OrderDetailsTableSeeder extends Seeder
                 'quantity'=>1,
                 'unit_price'=>150000
             ],
-            [
-                'order_id'=>11,
-                'product_id'=>27,
-                'quantity'=>7,
-                'unit_price'=>225000
-            ],
-            [
-                'order_id'=>11,
-                'product_id'=>28,
-                'quantity'=>4,
-                'unit_price'=>125000
-            ],
-            [
-                'order_id'=>11,
-                'product_id'=>42,
-                'quantity'=>2,
-                'unit_price'=>1096500
-            ],
         ]);
     }
 }
