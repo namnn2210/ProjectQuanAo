@@ -19,7 +19,8 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{URL::asset('css/form.css')}}">
     <script type="text/javascript" src={{asset("/js/numeral.js")}}></script>
 
     <link href="{{asset('css/master-layout-3-css/demo.css')}}" rel="stylesheet" />

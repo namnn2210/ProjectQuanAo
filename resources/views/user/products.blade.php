@@ -138,14 +138,14 @@
                             </div>
                         @endforeach
                     </div>
-                    <a class="load-more" href="#" id="loadMore">Xem thêm</a>
-
+                    <div style="text-align: center">
+                        <a class="load-more" href="#" id="loadMore">Xem thêm</a>
+                    </div>
                     <p class="totop">
                         <a href="#top">Trở lại đầu trang</a>
                     </p>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 @endsection
