@@ -28,8 +28,8 @@ class EmailController extends Controller
         $mail_content = $request->input('mail_content');
         $data = array('title' => 'Quảng cáo', 'content' => $mail_content);
         Mail::send('admin.email.send_reicept', $data, function ($message) use ($email) {
-            $message->to($email, 'Tutorials Point')->subject
-            ('Laravel HTML Testing Mail');
+            $message->to($email, 'FarFetchs Subscribers')->subject
+            ('Quảng cáo sản phảm mới FarFetch Mens Fashion');
             $message->from('farfetchmensfashion@gmail.com', 'FarFetch');
         });
         return response()->json(['msg', 'DONE'], 200);
