@@ -161,7 +161,7 @@ class ShoppingCartController extends Controller
                     $ship_name = Input::get('ship_name');
                     $mail = Input::get('email');
                     $message
-                        ->from('farfetchmensfashion@gmail.com', 'FarFetch')
+                        ->from('farfetchmensfashion@gmail.com','FarFetch Mens Fashion')
                         ->to($mail, $ship_name)
                         ->subject('Hóa đơn đơn hàng #' . $order_id -> id);
                 });

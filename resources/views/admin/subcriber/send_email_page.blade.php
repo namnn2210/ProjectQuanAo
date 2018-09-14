@@ -101,7 +101,7 @@
                     mail_content += '<img src="https://i.imgur.com/1GiFNsE.png" style="max-width: 70%">';
                     mail_content +=
                         '<h4>Cảm ơn bạn đã quan tâm đến cửa hàng của chúng tôi, </h4>\n' +
-                        '<p>Farfetch đang có những sản phẩm ' + '<span class="text-danger">HOT' + '<i class="fa fa-fire"></i>' + '</span>' + 'dành cho mùa thu này</p>' +
+                        '<p>Farfetch đang có những sản phẩm ' + '<span class="text-danger">HOT ' + '<i class="fa fa-fire"></i>' + '</span>' + 'dành cho mùa thu này</p>' +
                         '<p>Bạn hãy click vào đường dẫn của những sản phẩm mới dưới đây để xem thông tin chi tiết hơn nhé !!</p>' +
                         '<ul>';
                     for (var i = 0; i < arrayName.length; i++) {
@@ -132,15 +132,15 @@
                                 '_token': $('meta[name="csrf-token"]').attr('content'),
                             },
                             success: function (resp) {
-                                swal('DONE');
+                                swal('Gửi mail thành công','Khách hàng sẽ nhận được mail ngay lập tức','success');
                             },
                             error: function () {
-                                alert('error');
+                                swal('Gửi mail không thành công','Đã có lỗi xảy ra','error');
                             }
                         });
                     }
                     else {
-                        swal('Bạn phải chọn ít nhất một sản phẩm');
+                        swal('Bạn phải chọn ít nhất một sản phẩm','Nội dung mail không được để trống','error');
                         return;
                     }
                 });
