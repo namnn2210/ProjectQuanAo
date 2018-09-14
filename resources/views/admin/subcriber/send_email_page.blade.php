@@ -88,11 +88,11 @@
 
     <script>
 
-        $('.btn-next,.link-tab3').click(function () {
+        $('.btn-next,.link-tab3').click(function (){
             var arrayName = [];
             var arrayId = [];
             var mail_content = '';
-            if ($('.tab-pane.fade.show.active').attr('id') == 'tab2') {
+            if ($('.tab-pane.fade.show.active').attr('id') == 'tab2'){
                 $('input:checkbox:checked').each(function () {
                     arrayName.push($(this).val());
                     arrayId.push($(this).attr('id'));
@@ -116,7 +116,7 @@
                 var email = [];
                 $('.receiver').each(function () {
                     email.push($(this).text());
-                })
+                });
                 console.log(email);
                 if (mail_content.length == 0) {
                     $('.btn-finish').hide();
