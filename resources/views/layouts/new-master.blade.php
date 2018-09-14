@@ -22,6 +22,8 @@
 
     <script type="text/javascript" src={{asset("/js/numeral.js")}}></script>
 
+    <link href="{{asset('css/master-layout-3-css/demo.css')}}" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -174,6 +176,12 @@
                                     <span class="sidebar-normal">Danh sách subscriber</span>
                                 </a>
                             </li>
+                            <li class="nav-item @yield('active-send-email')">
+                                <a class="nav-link " href="/admin/subcriber/send-email">
+                                    <span class="sidebar-mini">EM</span>
+                                    <span class="sidebar-normal">Gửi email quảng cáo</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -257,7 +265,10 @@
 <script src="{{asset('js/master-layout-3-js/bootstrap-table.js')}}"></script>
 <!--  DataTable Plugin -->
 <script src="{{asset('js/master-layout-3-js/jquery.dataTables.min.js')}}"></script>
-
+<script src="{{asset('js/master-layout-3-js/jquery.bootstrap-wizard.js')}}"></script>
+<script src="{{asset('js/master-layout-3-js/bootstrap-switch.js')}}"></script>
+<script src="{{asset('js/master-layout-3-js/bootstrap-tagsinput.js')}}"></script>
+<script src="{{asset('js/master-layout-3-js/bootstrap-notify.js')}}"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{asset('js/master-layout-3-js/light-bootstrap-dashboard.js'.'?v=2.0.1')}}"
         type="text/javascript"></script>
@@ -271,6 +282,15 @@
             responsive: true,
             pageLength: 50
         });
+    });
+</script>
+
+<script src="{{asset('js/master-layout-3-js/demo.js')}}"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Init Wizard
+        demo.initLBDWizard();
     });
 </script>
 

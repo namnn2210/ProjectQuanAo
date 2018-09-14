@@ -19,8 +19,14 @@ Route::put('/admin/quickUpdate/account/','AccountController@quickUpdate');
 Route::get('/admin/brand/{id}/quickEdit','BrandController@quickEdit');
 Route::put('/admin/quickUpdate/brand/','BrandController@quickUpdate');
 
-Route::post('/admin/order/change-status', 'OrderController@changeStatus');
-Route::get('/send-mail', 'EmailController@send');
+Route::get('/admin/order/change-status', 'OrderController@changeStatus');
+Route::get('/admin/send-mail', 'EmailController@send');
+Route::post('/admin/send-email-2','EmailController@send2');
+Route::get('/admin/send-mail-tab3', 'SubcriberController@getProductChoose');
+Route::get('/admin/subcriber/send-email','SubcriberController@showSendEmailPage');
+
+Route::get('/admin/get-content','EmailController@getContent');
+Route::post('/admin/order/change-status', 'OrderController@changeStatus')
 
 
 Route::resource('admin/product','ProductController');

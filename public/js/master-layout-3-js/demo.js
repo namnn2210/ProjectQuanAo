@@ -257,11 +257,6 @@ demo = {
         // Code for the Validator
         var $validator = $('#wizardForm').validate({
             rules: {
-                email: {
-                    required: true,
-                    email: true,
-                    minlength: 5
-                },
                 first_name: {
                     required: false,
                     minlength: 5

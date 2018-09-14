@@ -92,7 +92,7 @@ function drawChart(chart_data) {
 google.charts.load('current', {'packages': ['corechart']});
 google.charts.setOnLoadCallback(function () {
     $.ajax({
-        url: 'admin/chart-1',
+        url: '/admin/chart-1',
         method: 'GET',
         success: function (resp) {
             drawChart_1(resp);
