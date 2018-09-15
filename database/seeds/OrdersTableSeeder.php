@@ -345,6 +345,8 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Phạm Hương Giang',
                 'ship_address'=>'Hưng Yên',
                 'ship_phone'=>'0983473780',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 3, 15, 11, 15, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 3, 15, 11, 16, 25),
                 'status'=>-1
@@ -355,6 +357,8 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Hoàng Mai Phương',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0938174294',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 3, 22, 18, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 3, 22, 18, 19, 25),
                 'status'=>-1
@@ -365,6 +369,8 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Lê Na',
                 'ship_address'=>'Hải Dương',
                 'ship_phone'=>'0932536577',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 3, 13, 19, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 3, 13, 19, 19, 25),
                 'status'=>-1
@@ -375,6 +381,8 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Đào Hải Nam',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0932746378',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 3, 24, 20, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 3, 24, 20, 19, 25),
                 'status'=>-1
@@ -385,6 +393,8 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Đặng Đạt',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0983215443',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 4, 14, 10, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 4, 14, 10, 19, 25),
                 'status'=>-1
@@ -395,6 +405,8 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Nguyễn Khải',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0932312582',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 4, 16, 11, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 4, 16, 11, 19, 25),
                 'status'=>-1
@@ -404,9 +416,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Lâm An',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0934733252',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 4, 22, 10, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 4, 22, 10, 19, 25),
-                'status'=>-1
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH1536944523',
@@ -414,9 +428,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Trương An',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0932746378',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 6, 14, 12, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 6, 14, 12, 19, 25),
-                'status'=>-1
+                'status'=>0
             ],
             [
                 'customer_id'=>'KH1536944559',
@@ -424,9 +440,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Trương Thái An',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0973683342',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 6, 15, 11, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 6, 15, 11, 19, 25),
-                'status'=>-1
+                'status'=>1
             ],
             [
                 'customer_id'=>'KH1536944639',
@@ -434,18 +452,22 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Nguyễn Mạnh',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0973215235',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 6, 22, 13, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 6, 22, 13, 19, 25),
-                'status'=>-1
+                'status'=>2
             ],[
                 'customer_id'=>'KH1536944787',
                 'total_price'=>680000,
                 'ship_name'=>'Nguyễn Tiến',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0943566342',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 6, 24, 10, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 6, 24, 10, 19, 25),
-                'status'=>-1
+                'status'=>1
             ],
             [
                 'customer_id'=>'KH1536944867',
@@ -453,9 +475,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Đặng Quảng',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0983343215',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 6, 16, 14, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 6, 16, 14, 19, 25),
-                'status'=>-1
+                'status'=>0
             ],
             [
                 'customer_id'=>'KH1536944907',
@@ -463,9 +487,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Lê Nam',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0932746378',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 7, 14, 15, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 7, 14, 15, 19, 25),
-                'status'=>-1
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH1536944947',
@@ -473,9 +499,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Ngô Nam',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0932746378',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 7, 16, 17, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 7, 16, 17, 19, 25),
-                'status'=>-1
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH1536944978',
@@ -483,9 +511,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Võ Nam',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0932155323',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 7, 22, 13, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 7, 22, 13, 19, 25),
-                'status'=>-1
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH1536945029',
@@ -493,9 +523,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Nguyễn Phúc',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0932746378',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 8, 16, 10, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 8, 16, 10, 19, 25),
-                'status'=>-1
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH1536945075',
@@ -503,18 +535,22 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Vũ Phúc',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0931243223',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 8, 24, 11, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 8, 24, 11, 19, 25),
-                'status'=>-1
+                'status'=>0
             ],[
                 'customer_id'=>'KH1536945130',
                 'total_price'=>15480000,
                 'ship_name'=>'Đặng Đạt',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0932143521',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 8, 30, 12, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 8, 30, 12, 19, 25),
-                'status'=>-1
+                'status'=>1
             ],
             [
                 'customer_id'=>'KH1536945172',
@@ -522,9 +558,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Ngô Ngọc',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0932145332',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 9, 10, 14, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 9, 10, 14, 19, 25),
-                'status'=>-1
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH1536945228',
@@ -532,9 +570,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Võ Phương Nam',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0932746378',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 9, 12, 13, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 9, 12, 13, 19, 25),
-                'status'=>-1
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH1536945262',
@@ -542,9 +582,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Vũ Nam',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0943125233',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 9, 13, 14, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 9, 13, 14, 19, 25),
-                'status'=>-1
+                'status'=>1
             ],
             [
                 'customer_id'=>'KH1536945302',
@@ -552,9 +594,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Đặng Thành',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0931453412',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 9, 14, 15, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 9, 14, 15, 19, 25),
-                'status'=>-1
+                'status'=>2
             ],
             [
                 'customer_id'=>'KH1536945350',
@@ -562,9 +606,11 @@ class OrdersTableSeeder extends Seeder
                 'ship_name'=>'Vũ Nam',
                 'ship_address'=>'Hà Nội',
                 'ship_phone'=>'0932746378',
+                'ship_email'=>'mocchua97@gmail.com',
+                'payment_method' => 'Cod',
                 'created_at'=>\Carbon\Carbon::create(2018, 9, 14, 10, 13, 22),
                 'updated_at'=>\Carbon\Carbon::create(2018, 9, 14, 10, 19, 25),
-                'status'=>-1
+                'status'=>2
             ],
         ]);
     }
