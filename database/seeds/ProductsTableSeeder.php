@@ -44,8 +44,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => 0,
                 'brand_id' => '3',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534688762/Fashion/%C3%81o%20Kho%C3%A1c/Gucci/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.16.24.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534688762/Fashion/%C3%81o%20Kho%C3%A1c/Gucci/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.16.28.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534688762/Fashion/%C3%81o%20Kho%C3%A1c/Gucci/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.16.32.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Áo khoác Lanvin',
@@ -55,8 +55,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => 0,
                 'brand_id' => '4',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534688803/Fashion/%C3%81o%20Kho%C3%A1c/Lanvin/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.22.06.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534688803/Fashion/%C3%81o%20Kho%C3%A1c/Lanvin/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.22.00.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534688803/Fashion/%C3%81o%20Kho%C3%A1c/Lanvin/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.22.04.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Áo phông Balmain',
@@ -88,8 +88,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => 0,
                 'brand_id' => '7',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689025/Fashion/Ao%20Phong/Kenzo/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.01.11.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689024/Fashion/Ao%20Phong/Kenzo/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.01.08.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689024/Fashion/Ao%20Phong/Kenzo/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.01.05.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Áo phông Valentino',
@@ -99,8 +99,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => 0,
                 'brand_id' => '6',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689047/Fashion/Ao%20Phong/Valentino/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_15.58.20.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689047/Fashion/Ao%20Phong/Valentino/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_15.58.14.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689047/Fashion/Ao%20Phong/Valentino/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_15.58.18.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Áo sơ mi Saint Laurent',
@@ -110,8 +110,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => 0,
                 'brand_id' => '9',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534688902/Fashion/Ao%20So%20Mi/Sant%20Laurent/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.22.59.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534688902/Fashion/Ao%20So%20Mi/Sant%20Laurent/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.23.06.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534688902/Fashion/Ao%20So%20Mi/Sant%20Laurent/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_13.23.02.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Áo sơ mi Valentino',
@@ -143,8 +143,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => 0,
                 'brand_id' => '2',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689503/Fashion/Balo/Burberry/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.57.53.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689502/Fashion/Balo/Burberry/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.57.56.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689503/Fashion/Balo/Burberry/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.58.09.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Balo Fendi',
@@ -165,8 +165,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => 0,
                 'brand_id' => '6',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689538/Fashion/Balo/Fendi/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.02.19.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689539/Fashion/Balo/Fendi/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.02.22.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689538/Fashion/Balo/Fendi/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.02.35.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Balo Gucci',
@@ -242,8 +242,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => 0,
                 'brand_id' => '3',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689407/Fashion/Giay/Gucci/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.41.28.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689406/Fashion/Giay/Gucci/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.41.20.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689406/Fashion/Giay/Gucci/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.41.25.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Giày thể thao ',
@@ -275,8 +275,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => 0,
                 'brand_id' => '7',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689430/Fashion/Giay/Kenzo/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.39.46.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689430/Fashion/Giay/Kenzo/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.39.43.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689430/Fashion/Giay/Kenzo/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.39.40.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Khăn Balenciaga',
@@ -341,8 +341,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => '0',
                 'brand_id' => '7',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689808/Fashion/Phu%20Kien/Mu/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.21.45.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689809/Fashion/Phu%20Kien/Mu/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.21.51.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689809/Fashion/Phu%20Kien/Mu/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.21.48.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Nơ Balmain',
@@ -363,8 +363,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => '0',
                 'brand_id' => '3',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689892/Fashion/Phu%20Kien/That%20Lung/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.27.08.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689893/Fashion/Phu%20Kien/That%20Lung/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.27.11.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Thắt lưng Burberry ',
@@ -407,8 +407,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => '0',
                 'brand_id' => '5',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689909/Fashion/Phu%20Kien/Vi/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.22.14.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689908/Fashion/Phu%20Kien/Vi/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.22.20.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689908/Fashion/Phu%20Kien/Vi/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_17.22.17.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Quần Balenciaga ',
@@ -451,8 +451,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => '0',
                 'brand_id' => '3',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689135/Fashion/Quan/Gucci/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.11.15.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689135/Fashion/Quan/Gucci/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.11.21.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689135/Fashion/Quan/Gucci/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.11.18.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Quần Kenzo',
@@ -462,8 +462,8 @@ class ProductsTableSeeder extends Seeder
                 'discount' => '0',
                 'brand_id' => '7',
                 'images' => 'https://res.cloudinary.com/dyyybxgae/image/upload/v1534689244/Fashion/Quan/Kenzo/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.12.41.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689244/Fashion/Quan/Kenzo/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.12.47.png&https://res.cloudinary.com/dyyybxgae/image/upload/v1534689244/Fashion/Quan/Kenzo/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2018-08-15_lu%CC%81c_16.12.44.png&',
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
+                'created_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 21, 22),
+                'updated_at'=>\Carbon\Carbon::create(2018, 9, 8, 17, 29, 25)
             ],
             [
                 'name' => 'Quần Valentino ',
