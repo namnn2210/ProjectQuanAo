@@ -27,7 +27,6 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="tab1" role="tabpanel">
-                        <p class="text-center">Please tell us more about yourself.</p>
                         <div class="row justify-content-center">
                             <div class="col-md-5 ">
                                 <div class="form-group">
