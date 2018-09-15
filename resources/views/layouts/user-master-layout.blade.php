@@ -8,6 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
     <link rel="stylesheet" href="{{asset('font/font-awesome/css/font-awesome.min.css')}}"/>
     <title>@yield('page-title')</title>
     <link rel="icon" type="image/png" href="{{asset('img/favicon.ico')}}"/>
@@ -24,6 +26,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/main.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('font/user-master-layout-font/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/product.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/checkout.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/receipt.css')}}">
     <link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('/js/jquery.paginate.css')}}">
 </head>
@@ -81,10 +85,6 @@
                             </li>
 
                             <li>
-                                <a href="#">Blog</a>
-                            </li>
-
-                            <li>
                                 <a href="/about">Giới thiệu</a>
                             </li>
 
@@ -97,12 +97,6 @@
 
                 <!-- Header Icon -->
                 <div class="header-icons">
-                    <a href="#" class="header-wrapicon1 dis-block">
-                        <img src="{{asset('img/icon-header-01.png')}}" class="header-icon1" alt="ICON">
-                    </a>
-
-                    <span class="linedivide1"></span>
-
                     <div class="header-wrapicon2">
                         <img src="{{asset('img/icon-header-02.png')}}" class="header-icon1 js-show-header-dropdown"
                              alt="ICON">
@@ -115,7 +109,8 @@
                                     @foreach(\App\ShoppingCart::getCart()->items as $item)
                                         <li class="header-cart-item">
                                             <div class="header-cart-item-img">
-                                                <img src="<?php echo explode("&", $item->product->images, -1)[0];?>" alt="IMG">
+                                                <img src="<?php echo explode("&", $item->product->images, -1)[0];?>"
+                                                     alt="IMG">
                                             </div>
                                             <div class="header-cart-item-txt">
                                                 <a href="#" class="header-cart-item-name">
@@ -133,7 +128,8 @@
                                 @endif
                             </ul>
                             <div class="header-cart-total">
-                                Tổng cộng: <span id="header-cart-total">{{\App\ShoppingCart::getCart()->getTotalMoneyString()}}</span>
+                                Tổng cộng: <span
+                                        id="header-cart-total">{{\App\ShoppingCart::getCart()->getTotalMoneyString()}}</span>
                             </div>
 
                             <div class="header-cart-buttons">
@@ -187,53 +183,13 @@
                 </h4>
 
                 <ul>
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Áo khoác
-                        </a>
-                    </li>
-
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Áo phông
-                        </a>
-                    </li>
-
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Áo sơ-mi
-                        </a>
-                    </li>
-
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Quần
-                        </a>
-                    </li>
-
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Vest
-                        </a>
-                    </li>
-
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Balo
-                        </a>
-                    </li>
-
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Giày
-                        </a>
-                    </li>
-
-                    <li class="p-b-9">
-                        <a href="#" class="s-text7">
-                            Phụ Kiện
-                        </a>
-                    </li>
+                    @foreach($obj_category as $item)
+                        <li class="p-b-9">
+                            <a href="{{'/product'.'?categoryId='.$item->id}}" class="s-text7">
+                                {{$item -> name}}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
 
@@ -294,7 +250,7 @@
                     </li>
 
                     <li class="p-b-9">
-                        <a href="#" class="s-text7">
+                        <a href="/faqs" class="s-text7">
                             Những câu hỏi thường gặp
                         </a>
                     </li>
@@ -460,7 +416,7 @@
 <script src="{{asset('js/master-layout-2-js/main.js')}}"></script>
 <script src={{asset("/js/jquery.paginate.js")}}></script>
 <script src="{{asset('/js/product.js')}}"></script>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script src="{{asset('js/my_script.js')}}"></script>
-
 </body>
 </html>

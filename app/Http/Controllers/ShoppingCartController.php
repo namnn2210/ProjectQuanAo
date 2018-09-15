@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use App\CartItem;
 use App\Category;
+use App\Http\Requests\StoreCustomer;
 use App\Order;
 use App\OrderDetail;
 use App\Product;
 use App\ShoppingCart;
+use App\subcribed_user;
+use App\Subscribed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
-
+use Snowfire\Beautymail\Beautymail;
 class ShoppingCartController extends Controller
 {
     public function addToCart() {
@@ -48,7 +51,7 @@ class ShoppingCartController extends Controller
     {
         $obj_category = Category::where('status', 1)->get();
         $shopping_cart = new ShoppingCart();
-        if (Session::has('cart')) {
+        if (Session::has('cart')){
             $shopping_cart = Session::get('cart');
         }
         return view('user.cart')
@@ -61,8 +64,7 @@ class ShoppingCartController extends Controller
         $shopping_cart = new ShoppingCart();
         $products = Input::get('products');
         if (is_array($products)){
-
-            foreach (array_keys($products) as $key) {
+            foreach (array_keys($products) as $key){
                 $product = Product::find($key);
                 if ($product == null || $product->status != 1) {
                     return view('error.404');
@@ -80,13 +82,31 @@ class ShoppingCartController extends Controller
         return response()->json(['shopping_cart' => $shopping_cart], 200);
     }
 
-    public function destroyCart()
-    {
-        Session::remove('cart');
+    public function checkout(){
+        $obj_category = Category::where('status', 1)->get();
+        $shopping_cart = new ShoppingCart();
+        if (Session::has('cart')){
+            $shopping_cart = Session::get('cart');
+        }
+        return view('user.checkout')
+            ->with('obj_category',$obj_category)
+            ->with('shopping_cart', $shopping_cart);
     }
 
-    public function checkoutCart()
+    public function payment(){
+        $obj_category = Category::where('status', 1)->get();
+        $shopping_cart = new ShoppingCart();
+        if (Session::has('cart')){
+            $shopping_cart = Session::get('cart');
+        }
+        return view('user.payment')
+            ->with('obj_category',$obj_category)
+            ->with('shopping_cart', $shopping_cart);
+    }
+
+    public function checkoutCart(StoreCustomer $request)
     {
+        $request -> validated();
         $obj_category = Category::where('status', 1)->get();
         if (Session::has('cart')) {
             try {
@@ -95,11 +115,25 @@ class ShoppingCartController extends Controller
                 $ship_name = Input::get('ship_name');
                 $ship_address = Input::get('ship_address');
                 $ship_phone = Input::get('ship_phone');
+                $payment_method = Input::get('payment_method');
+                $email = Input::get('email');
+                if(Input::has('status') && Input::get('status') == 1){
+                    $status = Input::get('status');
+                    $customer = new Subscribed();
+                    $customer -> email = $email;
+                    $customer -> name = $ship_name;
+                    $customer -> address = $ship_address;
+                    $customer -> phone = $ship_phone;
+                    $customer -> status = $status;
+                    $customer -> save();
+                }
                 $order = new Order();
-                $order->customer_id = 'KH'.round(microtime(true));
+                $order->customer_id = 'KH' . round(microtime(true) * 1000);
                 $order->ship_name = $ship_name;
                 $order->ship_address = $ship_address;
                 $order->ship_phone = $ship_phone;
+                $order->ship_email = $email;
+                $order->payment_method = $payment_method;
                 $order->total_price = $shopping_cart -> getTotalMoney();
                 $order->save();
                 $order_id = $order->id;
@@ -119,10 +153,21 @@ class ShoppingCartController extends Controller
                     $order_detail->save();
                     array_push($order_details, $order_detail);
                 }
-                $order->save();
+                $data = array('obj_category' => $obj_category, 'order' => $order, 'order_details' => $order_details);
+                $beautymail = app()->make(\Snowfire\Beautymail\Beautymail::class);
+                $beautymail->send('user.receipt_mail', $data, function($message)
+                {
+                    $order_id = Order::orderBy('created_at', 'desc')->first();
+                    $ship_name = Input::get('ship_name');
+                    $mail = Input::get('email');
+                    $message
+                        ->from('farfetchmensfashion@gmail.com','FarFetch Mens Fashion')
+                        ->to($mail, $ship_name)
+                        ->subject('Hóa đơn đơn hàng #' . $order_id -> id);
+                });
                 DB::commit();
                 Session::remove('cart');
-                return view('user.receipt2')
+                return view('user.receipt')
                     ->with('obj_category',$obj_category)
                     ->with('order', $order)
                     ->with('order_details', $order_details);
@@ -130,10 +175,36 @@ class ShoppingCartController extends Controller
                 DB::rollBack();
                 return 'Có lỗi xảy ra.' . $exception->getMessage();
             }
-
         }
         else {
             return redirect('/product')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
         }
+    }
+
+    public function removeItem()
+    {
+        $id = Input::get('id');
+        $shopping_cart = Session::get('cart');
+        foreach ($shopping_cart->items as $key => $value)
+        {
+            if ($key == $id)
+            {
+                unset($shopping_cart->items[$key]);
+            }
+        }
+        Session::put('cart', $shopping_cart);
+        return redirect('/view-cart');
+    }
+
+    public function receipt()
+    {
+        $obj_category = Category::where('status', 1)->get();
+        $shopping_cart = new ShoppingCart();
+        if (Session::has('cart')){
+            $shopping_cart = Session::get('cart');
+        }
+        return view('user.receipt3')
+            ->with('obj_category',$obj_category)
+            ->with('shopping_cart', $shopping_cart);
     }
 }

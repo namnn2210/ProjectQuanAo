@@ -43,7 +43,7 @@
 
                 <button type="submit" class="btn btn-primary">Đăng nhập</button>
                 <p></p>
-                {{--<a href='/register/'>Tạo tài khoản</a>--}}
+                <a href='/admin/register/'>Tạo tài khoản</a>
             </form>
         </div>
     </div>

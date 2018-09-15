@@ -1,19 +1,18 @@
 $(".fa-trash").click(function () {
     var deleteId = this.id;
-    if (confirm("Are you sure?")) {
+    if(confirm("Are you sure?")){
         $.ajax({
             method: 'DELETE',
             url: '/admin/brand/' + deleteId,
             data: {
-                '_token': $('meta[name="csrf-token"]').attr('content')
+                '_token' : $('meta[name="csrf-token"]').attr('content')
             },
             success: function (resp) {
                 swal({
                         title: 'Deleted',
-                        text: 'This category has been deleted',
+                        text: 'This product has been deleted',
                         type: 'success',
                         allowOutsideClick: true,
-                        html: true
                     },
                     function (isConfirm) {
                         if (isConfirm) {
@@ -33,7 +32,7 @@ $(".btn-quick-edit").click(function () {
     var editId = $(this).closest('.row-item').attr('id').replace('row-item-', '');
     $.ajax({
         method: 'GET',
-        url: '/admin/category/' + editId + '/quickEdit',
+        url: '/admin/brand/' + editId + '/quickEdit',
         data: {
             '_token': $('meta[name = "csrf-token"]').attr('content')
         },
@@ -42,7 +41,7 @@ $(".btn-quick-edit").click(function () {
             $('form[name = "quick_edit_form"] input[name = "quick-update-id"]').val(resp.obj.id);
             $('form[name = "quick_edit_form"] input[name = "name"]').val(resp.obj.name);
             $('form[name = "quick_edit_form"] input[name = "country"]').val(resp.obj.country);
-            var image = resp.obj.image;
+            var image = resp.obj.logo;
             $($.parseHTML('<img>')).attr('src', image).appendTo($('.preview_images'));
 
         },
@@ -79,20 +78,12 @@ $(function () {
     $(':reset').click(function () {
         $('.preview_images').empty();
     });
-    $('input').keyup(function () {
-        var $th = $(this);
-        $th.val($th.val().replace(/[^a-zA-Z0-9-" "]/g, function () {
-            $('p').text('Please only use number and text');
-            return '';
-        }));
-    });
     if ($(".alert-success")[0]) {
         swal({
                 title: 'Updated',
                 text: 'Brand information updated into dababase',
                 type: 'success',
                 allowOutsideClick: true,
-                html: true
             },
             function (isConfirm) {
                 if (isConfirm) {

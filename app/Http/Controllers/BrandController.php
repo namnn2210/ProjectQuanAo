@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\Brand;
 use JD\Cloudder\Facades\Cloudder;
@@ -18,7 +19,7 @@ class BrandController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            $obj = Brand::all()->where('status','=',1);
+            $obj = Brand::all();
             return view('admin.brand.list')
                 -> with('obj',$obj);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
@@ -32,7 +33,7 @@ class BrandController extends Controller
     public function create()
     {
         if (Auth::check()) {
-            return view('admin.brand.create');
+            return view('admin.brand.create_form');
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
 
 
@@ -48,18 +49,17 @@ class BrandController extends Controller
     {
         if (Auth::check()) {
             $obj = new Brand();
-            $obj -> name = Input::get('name');
-            $obj -> description = Input::get('description');
-            $obj -> country = Input::get('country');
-            if (Input::hasFile('images')) {
+            $obj->name = Input::get('name');
+            $obj->description = Input::get('description');
+            $obj->country = Input::get('country');
+            if (Input::hasFile('image')) {
                 $image_id = time();
-                Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-                $obj->images = Cloudder::secureShow($image_id);
+                Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
+                $obj->logo = Cloudder::secureShow($image_id);
             }
-            $obj -> save();
+            $obj->save();
             echo "<script>alert('Saved Successfull'); window.location.href = '/admin/brand'</script>";
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
-
 
     }
 
@@ -93,8 +93,18 @@ class BrandController extends Controller
             return view('admin.brand.edit')
                 -> with('obj',$obj);
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+    }
 
-
+    public function quickEdit($id)
+    {
+        if(Auth::check()){
+            $obj = Brand::find($id);
+            if($obj==null) {
+                return view('404');
+            }
+            return response()->json(['obj' => $obj], 200);
+        }
+        else return redirect('/admin/login')->with('message','Bạn phải đăng nhập để sử dụng quyền admin');
     }
 
     /**
@@ -114,13 +124,29 @@ class BrandController extends Controller
             if (Input::hasFile('images')) {
                 $image_id = time();
                 Cloudder::upload(Input::file('images')->getRealPath(), $image_id);
-                $obj->images = Cloudder::secureShow($image_id);
+                $obj->logo = Cloudder::secureShow($image_id);
             }
             $obj -> save();
             echo "<script>alert('Saved Successfull'); window.location.href = '/admin/brand'</script>";
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
+    }
 
-
+    public function quickUpdate (Request $request){
+        if (Auth::check()) {
+            $id = $request->input('quick-update-id');
+            $obj = Brand::find($id);
+            if ($obj == null) {
+                return view('404');
+            }
+            $obj->description = Input::get('description');
+            if (Input::hasFile('image')) {
+                $image_id = time();
+                Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
+                $obj->logo = Cloudder::secureShow($image_id);
+            }
+            $obj->save();
+            return redirect()->back()->with('message', 'Saved Success');
+        } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 
     /**
@@ -133,9 +159,10 @@ class BrandController extends Controller
     {
         if (Auth::check()) {
             $obj = Brand::find($id);
-            $obj->status = 0;
-            $obj->save();
-            return redirect('/admin/brand/list');
+            if ($obj == null) {
+                return view('404');
+            }
+            $obj -> delete();
         } else return redirect('/admin/login')->with('message', 'Bạn phải đăng nhập để sử dụng quyền admin');
     }
 }

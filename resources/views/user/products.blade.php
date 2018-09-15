@@ -93,6 +93,7 @@
                     <div class="row" id="example">
                         @foreach($obj as $item)
                             <div class="col-sm-12 col-md-6 col-lg-4 p-b-50 row-item" id="row-item-{{$item->id}}">
+                                <input type="hidden" name="category" value="{{$item -> category_id}}">
                                 <!-- Block2 -->
                                 <div class="block2">
                                     <div class="block2-img wrap-pic-w of-hidden pos-relative">
@@ -114,7 +115,7 @@
                                             <div class="block2-btn-addcart w-size1 trans-0-4"
                                                  id="add-cart-{{$item->id}}">
                                                 <!-- Button -->
-                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1-small trans-0-4">
+                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
                                                     Thêm vào giỏ hàng
                                                 </button>
                                             </div>
@@ -137,14 +138,14 @@
                             </div>
                         @endforeach
                     </div>
-                    <a class="load-more" href="#" id="loadMore">Xem thêm</a>
-
+                    <div style="text-align: center">
+                        <a class="load-more" href="#" id="loadMore">Xem thêm</a>
+                    </div>
                     <p class="totop">
                         <a href="#top">Trở lại đầu trang</a>
                     </p>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 @endsection

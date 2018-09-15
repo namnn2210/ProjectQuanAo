@@ -37,4 +37,18 @@ class Order extends Model
                 break;
         }
     }
+
+    public function paymentMethod(){
+        if($this -> payment_method == 'Cod'){
+            return '0 VNĐ';
+        }
+        else if($this -> payment_method == 'Paypal'){
+            return 'Đã thanh toán đủ';
+        }
+    }
+
+    public function getPriceStringAttribute()
+    {
+        return sprintf('%s VNĐ', number_format($this->total_price/2, 0));
+    }
 }

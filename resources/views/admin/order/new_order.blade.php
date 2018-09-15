@@ -1,4 +1,4 @@
-@extends('layouts.master',['currentPage' => 'dashboard'])
+@extends('layouts.new-master',['currentPage' => 'dashboard'])
 @section('page-title', 'Trang chủ')
 @section('content')
     <div class="row">
@@ -11,7 +11,7 @@
             <div class="alert alert-success hidden">
             </div>
         @endif
-        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <table width="100%" class="table table-hover" id="dataTables-example">
             <thead>
             <tr>
                 <th style="text-align: center">ID Khách hàng</th>
@@ -26,7 +26,6 @@
             @foreach($orders as $item)
                 <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
                     <td style="text-align: center">{{$item->customer_id}}</td>
-                    <
                     <th style="text-align: center">namnn13</th>
                     <td style="text-align: center">{!! $item->shipInformation !!}</td>
                     <td>{{$item -> created_at}}</td>
@@ -37,7 +36,11 @@
                             @endforeach
                         </ul>
                     </td>
-                    <td>{{$item -> statusLabel}}</td>
+                    <td>@if($item->status==0)
+                            <div class="order-pending-banner text-center">
+                                Chờ xử lý
+                            </div>
+                        @endif</td>
                 </tr>
             @endforeach
             </tbody>

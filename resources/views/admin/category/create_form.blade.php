@@ -1,10 +1,10 @@
-@extends('layouts.master', ['currentPage' => 'create'])
-@section('page-title', 'CREATE NEW CATEGORY')
+@extends('layouts.new-master', ['currentPage' => 'create'])
+@section('page-title', 'THÊM DANH MỤC MỚI')
 @section('active-category','active')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">CREATE NEW CATEGORY</h1>
+            <h1 class="page-header">THÊM DANH MỤC MỚI</h1>
         </div>
     </div>
     <div class="panel-body">
@@ -26,22 +26,22 @@
                 <form action="/admin/category" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <label>Name</label>
+                        <label>Tên danh mục</label>
                         <input type="text" class="form-control" name="name">
                         <p class="alert-danger" style="margin-top: 1%"></p>
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
+                        <label>Mô tả</label>
                         <textarea class="form-control" name="description" rows="5"></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Images</label>
+                        <label>Hình ảnh</label>
                         <input class="form-control" type="file" name="image" id="add_images">
                     </div>
                     <div class="preview_images hidden"></div>
                     <div class="form-group" style="text-align: center;">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                        <button type="reset" class="btn btn-primary btn-block">Reset</button>
+                        <button type="submit" class="btn btn-primary btn-block">Xác nhận</button>
+                        <button type="reset" class="btn btn-primary btn-block">Đặt lại</button>
                     </div>
                 </form>
             </div>
@@ -69,13 +69,6 @@
                 $(".preview_images").addClass('hidden');
                 $(".preview_image").remove();
             });
-        });
-        $('input').keyup(function(){
-            var $th = $(this);
-            $th.val( $th.val().replace(/[^a-zA-Z0-9-" "]/g, function(){
-                $('p').text('Please only use number and text');
-                return '';
-            }));
         });
         if($(".alert-success")[0]){
             swal({

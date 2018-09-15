@@ -1,4 +1,4 @@
-@extends('layouts.master', ['currentPage' => 'create'])
+@extends('layouts.new-master', ['currentPage' => 'create'])
 @section('page-title', 'Thêm sản phẩm mới')
 @section('active-product','active')
 @section('content')
@@ -60,8 +60,8 @@
                     </div>
                     <div class="preview_images hidden"></div>
                     <div class="form-group" style="text-align: center;">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                        <button type="reset" class="btn btn-primary btn-block">Reset</button>
+                        <button type="submit" class="btn btn-primary btn-block">Xác nhận</button>
+                        <button type="reset" class="btn btn-primary btn-block">Đặt lại</button>
                     </div>
                 </form>
             </div>
@@ -89,13 +89,6 @@
                 $(".preview_images").addClass('hidden');
                 $(".preview_image").remove();
             });
-        });
-        $('input').keyup(function(){
-            var $th = $(this);
-            $th.val( $th.val().replace(/[^a-zA-Z0-9-" "]/g, function(){
-                $('p').text('Please only use number and text');
-                return '';
-            }));
         });
         if($(".alert-success")[0]){
             swal({

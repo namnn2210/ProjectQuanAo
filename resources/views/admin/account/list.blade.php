@@ -1,4 +1,4 @@
-@extends('layouts.master', ['currentPage' => 'list'])
+@extends('layouts.new-master', ['currentPage' => 'list'])
 @section('page-title', 'Danh sách tài khoản')
 @section('active-user','active')
 @section('content')
@@ -12,34 +12,32 @@
             <div class="alert alert-success hidden">
             </div>
         @endif
-        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <table width="100%" class="table table-hover" id="dataTables-example" style="background-color: white">
             <thead>
             <tr>
                 <th style="text-align: center">Tên tài khoản</th>
-                <th style="text-align: center">Mật khẩu</th>
                 <th style="text-align: center">Họ và tên</th>
                 <th style="text-align: center">Giới tính</th>
                 <th style="text-align: center">Email</th>
                 <th style="text-align: center">Địa chỉ</th>
                 <th style="text-align: center">Ngày sinh</th>
                 <th style="text-align: center">Phone</th>
-                <th style="text-align: center">Số điện thoại</th>
+                <th style="text-align: center">Thao tác</th>
             </tr>
             </thead>
             <tbody>
             @foreach($obj as $item)
                 <tr class="odd gradeX row-item" id="row-item-{{$item->id}}">
                     <td style="text-align: center">{{$item->username}}</td>
-                    <td style="text-align: center">{{$item -> password}}</td>
                     <td style="text-align: center">{{$item -> full_name}}</td>
                     <td style="text-align: center">{{$item -> gender}}</td>
                     <td style="text-align: center">{{$item -> email}}</td>
                     <td style="text-align: center">{{$item -> address}}</td>
                     <td style="text-align: center">{{$item -> DOB}}</td>
                     <td style="text-align: center">{{$item -> phone}}</td>
-                    <td style="text-align: center">
-                        <a href="#" class="fa fa-edit btn-quick-edit mr-2">Chỉnh sửa</a>
-                        <a href="#" id="{{$item ->id}}" class="fa fa-trash mr-2"> Xóa</a>
+                    <td class="black-icon" style="text-align: center">
+                        <a href="#" class="fa fa-pencil btn-quick-edit mr-2"></a>
+                        <a href="#" id="{{$item -> id}}" class="fa fa-trash mr-2"></a>
                     </td>
                 </tr>
             @endforeach
@@ -53,7 +51,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h3 class="modal-title" id="exampleModalLabel">Sửa thông tin tài khoản</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
