@@ -132,6 +132,7 @@
                             },
                             success: function (resp) {
                                 swal('Gửi mail thành công','Khách hàng sẽ nhận được mail ngay lập tức','success');
+                                window.location.reload();
                             },
                             error: function () {
                                 swal('Gửi mail không thành công','Đã có lỗi xảy ra','error');
