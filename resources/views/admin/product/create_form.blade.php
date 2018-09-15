@@ -1,6 +1,7 @@
 @extends('layouts.new-master', ['currentPage' => 'create'])
 @section('page-title', 'Thêm sản phẩm mới')
-@section('active-product','active')
+@section('active-create-product','active')
+@section('show-product','show')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
