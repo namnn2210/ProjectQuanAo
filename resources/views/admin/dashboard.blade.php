@@ -50,7 +50,7 @@
                         </div>
                         <div class="col-7">
                             <div class="numbers">
-                                <p class="card-category">Tổng doanh thu trong tháng</p>
+                                <p class="card-category">Tổng doanh thu</p>
                                 <h4 class="card-title" id="revenue"></h4>
                             </div>
                         </div>

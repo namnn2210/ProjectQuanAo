@@ -36,11 +36,28 @@
                             @endforeach
                         </ul>
                     </td>
-                    <td>@if($item->status==0)
+                    <td>
+                        @if($item->status==0)
                             <div class="order-pending-banner text-center">
                                 Chờ xử lý
                             </div>
-                        @endif</td>
+                        @endif
+                        @if($item->status==-1)
+                            <div class="order-cancel-banner text-center">
+                                Đã hủy
+                            </div>
+                        @endif
+                        @if($item->status==1)
+                            <div class="order-confirm-banner text-center">
+                                Đã xác nhận
+                            </div>
+                        @endif
+                        @if($item->status==2)
+                            <div class="order-complete-banner text-center">
+                                Hoàn thành
+                            </div>
+                    @endif
+                    </td>
                 </tr>
             @endforeach
             </tbody>

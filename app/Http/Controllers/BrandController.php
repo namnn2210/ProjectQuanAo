@@ -139,6 +139,7 @@ class BrandController extends Controller
                 return view('404');
             }
             $obj->description = Input::get('description');
+            $obj->name = Input::get('name');
             if (Input::hasFile('image')) {
                 $image_id = time();
                 Cloudder::upload(Input::file('image')->getRealPath(), $image_id);
