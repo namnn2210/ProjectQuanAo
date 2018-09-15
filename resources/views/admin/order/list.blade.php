@@ -1,6 +1,7 @@
 @extends('layouts.new-master', ['currentPage' => 'list'])
 @section('page-title', 'DANH SÁCH ĐƠN HÀNG')
-@section('active-order','active')
+@section('active-list-order','active')
+@section('show-order','show')
 @section('content')
     <div class="row" style="margin-bottom: 30px;">
         <div class="col-md-3">

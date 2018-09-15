@@ -1,6 +1,6 @@
 @extends('layouts.new-master', ['currentPage' => 'send-email'])
 @section('page-title', 'Gửi email quảng cáo')
-@section('manage-subcriber','show')
+@section('show-subcriber','show')
 @section('active-send-email','active')
 @section('content')
     <form id="wizardForm" method="/admin/subcriber" action="post" novalidate="novalidate">

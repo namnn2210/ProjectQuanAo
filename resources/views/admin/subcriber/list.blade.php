@@ -1,6 +1,7 @@
 @extends('layouts.new-master', ['currentPage' => 'list'])
 @section('page-title', 'Danh sách subcriber')
-@section('active-subcribers','active')
+@section('active-list-subcribers','active')
+@section('show-subcriber','show')
 @section('content')
     <div class="row">
         <div class="col-lg-12">

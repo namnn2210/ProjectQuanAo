@@ -1,6 +1,7 @@
 @extends('layouts.new-master', ['currentPage' => 'list'])
 @section('page-title', 'Danh sách tài khoản')
-@section('active-user','active')
+@section('active-list-user','active')
+@section('show-user','show')
 @section('content')
     <div class="row">
         <div class="col-lg-12">
