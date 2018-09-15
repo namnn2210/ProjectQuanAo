@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-6 p-b-30">
                 <div class="p-r-20 p-r-0-lg">
-                    <div class="contact-map size21" id="google_map" data-map-x="40.614439" data-map-y="-73.926781" data-pin="images/icons/icon-position-map.png" data-scrollwhell="0" data-draggable="1"></div>
+                    <div class="contact-map size21" id="google_map" data-map-x="40.614439" data-map-y="-73.926781" data-pin="images/icons/icon-position-map.png" data-scrollwhell="0" data-draggable="1"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7448.222793049759!2d105.7805896!3d21.0282283!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b329f68977%3A0x6ddf5ff1e829fc56!2zxJDhuqFpIEjhu41jIEdyZWVud2ljaCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1536975317837" width="550" height="503" frameborder="0" style="border:0" allowfullscreen></iframe></div>
                 </div>
             </div>
 
